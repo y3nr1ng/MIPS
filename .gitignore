@@ -1,6 +1,7 @@
 # Compiled LaTeX files.
 *.pdf
 .texpadtmp/
-
+*.aux
+*.log
 # Verilog backup files.
 *.bak
