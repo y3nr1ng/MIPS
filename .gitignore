@@ -1,0 +1,6 @@
+# Compiled LaTeX files.
+*.pdf
+.texpadtmp/
+
+# Verilog backup files.
+*.bak
