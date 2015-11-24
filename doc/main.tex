@@ -1,22 +1,48 @@
 \documentclass[11pt, a4paper, twoside]{IEEEtran}
-\title{Computer Architecture 2015 Fall\\ Project 1 Report}
-\author{B03902003, Chia-sheng Chen\\
-		B03902036, Yen-ting Liu\\
-		B03902104, Yi-ying Chao}
+
+\usepackage{multicol}
+\setlength{\columnsep}{0.5cm}
+
+\title
+{
+	Computer Architecture 2015 Fall\\
+	Project 1 Report
+}
+\author
+{
+	\begin{multicols}{3}
+		B03902003\\Chia-sheng Chen\\
+		B03902036\\Yen-ting Liu\\
+		B03902104\\Yi-ying Chao
+	\end{multicols}
+}
 \date{\today}
+
 \begin{document}
+
 \maketitle
+
 \section{Overall structure}
-	\subsection{Requirements}
-	\subsection{Coding guideline}
-	\subsection{Instruction fetch}
-	\subsection{Instruction decode}
-		\subsubsection{Instruction set}
-		\subsubsection{Instruction format}
-	\subsection{Execution}
-	\subsection{Memory}
-	\subsection{Write back}
-	\subsection{Pipeline}
+
+\subsection{Requirements}
+The entire system is based on a simplified MIPS architecture. Register file contains 32 registers, with 1KBytes of instruction memory and 32Bytes of data memory.\\
+
+Two types of hazard handling shall be implemented: data hazard and control hazard.
+\begin{itemize}
+\item \textbf{Data hazard} uses {\sc forwarding unit} to reduce or avoid the stall cycles, but forwarding to {\sc ID} stage isn't necessary. 
+\item \textbf{Control hazard} should contain pipeline flush, and let the instructions follow by beq or j instruction to stall for 1 cycle if necessary.
+\end{itemize}
+
+\subsection{Coding guideline}
+\subsection{Instruction fetch}
+\subsection{Instruction decode}
+\subsubsection{Instruction set}
+\subsubsection{Instruction format}
+\subsection{Execution}
+\subsection{Memory}
+\subsection{Write back}
+\subsection{Pipeline}
+	
 \section{Modules}
 	\subsection{Constants}
 	\subsection{Multiplexers}
@@ -38,8 +64,10 @@
 		\subsubsection{ALU control}
 		\subsubsection{Hazard detection unit}
 		\subsubsection{Forwarding control unit}
+		
 \section{Evaluation}
 	\subsection{Timing sequence varification}
 	\subsection{Test bench}
 	\subsection{Fibonacci}
+	
 \end{document}
