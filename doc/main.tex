@@ -33,11 +33,40 @@ Two types of hazard handling shall be implemented: data hazard and control hazar
 \item \textbf{Control hazard} should contain pipeline flush, and let the instructions follow by beq or j instruction to stall for 1 cycle if necessary.
 \end{itemize}
 
+% todo Not finish yet.
+
 \subsection{Coding guideline}
+
 \subsection{Instruction fetch}
+
 \subsection{Instruction decode}
 \subsubsection{Instruction set}
+There are 10 instructions we have to implement, they are grouped into their respective types below. 
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|cc|}
+	\hline
+    Instruction & Type & OpCode \\
+    \hline
+    and & & \\
+    or & & \\
+    add & & \\
+    sub & & \\
+    mul & & \\
+    lw & & \\
+    sw & & \\
+    beq & & \\
+    j & & \\
+    addi & & \\
+    \hline
+	\end{tabular}
+\end{table}
+
+Note: Since the TAs require us to test the result using the program provided, which also limits the way how OpCodes are assigned.\\
+
 \subsubsection{Instruction format}
+
 \subsection{Execution}
 \subsection{Memory}
 \subsection{Write back}
