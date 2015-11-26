@@ -3,5 +3,7 @@
 .texpadtmp/
 *.aux
 *.log
+_minted*/
+
 # Verilog backup files.
 *.bak
