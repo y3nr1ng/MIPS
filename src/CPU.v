@@ -1,6 +1,6 @@
 module CPU
 (
-    clk_i, 
+    clk_i,
     rst_i,
     start_i
 );
@@ -35,7 +35,7 @@ PC PC(
 );
 
 Instruction_Memory Instruction_Memory(
-    .addr_i     (inst_addr), 
+    .addr_i     (inst_addr),
     .instr_o    (inst)
 );
 
@@ -43,21 +43,21 @@ Registers Registers(
     .clk_i      (clk_i),
     .RSaddr_i   (inst[25:21]),
     .RTaddr_i   (inst[20:16]),
-    .RDaddr_i   (MUX_RegDst.data_o), 
+    .RDaddr_i   (MUX_RegDst.data_o),
     .RDdata_i   (ALU.data_o),
-    .RegWrite_i (Control.RegWrite_o), 
-    .RSdata_o   (ALU.data1_i), 
-    .RTdata_o   (MUX_ALUSrc.data1_i) 
+    .RegWrite_i (Control.RegWrite_o),
+    .RSdata_o   (ALU.data1_i),
+    .RTdata_o   (MUX_ALUSrc.data1_i)
 );
 
-MUX5 MUX_RegDst(
+Multiplexer #(.width(5)) MUX_RegDst(
     .data1_i    (inst[20:16]),
     .data2_i    (inst[15:11]),
     .select_i   (Control.RegDst_o),
     .data_o     (Registers.RDaddr_i)
 );
 
-MUX32 MUX_ALUSrc(
+Multiplexer #(.width(32)) MUX_ALUSrc(
     .data1_i    (Registers.RTdata_o),
     .data2_i    (Signed_Extend.data_o),
     .select_i   (Control.ALUSrc_o),
