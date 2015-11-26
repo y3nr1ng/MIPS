@@ -1,4 +1,7 @@
-# CA final
+# Computer Architecture 2015 Fall - Project
+Please reference the files under `doc` for more details.
+
+
 ## 要不要從頭開始刻？
 本來就要從頭
 ## 分工
