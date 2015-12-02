@@ -1,16 +1,20 @@
 module CPU
 (
-    clk_i,
-    rst_i,
-    start_i
+    input	clk_i,
+    input	rst_i,
+    input	start_i
 );
 
-// Ports
-input               clk_i;
-input               rst_i;
-input               start_i;
+	wire	[31:0]	inst_addr, inst;
+	
+	OpLUT LUT(
+			
+	);
 
-wire	[31:0]	inst_addr, inst;
+	initial begin
+		// Load instructions lookup table into the fucking LUT ROM
+    		$readmemb("..\dat\oplut.txt", LUT.rom);
+	end
 
 Control Control(
     .Op_i       (inst[31:26]),

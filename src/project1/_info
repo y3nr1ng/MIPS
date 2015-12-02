@@ -66,8 +66,8 @@ r1
 !s85 0
 31
 !s108 1449040412.741000
-!s107 //vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v|
-Z7 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v|
+Z7 !s107 //vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v|
+Z8 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v|
 !i113 1
 R4
 n@instruction_@memory
@@ -87,8 +87,8 @@ r1
 !s85 0
 31
 !s108 1449040621.601000
-!s107 //vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v|
 R7
+R8
 !i113 1
 R4
 n@instruction@memory
@@ -134,6 +134,27 @@ r1
 !i113 1
 R4
 n@p@c
+vSignExtend
+!s110 1449042533
+!i10b 1
+!s100 _UYz7J@15;0lUbBen^bgi1
+IN8NCCM2TKff4OT3B[bNzh2
+R2
+R0
+w1449042478
+8//vmware-host/Shared Folders/ca_pj1/src/SignExtend.v
+F//vmware-host/Shared Folders/ca_pj1/src/SignExtend.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449042533.537000
+!s107 //vmware-host/Shared Folders/ca_pj1/src/SignExtend.v|
+!s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/SignExtend.v|
+!i113 1
+R4
+n@sign@extend
 vTestBench
 !s110 1449040411
 !i10b 1
