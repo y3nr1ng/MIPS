@@ -13,11 +13,11 @@ module CPU
 
 	ProgramCounter PC
 	(
-    		.clk_i      (),
-    		.rst_i      (),
-    		.start_i    (),
-    		.pc_i       (),
-    		.pc_o       ()
+    	.clk_i      (),
+   		.rst_i      (),
+   		.start_i    (),
+   		.pc_i       (),
+   		.pc_o       ()
 	);
 
 	Multiplexer PC_Mux
@@ -30,6 +30,12 @@ module CPU
 
 	Memory InstrMem
 	(
+		.clk_i	(),
+		.addr_i	(),
+		.cs		(),
+		.we		(),
+		.data_i	(),
+		.data_o	()
 	);
 
 
@@ -197,6 +203,12 @@ module CPU
 	
 	Memory DataMem
 	(
+		.clk_i	(),
+		.addr_i	(),
+		.cs		(),
+		.we		(),
+		.data_i	(),
+		.data_o	()
 	);
 	
 
