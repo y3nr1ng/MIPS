@@ -1,0 +1,136 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d//vmware-host/Shared Folders/ca_pj1/src
+vAdder
+Z1 !s110 1449040412
+!i10b 1
+!s100 CfI;1:ZA1PPZ;PSS;WXWj1
+INRYi=kbA?Kfa@?fW;LOdC0
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+R0
+w1449039913
+8Z:/ca_pj1/src/Adder.v
+FZ:/ca_pj1/src/Adder.v
+L0 1
+Z3 OV;L;10.3d;59
+r1
+!s85 0
+31
+!s108 1449040412.574000
+!s107 Z:/ca_pj1/src/Adder.v|
+!s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/Adder.v|
+!i113 1
+Z4 o-work project1
+n@adder
+vCPU
+R1
+!i10b 1
+!s100 2^n2B;R98B[_oVk_D;Pb@0
+I_k6menz43eT5B>Tmj<^3h0
+R2
+R0
+w1448545441
+8Z:/ca_pj1/src/CPU.v
+FZ:/ca_pj1/src/CPU.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449040412.058000
+!s107 Z:/ca_pj1/src/CPU.v|
+!s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/CPU.v|
+!i113 1
+R4
+n@c@p@u
+vInstruction_Memory
+R1
+!i10b 1
+!s100 2UWNbl_XA[R`nQCLmF_541
+I8E2R1JeHCC<Yfg]n9>o]A3
+R2
+R0
+w1446259036
+8//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v
+F//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449040412.741000
+!s107 //vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v|
+!s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v|
+!i113 1
+R4
+n@instruction_@memory
+vMultiplexer
+R1
+!i10b 1
+!s100 LO=N@SlFG>8id_6MSRihn1
+I;on`fK=]YabCJhhHg29B:0
+R2
+R0
+w1448545376
+8Z:/ca_pj1/src/Multiplexer.v
+FZ:/ca_pj1/src/Multiplexer.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449040412.226000
+!s107 Z:/ca_pj1/src/Multiplexer.v|
+!s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/Multiplexer.v|
+!i113 1
+R4
+n@multiplexer
+vPC
+R1
+!i10b 1
+!s100 X`<Rd`8_mgCgl=Y93?IgI0
+I]P^4CWCmD`ook0RcRGhI60
+R2
+R0
+w1446259118
+8Z:/ca_pj1/src/PC.v
+FZ:/ca_pj1/src/PC.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449040412.395000
+!s107 Z:/ca_pj1/src/PC.v|
+!s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/PC.v|
+!i113 1
+R4
+n@p@c
+vTestBench
+!s110 1449040411
+!i10b 1
+!s100 kAFbLHU1`^NV5dDPIFWNU3
+IihB`Z<jcG7b;DcRh89XEX2
+R2
+R0
+w1448544984
+8Z:/ca_pj1/src/testbench.v
+FZ:/ca_pj1/src/testbench.v
+L0 3
+R3
+r1
+!s85 0
+31
+!s108 1449040411.890000
+!s107 Z:/ca_pj1/src/testbench.v|
+!s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/testbench.v|
+!i113 1
+R4
+n@test@bench
