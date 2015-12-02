@@ -1,90 +1,232 @@
 module CPU
 (
-    input	clk_i,
-    input	rst_i,
-    input	start_i
+	input		clk_i,
+	input		rst_i,
+	input		start_i
 );
 
-	wire	[31:0]	inst_addr, inst;
+	wire	[31:0]	instr_addr, instr;
 	
-	OpLUT LUT(
-			
+	//
+	// IF
+	//
+
+	ProgramCounter PC
+	(
+    		.clk_i      (),
+    		.rst_i      (),
+    		.start_i    (),
+    		.pc_i       (),
+    		.pc_o       ()
 	);
 
-	initial begin
-		// Load instructions lookup table into the fucking LUT ROM
-    		$readmemb("..\dat\oplut.txt", LUT.rom);
-	end
+	Multiplexer PC_Mux
+	(
+	);
 
-Control Control(
-    .Op_i       (inst[31:26]),
-    .RegDst_o   (MUX_RegDst.select_i),
-    .ALUOp_o    (ALU_Control.ALUOp_i),
-    .ALUSrc_o   (MUX_ALUSrc.select_i),
-    .RegWrite_o (Registers.RegWrite_i)
-);
+	Adder PC_Inc
+	(
+	);
 
-Adder Add_PC(
-    .data1_in   (inst_addr),
-    .data2_in   (32'd4),
-    .data_o     (PC.pc_i)
-);
+	Memory InstrMem
+	(
+	);
 
-PC PC(
-    .clk_i      (clk_i),
-    .rst_i      (rst_i),
-    .start_i    (start_i),
-    .pc_i       (Add_PC.data_o),
-    .pc_o       (inst_addr)
-);
 
-Instruction_Memory Instruction_Memory(
-    .addr_i     (inst_addr),
-    .instr_o    (inst)
-);
+	//
+	// IF/ID
+	//
 
-Registers Registers(
-    .clk_i      (clk_i),
-    .RSaddr_i   (inst[25:21]),
-    .RTaddr_i   (inst[20:16]),
-    .RDaddr_i   (MUX_RegDst.data_o),
-    .RDdata_i   (ALU.data_o),
-    .RegWrite_i (Control.RegWrite_o),
-    .RSdata_o   (ALU.data1_i),
-    .RTdata_o   (MUX_ALUSrc.data1_i)
-);
+	Latch IFID_PC_Inc
+	(
+	);
 
-Multiplexer #(.width(5)) MUX_RegDst(
-    .data1_i    (inst[20:16]),
-    .data2_i    (inst[15:11]),
-    .select_i   (Control.RegDst_o),
-    .data_o     (Registers.RDaddr_i)
-);
+	Latch IFID_Instr
+	(
+	);
 
-Multiplexer #(.width(32)) MUX_ALUSrc(
-    .data1_i    (Registers.RTdata_o),
-    .data2_i    (Signed_Extend.data_o),
-    .select_i   (Control.ALUSrc_o),
-    .data_o     (ALU.data2_i)
-);
+	
+	//
+	// ID
+	//
 
-Signed_Extend Signed_Extend(
-    .data_i     (inst[15:0]),
-    .data_o     (MUX_ALUSrc.data2_i)
-);
+	Registers RegFiles
+	(
+	);
 
-ALU ALU(
-    .data1_i    (Registers.RSdata_o),
-    .data2_i    (MUX_ALUSrc.data_o),
-    .ALUCtrl_i  (ALU_Control.ALUCtrl_o),
-    .data_o     (Registers.RDdata_i),
-    .Zero_o     ()
-);
+	SignExtend SignExt
+	(
+	);
+	
+	// TODO: We should try to merge shifter and adder together into: NextAddr
+	Shifter PC_BranchShl
+	(
+	);
 
-ALU_Control ALU_Control(
-    .funct_i    (inst[5:0]),
-    .ALUOp_i    (Control.ALUOp_o),
-    .ALUCtrl_o  (ALU.ALUCtrl_i)
-);
+	Adder PC_BranchAdd
+	(
+	);
+
+	Comparer Rs_eq_Rt
+	(
+	);
+
+	HazardDetectionUnit HDU
+	(
+	);
+
+	GeneralControl Ctrl
+	(
+	);
+	
+	Or Ctrl_Flush
+	(
+	);
+
+	Multiplexer Ctrl_Mux
+	(
+	);
+
+
+	//
+	// ID/EX
+	//
+
+	Latch IDEX_WB
+	(
+	);
+
+	Latch IDEX_MemWE
+	(
+	);
+
+	Latch IDEX_ALUOp
+	(
+	);
+
+	Latch IDEX_PC_Inc
+	(
+	);
+
+	Latch IDEX_Data1
+	(
+	);
+	
+	Latch IDEX_Data2
+	(
+	);
+
+	Latch IDEX_SignExt
+	(
+	);
+
+	Latch IDEX_RsFwd
+	(
+	);
+
+	Latch IDEX_RtFwd
+	(
+	);
+
+	Latch IDEX_RdFwd
+	(
+	);
+
+
+	//
+	// EX
+	//
+	
+	ALU ALU
+	(
+	);
+	
+	Multiplexer Data1_Mux
+	(
+	);
+
+	Multiplexer Data2_Mux
+	(
+	);
+
+	Multiplexer Fwd_Mux
+	(
+	);
+		
+	Multiplexer WB_Mux
+	(
+	);
+
+	Multiplexer M_Mux
+	(
+	);
+
+	ForwardingUnit FwdUnit
+	(
+	);
+
+
+	//
+	// EX/MEM
+	//
+
+	Latch EXMEM_WB
+	(
+	);
+	
+	Latch EXMEM_M
+	(
+	);
+
+	Latch EXMEM_DataOut
+	(
+	);
+
+	Latch EXMEM_Data2
+	(
+	);
+
+	Latch EXMEM_RegFwd
+	(
+	);
+
+	
+	//
+	// MEM
+	//
+	
+	Memory DataMem
+	(
+	);
+	
+
+	//
+	// MEM/WB
+	//
+
+	Latch MEMWB_WB
+	(
+	);
+
+	Latch MEMWB_MemOut
+	(
+	);
+
+	Latch MEMWB_DataOut
+	(
+	);
+
+	Latch MEMWB_RegFwd
+	(
+	);
+
+	
+	//
+	// WB
+	//
+
+	Multiplexer WB_Mux
+	(
+	);
 
 endmodule
