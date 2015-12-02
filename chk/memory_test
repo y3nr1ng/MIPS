@@ -10,7 +10,7 @@ add wave -noupdate -label WE /Memory_TestBench/Mem/we
 add wave -noupdate -divider Output
 add wave -noupdate -label {Data Out} -radix decimal /Memory_TestBench/Mem/data_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {94 ps} 0}
+WaveRestoreCursors {{Cursor 1} {110 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 219
 configure wave -valuecolwidth 100

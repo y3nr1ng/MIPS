@@ -4,12 +4,12 @@ module Memory
 	parameter size 		= 1024
 )
 (
-	input				clk_i,
+	input					clk_i,
 	input		[width-1:0]	addr_i,
-	input				cs,		
-	input				we,		
-	input 		[width-1:0] 	data_i,
-	output	reg 	[width-1:0]	data_o
+	input					cs,		
+	input					we,		
+	input 		[width-1:0] data_i,
+	output	reg [width-1:0]	data_o
 );
 
 	reg	[width-1:0]	memory	[0:size];
