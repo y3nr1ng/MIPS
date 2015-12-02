@@ -5,6 +5,31 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	SignExtend
 
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/LookupTable.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/LookupTable.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} Z:/ca_pj1/src/PC.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/PC.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module PC
+
+Top level modules:
+	PC
+
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module InstructionMemory
