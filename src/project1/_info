@@ -58,8 +58,8 @@ I8E2R1JeHCC<Yfg]n9>o]A3
 R2
 R0
 w1446259036
-8//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v
-F//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v
+Z5 8//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v
+Z6 F//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v
 L0 1
 R3
 r1
@@ -67,10 +67,31 @@ r1
 31
 !s108 1449040412.741000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v|
-!s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v|
+Z7 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v|
 !i113 1
 R4
 n@instruction_@memory
+vInstructionMemory
+!s110 1449040621
+!i10b 1
+!s100 2KcHYJ4YIZPmlnl9_]D<G2
+If`mk[mZ6U4YAZ7A:^EAHS2
+R2
+R0
+w1449040419
+R5
+R6
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449040621.601000
+!s107 //vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v|
+R7
+!i113 1
+R4
+n@instruction@memory
 vMultiplexer
 R1
 !i10b 1

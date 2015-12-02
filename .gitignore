@@ -8,5 +8,8 @@ _minted*/
 # Verilog backup files.
 *.bak
 
-# Ignore OSX files
+# Compiled Verilog files.
+src/project1/
+
+# Ignore OSX files.
 .DS_STORE
