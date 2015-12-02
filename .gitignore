@@ -7,3 +7,6 @@ _minted*/
 
 # Verilog backup files.
 *.bak
+
+# Ignore OSX files
+.DS_STORE
