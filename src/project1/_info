@@ -92,6 +92,48 @@ R9
 !i113 1
 R4
 n@instruction@memory
+vMemory
+!s110 1449071650
+!i10b 1
+!s100 fF_cVFjLA2noajKdbkAJG1
+IaKHci6i:a5imOfVKiO10k3
+R2
+R0
+w1449070437
+8//vmware-host/Shared Folders/ca_pj1/src/Memory.v
+F//vmware-host/Shared Folders/ca_pj1/src/Memory.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449071650.151000
+!s107 //vmware-host/Shared Folders/ca_pj1/src/Memory.v|
+!s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Memory.v|
+!i113 1
+R4
+n@memory
+vMemory_TestBench
+!s110 1449073052
+!i10b 1
+!s100 elCJo<WIR@^WWMQHin3J30
+II9WoQ>GE>dUzY7cV;mL533
+R2
+R0
+w1449073037
+8//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v
+F//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449073052.658000
+!s107 //vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v|
+!s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v|
+!i113 1
+R4
+n@memory_@test@bench
 vMultiplexer
 R5
 !i10b 1

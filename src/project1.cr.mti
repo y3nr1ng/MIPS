@@ -1,4 +1,11 @@
-{//vmware-host/Shared Folders/ca_pj1/src/SignExtend.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/SignExtend.v}
+{//vmware-host/Shared Folders/ca_pj1/src/Memory.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Memory
+
+Top level modules:
+	Memory
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/SignExtend.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/SignExtend.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module SignExtend
 
