@@ -41,9 +41,16 @@ Top level modules:
 } {} {}} Z:/ca_pj1/src/CPU.v {0 {vlog -work project1 -stats=none Z:/ca_pj1/src/CPU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module CPU
-** Error: Z:/ca_pj1/src/CPU.v(242): 'WB_Mux' already declared in this scope.
+** Error: Z:/ca_pj1/src/CPU.v(278): 'WB_Mux' already declared in this scope.
 
-} {4.0 5.0} {}} Z:/ca_pj1/src/PC.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/PC.v
+} {4.0 5.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Multiplexer2Way
+
+Top level modules:
+	Multiplexer2Way
+
+} {} {}} Z:/ca_pj1/src/PC.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/PC.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module PC
 
