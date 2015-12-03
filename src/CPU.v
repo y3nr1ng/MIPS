@@ -239,28 +239,28 @@ module CPU
 	ALU ALU
 	(
 		.ALUop_i	(),
-		.data_1		(IDEX_Data1.data_o),
-		.data_2		(IDEX_Data2.data_o),
+		.data_1		(Data1_Mux.data_o),
+		.data_2		(Data2_Mux.data_o),
 		.data_o		(),
 		.is_zero	()
 	);
 	
 	Multiplexer4Way Data1_Mux
 	(
-		.data_1		(),
+		.data_1		(IDEX_Data1.data_o),
 		.data_2		(),
-		.data_3		(),
-		.data_4		(),
+		.data_3		(EXMEM_DataOut.data_o),
+		.data_4		(32'bz),
 		.sel		(),
 		.data_o		()
 	);
 
 	Multiplexer4Way Data2_Mux
 	(
-		.data_1		(),
+		.data_1		(IDEX_Data2.data_o),
 		.data_2		(),
-		.data_3		(),
-		.data_4		(),
+		.data_3		(EXMEM_DataOut.data_o),
+		.data_4		(32'bz),
 		.sel		(),
 		.data_o		()
 	);
@@ -277,22 +277,6 @@ module CPU
 	);
 
 	Multiplexer2Way Fwd_Mux
-	(
-		.data_1		(),
-		.data_2		(),
-		.sel		(),
-		.data_o		()
-	);
-		
-	Multiplexer2Way WB_Ctrl_Mux
-	(
-		.data_1		(),
-		.data_2		(),
-		.sel		(),
-		.data_o		()
-	);
-
-	Multiplexer2Way M_Ctrl_Mux
 	(
 		.data_1		(),
 		.data_2		(),
@@ -318,7 +302,7 @@ module CPU
 		.data_o		()
 	);
 	
-	Latch EXMEM_M_Ctrl
+	Latch EXMEM_MEM_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
