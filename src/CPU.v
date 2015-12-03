@@ -1,3 +1,5 @@
+`include "LookupTable.v"
+
 module CPU
 (
 	input		clk,
@@ -9,8 +11,6 @@ module CPU
 
 	wire	[instr_width-1:0]	instr_addr, instr;
 
-	LookupTable LUT;
-	
 	//
 	// IF
 	//
@@ -35,7 +35,7 @@ module CPU
 	Adder PC_Inc
 	(
 		.data_1		(PC.addr_o),
-		.data_2		({ {(width-3){1'b0}}, 3'b100 }),	// PC += 4
+		.data_2		(32'b0100),	// PC += 4
 		.data_o		()
 	);
 
@@ -95,7 +95,7 @@ module CPU
 		.Rt_data	(),
 		.we			(),
 		.Rd_addr	(),
-		.Rd_data	()
+		.Rd_data	(WB_Mux.data_o)
 	);
 
 	SignExtend SignExt
@@ -108,7 +108,7 @@ module CPU
 	Shifter PC_BranchShl
 	(
 		.x			(SignExt.data_o),
-		.y			({ {(width-2){1'b0}}, 2'b10 }),
+		.y			(32'b0010),
 		.data_o		()
 	);
 
