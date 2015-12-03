@@ -1,5 +1,4 @@
-module GeneralControl
-(
+module GeneralControl (
 	input		[5:0]	op_i,
 	output				IF_flush_o,
 	output				ID_flush_o,

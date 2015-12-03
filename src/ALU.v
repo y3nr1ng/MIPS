@@ -1,5 +1,4 @@
-module ALU
-(
+module ALU (
 	input		[2:0]	ALUop_i,
 	input		[31:0]	data_1, data_2,
 	output reg	[31:0]	data_o,

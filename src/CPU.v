@@ -69,21 +69,38 @@ module CPU
 		.rst		(),
 		.en			(),
 		.data_i		(InstrMem.data_o),
-		.data_o		()
+		.data_o		(instr)
 	);
 
 	
 	//
 	// ID
 	//
+	
+	wire	[5:0]	instr_op	= instr[31:26];
+	wire	[5:0]	instr_func	= instr[5:0];
+
+	wire	[4:0]	instr_rs 	= instr[25:21];
+	wire	[4:0]	instr_rt 	= instr[20:16];
+	wire	[4:0] 	instr_rd 	= instr[15:11];
+
+	wire	[15:0]	instr_imm	= instr[15:0];
 
 	Registers RegFiles
 	(
+		.clk		(clk),
+		.Rs_addr	(instr_rs),
+		.Rs_data	(),
+		.Rt_addr	(instr_rt),
+		.Rt_data	(),
+		.we			(),
+		.Rd_addr	(),
+		.Rd_data	()
 	);
 
 	SignExtend SignExt
 	(
-		.data_i		(),
+		.data_i		(instr_imm),
 		.data_o		()
 	);
 	
@@ -104,8 +121,8 @@ module CPU
 
 	Comparer Rs_eq_Rt
 	(
-		.data_1		(),
-		.data_2		(),
+		.data_1		(RegFiles.Rs_data),
+		.data_2		(RegFiles.Rt_data),
 		.is_equal	()
 	);
 
@@ -115,7 +132,7 @@ module CPU
 
 	GeneralControl Ctrl
 	(
-		.op_i		(),
+		.op_i		(instr_op),
 		.IF_flush_o	(),
 		.ID_flush_o	(),
 		.EX_flush_o	(),
@@ -390,7 +407,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(EXMEM_RegFwd.data_o),
 		.data_o		()
 	);
 
