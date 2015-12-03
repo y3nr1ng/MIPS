@@ -5,26 +5,20 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	SignExtend
 
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/LookupTable.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/LookupTable.v}
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/LookupTable.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/LookupTable.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-** Error: (vlog-19) Failed to access library 'work' at "work".
-
-No such file or directory. (errno = ENOENT)
-
-} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v}
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-** Error: (vlog-19) Failed to access library 'work' at "work".
-
-No such file or directory. (errno = ENOENT)
-
-} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Latch.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Latch.v}
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module latch
+-- Compiling module LookupTable
 
 Top level modules:
-	latch
+	LookupTable
 
-} {} {}} Z:/ca_pj1/src/Adder.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/Adder.v
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} Z:/ca_pj1/src/Adder.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/Adder.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Adder
 
@@ -41,15 +35,37 @@ Top level modules:
 } {} {}} Z:/ca_pj1/src/CPU.v {0 {vlog -work project1 -stats=none Z:/ca_pj1/src/CPU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module CPU
-** Error: Z:/ca_pj1/src/CPU.v(289): 'WB_Mux' already declared in this scope.
+** Error: Z:/ca_pj1/src/CPU.v(10): near ";": Syntax error.
+** Error: Z:/ca_pj1/src/CPU.v(396): 'WB_Mux' already declared in this scope.
 
-} {4.0 5.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
+} {4.0 6.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Multiplexer2Way
+
+Top level modules:
+	Multiplexer2Way
+
+} {} {}} Z:/ca_pj1/src/PC.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/PC.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module PC
+
+Top level modules:
+	PC
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 ** Error: (vlog-19) Failed to access library 'work' at "work".
 
 No such file or directory. (errno = ENOENT)
 
-} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v}
+} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Multiplexer4Way
+
+Top level modules:
+	Multiplexer4Way
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Memory_TestBench
 

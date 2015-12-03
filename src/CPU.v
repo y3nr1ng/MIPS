@@ -6,11 +6,13 @@ module CPU
 );
 
 	wire	[31:0]	instr_addr, instr;
+
+	LookupTable LUT;
 	
 	//
 	// IF
 	//
-
+	
 	ProgramCounter PC
 	(
     	.clk		(),
