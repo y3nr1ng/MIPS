@@ -18,6 +18,11 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	Latch_TestBench
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Latch_TestBench
+
+Top level modules:
+	Latch_TestBench
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -25,7 +30,14 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 No such file or directory. (errno = ENOENT)
 
-} {3.0 4.0} {}} Z:/ca_pj1/src/Adder.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/Adder.v
+} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Latch.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Latch.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Latch
+
+Top level modules:
+	Latch
+
+} {} {}} Z:/ca_pj1/src/Adder.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/Adder.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Adder
 
@@ -79,19 +91,15 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Memory_TestBench
 
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Memory
 
 Top level modules:
 	Memory
-
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v}
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Comparer
-
-Top level modules:
-	Comparer
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
