@@ -30,13 +30,13 @@ r1
 Z4 o-work project1
 n@adder
 vALU
-!s110 1449159083
+!s110 1449159269
 !i10b 1
-!s100 ghR0D<<EBf^37=@5bBazC2
-I7iR2NnEXZ6Si5e:1@65N93
+!s100 Zm586j_TE8dg7[gB5zEjX0
+I[l;7I_h4Y[[ZOXnJJ>e[W0
 R2
 R0
-w1449159081
+w1449159266
 8//vmware-host/Shared Folders/ca_pj1/src/ALU.v
 F//vmware-host/Shared Folders/ca_pj1/src/ALU.v
 L0 1
@@ -44,7 +44,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449159083.717000
+!s108 1449159269.894000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/ALU.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/ALU.v|
 !i113 1
@@ -155,27 +155,6 @@ R13
 !i113 1
 R4
 n@instruction@memory
-vLatch
-R6
-!i10b 1
-!s100 NUY47UXhz7PH`[J1z`zbS0
-IP5VYdMXSd4fOL0:efYFc;0
-R2
-R0
-w1449121840
-Z14 8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
-Z15 F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
-L0 1
-R3
-r1
-!s85 0
-31
-!s108 1449139925.268000
-Z16 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
-Z17 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
-!i113 1
-R4
-n@latch
 vlatch
 R5
 !i10b 1
@@ -184,6 +163,26 @@ Izzb`QecZ[NNgLXSmURdSR2
 R2
 R0
 w1449113381
+Z14 8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+Z15 F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449114262.212000
+Z16 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+Z17 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+!i113 1
+R4
+vLatch
+R6
+!i10b 1
+!s100 NUY47UXhz7PH`[J1z`zbS0
+IP5VYdMXSd4fOL0:efYFc;0
+R2
+R0
+w1449121840
 R14
 R15
 L0 1
@@ -191,11 +190,12 @@ R3
 r1
 !s85 0
 31
-!s108 1449114262.212000
+!s108 1449139925.268000
 R16
 R17
 !i113 1
 R4
+n@latch
 vLatch_TestBench
 R6
 !i10b 1
