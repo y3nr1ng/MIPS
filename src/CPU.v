@@ -99,7 +99,7 @@ module CPU
 	SignExtend SignExt
 	(
 		.data_i		(instr_imm),
-		//.data_o		()
+		.data_o		()
 	);
 	
 	// TODO: We should try to merge shifter and adder together into: NextAddr
@@ -107,7 +107,7 @@ module CPU
 	(
 		.x			(SignExt.data_o),
 		.y			(32'b0010),
-		//.data_o		()
+		.data_o		()
 	);
 
 	Adder PC_BranchAdd
@@ -220,7 +220,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(instr_rs),
 		.data_o		()
 	);
 
@@ -229,7 +229,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(instr_rt),
 		.data_o		()
 	);
 
@@ -238,7 +238,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(instr_rd),
 		.data_o		()
 	);
 
@@ -289,8 +289,8 @@ module CPU
 
 	Multiplexer2Way Fwd_Mux
 	(
-		.data_1		(),
-		.data_2		(),
+		.data_1		(IDEX_RtFwd.data_o),
+		.data_2		(IDEX_RdFwd.data_o),
 		.sel		(),
 		.data_o		()
 	);
@@ -309,7 +309,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(IDEX_WB_Ctrl.data_o),
 		.data_o		()
 	);
 	
@@ -318,7 +318,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(IDEX_MEM_Ctrl.data_o),
 		.data_o		()
 	);
 
@@ -327,7 +327,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(ALU.data_o),
 		.data_o		()
 	);
 
@@ -336,7 +336,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(Data2_Mux.data_o),
 		.data_o		()
 	);
 
@@ -345,7 +345,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(Fwd_Mux.data_o),
 		.data_o		()
 	);
 
