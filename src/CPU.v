@@ -92,7 +92,7 @@ module CPU
 		.Rt_addr	(instr_rt),
 		//.Rt_data	(),
 		.we			(),
-		.Rd_addr	(),
+		.Rd_addr	(MEMWB_RegFwd.data_o),
 		.Rd_data	(WB_Mux.data_o)
 	);
 
@@ -139,15 +139,6 @@ module CPU
 		.WB_ctrl_o	()		
 	);
 
-	Multiplexer2Way Ctrl_Mux
-	(
-		.data_1		(),
-		.data_2		(),
-		.sel		(),
-		.data_o		()
-	);
-
-
 	//
 	// ID/EX
 	//
@@ -157,7 +148,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(Ctrl.WB_Ctrl_o),
 		.data_o		()
 	);
 
@@ -166,7 +157,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(Ctrl.MEM_Ctrl_o),
 		.data_o		()
 	);
 
@@ -175,7 +166,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(Ctrl.EX_Ctrl_o),
 		.data_o		()
 	);
 
@@ -193,7 +184,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(RegFiles.Rs_data),
 		.data_o		()
 	);
 	
@@ -202,7 +193,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(RegFiles.Rt_data),
 		.data_o		()
 	);
 
@@ -211,7 +202,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(SignExt.data_o),
 		.data_o		()
 	);
 
@@ -372,7 +363,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(EXMEM_WB_Ctrl.data_o),
 		.data_o		()
 	);
 
@@ -381,16 +372,16 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(DataMem.data_o),
 		.data_o		()
 	);
 
-	Latch MEMWB_DataOut
+	Latch MEMWB_AddrOut
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(EXMEM_DataOut.data_o),
 		.data_o		()
 	);
 
@@ -410,8 +401,8 @@ module CPU
 
 	Multiplexer2Way WB_Mux
 	(
-		.data_1		(),
-		.data_2		(),
+		.data_1		(MEMWB_MemOut.data_o),
+		.data_2		(MEMWB_AddrOut.data_o),
 		.sel		(),
 		.data_o		()
 	);
