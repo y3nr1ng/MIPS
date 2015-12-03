@@ -12,6 +12,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	LookupTable
 
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Latch_TestBench
+
+Top level modules:
+	Latch_TestBench
+
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 ** Error: (vlog-19) Failed to access library 'work' at "work".

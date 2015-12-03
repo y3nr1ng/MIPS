@@ -1,5 +1,4 @@
-`timescale 1 ns/1 ns
-`define CYCLE_TIME 50
+`define CYCLE_TIME 10
 
 module Latch_TestBench;
 
@@ -7,6 +6,8 @@ module Latch_TestBench;
 	reg					clk, rst, en;
 	wire 	[7:0]		out;
 	
+	always #(`CYCLE_TIME/2) clk = ~clk;
+
 	Latch #(.width(8)) d_ff (
 		.clk		(clk),
 		.rst		(rst),
@@ -15,7 +16,11 @@ module Latch_TestBench;
 		.data_o		(out)
 	);
 
-	initial begin
+	initial begin		
+		#(`CYCLE_TIME/4)
+
+		clk = 0;
+
 		fork   
 	    	#0	in	  = 42;
 				rst   = 0;
@@ -30,7 +35,5 @@ module Latch_TestBench;
 		    #70 rst	  = 0;
 		join
 	end
-
-	always #(`CYCLE_TIME/2) clk = ~clk;
 
 endmodule

@@ -142,8 +142,8 @@ Izzb`QecZ[NNgLXSmURdSR2
 R2
 R0
 w1449113381
-8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
-F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+Z13 8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+Z14 F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
 L0 1
 R3
 r1
@@ -151,25 +151,46 @@ r1
 31
 !s108 1449114262.212000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
-!s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+Z15 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
 !i113 1
 R4
-vLatch_TestBench
-!s110 1449114954
+vLatch
+!s110 1449121895
 !i10b 1
-!s100 ^XiXEmkBc43=A>P6Y4QU^2
-I:5PQjbglRQ<kl`e26hiNY0
+!s100 NUY47UXhz7PH`[J1z`zbS0
+IP5VYdMXSd4fOL0:efYFc;0
 R2
 R0
-w1449114953
-8//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v
-F//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v
-L0 4
+w1449121840
+R13
+R14
+L0 1
 R3
 r1
 !s85 0
 31
-!s108 1449114954.192000
+!s108 1449121895.150000
+!s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+R15
+!i113 1
+R4
+n@latch
+vLatch_TestBench
+!s110 1449121878
+!i10b 1
+!s100 >_8MYBb:2]?mn1NJ0ijoT2
+ILmD1<Eck7KmV@6:Sd`k@`1
+R2
+R0
+w1449121718
+8//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v
+F//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v
+L0 3
+R3
+r1
+!s85 0
+31
+!s108 1449121878.233000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v|
 !i113 1
@@ -197,7 +218,7 @@ r1
 R4
 n@lookup@table
 vMemory
-Z13 !s110 1449114261
+Z16 !s110 1449114261
 !i10b 1
 !s100 R4^oGPd>TARNeAo[=P6TS1
 IM8PEB6dkDfQMkn=G]mcR_1
@@ -218,7 +239,7 @@ r1
 R4
 n@memory
 vMemory_TestBench
-R13
+R16
 !i10b 1
 !s100 obN[K=8R4]TEageIOVC920
 InYS6do`nfY?3iYo:gZj`60
@@ -260,7 +281,7 @@ r1
 R4
 n@multiplexer
 vMultiplexer2Way
-R13
+R16
 !i10b 1
 !s100 mcBlXD42gDzm[@^m[zN373
 Ik:c7@=^hZOT6k84Of8mOk0
@@ -281,7 +302,7 @@ r1
 R4
 n@multiplexer2@way
 vMultiplexer4Way
-R13
+R16
 !i10b 1
 !s100 F_2SOm[CTI`2NXG:QR5Ib2
 IDAFTg3eGOaQEX15XPCI]B2
