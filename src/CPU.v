@@ -4,43 +4,47 @@ module CPU
 	input		rst,
 	input		start
 );
+	
+	parameter	instr_width = 32;
 
-	wire	[31:0]	instr_addr, instr;
+	wire	[width-1:0]	instr_addr, instr;
 
 	LookupTable LUT;
 	
 	//
 	// IF
 	//
+
+	wire	to_pc, from_pc;
 	
 	ProgramCounter PC
 	(
-    	.clk		(),
-   		.rst		(),
-   		.start      (),
-   		.pc_i       (),
-   		.pc_o       ()
+    	.clk		(clk),
+   		.rst		(rst),
+   		.start      (start),
+   		.addr_i     (PC_Mux.data_o),
+   		.addr_o     ()
 	);
 
 	Multiplexer2Way PC_Mux
 	(
-		.data_1		(),
-		.data_2		(),
+		.data_1		(PC_Inc.data_o),
+		.data_2		(PC_BranchAdd.data_o),
 		.sel		(),
 		.data_o		()
 	);	
 
 	Adder PC_Inc
 	(
-		.data_1		(),
-		.data_2		(),
+		.data_1		(PC.addr_o),
+		.data_2		({ {(width-3){1'b0}, 3'b100 }),	// PC += 4
 		.data_o		()
 	);
 
-	Memory InstrMem
+	Memory #(.size(1024)) InstrMem
 	(
 		.clk		(),
-		.addr_i		(),
+		.addr_i		(PC.addr_o),
 		.cs			(),
 		.we			(),
 		.data_i		(),
@@ -54,19 +58,19 @@ module CPU
 
 	Latch IFID_PC_Inc
 	(
-		.clk		(),
+		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(PC_Inc.data_o),
 		.data_o		()
 	);
 
 	Latch IFID_Instr
 	(
-		.clk		(),
+		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(InstrMem.data_o),
 		.data_o		()
 	);
 
@@ -88,15 +92,15 @@ module CPU
 	// TODO: We should try to merge shifter and adder together into: NextAddr
 	Shifter PC_BranchShl
 	(
-		.x			(),
-		.y			(),
+		.x			(SignExt.data_o),
+		.y			({ {(width-2){1'b0}}, 2'b10 }),
 		.data_o		()
 	);
 
 	Adder PC_BranchAdd
 	(	
-		.data_1		(),
-		.data_2		(),
+		.data_1		(PC_BranchShl.data_o),
+		.data_2		(IFID_PC_Inc.data_o),
 		.data_o		()
 	);
 
@@ -352,7 +356,7 @@ module CPU
 	// MEM
 	//
 	
-	Memory DataMem
+	Memory #(.size(32)) DataMem
 	(
 		.clk		(),
 		.addr_i		(),

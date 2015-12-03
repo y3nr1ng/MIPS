@@ -57,19 +57,19 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 ** Error: Z:/ca_pj1/src/CPU.v(10): near ";": Syntax error.
 ** Error: Z:/ca_pj1/src/CPU.v(396): 'WB_Mux' already declared in this scope.
 
-} {4.0 6.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v}
+} {4.0 6.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Shifter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Shifter.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Shifter
+
+Top level modules:
+	Shifter
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Multiplexer2Way
 
 Top level modules:
 	Multiplexer2Way
-
-} {} {}} Z:/ca_pj1/src/PC.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/PC.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module PC
-
-Top level modules:
-	PC
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
