@@ -22,24 +22,27 @@ module CPU
 
 	Multiplexer2Way PC_Mux
 	(
-		.data_1	(),
-		.data_2	(),
-		.sel_i	(),
-		.data_o	()
-	);
+		.data_1		(),
+		.data_2		(),
+		.sel_i		(),
+		.data_o		()
+	);	
 
 	Adder PC_Inc
 	(
+		.data_1		(),
+		.data_2		(),
+		.data_o		()
 	);
 
 	Memory InstrMem
 	(
-		.clk_i	(),
-		.addr_i	(),
-		.cs		(),
-		.we		(),
-		.data_i	(),
-		.data_o	()
+		.clk_i		(),
+		.addr_i		(),
+		.cs			(),
+		.we			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 
@@ -66,6 +69,8 @@ module CPU
 
 	SignExtend SignExt
 	(
+		.data_i		(),
+		.data_o		()
 	);
 	
 	// TODO: We should try to merge shifter and adder together into: NextAddr
@@ -74,11 +79,17 @@ module CPU
 	);
 
 	Adder PC_BranchAdd
-	(
+	(	
+		.data_1		(),
+		.data_2		(),
+		.data_o		()
 	);
 
 	Comparer Rs_eq_Rt
 	(
+		.data_1		(),
+		.data_2		(),
+		.is_equal	()
 	);
 
 	HazardDetectionUnit HDU
@@ -95,10 +106,10 @@ module CPU
 
 	Multiplexer2Way Ctrl_Mux
 	(
-		.data_1	(),
-		.data_2	(),
-		.sel_i	(),
-		.data_o	()
+		.data_1		(),
+		.data_2		(),
+		.sel_i		(),
+		.data_o		()
 	);
 
 
@@ -157,46 +168,46 @@ module CPU
 	
 	Multiplexer4Way Data1_Mux
 	(
-		.data_1	(),
-		.data_2	(),
-		.data_3	(),
-		.data_4	(),
-		.sel_i	(),
-		.data_o	()
+		.data_1		(),
+		.data_2		(),
+		.data_3		(),
+		.data_4		(),
+		.sel_i		(),
+		.data_o		()
 	);
 
 	Multiplexer4Way Data2_Mux
 	(
-		.data_1	(),
-		.data_2	(),
-		.data_3	(),
-		.data_4	(),
-		.sel_i	(),
-		.data_o	()
+		.data_1		(),
+		.data_2		(),
+		.data_3		(),
+		.data_4		(),
+		.sel_i		(),
+		.data_o		()
 	);
 
 	Multiplexer2Way Fwd_Mux
 	(
-		.data_1	(),
-		.data_2	(),
-		.sel_i	(),
-		.data_o	()
+		.data_1		(),
+		.data_2		(),
+		.sel_i		(),
+		.data_o		()
 	);
 		
 	Multiplexer2Way WB_Mux
 	(
-		.data_1	(),
-		.data_2	(),
-		.sel_i	(),
-		.data_o	()
+		.data_1		(),
+		.data_2		(),
+		.sel_i		(),
+		.data_o		()
 	);
 
 	Multiplexer2Way M_Mux
 	(
-		.data_1	(),
-		.data_2	(),
-		.sel_i	(),
-		.data_o	()
+		.data_1		(),
+		.data_2		(),
+		.sel_i		(),
+		.data_o		()
 	);
 
 	ForwardingUnit FwdUnit
@@ -235,12 +246,12 @@ module CPU
 	
 	Memory DataMem
 	(
-		.clk_i	(),
-		.addr_i	(),
-		.cs		(),
-		.we		(),
-		.data_i	(),
-		.data_o	()
+		.clk_i		(),
+		.addr_i		(),
+		.cs			(),
+		.we			(),
+		.data_i		(),
+		.data_o		()
 	);
 	
 
@@ -271,10 +282,10 @@ module CPU
 
 	Multiplexer2Way WB_Mux
 	(
-		.data_1	(),
-		.data_2	(),
-		.sel_i	(),
-		.data_o	()
+		.data_1		(),
+		.data_2		(),
+		.sel_i		(),
+		.data_o		()
 	);
 
 endmodule
