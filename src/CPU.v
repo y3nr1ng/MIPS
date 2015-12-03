@@ -20,8 +20,12 @@ module CPU
    		.pc_o       ()
 	);
 
-	Multiplexer PC_Mux
+	Multiplexer2Way PC_Mux
 	(
+		.data_1	(),
+		.data_2	(),
+		.sel_i	(),
+		.data_o	()
 	);
 
 	Adder PC_Inc
@@ -89,8 +93,12 @@ module CPU
 	(
 	);
 
-	Multiplexer Ctrl_Mux
+	Multiplexer2Way Ctrl_Mux
 	(
+		.data_1	(),
+		.data_2	(),
+		.sel_i	(),
+		.data_o	()
 	);
 
 
@@ -147,24 +155,48 @@ module CPU
 	(
 	);
 	
-	Multiplexer Data1_Mux
+	Multiplexer4Way Data1_Mux
 	(
+		.data_1	(),
+		.data_2	(),
+		.data_3	(),
+		.data_4	(),
+		.sel_i	(),
+		.data_o	()
 	);
 
-	Multiplexer Data2_Mux
+	Multiplexer4Way Data2_Mux
 	(
+		.data_1	(),
+		.data_2	(),
+		.data_3	(),
+		.data_4	(),
+		.sel_i	(),
+		.data_o	()
 	);
 
-	Multiplexer Fwd_Mux
+	Multiplexer2Way Fwd_Mux
 	(
+		.data_1	(),
+		.data_2	(),
+		.sel_i	(),
+		.data_o	()
 	);
 		
-	Multiplexer WB_Mux
+	Multiplexer2Way WB_Mux
 	(
+		.data_1	(),
+		.data_2	(),
+		.sel_i	(),
+		.data_o	()
 	);
 
-	Multiplexer M_Mux
+	Multiplexer2Way M_Mux
 	(
+		.data_1	(),
+		.data_2	(),
+		.sel_i	(),
+		.data_o	()
 	);
 
 	ForwardingUnit FwdUnit
@@ -237,8 +269,12 @@ module CPU
 	// WB
 	//
 
-	Multiplexer WB_Mux
+	Multiplexer2Way WB_Mux
 	(
+		.data_1	(),
+		.data_2	(),
+		.sel_i	(),
+		.data_o	()
 	);
 
 endmodule
