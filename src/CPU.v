@@ -52,10 +52,20 @@ module CPU
 
 	Latch IFID_PC_Inc
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch IFID_Instr
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	
@@ -119,42 +129,92 @@ module CPU
 
 	Latch IDEX_WB
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch IDEX_MemWE
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch IDEX_ALUOp
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch IDEX_PC_Inc
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch IDEX_Data1
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 	
 	Latch IDEX_Data2
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch IDEX_SignExt
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch IDEX_RsFwd
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch IDEX_RtFwd
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch IDEX_RdFwd
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 
@@ -221,22 +281,47 @@ module CPU
 
 	Latch EXMEM_WB
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 	
 	Latch EXMEM_M
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch EXMEM_DataOut
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch EXMEM_Data2
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch EXMEM_RegFwd
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	
@@ -261,18 +346,38 @@ module CPU
 
 	Latch MEMWB_WB
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch MEMWB_MemOut
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch MEMWB_DataOut
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	Latch MEMWB_RegFwd
 	(
+		.clk		(),
+		.rst		(),
+		.en			(),
+		.data_i		(),
+		.data_o		()
 	);
 
 	
