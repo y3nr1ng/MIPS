@@ -88,6 +88,9 @@ module CPU
 	// TODO: We should try to merge shifter and adder together into: NextAddr
 	Shifter PC_BranchShl
 	(
+		.x			(),
+		.y			(),
+		.data_o		()
 	);
 
 	Adder PC_BranchAdd
@@ -110,6 +113,13 @@ module CPU
 
 	GeneralControl Ctrl
 	(
+		.op_i		(),
+		.IF_flush_o	(),
+		.ID_flush_o	(),
+		.EX_flush_o	(),
+		.EX_ctrl_o	(),
+		.MEM_ctrl_o	(),
+		.WB_ctrl_o	()		
 	);
 	
 	Or Ctrl_Flush
