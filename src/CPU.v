@@ -251,7 +251,7 @@ module CPU
 	(
 		.ALUop_i	(),
 		.data_1		(Data1_Mux.data_o),
-		.data_2		(Data2_Mux.data_o),
+		.data_2		(Data2imm_Mux.data_o),
 		.data_o		(),
 		.is_zero	()
 	);
@@ -279,10 +279,8 @@ module CPU
 	// Fuck this, I'm combining two diagrams now.
 	Multiplexer2Way Data2imm_Mux
 	(
-		.data_1		(),
-		.data_2		(),
-		.data_3		(),
-		.data_4		(),
+		.data_1		(Data2_Mux.data_o),
+		.data_2		(IDEX_SignExt.data_o),
 		.sel		(),
 		.data_o		()
 	);
