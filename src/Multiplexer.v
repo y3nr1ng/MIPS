@@ -1,9 +1,15 @@
 module Multiplexer #(parameter width=32) (
-	input	[width-1:0]	data_1, data_2,
-	input 				select_i,
-	output 	[width-1:0]	data_o
+	input		[width-1:0]	data_1, data_2,
+	input 					sel_i,
+	output reg	[width-1:0]	data_o
 );
-
-	assign data_o = select_i ? data_2 : data_1;
+	
+	always @ (*)
+	begin
+		case (sel_i)
+			1'b0	:	data_o = data_1;
+			1'b1	:	data_o = data_2;
+		endcase
+	end
 
 endmodule
