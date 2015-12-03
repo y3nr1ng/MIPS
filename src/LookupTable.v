@@ -1,30 +1,28 @@
-`ifndef LUT
-`define LUT
+module LookupTable;
 
-parameter ADD.op	= 000000;
-parameter ADD.func	= 100000;
+	parameter ADD_op	= 000000;
+	parameter ADD_func	= 100000;
 
-parameter SUB.op	= 000000;
-parameter SUB.func	= 100010;
+	parameter SUB_op	= 000000;
+	parameter SUB_func	= 100010;
 
-parameter MUL.op	= 000000;
-parameter MUL.func	= 011000;
+	parameter MUL_op	= 000000;
+	parameter MUL_func	= 011000;
 
-parameter ADDI.op	= 001000;
+	parameter ADDI_op	= 001000;
  
-parameter SW.op		= 101011;
+	parameter SW_op		= 101011;
 
-parameter LW.op		= 100011;
+	parameter LW_op		= 100011;
 
-parameter J.op		= 000010;
+	parameter J_op		= 000010;
+	
+	parameter BEQ_op	= 000100;
 
-parameter BEQ.op
+	parameter AND_op	= 000000;
+	parameter AND_func	= 100100;
 
-parameter AND.op	= 000000;
-parameter AND.func	= 100100;
+	parameter OR_op		= 000000;
+	parameter OR_func	= 100101;
 
-parameter OR.op		= 000000;
-parameter OR.func	= 100101;
-
-
-`endif
+endmodule
