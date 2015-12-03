@@ -56,18 +56,25 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 No such file or directory. (errno = ENOENT)
 
-} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory.v}
+} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Multiplexer4Way
+
+Top level modules:
+	Multiplexer4Way
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Memory_TestBench
+
+Top level modules:
+	Memory_TestBench
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Memory
 
 Top level modules:
 	Memory
-
-} {} {}} Z:/ca_pj1/src/Multiplexer.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/Multiplexer.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Multiplexer
-
-Top level modules:
-	Multiplexer
 
 } {} {}}

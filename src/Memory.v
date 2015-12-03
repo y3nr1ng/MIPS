@@ -15,11 +15,13 @@ module Memory
 	reg	[width-1:0]	memory	[0:size];
 	
 	always @ (posedge clk_i)
-		if(cs) begin
+		if(cs)
+		begin
 			// CS = Chip Select, select to read
 			data_o = memory[addr_i >> 2];
 		end
-		else begin
+		else 
+		begin
 			// Turn off the output pin.
 			data_o = {width{1'bz}};
 			
