@@ -150,7 +150,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_MemWE
+	Latch IDEX_MEM_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -159,7 +159,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_ALUOp
+	Latch IDEX_EX_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -238,6 +238,11 @@ module CPU
 	
 	ALU ALU
 	(
+		.ALUop_i	(),
+		.data_1		(IDEX_Data1.data_o),
+		.data_2		(IDEX_Data2.data_o),
+		.data_o		(),
+		.is_zero	()
 	);
 	
 	Multiplexer4Way Data1_Mux
@@ -304,7 +309,7 @@ module CPU
 	// EX/MEM
 	//
 
-	Latch EXMEM_WB
+	Latch EXMEM_WB_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -313,7 +318,7 @@ module CPU
 		.data_o		()
 	);
 	
-	Latch EXMEM_M
+	Latch EXMEM_M_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -356,11 +361,11 @@ module CPU
 	
 	Memory #(.size(32)) DataMem
 	(
-		.clk		(),
-		.addr_i		(),
+		.clk		(clk),
+		.addr_i		(EXMEM_DataOut.data_o),
 		.cs			(),
 		.we			(),
-		.data_i		(),
+		.data_i		(EXMEM_Data2.data_o),
 		.data_o		()
 	);
 	
@@ -369,7 +374,7 @@ module CPU
 	// MEM/WB
 	//
 
-	Latch MEMWB_WB
+	Latch MEMWB_WB_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
