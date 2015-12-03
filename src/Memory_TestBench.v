@@ -32,7 +32,7 @@ module Memory_TestBench;
 		#2
 		Clk = 0;
 		#3
-		$display("... not selected, value is %d\n", Mem.data_o);
+		$display("... not selected, value is %d", Mem.data_o);
 		CS = 1;
 		WE = 0;
 		#4
@@ -40,15 +40,15 @@ module Memory_TestBench;
 		#5
 		Clk = 0;
 		#6
-		$display("... selected, value is %d\n", Mem.data_o);
-		$display("Write 42 at 0x0A, but not write enabled...");
+		$display("... selected, value is %d", Mem.data_o);
+		$display("\nWrite 42 at 0x0A, but not write enabled...");
 		data_i = 42;
 		#7
 		Clk = 1; 
 		#8
 		Clk = 0;
 		#9
-		$display("... value is %d\n", Mem.data_o);
+		$display("... value is %d", Mem.data_o);
 		CS = 0;
 		WE = 1;
 		#10

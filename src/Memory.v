@@ -19,12 +19,14 @@ module Memory
 			// CS = Chip Select, select to read
 			data_o = memory[addr_i >> 2];
 		end
-		else if(we) begin
-			// WE = Write Enable, select to write
-			memory[addr_i >> 2] <= data_i;
-		end
 		else begin
+			// Turn off the output pin.
 			data_o = {width{1'bz}};
+			
+			if(we) begin
+				// WE = Write Enable, select to write
+				memory[addr_i >> 2] <= data_i;
+			end
 		end
 
 endmodule
