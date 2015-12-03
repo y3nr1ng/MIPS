@@ -4,7 +4,7 @@ module Memory
 	parameter size 		= 1024
 )
 (
-	input					clk_i,
+	input					clk,
 	input		[width-1:0]	addr_i,
 	input					cs,		
 	input					we,		
@@ -14,7 +14,7 @@ module Memory
 
 	reg	[width-1:0]	memory	[0:size];
 	
-	always @ (posedge clk_i)
+	always @ (posedge clk)
 		if(cs)
 		begin
 			// CS = Chip Select, select to read

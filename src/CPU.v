@@ -1,8 +1,8 @@
 module CPU
 (
-	input		clk_i,
-	input		rst_i,
-	input		start_i
+	input		clk,
+	input		rst,
+	input		start
 );
 
 	wire	[31:0]	instr_addr, instr;
@@ -13,9 +13,9 @@ module CPU
 
 	ProgramCounter PC
 	(
-    	.clk_i      (),
-   		.rst_i      (),
-   		.start_i    (),
+    	.clk		(),
+   		.rst		(),
+   		.start      (),
    		.pc_i       (),
    		.pc_o       ()
 	);
@@ -24,7 +24,7 @@ module CPU
 	(
 		.data_1		(),
 		.data_2		(),
-		.sel_i		(),
+		.sel		(),
 		.data_o		()
 	);	
 
@@ -37,7 +37,7 @@ module CPU
 
 	Memory InstrMem
 	(
-		.clk_i		(),
+		.clk		(),
 		.addr_i		(),
 		.cs			(),
 		.we			(),
@@ -108,7 +108,7 @@ module CPU
 	(
 		.data_1		(),
 		.data_2		(),
-		.sel_i		(),
+		.sel		(),
 		.data_o		()
 	);
 
@@ -172,7 +172,7 @@ module CPU
 		.data_2		(),
 		.data_3		(),
 		.data_4		(),
-		.sel_i		(),
+		.sel		(),
 		.data_o		()
 	);
 
@@ -182,7 +182,7 @@ module CPU
 		.data_2		(),
 		.data_3		(),
 		.data_4		(),
-		.sel_i		(),
+		.sel		(),
 		.data_o		()
 	);
 
@@ -190,7 +190,7 @@ module CPU
 	(
 		.data_1		(),
 		.data_2		(),
-		.sel_i		(),
+		.sel		(),
 		.data_o		()
 	);
 		
@@ -198,7 +198,7 @@ module CPU
 	(
 		.data_1		(),
 		.data_2		(),
-		.sel_i		(),
+		.sel		(),
 		.data_o		()
 	);
 
@@ -206,7 +206,7 @@ module CPU
 	(
 		.data_1		(),
 		.data_2		(),
-		.sel_i		(),
+		.sel		(),
 		.data_o		()
 	);
 
@@ -246,7 +246,7 @@ module CPU
 	
 	Memory DataMem
 	(
-		.clk_i		(),
+		.clk		(),
 		.addr_i		(),
 		.cs			(),
 		.we			(),
@@ -284,7 +284,7 @@ module CPU
 	(
 		.data_1		(),
 		.data_2		(),
-		.sel_i		(),
+		.sel		(),
 		.data_o		()
 	);
 

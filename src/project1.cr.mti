@@ -11,20 +11,20 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 No such file or directory. (errno = ENOENT)
 
-} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/InstructionMemory.v}
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module InstructionMemory
-
-Top level modules:
-	InstructionMemory
-
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v}
+} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 ** Error: (vlog-19) Failed to access library 'work' at "work".
 
 No such file or directory. (errno = ENOENT)
 
-} {3.0 4.0} {}} Z:/ca_pj1/src/Adder.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/Adder.v
+} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Latch.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Latch.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module latch
+
+Top level modules:
+	latch
+
+} {} {}} Z:/ca_pj1/src/Adder.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/Adder.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Adder
 
@@ -41,36 +41,15 @@ Top level modules:
 } {} {}} Z:/ca_pj1/src/CPU.v {0 {vlog -work project1 -stats=none Z:/ca_pj1/src/CPU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module CPU
-** Error: Z:/ca_pj1/src/CPU.v(278): 'WB_Mux' already declared in this scope.
+** Error: Z:/ca_pj1/src/CPU.v(289): 'WB_Mux' already declared in this scope.
 
-} {4.0 5.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v}
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Multiplexer2Way
-
-Top level modules:
-	Multiplexer2Way
-
-} {} {}} Z:/ca_pj1/src/PC.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/PC.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module PC
-
-Top level modules:
-	PC
-
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
+} {4.0 5.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 ** Error: (vlog-19) Failed to access library 'work' at "work".
 
 No such file or directory. (errno = ENOENT)
 
-} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v}
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Multiplexer4Way
-
-Top level modules:
-	Multiplexer4Way
-
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v}
+} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Memory_TestBench
 
@@ -83,5 +62,19 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	Memory
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Comparer
+
+Top level modules:
+	Comparer
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module FourWayMux_TestBench
+
+Top level modules:
+	FourWayMux_TestBench
 
 } {} {}}
