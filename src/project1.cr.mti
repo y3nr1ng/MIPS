@@ -5,6 +5,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	SignExtend
 
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/LookupTable.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/LookupTable.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module LookupTable
+
+Top level modules:
+	LookupTable
+
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Latch_TestBench
@@ -39,13 +46,7 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	TestBench
 
-} {} {}} Z:/ca_pj1/src/CPU.v {0 {vlog -work project1 -stats=none Z:/ca_pj1/src/CPU.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module CPU
-** Error: Z:/ca_pj1/src/CPU.v(12): near ";": Syntax error.
-** Error: Z:/ca_pj1/src/CPU.v(421): 'WB_Mux' already declared in this scope.
-
-} {4.0 6.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Shifter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Shifter.v}
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Shifter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Shifter.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Shifter
 
@@ -66,13 +67,14 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	PC
 
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {0 {vlog -work work -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-** Error: (vlog-19) Failed to access library 'work' at "work".
+-- Compiling module GeneralControl
 
-No such file or directory. (errno = ENOENT)
+Top level modules:
+	GeneralControl
 
-} {3.0 4.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v}
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Multiplexer4Way
 
@@ -102,5 +104,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	FourWayMux_TestBench
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Registers.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Registers.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Registers
+
+Top level modules:
+	Registers
 
 } {} {}}

@@ -6,10 +6,6 @@ module CPU
 	input		rst,
 	input		start
 );
-	
-	parameter	instr_width = 32;
-
-	wire	[instr_width-1:0]	instr_addr, instr;
 
 	//
 	// IF
@@ -53,6 +49,8 @@ module CPU
 	//
 	// IF/ID
 	//
+	
+	wire	[31:0]	instr;
 
 	Latch IFID_PC_Inc
 	(
@@ -90,9 +88,9 @@ module CPU
 	(
 		.clk		(clk),
 		.Rs_addr	(instr_rs),
-		.Rs_data	(),
+		//.Rs_data	(),
 		.Rt_addr	(instr_rt),
-		.Rt_data	(),
+		//.Rt_data	(),
 		.we			(),
 		.Rd_addr	(),
 		.Rd_data	(WB_Mux.data_o)
@@ -101,7 +99,7 @@ module CPU
 	SignExtend SignExt
 	(
 		.data_i		(instr_imm),
-		.data_o		()
+		//.data_o		()
 	);
 	
 	// TODO: We should try to merge shifter and adder together into: NextAddr
@@ -109,7 +107,7 @@ module CPU
 	(
 		.x			(SignExt.data_o),
 		.y			(32'b0010),
-		.data_o		()
+		//.data_o		()
 	);
 
 	Adder PC_BranchAdd
@@ -139,10 +137,6 @@ module CPU
 		.EX_ctrl_o	(),
 		.MEM_ctrl_o	(),
 		.WB_ctrl_o	()		
-	);
-	
-	Or Ctrl_Flush
-	(
 	);
 
 	Multiplexer2Way Ctrl_Mux
@@ -190,7 +184,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(),
+		.data_i		(PC_BranchAdd.data_o),
 		.data_o		()
 	);
 
