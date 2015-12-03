@@ -1,10 +1,10 @@
 module PC
 (
-    input		clk,
-    input		rst,
-    input		start,
-    input	[31:0]	pc_i,
-    output reg	[31:0]	pc_o
+    input				clk,
+    input				rst,
+    input				start,
+    input		[31:0]	addr_i,
+    output reg	[31:0]	addr_o
 );
 
 always@(posedge clk or negedge rst) begin
