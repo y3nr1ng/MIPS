@@ -9,13 +9,13 @@ module PC
 
 always@(posedge clk or negedge rst) begin
     if(~rst) begin
-        pc_o <= 32'b0;
+        addr_o <= 32'b0;
     end
     else begin
         if(start)
-            pc_o <= pc_i;
+            addr_o <= addr_i;
         else
-            pc_o <= pc_o;
+            addr_o <= addr_o;
     end
 end
 
