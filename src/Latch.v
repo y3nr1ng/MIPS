@@ -1,4 +1,4 @@
-module latch #(parameter width=32) (
+module Latch #(parameter width=32) (
 	input					clk,
 	input      				rst,
 	input      				en,
