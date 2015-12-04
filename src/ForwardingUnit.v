@@ -14,12 +14,12 @@ module ForwardingUnit(
 // 00 indicates no hazard occur
 
 
-assign ALUdata1_sel_o = (EXMEM_rw_i == 1 && EXMEM_Rd_i != 0 && EXMEM_Rd_i == IDEX_Rs_i)? 10:
-						(MEMWB_rw_i == 1 && MEMWB_Rd_i != 0 && MEMWB_Rd_i == IDEX_Rs_i)? 01:
-						00;
+assign ALUdata1_sel_o = (EXMEM_rw_i == 1 && EXMEM_Rd_i != 0 && EXMEM_Rd_i == IDEX_Rs_i)? 2'b10:
+						(MEMWB_rw_i == 1 && MEMWB_Rd_i != 0 && MEMWB_Rd_i == IDEX_Rs_i)? 2'b01:
+						2'b00;
 
-assign ALUdata2_sel_o =	(EXMEM_rw_i == 1 && EXMEM_Rd_i != 0 && EXMEM_Rd_i == IDEX_Rt_i)? 10:
-						(MEMWB_rw_i == 1 && MEMWB_Rd_i != 0 && MEMWB_Rd_i == IDEX_Rt_i)? 01:
-						00;
+assign ALUdata2_sel_o =	(EXMEM_rw_i == 1 && EXMEM_Rd_i != 0 && EXMEM_Rd_i == IDEX_Rt_i)? 2'b10:
+						(MEMWB_rw_i == 1 && MEMWB_Rd_i != 0 && MEMWB_Rd_i == IDEX_Rt_i)? 2'b01:
+						2'b00;
 
 endmodule
