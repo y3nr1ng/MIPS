@@ -131,9 +131,6 @@ module CPU
 	GeneralControl Ctrl
 	(
 		.op_i		(instr_op),
-		.IF_flush_o	(),
-		.ID_flush_o	(),
-		.EX_flush_o	(),
 		.EX_ctrl_o	(),
 		.MEM_ctrl_o	(),
 		.WB_ctrl_o	()		
