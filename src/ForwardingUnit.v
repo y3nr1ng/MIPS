@@ -1,12 +1,12 @@
 module ForwardingUnit(
 	input	EXMEM_rw_i,
 	input	MEMWB_rw_i,
-	input	[0:5]	IDEX_Rs_i,
-	input	[0:5]	IDEX_Rt_i,
-	input	[0:5]	EXMEM_Rd_i,
-	input	[0:5]	MEMWB_Rd_i,
-	output	[0:1]	ALUdata1_sel_o,
-	output	[0:1]	ALUdata2_sel_o
+	input	[5:0]	IDEX_Rs_i,
+	input	[5:0]	IDEX_Rt_i,
+	input	[5:0]	EXMEM_Rd_i,
+	input	[5:0]	MEMWB_Rd_i,
+	output	[1:0]	ALUdata1_sel_o,
+	output	[1:0]	ALUdata2_sel_o
 );
 // for signal:
 // 10 indicates an EX-hazard occur
