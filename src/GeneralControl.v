@@ -9,4 +9,14 @@ module GeneralControl (
 	output				WB_ctrl_o	// Reg_we(1)
 );
 
+	always @ (*)
+	begin
+		case (sel)
+			2'b00	:	data_o = data_1;
+			2'b01	:	data_o = data_2;
+			2'b10	:	data_o = data_3;
+			2'b11	:	data_o = data_4;
+		endcase
+	end
+
 endmodule
