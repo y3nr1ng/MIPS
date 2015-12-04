@@ -250,7 +250,7 @@ module CPU
 		.data_2		(),
 		.data_3		(EXMEM_DataOut.data_o),
 		.data_4		(32'bz),
-		.sel		(),
+		.sel		(FwdUnit.ALUdata1_sel_o),
 		.data_o		()
 	);
 
@@ -260,7 +260,7 @@ module CPU
 		.data_2		(),
 		.data_3		(EXMEM_DataOut.data_o),
 		.data_4		(32'bz),
-		.sel		(),
+		.sel		(FwdUnit.ALUdata2_sel_o),
 		.data_o		()
 	);
 	
@@ -283,14 +283,14 @@ module CPU
 
 	ForwardingUnit FwdUnit
 	(
-		.EXMEM_rw_i(),
-		.MEMWB_rw_i(),
-		.IDEX_Rs_i(),
-		.IDEX_Rt_i(),
-		.EXMEM_Rd_i(),
-		.MEMWB_Rd_i(),
-		.ALUdata1_sel_o(),
-		.ALUdata2_sel_o()
+		.EXMEM_rw_i	(EXMEM_WB_Ctrl.data_o),
+		.MEMWB_rw_i	(MEMWB_WB_Ctrl.data_o),
+		.IDEX_Rs_i	(IDEX_RsFwd.data_o),
+		.IDEX_Rt_i	(IDEX_RtFwd.data_o),
+		.EXMEM_Rd_i	(EXMEM_RegFwd.data_o),
+		.MEMWB_Rd_i	(MEMWB_RegFwd.data_o),
+		.ALUdata1_sel_o		(Data1_Mux.sel),
+		.ALUdata2_sel_o		(Data2_Mux.sel)
 	);
 
 	//
