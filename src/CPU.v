@@ -283,8 +283,15 @@ module CPU
 
 	ForwardingUnit FwdUnit
 	(
+		.EXMEM_rw_i(),
+		.MEMWB_rw_i(),
+		.IDEX_Rs_i(),
+		.IDEX_Rt_i(),
+		.EXMEM_Rd_i(),
+		.MEMWB_Rd_i(),
+		.ALUdata1_sel_o(),
+		.ALUdata2_sel_o()
 	);
-
 
 	//
 	// EX/MEM
