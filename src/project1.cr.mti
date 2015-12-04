@@ -22,6 +22,15 @@ Top level modules:
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
+} {} {}} Z:/ca_pj1/src/CPU.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/CPU.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module LookupTable
+-- Compiling module CPU
+
+Top level modules:
+	LookupTable
+	CPU
+
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Latch.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Latch.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Latch
