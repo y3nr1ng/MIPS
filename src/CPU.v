@@ -126,6 +126,12 @@ module CPU
 
 	HazardDetectionUnit HDU
 	(
+		.IDEXMr_i(),
+		.IDEXRt_i(),
+		.IFIDRs_i(),
+		.IFIDRt_i(),
+		.IFIDwr_o(),
+		.PCwr_o()
 	);
 
 	GeneralControl Ctrl
