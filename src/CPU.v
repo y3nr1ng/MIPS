@@ -16,6 +16,7 @@ module CPU
     	.clk		(clk),
    		.rst		(rst),
    		.start      (start),
+   		.wr_enable	(HDU.PCwr_o),
    		.addr_i     (PC_Mux.data_o),
    		.addr_o     ()
 	);
@@ -131,7 +132,7 @@ module CPU
 		.IFIDRs_i(),
 		.IFIDRt_i(),
 		.IFIDwr_o(),
-		.PCwr_o(),
+		.PCwr_o(PC.wr_enable),
 		.nope_o(),
 		.Flush_o()
 	);
