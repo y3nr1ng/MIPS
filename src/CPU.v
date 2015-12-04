@@ -131,7 +131,9 @@ module CPU
 		.IFIDRs_i(),
 		.IFIDRt_i(),
 		.IFIDwr_o(),
-		.PCwr_o()
+		.PCwr_o(),
+		.nope_o(),
+		.Flush_o()
 	);
 
 	GeneralControl Ctrl
@@ -146,12 +148,35 @@ module CPU
 	// ID/EX
 	//
 
+	Multiplexer2Way HDU_WB_Ctrl
+	(
+		.data_1		(Ctrl.WB_Ctrl_o),
+		.data_2		(1'b0),
+		.sel		(HDU.nope_o),
+		.data_o		(IDEX_WB_Ctrl.data_i)
+	);
+	Multiplexer2Way HDU_MEM_Ctrl
+	(
+		.data_1		(Ctrl.MEM_Ctrl_o),
+		.data_2		(1'b0),
+		.sel		(HDU.nope_o),
+		.data_o		(IDEX_MEM_Ctrl.data_i)
+	);
+	Multiplexer2Way HDU_EX_Ctrl
+	(
+		.data_1		(Ctrl.EX_Ctrl_o),
+		.data_2		(1'b0),
+		.sel		(HDU.nope_o),
+		.data_o		(IDEX_EX_Ctrl.data_i)
+	);
+
+
 	Latch IDEX_WB_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(Ctrl.WB_Ctrl_o),
+		.data_i		(HDU_WB_Ctrl.data_o),
 		.data_o		()
 	);
 
@@ -160,7 +185,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(Ctrl.MEM_Ctrl_o),
+		.data_i		(HDU_MEM_Ctrl.data_o),
 		.data_o		()
 	);
 
@@ -169,7 +194,7 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(Ctrl.EX_Ctrl_o),
+		.data_i		(HDU_EX_Ctrl.data_o),
 		.data_o		()
 	);
 
