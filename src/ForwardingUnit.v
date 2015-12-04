@@ -1,20 +1,25 @@
 module ForwardingUnit(
-	input	EXMEM_rw,
-	input	MEMWB_rw,
-	input	[0:5]	IDEX_Rs,
-	input	[0:5]	IDEX_Rt,
-	input	[0:5]	EXMEM_Rd,
-	input	[0:5]	MEMWB_Rd,
-	output	[0:1]	ALUdata1_sel,
-	output	[0:1]	ALUdata2_sel
+	input	EXMEM_rw_i,
+	input	MEMWB_rw_i,
+	input	[0:5]	IDEX_Rs_i,
+	input	[0:5]	IDEX_Rt_i,
+	input	[0:5]	EXMEM_Rd_i,
+	input	[0:5]	MEMWB_Rd_i,
+	output	[0:1]	ALUdata1_sel_o,
+	output	[0:1]	ALUdata2_sel_o
 );
+// for signal:
+// 10 indicates an EX-hazard occur
+// 01 indicates a MEM-hazard occur
+// 00 indicates no hazard occur
 
-assign ALUdata1_sel = 	(EXMEM_rw == 1 && EXMEM_Rd != 0 && EXMEM_Rd == IDEX_Rs)? 10:
-						(MEMWB_rw == 1 && MEMWB_Rd != 0 && MEMWB_Rd == IDEX_Rs)? 01:
+
+assign ALUdata1_sel_o = (EXMEM_rw_i == 1 && EXMEM_Rd_i != 0 && EXMEM_Rd_i == IDEX_Rs_i)? 10:
+						(MEMWB_rw_i == 1 && MEMWB_Rd_i != 0 && MEMWB_Rd_i == IDEX_Rs_i)? 01:
 						00;
 
-assign ALUdata2_sel =	(EXMEM_rw == 1 && EXMEM_Rd != 0 && EXMEM_Rd == IDEX_Rt)? 10:
-						(MEMWB_rw == 1 && MEMWB_Rd != 0 && MEMWB_Rd == IDEX_Rt)? 01:
+assign ALUdata2_sel_o =	(EXMEM_rw_i == 1 && EXMEM_Rd_i != 0 && EXMEM_Rd_i == IDEX_Rt_i)? 10:
+						(MEMWB_rw_i == 1 && MEMWB_Rd_i != 0 && MEMWB_Rd_i == IDEX_Rt_i)? 01:
 						00;
 
 endmodule
