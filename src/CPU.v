@@ -53,7 +53,7 @@ module CPU
 	
 	wire	[31:0]	instr;
 
-	Latch IFID_PC_Inc
+	Latch #() IFID_PC_Inc
 	(
 		.clk		(clk),
 		.rst		(),
@@ -62,7 +62,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IFID_Instr
+	Latch #() IFID_Instr
 	(
 		.clk		(clk),
 		.rst		(),
@@ -329,7 +329,7 @@ module CPU
 	// EX/MEM
 	//
 
-	Latch EXMEM_WB_Ctrl
+	Latch #(1) EXMEM_WB_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
