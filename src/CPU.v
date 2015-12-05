@@ -394,7 +394,7 @@ module CPU
 	// MEM/WB
 	//
 
-	Latch MEMWB_WB_Ctrl
+	Latch #(1) MEMWB_WB_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -403,7 +403,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch MEMWB_MemOut
+	Latch #() MEMWB_MemOut
 	(
 		.clk		(clk),
 		.rst		(),
@@ -412,7 +412,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch MEMWB_AddrOut
+	Latch #() MEMWB_AddrOut
 	(
 		.clk		(clk),
 		.rst		(),
@@ -421,7 +421,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch MEMWB_RegFwd
+	Latch #(5) MEMWB_RegFwd
 	(
 		.clk		(clk),
 		.rst		(),
