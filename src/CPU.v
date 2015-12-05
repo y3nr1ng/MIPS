@@ -149,21 +149,21 @@ module CPU
 	// ID/EX
 	//
 
-	Multiplexer2Way HDU_WB_Ctrl
+	Multiplexer2Way #(1) HDU_WB_Ctrl
 	(
 		.data_1		(Ctrl.WB_Ctrl_o),
 		.data_2		(1'b0),
 		.sel		(HDU.nope_o),
 		.data_o		(IDEX_WB_Ctrl.data_i)
 	);
-	Multiplexer2Way HDU_MEM_Ctrl
+	Multiplexer2Way #(2) HDU_MEM_Ctrl
 	(
 		.data_1		(Ctrl.MEM_Ctrl_o),
 		.data_2		(1'b0),
 		.sel		(HDU.nope_o),
 		.data_o		(IDEX_MEM_Ctrl.data_i)
 	);
-	Multiplexer2Way HDU_EX_Ctrl
+	Multiplexer2Way #(5) HDU_EX_Ctrl
 	(
 		.data_1		(Ctrl.EX_Ctrl_o),
 		.data_2		(1'b0),
