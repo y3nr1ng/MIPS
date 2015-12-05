@@ -53,7 +53,7 @@ module CPU
 	
 	wire	[31:0]	instr;
 
-	Latch IFID_PC_Inc
+	Latch #() IFID_PC_Inc
 	(
 		.clk		(clk),
 		.rst		(),
@@ -62,7 +62,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IFID_Instr
+	Latch #() IFID_Instr
 	(
 		.clk		(clk),
 		.rst		(),
@@ -149,21 +149,21 @@ module CPU
 	// ID/EX
 	//
 
-	Multiplexer2Way HDU_WB_Ctrl
+	Multiplexer2Way #(1) HDU_WB_Ctrl
 	(
 		.data_1		(Ctrl.WB_Ctrl_o),
 		.data_2		(1'b0),
 		.sel		(HDU.nope_o),
 		.data_o		(IDEX_WB_Ctrl.data_i)
 	);
-	Multiplexer2Way HDU_MEM_Ctrl
+	Multiplexer2Way #(2) HDU_MEM_Ctrl
 	(
 		.data_1		(Ctrl.MEM_Ctrl_o),
 		.data_2		(1'b0),
 		.sel		(HDU.nope_o),
 		.data_o		(IDEX_MEM_Ctrl.data_i)
 	);
-	Multiplexer2Way HDU_EX_Ctrl
+	Multiplexer2Way #(5) HDU_EX_Ctrl
 	(
 		.data_1		(Ctrl.EX_Ctrl_o),
 		.data_2		(1'b0),
@@ -172,7 +172,7 @@ module CPU
 	);
 
 
-	Latch IDEX_WB_Ctrl
+	Latch #(1) IDEX_WB_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -181,7 +181,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_MEM_Ctrl
+	Latch #(2) IDEX_MEM_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -190,7 +190,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_EX_Ctrl
+	Latch #(5) IDEX_EX_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -199,7 +199,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_PC_Inc
+	Latch #() IDEX_PC_Inc
 	(
 		.clk		(clk),
 		.rst		(),
@@ -208,7 +208,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_Data1
+	Latch #() IDEX_Data1
 	(
 		.clk		(clk),
 		.rst		(),
@@ -217,7 +217,7 @@ module CPU
 		.data_o		()
 	);
 	
-	Latch IDEX_Data2
+	Latch #() IDEX_Data2
 	(
 		.clk		(clk),
 		.rst		(),
@@ -226,7 +226,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_SignExt
+	Latch #() IDEX_SignExt
 	(
 		.clk		(clk),
 		.rst		(),
@@ -235,7 +235,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_RsFwd
+	Latch #(5) IDEX_RsFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -244,7 +244,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_RtFwd
+	Latch #(5) IDEX_RtFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -253,7 +253,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_RdFwd
+	Latch #(5) IDEX_RdFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -305,7 +305,7 @@ module CPU
 		.data_o		()
 	);
 
-	Multiplexer2Way Fwd_Mux
+	Multiplexer2Way #(5) Fwd_Mux
 	(
 		.data_1		(IDEX_RtFwd.data_o),
 		.data_2		(IDEX_RdFwd.data_o),
@@ -329,7 +329,7 @@ module CPU
 	// EX/MEM
 	//
 
-	Latch EXMEM_WB_Ctrl
+	Latch #(1) EXMEM_WB_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -338,7 +338,7 @@ module CPU
 		.data_o		()
 	);
 	
-	Latch EXMEM_MEM_Ctrl
+	Latch #(2) EXMEM_MEM_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -347,7 +347,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch EXMEM_DataOut
+	Latch #() EXMEM_DataOut
 	(
 		.clk		(clk),
 		.rst		(),
@@ -356,7 +356,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch EXMEM_Data2
+	Latch #() EXMEM_Data2
 	(
 		.clk		(clk),
 		.rst		(),
@@ -365,7 +365,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch EXMEM_RegFwd
+	Latch #(5) EXMEM_RegFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -394,7 +394,7 @@ module CPU
 	// MEM/WB
 	//
 
-	Latch MEMWB_WB_Ctrl
+	Latch #(1) MEMWB_WB_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -403,7 +403,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch MEMWB_MemOut
+	Latch #() MEMWB_MemOut
 	(
 		.clk		(clk),
 		.rst		(),
@@ -412,7 +412,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch MEMWB_AddrOut
+	Latch #() MEMWB_AddrOut
 	(
 		.clk		(clk),
 		.rst		(),
@@ -421,7 +421,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch MEMWB_RegFwd
+	Latch #(5) MEMWB_RegFwd
 	(
 		.clk		(clk),
 		.rst		(),
