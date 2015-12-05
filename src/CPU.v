@@ -172,7 +172,7 @@ module CPU
 	);
 
 
-	Latch IDEX_WB_Ctrl
+	Latch #(1) IDEX_WB_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -181,7 +181,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_MEM_Ctrl
+	Latch #(2) IDEX_MEM_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -190,7 +190,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_EX_Ctrl
+	Latch #(5) IDEX_EX_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -199,7 +199,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_PC_Inc
+	Latch #() IDEX_PC_Inc
 	(
 		.clk		(clk),
 		.rst		(),
@@ -208,7 +208,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_Data1
+	Latch #() IDEX_Data1
 	(
 		.clk		(clk),
 		.rst		(),
@@ -217,7 +217,7 @@ module CPU
 		.data_o		()
 	);
 	
-	Latch IDEX_Data2
+	Latch #() IDEX_Data2
 	(
 		.clk		(clk),
 		.rst		(),
@@ -226,7 +226,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_SignExt
+	Latch #() IDEX_SignExt
 	(
 		.clk		(clk),
 		.rst		(),
@@ -235,7 +235,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_RsFwd
+	Latch #(5) IDEX_RsFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -244,7 +244,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_RtFwd
+	Latch #(5) IDEX_RtFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -253,7 +253,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch IDEX_RdFwd
+	Latch #(5) IDEX_RdFwd
 	(
 		.clk		(clk),
 		.rst		(),
