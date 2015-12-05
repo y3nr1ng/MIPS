@@ -66,6 +66,7 @@ module GeneralControl (
 
 			LUT.LW_op	:
 			begin
+
 			end
 
 			LUT.SW_op	:
@@ -78,6 +79,13 @@ module GeneralControl (
 
 			LUT.BEQ_op	:
 			begin
+			end
+
+			default:
+			begin
+				EX_ctrl_o	= 5'bz;
+				MEM_ctrl_o	= 2'bz;
+				WB_ctrl_o	= 1'bz;
 			end
 		endcase
 	end
