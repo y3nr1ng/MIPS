@@ -305,7 +305,7 @@ module CPU
 		.data_o		()
 	);
 
-	Multiplexer2Way Fwd_Mux
+	Multiplexer2Way #(5) Fwd_Mux
 	(
 		.data_1		(IDEX_RtFwd.data_o),
 		.data_2		(IDEX_RdFwd.data_o),
@@ -338,7 +338,7 @@ module CPU
 		.data_o		()
 	);
 	
-	Latch EXMEM_MEM_Ctrl
+	Latch #(2) EXMEM_MEM_Ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -347,7 +347,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch EXMEM_DataOut
+	Latch #() EXMEM_DataOut
 	(
 		.clk		(clk),
 		.rst		(),
@@ -356,7 +356,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch EXMEM_Data2
+	Latch #() EXMEM_Data2
 	(
 		.clk		(clk),
 		.rst		(),
@@ -365,7 +365,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch EXMEM_RegFwd
+	Latch #(5) EXMEM_RegFwd
 	(
 		.clk		(clk),
 		.rst		(),
