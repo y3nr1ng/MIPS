@@ -207,7 +207,7 @@ Multiplexer4Way Data_1_Mux (
 	.data_2			(WB_Mux.data_o),
 	.data_3			(EXMEM_ALU_output.data_o),
 	.data_4			(32'bz),
-	.sel			(2'b00), // TODO
+	.sel			(FwdUnit.ALU_data_1_sel),
 	.data_o			()
 );
 
@@ -216,7 +216,7 @@ Multiplexer4Way Data_2_Mux (
 	.data_2			(WB_Mux.data_o),
 	.data_3			(EXMEM_ALU_output.data_o),
 	.data_4			(32'bz),
-	.sel			(2'b00), // TODO
+	.sel			(FwdUnit.ALU_data_2_sel),
 	.data_o			()
 );
 
@@ -240,6 +240,17 @@ Multiplexer2Way #(.width(5)) Fwd_Mux (
 	.data_2			(IDEX_Rt.data_o),
 	.sel			(RegDst_wire),
 	.data_o			()
+);
+
+ForwardingUnit FwdUnit (
+	.EXMEM_we		(MEM_we_wire),
+	.MEMWB_we		(Reg_we_wire),
+	.IDEX_Rs		(IDEX_Rs.data_o),
+	.IDEX_Rt		(IDEX_Rt.data_o),
+	.EXMEM_Rd		(EXMEM_RegFwd.data_o)
+	.MEMWB_Rd		(MEMWB_RegFwd.data_o),
+	.ALU_data_1_sel	(),
+	.ALU_data_2_sel	()
 );
 
 
