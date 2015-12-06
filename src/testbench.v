@@ -22,7 +22,7 @@ initial begin
     flush = 0;
 
     // Initialize the instruction memory.
-    for(i=0; i<256; i=i+1) begin
+    for(i=0; i<1024; i=i+1) begin
         CPU.InstrMem.memory[i] = 32'b0;
     end
 

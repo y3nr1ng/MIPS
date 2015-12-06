@@ -574,13 +574,13 @@ r1
 R4
 n@sign@extend
 vSingleCycleCPU
-!s110 1449426700
+!s110 1449428857
 !i10b 1
-!s100 1KmlgHICBILMBTPXT<>KP1
-IZ7YZj@S:m88?FPbUDX=ak2
+!s100 ^cTzK:2XZaH2zb2zWF=5l0
+I_[6Qj3bLlbMKFH7LLFk]F3
 R2
 R0
-w1449426698
+w1449428855
 8//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v
 F//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v
 L0 3
@@ -588,20 +588,20 @@ R3
 r1
 !s85 0
 31
-!s108 1449426700.452000
+!s108 1449428857.159000
 !s107 LookupTable.v|//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v|
 !i113 1
 R4
 n@single@cycle@c@p@u
 vTestBench
-!s110 1449427433
+!s110 1449428130
 !i10b 1
-!s100 KjaNiOl`ne^7mXALj3A[j3
-I9C8`Vl41zdfPGQGh3F_>m0
+!s100 [48d=F5]z=SoVn6;=J6SR1
+I4YcFmW3a0XY4l80<kSPE_1
 R2
 R0
-w1449427430
+w1449427702
 8Z:/ca_pj1/src/testbench.v
 FZ:/ca_pj1/src/testbench.v
 L0 3
@@ -609,7 +609,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449427433.781000
+!s108 1449428130.322000
 !s107 Z:/ca_pj1/src/testbench.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/testbench.v|
 !i113 1

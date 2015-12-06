@@ -99,8 +99,8 @@ Registers RegFiles (
 	.Rs_data		(),
 	.Rt_data		(),
 	.we				(1'b0),	// TODO
-	.Rd_addr		(),
-	.Rd_data		()
+	.Rd_addr		(), // TODO
+	.Rd_data	 	() // TODO
 );
 
 Comparer Rs_eq_Rt (
@@ -183,7 +183,21 @@ Latch IDEX_imm_data (
 	.data_o			()
 );
 
+Latch #(.width(5)) IDEX_Rs (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(instr_rs),
+	.data_o			()
+);
 
+Latch #(.width(5)) IDEX_Rt (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(instr_rt),
+	.data_o			()
+);
 
 /**
  * EX
@@ -220,5 +234,80 @@ ALU ALU (
 	.data_o			(),
 	.is_zero		()
 );
+
+Multiplexer2Way #(.width(5)) Fwd_Mux (
+	.data_1			(IDEX_Rs.data_o),
+	.data_2			(IDEX_Rt.data_o),
+	.sel			(RegDst_wire),
+	.data_o			()
+);
+
+
+/**
+ * EX/MEM
+ */
+Latch #(.width(2)) EXMEM_MEM_ctrl (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(IDEX_MEM_ctrl.data_o),
+	.data_o			(MEM_ctrl)
+);
+
+Latch #(.width(2)) EXMEM_WB_ctrl (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(IDEX_WB_ctrl.data_o),
+	.data_o			()
+);
+
+Latch EXMEM_ALU_output (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(ALU.data_o),
+	.data_o			()
+);
+
+Latch EXMEM_ALU_data_2 (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(Data_2_imm_Mux.data_o),
+	.data_o			()
+);
+
+Latch #(.width(5)) EXMEM_RegFwd (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(Fwd_Mux.data_o),
+	.data_o			()
+);
+
+
+/**
+ * MEM
+ */
+Memory #(.size(32)) DataMem (
+	.clk			(clk),
+	.addr_i			(EXMEM_ALU_output.data_o),
+	.cs				(1'b1), // TODO
+	.we				(1'b0), // TODO
+	.data_i			(EXMEM_ALU_data_2.data_o),
+	.data_o			()
+);
+
+
+/**
+ * MEM/WB
+ */
+
+
+/**
+ * WB
+ */
+
 
 endmodule
