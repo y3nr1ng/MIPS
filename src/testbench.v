@@ -37,7 +37,7 @@ initial begin
     end
 
     // Load instructions into instruction memory
-    $readmemb("single_cycle_instruction.txt", CPU.InstrMem.memory);
+    $readmemb("instruction.txt", CPU.InstrMem.memory);
 
     // Open output file
     outfile = $fopen("output.txt") | 1;

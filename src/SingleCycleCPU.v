@@ -131,6 +131,8 @@ GeneralControl Ctrl (
 	.WB_ctrl_o		()
 );
 
+HazardDetectionUnit HDU (
+);
 
 /**
  * ID/EX
@@ -247,7 +249,7 @@ ForwardingUnit FwdUnit (
 	.MEMWB_we		(Reg_we_wire),
 	.IDEX_Rs		(IDEX_Rs.data_o),
 	.IDEX_Rt		(IDEX_Rt.data_o),
-	.EXMEM_Rd		(EXMEM_RegFwd.data_o)
+	.EXMEM_Rd		(EXMEM_RegFwd.data_o),
 	.MEMWB_Rd		(MEMWB_RegFwd.data_o),
 	.ALU_data_1_sel	(),
 	.ALU_data_2_sel	()
