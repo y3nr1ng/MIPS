@@ -315,14 +315,14 @@ module CPU
 
 	ForwardingUnit FwdUnit
 	(
-		.EXMEM_rw_i			(EXMEM_WB_ctrl.data_o),
-		.MEMWB_rw_i			(MEMWB_WB_ctrl.data_o),
+		.EXMEM_we_i			(EXMEM_WB_ctrl.data_o),
+		.MEMWB_we_i			(MEMWB_WB_ctrl.data_o),
 		.IDEX_Rs_i			(IDEX_RsFwd.data_o),
 		.IDEX_Rt_i			(IDEX_RtFwd.data_o),
 		.EXMEM_Rd_i			(EXMEM_RegFwd.data_o),
 		.MEMWB_Rd_i			(MEMWB_RegFwd.data_o),
-		.ALUdata1_sel_o		(Data1_Mux.sel),
-		.ALUdata2_sel_o		(Data2_Mux.sel)
+		.ALU_data1_sel		(),
+		.ALU_data2_sel		()
 	);
 
 	//
