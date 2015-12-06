@@ -64,7 +64,7 @@ always@(posedge clk) begin
     $fdisplay(outfile, "IFIDwr_o = %d, PCwr_o = %d, nope_o = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.nope_o, CPU.HDU.Flush_o);
 
     // count stall and flush
-	if(CPU.HDU.mux8_o == 1 && CPU.Control.Jump_o == 0 && CPU.Control.Branch_o == 0)
+	if(CPU.HDU.mux8_o == 1 && CPU.Control.jump_o == 0 && CPU.Control.branch_o == 0)
 		stall = stall + 1;
     // if(CPU.HazzardDetection.Flush_o == 1)flush = flush + 1;
     // print PC
