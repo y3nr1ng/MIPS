@@ -97,12 +97,19 @@ It is possible for the CPU to write back to Data\_Mux, which is the input of ALU
 \subsection{ALU}
 \subsubsection{Overall}
 \subsubsection{Adder}
+
+
 \subsubsection{Shift}
+
 \subsubsection{Comparator}
+
 \subsubsection{Sign extended}
+
 \subsection{Control units}
 \subsubsection{General control}
+In general control, we construct a look-up table which records every instruction and its control signal accordingly.
 \subsubsection{ALU control}
+Since the instructions are limited , we combine the ALU control into general control, which generates the ALU control signal to ALU.
 \subsubsection{Hazard detection unit}
 As for hazard detection unit, we refer to textbook p.302, the logical condition is \\
 \[
@@ -114,14 +121,15 @@ How to stall the pipeline? We output stall signal which allow us to set the $IF/
 Since we need to deal with data hazard, we implement forwarding control unit. Forwarding unit would check  EX-hazard and MEM-hazard , which is the following cases:
 (1) EX-hazard\\
 \[
-(a) if (EXMEM_we && (EXMEM_Rd != 0) && (EXMEM_Rd == IDEX_Rs))
-(b) if (EXMEM_we && (EXMEM_Rd != 0) && (EXMEM_Rd == IDEX_Rt))
+(a) if (EXMEM_we && (EXMEM_Rd != 0) && (EXMEM_Rd == IDEX_Rs))\\
+(b) if (EXMEM_we && (EXMEM_Rd != 0) && (EXMEM_Rd == IDEX_Rt))\\
 \]
+\[
 (2) MEM-hazard\\
-(a)if (MEMWB_we && (MEMWB_Rd != 0) && !((EXMEM_we && (EXMEM_Rd != 0)) && (EXMEM_Rd == IDEX_Rs)) && (MEMWB_Rd == IDEX_Rs))
-(b)if (MEMWB_we && (MEMWB_Rd != 0) && !((EXMEM_we && (EXMEM_Rd != 0)) && (EXMEM_Rd == IDEX_Rt)) && (MEMWB_Rd == IDEX_Rt))
-
-If the previous case fix, the forwarding control unit would drive the multiplexer to direct the proper value to the input of ALU.
+(a)if (MEMWB_we && (MEMWB_Rd != 0) && !((EXMEM_we && (EXMEM_Rd != 0)) && (EXMEM_Rd == IDEX_Rs)) && (MEMWB_Rd == IDEX_Rs))\\
+(b)if (MEMWB_we && (MEMWB_Rd != 0) && !((EXMEM_we && (EXMEM_Rd != 0)) && (EXMEM_Rd == IDEX_Rt)) && (MEMWB_Rd == IDEX_Rt\\
+\]
+If the previous case fits, the forwarding control unit would drive the multiplexer to direct the proper value to the input of ALU.
 
 
 \section{Evaluation}
