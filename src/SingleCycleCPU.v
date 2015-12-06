@@ -47,7 +47,7 @@ ProgramCounter PC (
 	.clk			(clk),
 	.rst			(rst),
 	.start			(start),
-	.we				(1'b1),
+	.we				(1'b1), // TODO
 	.addr_i			(PC_Mux.data_o),
 	.addr_o			()
 );
@@ -204,18 +204,18 @@ Latch #(.width(5)) IDEX_Rt (
  */
 Multiplexer4Way Data_1_Mux (
 	.data_1			(IDEX_Rs_data.data_o),
-	.data_2			(32'bz), // TODO
-	.data_3			(32'bz), // TODO
-	.data_4			(32'bz), // TODO
+	.data_2			(WB_Mux.data_o),
+	.data_3			(EXMEM_ALU_output.data_o),
+	.data_4			(32'bz),
 	.sel			(2'b00), // TODO
 	.data_o			()
 );
 
 Multiplexer4Way Data_2_Mux (
 	.data_1			(IDEX_Rt_data.data_o),
-	.data_2			(32'bz), // TODO
-	.data_3			(32'bz), // TODO
-	.data_4			(32'bz), // TODO
+	.data_2			(WB_Mux.data_o),
+	.data_3			(EXMEM_ALU_output.data_o),
+	.data_4			(32'bz),
 	.sel			(2'b00), // TODO
 	.data_o			()
 );
