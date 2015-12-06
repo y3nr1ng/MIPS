@@ -122,7 +122,9 @@ module CPU
 	(
 		.data_1		(RegFiles.Rs_data),
 		.data_2		(RegFiles.Rt_data),
-		.is_equal	()
+		.is_equal	(),
+		.is_greater	(),
+		.is_less	()
 	);
 
 	HazardDetectionUnit HDU
@@ -149,53 +151,54 @@ module CPU
 	// ID/EX
 	//
 
-	Multiplexer2Way #(1) HDU_WB_Ctrl
+	Multiplexer2Way #(5) HDU_EX_ctrl
 	(
-		.data_1		(Ctrl.WB_Ctrl_o),
-		.data_2		(1'b0),
+		.data_1		(Ctrl.EX_ctrl_o),
+		.data_2		(5'b0),
 		.sel		(HDU.nope_o),
-		.data_o		(IDEX_WB_Ctrl.data_i)
+		.data_o		(IDEX_EX_ctrl.data_i)
 	);
-	Multiplexer2Way #(2) HDU_MEM_Ctrl
+	
+	Multiplexer2Way #(2) HDU_MEM_ctrl
 	(
-		.data_1		(Ctrl.MEM_Ctrl_o),
-		.data_2		(1'b0),
+		.data_1		(Ctrl.MEM_ctrl_o),
+		.data_2		(2'b0),
 		.sel		(HDU.nope_o),
-		.data_o		(IDEX_MEM_Ctrl.data_i)
-	);
-	Multiplexer2Way #(5) HDU_EX_Ctrl
-	(
-		.data_1		(Ctrl.EX_Ctrl_o),
-		.data_2		(1'b0),
-		.sel		(HDU.nope_o),
-		.data_o		(IDEX_EX_Ctrl.data_i)
+		.data_o		(IDEX_MEM_ctrl.data_i)
 	);
 
+	Multiplexer2Way #(1) HDU_WB_ctrl
+	(
+		.data_1		(Ctrl.WB_ctrl_o),
+		.data_2		(1'b0),
+		.sel		(HDU.nope_o),
+		.data_o		(IDEX_WB_ctrl.data_i)
+	);
 
-	Latch #(1) IDEX_WB_Ctrl
+	Latch #(1) IDEX_WB_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(HDU_WB_Ctrl.data_o),
+		.data_i		(HDU_WB_ctrl.data_o),
 		.data_o		()
 	);
 
-	Latch #(2) IDEX_MEM_Ctrl
+	Latch #(2) IDEX_MEM_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(HDU_MEM_Ctrl.data_o),
+		.data_i		(HDU_MEM_ctrl.data_o),
 		.data_o		()
 	);
 
-	Latch #(5) IDEX_EX_Ctrl
+	Latch #(5) IDEX_EX_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(HDU_EX_Ctrl.data_o),
+		.data_i		(HDU_EX_ctrl.data_o),
 		.data_o		()
 	);
 
@@ -315,8 +318,8 @@ module CPU
 
 	ForwardingUnit FwdUnit
 	(
-		.EXMEM_rw_i	(EXMEM_WB_Ctrl.data_o),
-		.MEMWB_rw_i	(MEMWB_WB_Ctrl.data_o),
+		.EXMEM_rw_i	(EXMEM_WB_ctrl.data_o),
+		.MEMWB_rw_i	(MEMWB_WB_ctrl.data_o),
 		.IDEX_Rs_i	(IDEX_RsFwd.data_o),
 		.IDEX_Rt_i	(IDEX_RtFwd.data_o),
 		.EXMEM_Rd_i	(EXMEM_RegFwd.data_o),
@@ -329,21 +332,21 @@ module CPU
 	// EX/MEM
 	//
 
-	Latch #(1) EXMEM_WB_Ctrl
+	Latch #(1) EXMEM_WB_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(IDEX_WB_Ctrl.data_o),
+		.data_i		(IDEX_WB_ctrl.data_o),
 		.data_o		()
 	);
 	
-	Latch #(2) EXMEM_MEM_Ctrl
+	Latch #(2) EXMEM_MEM_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(IDEX_MEM_Ctrl.data_o),
+		.data_i		(IDEX_MEM_ctrl.data_o),
 		.data_o		()
 	);
 
@@ -394,12 +397,12 @@ module CPU
 	// MEM/WB
 	//
 
-	Latch #(1) MEMWB_WB_Ctrl
+	Latch #(1) MEMWB_WB_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(EXMEM_WB_Ctrl.data_o),
+		.data_i		(EXMEM_WB_ctrl.data_o),
 		.data_o		()
 	);
 
