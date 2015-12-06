@@ -1,6 +1,6 @@
 module HazardDetectionUnit
 (
-	input	[4:0]	IDEXMr_i,
+	input			IDEXMr_i,
 	input 	[4:0]	IDEXRt_i,
 	input	[4:0]	IFIDRs_i,
 	input	[4:0]	IFIDRt_i,
