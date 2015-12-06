@@ -2,6 +2,7 @@
 
 module GeneralControl (
 	input			[5:0]	op_i,
+	input					is_equal_i,
 	output reg				jump_o,
 	output reg				branch_o,
 	output reg		[3:0]	EX_ctrl_o,	

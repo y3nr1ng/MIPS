@@ -142,6 +142,9 @@ module CPU
 	GeneralControl Ctrl
 	(
 		.op_i		(instr_op),
+		.is_equal_i	(Rs_eq_Rt.is_equal),
+		.jump_o		(),
+		.branch_o	(),
 		.EX_ctrl_o	(),
 		.MEM_ctrl_o	(),
 		.WB_ctrl_o	()		
