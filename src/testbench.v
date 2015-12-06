@@ -64,7 +64,7 @@ always@(posedge clk) begin
 
     // print HDU
     $fdisplay(outfile, "HDU signal");
-    $fdisplay(outfile, "IFIDwr_o = %d, PCwr_o = %d, nope_o = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.stall, CPU.HDU.flush);
+    $fdisplay(outfile, "IFIDwr_o = %d, PCwr_o = %d, nope_o = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.stall,CPU.Ctrl.PC_ctrl_o[1]);
 
     // count stall and flush
 	if(CPU.HDU.stall == 1 && CPU.Ctrl.PC_ctrl_o == 2'b00)

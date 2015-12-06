@@ -16,8 +16,8 @@ module CPU
     	.clk		(clk),
    		.rst		(rst),
    		.start      (start),
-   		//.we			(HDU.PCwr_o),
-		.we			(1'b1),
+   		.we			(HDU.PCwr_o),
+		//.we			(1'b1),
    		.addr_i     (PC_Mux.data_o),
    		.addr_o     ()
 	);
@@ -61,7 +61,7 @@ module CPU
 	(
 		.clk		(clk),
 		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
-		.en			(1'b1),
+		.en			(HDU.IFIDwr_o),
 		.data_i		(PC_Inc.data_o),
 		.data_o		()
 	);
@@ -70,7 +70,7 @@ module CPU
 	(
 		.clk		(clk),
 		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
-		.en			(1'b1),
+		.en			(HDU.IFIDwr_o),
 		.data_i		(InstrMem.data_o),
 		.data_o		(instr)
 	);
@@ -141,14 +141,13 @@ module CPU
 
 	HazardDetectionUnit HDU
 	(
-		.IDEXMr_i	(),
-		.IDEXRt_i	(),
-		.IFIDRs_i	(),
-		.IFIDRt_i	(),
-		.IFIDwr_o	(),
+		.IDEXMr_i	(IDEX_MEM_ctrl.data_o),
+		.IDEXRt_i	(IDEX_RtFwd.data_o),
+		.IFIDRs_i	(instr_rs),
+		.IFIDRt_i	(instr_rt),
+		.IFIDwr_o	(IFID_Instr.en),
 		.PCwr_o		(PC.we),
-		.stall		(),
-		.flush		()
+		.stall		(Ctrl_Mux.sel)
 	);
 
 	GeneralControl Ctrl
@@ -431,7 +430,6 @@ module CPU
 		.data_o		()
 	);
 
-	
 	//
 	// WB
 	//
