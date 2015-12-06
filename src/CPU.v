@@ -87,7 +87,7 @@ module CPU
 	wire	[4:0] 	instr_rd 	= instr[15:11];
 
 	wire	[15:0]	instr_imm	= instr[15:0];
-	wire	[26:0]	addr_imm	= instr[25:0];
+	wire	[25:0]	addr_imm	= instr[25:0];
 
 	Registers RegFiles
 	(
@@ -109,7 +109,7 @@ module CPU
 
 	Shifter PC_JumpShl
 	(
-		.x			(addr_imm),
+		.x			({ 6'b0, addr_imm }),
 		.y			(32'b0010),
 		.data_o		()
 	);
@@ -160,10 +160,10 @@ module CPU
 		.WB_ctrl_o	()		
 	);
 
-	Multiplexer2Way #(.width(8)) Ctrl_Mux
+	Multiplexer2Way #(.width(9)) Ctrl_Mux
 	(
 		.data_1		({ Ctrl.EX_ctrl_o, Ctrl.MEM_ctrl_o, Ctrl.WB_ctrl_o }),
-		.data_2		(8'b0),
+		.data_2		(9'b0),
 		.sel		(HDU.stall),
 		.data_o		()
 	);
@@ -328,15 +328,6 @@ module CPU
 	//
 	// EX/MEM
 	//
-
-	Latch #(1) EXMEM_WB_ctrl
-	(
-		.clk		(clk),
-		.rst		(),
-		.en			(),
-		.data_i		(IDEX_WB_ctrl.data_o),
-		.data_o		()
-	);
 	
 	Latch #(2) EXMEM_MEM_ctrl
 	(
@@ -347,6 +338,15 @@ module CPU
 		.data_o		()
 	);
 
+	Latch #(2) EXMEM_WB_ctrl
+	(
+		.clk		(clk),
+		.rst		(),
+		.en			(),
+		.data_i		(IDEX_WB_ctrl.data_o),
+		.data_o		()
+	);
+	
 	Latch #() EXMEM_DataOut
 	(
 		.clk		(clk),
@@ -394,7 +394,7 @@ module CPU
 	// MEM/WB
 	//
 
-	Latch #(1) MEMWB_WB_ctrl
+	Latch #(2) MEMWB_WB_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
@@ -403,7 +403,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #() MEMWB_MemOut
+	Latch MEMWB_MemOut
 	(
 		.clk		(clk),
 		.rst		(),
@@ -412,7 +412,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #() MEMWB_AddrOut
+	Latch MEMWB_AddrOut
 	(
 		.clk		(clk),
 		.rst		(),
@@ -421,7 +421,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #(5) MEMWB_RegFwd
+	Latch #(.width(5)) MEMWB_RegFwd
 	(
 		.clk		(clk),
 		.rst		(),
