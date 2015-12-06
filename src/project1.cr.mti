@@ -15,9 +15,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Latch_TestBench
 
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALUControl.v}
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-
 } {} {}} Z:/ca_pj1/src/CPU.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/CPU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module CPU
@@ -59,6 +56,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	Multiplexer2Way
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module GeneralControl
+
+Top level modules:
+	GeneralControl
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
