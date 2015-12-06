@@ -147,40 +147,24 @@ module CPU
 		.WB_ctrl_o	()		
 	);
 
+	Multiplexer2Way #(8) Ctrl_Mux
+	(
+		.data_1		({ Ctrl.EX_ctrl_o, Ctrl.MEM_ctrl_o, Ctrl.WB_ctrl_o }),
+		.data_2		(8'b0),
+		.sel		(HDU.nope_o),
+		.data_o		()
+	);
+
 	//
 	// ID/EX
 	//
 
-	Multiplexer2Way #(5) HDU_EX_ctrl
-	(
-		.data_1		(Ctrl.EX_ctrl_o),
-		.data_2		(5'b0),
-		.sel		(HDU.nope_o),
-		.data_o		(IDEX_EX_ctrl.data_i)
-	);
-	
-	Multiplexer2Way #(2) HDU_MEM_ctrl
-	(
-		.data_1		(Ctrl.MEM_ctrl_o),
-		.data_2		(2'b0),
-		.sel		(HDU.nope_o),
-		.data_o		(IDEX_MEM_ctrl.data_i)
-	);
-
-	Multiplexer2Way #(1) HDU_WB_ctrl
-	(
-		.data_1		(Ctrl.WB_ctrl_o),
-		.data_2		(1'b0),
-		.sel		(HDU.nope_o),
-		.data_o		(IDEX_WB_ctrl.data_i)
-	);
-
-	Latch #(1) IDEX_WB_ctrl
+	Latch #(5) IDEX_EX_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(HDU_WB_ctrl.data_o),
+		.data_i		(Ctrl_Mux.data_o[7:3]),
 		.data_o		()
 	);
 
@@ -189,16 +173,16 @@ module CPU
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(HDU_MEM_ctrl.data_o),
+		.data_i		(Ctrl_Mux.data_o[2:1]),
 		.data_o		()
 	);
 
-	Latch #(5) IDEX_EX_ctrl
+	Latch #(1) IDEX_WB_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(HDU_EX_ctrl.data_o),
+		.data_i		(Ctrl_Mux.data_o[0:0]),
 		.data_o		()
 	);
 
