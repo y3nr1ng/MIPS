@@ -103,9 +103,7 @@ As for hazard detection unit, we refer to textbook p.302, the logical condition 
 \[
 if \(ID/EX.MemRead && \(\(ID/EX.Rt == IF/ID.Rs\) or\(ID/EX.Rt == IF/ID.Rt\)\)\) stall the pipeline
 \]
-How to stall the pipeline? We output three signal which allow us to create stall, they're\\
-(1) 
-
+How to stall the pipeline? We output stall signal which allow us to set the IF/ID register and PC to the origin value.
 
 \subsubsection{Forwarding control unit}
 Since we need to deal with data hazard, we implement forwarding control unit but without forwarding to ID stage
