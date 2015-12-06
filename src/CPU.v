@@ -45,7 +45,7 @@ module CPU
 		.addr_i		(PC.addr_o),
 		.cs			(1'b1),
 		.we			(1'b0),
-		.data_i		(),
+		.data_i		(),	// No input for ROM.
 		.data_o		()
 	);
 
@@ -59,8 +59,8 @@ module CPU
 	Latch #() IFID_PC_Inc
 	(
 		.clk		(clk),
-		.rst		(),
-		.en			(),
+		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
+		.en			(1'b1),
 		.data_i		(PC_Inc.data_o),
 		.data_o		()
 	);
@@ -68,8 +68,8 @@ module CPU
 	Latch #() IFID_Instr
 	(
 		.clk		(clk),
-		.rst		(),
-		.en			(),
+		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
+		.en			(1'b1),
 		.data_i		(InstrMem.data_o),
 		.data_o		(instr)
 	);
@@ -96,7 +96,7 @@ module CPU
 		.Rs_data	(),
 		.Rt_addr	(instr_rt),
 		.Rt_data	(),
-		.we			(),
+		.we			(MEMWB_WB_ctrl.data_o[0]),
 		.Rd_addr	(MEMWB_RegFwd.data_o),
 		.Rd_data	(WB_Mux.data_o)
 	);
@@ -279,7 +279,7 @@ module CPU
 	Multiplexer4Way Data1_Mux
 	(
 		.data_1		(IDEX_Data1.data_o),
-		.data_2		(),
+		.data_2		(WB_Mux.data_o),
 		.data_3		(EXMEM_DataOut.data_o),
 		.data_4		(32'bz),
 		.sel		(FwdUnit.ALUdata1_sel_o),
@@ -289,7 +289,7 @@ module CPU
 	Multiplexer4Way Data2_Mux
 	(
 		.data_1		(IDEX_Data2.data_o),
-		.data_2		(),
+		.data_2		(WB_Mux.data_o),
 		.data_3		(EXMEM_DataOut.data_o),
 		.data_4		(32'bz),
 		.sel		(FwdUnit.ALUdata2_sel_o),
@@ -315,12 +315,12 @@ module CPU
 
 	ForwardingUnit FwdUnit
 	(
-		.EXMEM_rw_i	(EXMEM_WB_ctrl.data_o),
-		.MEMWB_rw_i	(MEMWB_WB_ctrl.data_o),
-		.IDEX_Rs_i	(IDEX_RsFwd.data_o),
-		.IDEX_Rt_i	(IDEX_RtFwd.data_o),
-		.EXMEM_Rd_i	(EXMEM_RegFwd.data_o),
-		.MEMWB_Rd_i	(MEMWB_RegFwd.data_o),
+		.EXMEM_rw_i			(EXMEM_WB_ctrl.data_o),
+		.MEMWB_rw_i			(MEMWB_WB_ctrl.data_o),
+		.IDEX_Rs_i			(IDEX_RsFwd.data_o),
+		.IDEX_Rt_i			(IDEX_RtFwd.data_o),
+		.EXMEM_Rd_i			(EXMEM_RegFwd.data_o),
+		.MEMWB_Rd_i			(MEMWB_RegFwd.data_o),
 		.ALUdata1_sel_o		(Data1_Mux.sel),
 		.ALUdata2_sel_o		(Data2_Mux.sel)
 	);
@@ -383,8 +383,8 @@ module CPU
 	(
 		.clk		(clk),
 		.addr_i		(EXMEM_DataOut.data_o),
-		.cs			(),
-		.we			(),
+		.cs			(EXMEM_MEM_ctrl.data_o[1]),
+		.we			(EXMEM_MEM_ctrl.data_o[0]),
 		.data_i		(EXMEM_Data2.data_o),
 		.data_o		()
 	);
@@ -439,7 +439,7 @@ module CPU
 	(
 		.data_1		(MEMWB_MemOut.data_o),
 		.data_2		(MEMWB_AddrOut.data_o),
-		.sel		(),
+		.sel		(MEMWB_WB_ctrl.data_o[1]),
 		.data_o		()
 	);
 

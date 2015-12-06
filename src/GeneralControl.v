@@ -4,7 +4,7 @@ module GeneralControl (
 	input			[5:0]	op_i,
 	input					is_equal_i,
 	output reg		[1:0]	PC_ctrl_o,
-	output reg		[3:0]	EX_ctrl_o,	
+	output reg		[4:0]	EX_ctrl_o,	
 	output reg		[1:0]	MEM_ctrl_o,
 	output reg		[1:0]	WB_ctrl_o
 );
@@ -15,7 +15,7 @@ module GeneralControl (
 	 */
 
 	/**
-	 * EX_ctrl_o = { ALUop(2), ALUsrc(1), RegDst(1) }
+	 * EX_ctrl_o = { ALUop(3), ALUsrc(1), RegDst(1) }
 	 * ALUsrc -> 0:register, 1:immediate
 	 * RegDst -> 0:rt, 1:rd
 	 */
@@ -106,7 +106,7 @@ module GeneralControl (
 
 			`BEQ_op	:
 			begin
-				PC_ctrl_o	= { 1'b1, 1'b1 };
+				PC_ctrl_o	= { 2{is_equal_i} };
 				EX_ctrl_o	= { 6'bz, 1'bz, 1'bz };
 				MEM_ctrl_o	= { 1'bz, 1'b0 };
 				WB_ctrl_o	= { 1'bz, 1'b0 };

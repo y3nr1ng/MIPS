@@ -93,13 +93,13 @@ r1
 R4
 n@comparer
 vCPU
-!s110 1449412859
+!s110 1449413278
 !i10b 1
-!s100 TiA?@Pm63?6=:=aS1nb?U2
-InMi<F@UaHC;2kXNfEf6HP2
+!s100 B>Egmz3C0DIXN=aK[>2`d3
+I0F4oAS_BBJQagkbeAEW>_3
 R2
 R0
-w1449412854
+w1449413100
 8Z:/ca_pj1/src/CPU.v
 FZ:/ca_pj1/src/CPU.v
 L0 3
@@ -107,7 +107,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449412859.612000
+!s108 1449413278.097000
 !s107 LookupTable.v|Z:/ca_pj1/src/CPU.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/CPU.v|
 !i113 1
@@ -156,13 +156,13 @@ Z10 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Fol
 R4
 n@four@way@mux_@test@bench
 vGeneralControl
-R1
+!s110 1449413275
 !i10b 1
-!s100 ZXY5DOM2PWMDBaLDSa[QR2
-IVG9=YK<kL1:=zA7SKn6Q<2
+!s100 dFlTDjShdkj]V:164BjQ91
+I=kKFM<oCFd=zG9PYThg0?0
 R2
 R0
-w1449412503
+w1449413269
 8//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v
 F//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v
 L0 3
@@ -170,7 +170,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449412509.757000
+!s108 1449413275.519000
 !s107 LookupTable.v|//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v|
 !i113 1
@@ -239,6 +239,27 @@ R14
 !i113 1
 R4
 n@instruction@memory
+vLatch
+!s110 1449413270
+!i10b 1
+!s100 NUY47UXhz7PH`[J1z`zbS0
+IP5VYdMXSd4fOL0:efYFc;0
+R2
+R0
+w1449121840
+Z15 8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+Z16 F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449413270.746000
+Z17 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+Z18 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+!i113 1
+R4
+n@latch
 vlatch
 !s110 1449114262
 !i10b 1
@@ -247,26 +268,6 @@ Izzb`QecZ[NNgLXSmURdSR2
 R2
 R0
 w1449113381
-Z15 8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
-Z16 F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
-L0 1
-R3
-r1
-!s85 0
-31
-!s108 1449114262.212000
-Z17 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
-Z18 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
-!i113 1
-R4
-vLatch
-R6
-!i10b 1
-!s100 NUY47UXhz7PH`[J1z`zbS0
-IP5VYdMXSd4fOL0:efYFc;0
-R2
-R0
-w1449121840
 R15
 R16
 L0 1
@@ -274,12 +275,11 @@ R3
 r1
 !s85 0
 31
-!s108 1449412511.342000
+!s108 1449114262.212000
 R17
 R18
 !i113 1
 R4
-n@latch
 vLatch_TestBench
 R6
 !i10b 1
