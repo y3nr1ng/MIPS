@@ -25,7 +25,7 @@ module CPU
 	(
 		.data_1		(PC_Inc.data_o),
 		.data_2		(PC_BranchAdd.data_o),
-		.sel		(),
+		.sel		(Ctrl.jump_o),
 		.data_o		()
 	);	
 
