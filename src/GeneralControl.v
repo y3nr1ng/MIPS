@@ -2,6 +2,8 @@
 
 module GeneralControl (
 	input			[5:0]	op_i,
+	output reg				jump_o,
+	output reg				branch_o,
 	output reg		[3:0]	EX_ctrl_o,	
 	output reg		[1:0]	MEM_ctrl_o,
 	output reg				WB_ctrl_o
@@ -68,14 +70,14 @@ module GeneralControl (
 
 			`LW_op	:
 			begin
-				EX_ctrl_o	= { `ADD_alu, 1'b1, };
+				EX_ctrl_o	= { `ADD_alu, 1'b1, 1'bz };
 				MEM_ctrl_o	= { 1'b1, 1'b0 };
-				WB_ctrl_o	= 1'bz;
+				WB_ctrl_o	= 1'b0;
 			end
 
 			`SW_op	:
 			begin
-				EX_ctrl_o	= { `ADD_alu, 1'b1, };
+				EX_ctrl_o	= { `ADD_alu, 1'b1, 1'bz };
 				MEM_ctrl_o	= { 1'b1, 1'b1 };
 				WB_ctrl_o	= 1'bz;
 			end
