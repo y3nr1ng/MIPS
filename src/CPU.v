@@ -56,7 +56,7 @@ module CPU
 	
 	wire	[31:0]	instr;
 
-	Latch #() IFID_PC_Inc
+	Latch IFID_PC_Inc
 	(
 		.clk		(clk),
 		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
@@ -65,7 +65,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #() IFID_Instr
+	Latch IFID_Instr
 	(
 		.clk		(clk),
 		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
@@ -305,7 +305,7 @@ module CPU
 		.data_o		()
 	);
 
-	Multiplexer2Way #(5) Fwd_Mux
+	Multiplexer2Way #(.width(5)) Fwd_Mux
 	(
 		.data_1		(IDEX_RtFwd.data_o),
 		.data_2		(IDEX_RdFwd.data_o),
@@ -329,47 +329,47 @@ module CPU
 	// EX/MEM
 	//
 	
-	Latch #(2) EXMEM_MEM_ctrl
+	Latch #(.width(2)) EXMEM_MEM_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(IDEX_MEM_ctrl.data_o),
 		.data_o		()
 	);
 
-	Latch #(2) EXMEM_WB_ctrl
+	Latch #(.width(2)) EXMEM_WB_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(IDEX_WB_ctrl.data_o),
 		.data_o		()
 	);
 	
-	Latch #() EXMEM_DataOut
+	Latch EXMEM_DataOut
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(ALU.data_o),
 		.data_o		()
 	);
 
-	Latch #() EXMEM_Data2
+	Latch EXMEM_Data2
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(Data2_Mux.data_o),
 		.data_o		()
 	);
 
-	Latch #(5) EXMEM_RegFwd
+	Latch #(.width(5)) EXMEM_RegFwd
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(Fwd_Mux.data_o),
 		.data_o		()
 	);
@@ -394,11 +394,11 @@ module CPU
 	// MEM/WB
 	//
 
-	Latch #(2) MEMWB_WB_ctrl
+	Latch #(.width(2)) MEMWB_WB_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(EXMEM_WB_ctrl.data_o),
 		.data_o		()
 	);
@@ -407,7 +407,7 @@ module CPU
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(DataMem.data_o),
 		.data_o		()
 	);
@@ -416,7 +416,7 @@ module CPU
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(EXMEM_DataOut.data_o),
 		.data_o		()
 	);
@@ -425,7 +425,7 @@ module CPU
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(EXMEM_RegFwd.data_o),
 		.data_o		()
 	);
