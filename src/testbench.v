@@ -21,23 +21,23 @@ initial begin
     stall = 0;
     flush = 0;
 
-    // Initialize instruction memory.
+    // Initialize the instruction memory.
     for(i=0; i<256; i=i+1) begin
         CPU.InstrMem.memory[i] = 32'b0;
     end
 
-    // initialize data memory
+    // Initialize the data memory.
     for(i=0; i<32; i=i+1) begin
         //CPU.DataMem.memory[i] = 8'b0;
     end
 
-    // initialize Register File
+    // Initialize the registers.
     for(i=0; i<32; i=i+1) begin
-        //CPU.RegFiles.register[i] = 32'b0;
+        CPU.RegFiles.register[i] = 32'b0;
     end
 
     // Load instructions into instruction memory
-    $readmemb("fibonacci_instruction.txt", CPU.InstrMem.memory);
+    $readmemb("instruction.txt", CPU.InstrMem.memory);
 
     // Open output file
     //outfile = $fopen("../dat/output2.txt") | 1;

@@ -13,8 +13,12 @@ add wave -noupdate -expand -group ID -expand -group {Parsed Instruction} -label 
 add wave -noupdate -expand -group ID -label {R[Rs] == R[Rt]?} /TestBench/CPU/Rs_eq_Rt/is_equal
 add wave -noupdate -expand -group ID -label {Branch Target Address} -radix decimal /TestBench/CPU/PC_Mux/data_4
 add wave -noupdate -expand -group ID -label {Jump Target Address} -radix decimal -radixshowbase 0 /TestBench/CPU/PC_Mux/data_3
+add wave -noupdate -expand -group EX -label {ALU control} -radix unsigned -radixshowbase 0 /TestBench/CPU/ALU/ALUop_i
+add wave -noupdate -expand -group EX -label {Data 1} -radix decimal -radixshowbase 0 /TestBench/CPU/ALU/data_1
+add wave -noupdate -expand -group EX -label {Data 2} -radix decimal /TestBench/CPU/ALU/data_2
+add wave -noupdate -expand -group EX -label Output -radix decimal /TestBench/CPU/ALU/data_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {720 ps} 0}
+WaveRestoreCursors {{Cursor 1} {167 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 243
 configure wave -valuecolwidth 202
