@@ -99,13 +99,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Comparer
 
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v}
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module SingleCycleCPU
-
-Top level modules:
-	SingleCycleCPU
-
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALU.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALU.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module ALU

@@ -132,7 +132,11 @@ GeneralControl Ctrl (
 );
 
 HazardDetectionUnit HDU (
-	
+	.IFID_Rs_i		(),
+	.IFID_Rt_i		(),	
+	.IDEX_Rt_i		(),
+	.IDEX_Mem_cs	(),
+	.stall			()	
 );
 
 /**
