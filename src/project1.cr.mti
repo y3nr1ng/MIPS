@@ -15,13 +15,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Latch_TestBench
 
-} {} {}} Z:/ca_pj1/src/testbench.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/testbench.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module TestBench
-
-Top level modules:
-	TestBench
-
 } {} {}} Z:/ca_pj1/src/CPU.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/CPU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module CPU
@@ -105,6 +98,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	Comparer
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module SingleCycleCPU
+
+Top level modules:
+	SingleCycleCPU
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALU.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALU.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014

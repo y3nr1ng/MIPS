@@ -29,7 +29,7 @@ Multiplexer4Way PC_Mux (
 	.data_1			(PC_Inc.data_o), // PC += 4
 	.data_2			(32'bz),
 	.data_3			({ PC_Inc.data_o[31:28], addr_imm, 2'b0 }), // Jump to (imm << 2)
-	.data_4			(32'b0),	// TODO
+	.data_4			(PC_BranchAddr.data_o),	// Branch address, PC += (imm << 2)
 	.sel			(2'b00),	// TODO
 	.data_o			()
 );
@@ -78,5 +78,12 @@ SignExtend SignExt (
 	.data_i			(instr_imm),
 	.data_o			()
 );
+
+Adder PC_BranchAddr (
+	.data_1			(PC_Inc.data_o),
+	.data_2			({ SignExt.data_o[31:2], 2'b0 }),
+	.data_o			()
+);
+
 
 endmodule
