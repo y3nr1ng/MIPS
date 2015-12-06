@@ -16,7 +16,8 @@ module CPU
     	.clk		(clk),
    		.rst		(rst),
    		.start      (start),
-   		.we			(HDU.PCwr_o),
+   		//.we			(HDU.PCwr_o),
+		.we			(1'b1),
    		.addr_i     (PC_Mux.data_o),
    		.addr_o     ()
 	);
@@ -282,7 +283,7 @@ module CPU
 		.data_2		(WB_Mux.data_o),
 		.data_3		(EXMEM_DataOut.data_o),
 		.data_4		(32'bz),
-		.sel		(FwdUnit.ALUdata1_sel_o),
+		.sel		(FwdUnit.ALU_data1_sel),
 		.data_o		()
 	);
 
@@ -292,7 +293,7 @@ module CPU
 		.data_2		(WB_Mux.data_o),
 		.data_3		(EXMEM_DataOut.data_o),
 		.data_4		(32'bz),
-		.sel		(FwdUnit.ALUdata2_sel_o),
+		.sel		(FwdUnit.ALU_data2_sel),
 		.data_o		()
 	);
 	
@@ -315,8 +316,8 @@ module CPU
 
 	ForwardingUnit FwdUnit
 	(
-		.EXMEM_we_i			(EXMEM_WB_ctrl.data_o),
-		.MEMWB_we_i			(MEMWB_WB_ctrl.data_o),
+		.EXMEM_we_i			(EXMEM_WB_ctrl.data_o[0]),
+		.MEMWB_we_i			(MEMWB_WB_ctrl.data_o[0]),
 		.IDEX_Rs_i			(IDEX_RsFwd.data_o),
 		.IDEX_Rt_i			(IDEX_RtFwd.data_o),
 		.EXMEM_Rd_i			(EXMEM_RegFwd.data_o),

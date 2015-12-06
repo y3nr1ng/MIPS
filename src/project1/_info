@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d//vmware-host/Shared Folders/ca_pj1/src
 vAdder
-Z1 !s110 1449414912
+Z1 !s110 1449418044
 !i10b 1
 !s100 CfI;1:ZA1PPZ;PSS;WXWj1
 INRYi=kbA?Kfa@?fW;LOdC0
@@ -23,14 +23,14 @@ Z3 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1449414911.949000
+!s108 1449418044.415000
 !s107 Z:/ca_pj1/src/Adder.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/Adder.v|
 !i113 1
 Z4 o-work project1
 n@adder
 vALU
-Z5 !s110 1449414914
+Z5 !s110 1449418047
 !i10b 1
 !s100 cBALdm`WaeUC83SP1g7;a2
 IIm=Ek3BVT7?d]<n=>eNo12
@@ -44,7 +44,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449414914.590000
+!s108 1449418047.471000
 !s107 LookupTable.v|//vmware-host/Shared Folders/ca_pj1/src/ALU.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/ALU.v|
 !i113 1
@@ -72,13 +72,13 @@ r1
 R4
 n@a@l@u@control
 vComparer
-R5
+Z6 !s110 1449418046
 !i10b 1
 !s100 VUeI9;6K@z0LhM[Ff>5LK1
 I96?R=Y@6PaEmB:5d?eKib1
 R2
 R0
-Z6 w1449325995
+Z7 w1449325995
 8//vmware-host/Shared Folders/ca_pj1/src/Comparer.v
 F//vmware-host/Shared Folders/ca_pj1/src/Comparer.v
 L0 1
@@ -86,20 +86,20 @@ R3
 r1
 !s85 0
 31
-!s108 1449414913.994000
+!s108 1449418046.655000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/Comparer.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Comparer.v|
 !i113 1
 R4
 n@comparer
 vCPU
-!s110 1449416563
+!s110 1449418156
 !i10b 1
-!s100 E:cn81L:1khoTY8nHbFB;0
-I=6CJX=me]2meiiH`nf5>E0
+!s100 2hJafF5_TkJ<^I9YX5GSC1
+IR]R9gQLUf9k5PE>3j3=gM2
 R2
 R0
-w1449416488
+w1449418154
 8Z:/ca_pj1/src/CPU.v
 FZ:/ca_pj1/src/CPU.v
 L0 3
@@ -107,14 +107,14 @@ R3
 r1
 !s85 0
 31
-!s108 1449416563.765000
+!s108 1449418156.056000
 !s107 LookupTable.v|Z:/ca_pj1/src/CPU.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/CPU.v|
 !i113 1
 R4
 n@c@p@u
 vForwardingUnit
-!s110 1449416584
+R5
 !i10b 1
 !s100 VR8VEbLYFa8DRcY[oLQK13
 IMIN<;nH<hd^8k9WLlfniZ3
@@ -128,14 +128,14 @@ R3
 r1
 !s85 0
 31
-!s108 1449416584.066000
+!s108 1449418047.907000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/ForwardingUnit.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/ForwardingUnit.v|
 !i113 1
 R4
 n@forwarding@unit
 vFourWayMux_TestBench
-Z7 !s110 1449414913
+R6
 !i10b 1
 !s100 aXmKFJVeNF6>nfhM7^ZoF3
 I[fjVWn@F_Mknmb`N:gPKf2
@@ -149,7 +149,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449414913.612000
+!s108 1449418046.157000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v|
 Z10 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v|
 !i113 1
@@ -170,14 +170,14 @@ R3
 r1
 !s85 0
 31
-!s108 1449414912.266000
+!s108 1449418044.655000
 !s107 LookupTable.v|//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v|
 !i113 1
 R4
 n@general@control
 vHazardDetectionUnit
-Z11 !s110 1449414915
+Z11 !s110 1449418048
 !i10b 1
 !s100 HN<D;naM>dQ;8<gHRf_JM3
 IlBD>z6QZzQNA::Vd6eLn80
@@ -191,7 +191,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449414915.154000
+!s108 1449418048.119000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v|
 !i113 1
@@ -239,27 +239,6 @@ R15
 !i113 1
 R4
 n@instruction@memory
-vLatch
-R7
-!i10b 1
-!s100 NUY47UXhz7PH`[J1z`zbS0
-IP5VYdMXSd4fOL0:efYFc;0
-R2
-R0
-w1449121840
-Z16 8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
-Z17 F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
-L0 1
-R3
-r1
-!s85 0
-31
-!s108 1449414913.807000
-Z18 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
-Z19 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
-!i113 1
-R4
-n@latch
 vlatch
 !s110 1449114262
 !i10b 1
@@ -268,6 +247,26 @@ Izzb`QecZ[NNgLXSmURdSR2
 R2
 R0
 w1449113381
+Z16 8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+Z17 F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449114262.212000
+Z18 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+Z19 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+!i113 1
+R4
+vLatch
+R6
+!i10b 1
+!s100 NUY47UXhz7PH`[J1z`zbS0
+IP5VYdMXSd4fOL0:efYFc;0
+R2
+R0
+w1449121840
 R16
 R17
 L0 1
@@ -275,11 +274,12 @@ R3
 r1
 !s85 0
 31
-!s108 1449114262.212000
+!s108 1449418046.404000
 R18
 R19
 !i113 1
 R4
+n@latch
 vLatch_TestBench
 R5
 !i10b 1
@@ -295,7 +295,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449414914.219000
+!s108 1449418046.903000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v|
 !i113 1
@@ -323,7 +323,7 @@ r1
 R4
 n@lookup@table
 vMemory
-R1
+Z20 !s110 1449418045
 !i10b 1
 !s100 ^MRUE1cX8M@0nUe^cI8=W0
 I2R3=4dza9F>Lm0YXzOnjK0
@@ -337,14 +337,14 @@ R3
 r1
 !s85 0
 31
-!s108 1449414912.799000
+!s108 1449418045.248000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/Memory.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Memory.v|
 !i113 1
 R4
 n@memory
 vMemory_TestBench
-R7
+R20
 !i10b 1
 !s100 obN[K=8R4]TEageIOVC920
 InYS6do`nfY?3iYo:gZj`60
@@ -358,7 +358,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449414912.980000
+!s108 1449418045.498000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v|
 !i113 1
@@ -386,7 +386,7 @@ r1
 R4
 n@multiplexer
 vMultiplexer2Way
-R7
+R6
 !i10b 1
 !s100 mcBlXD42gDzm[@^m[zN373
 Ik:c7@=^hZOT6k84Of8mOk0
@@ -400,14 +400,14 @@ R3
 r1
 !s85 0
 31
-!s108 1449414913.405000
+!s108 1449418045.953000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Multiplexer2Way.v|
 !i113 1
 R4
 n@multiplexer2@way
 vMultiplexer4Way
-R7
+R20
 !i10b 1
 !s100 F_2SOm[CTI`2NXG:QR5Ib2
 IDAFTg3eGOaQEX15XPCI]B2
@@ -421,7 +421,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449414913.187000
+!s108 1449418045.739000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v|
 !i113 1
@@ -475,7 +475,7 @@ vPC
 I2n:@e06?a=VX^B]iS>XeS3
 R2
 R0
-R6
+R7
 8Z:/ca_pj1/src/PC.v
 FZ:/ca_pj1/src/PC.v
 L0 1
@@ -504,7 +504,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449414915.341000
+!s108 1449418048.360000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v|
 !i113 1
@@ -525,7 +525,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449414914.773000
+!s108 1449418047.688000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/Registers.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Registers.v|
 !i113 1
@@ -546,7 +546,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449414914.400000
+!s108 1449418047.142000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/Shifter.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Shifter.v|
 !i113 1
@@ -567,20 +567,20 @@ R3
 r1
 !s85 0
 31
-!s108 1449414912.463000
+!s108 1449418044.887000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/SignExtend.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/SignExtend.v|
 !i113 1
 R4
 n@sign@extend
 vTestBench
-!s110 1449414911
+!s110 1449418147
 !i10b 1
-!s100 _3Xem7?`VNlC@;8OQF9=R2
-IF?<B^g=`>H8]0h_kjIm=_2
+!s100 lL[4dg246ZiKi4ZK?VCX@2
+I2?gYaWD4YYz9Og6>]mA:X3
 R2
 R0
-w1449413624
+w1449418143
 8Z:/ca_pj1/src/testbench.v
 FZ:/ca_pj1/src/testbench.v
 L0 3
@@ -588,7 +588,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449414911.516000
+!s108 1449418147.425000
 !s107 Z:/ca_pj1/src/testbench.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/testbench.v|
 !i113 1
