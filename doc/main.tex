@@ -45,7 +45,7 @@ Two types of hazard handling shall be implemented: data hazard and control hazar
 \subsection{Coding guideline}
 
 \subsection{Instruction fetch}
-
+For program counter multiplexer, there are four ways to go. The first is to add 4 to current address, which is to fetch the next line. The second is to add immediate of branch instructions if specific condition was met. The third is the jump instrction. And the last one is stall.
 \subsection{Instruction decode}
 \subsubsection{Instruction set}
 There are 10 instructions we have to implement, they are grouped into their respective types below. 
