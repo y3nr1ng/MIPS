@@ -1,3 +1,5 @@
+`include "LookupTable.v"
+
 module GeneralControl (
 	input			[5:0]	op_i,
 	output reg		[4:0]	EX_ctrl_o,	// ALUop(3), ALUsrc(1), RegDst(1)
@@ -22,62 +24,62 @@ module GeneralControl (
 	always @ (*)
 	begin
 		case (op_i)
-			LUT.ADD_op	:
+			`ADD_op	:
 			begin
-				EX_ctrl_o	= { LUT.ADD_alu, 1'b0, 1'b1 };
+				EX_ctrl_o	= { `ADD_alu, 1'b0, 1'b1 };
 				MEM_ctrl_o	= { 1'b0, 1'b0 };
 				WB_ctrl_o	= 1'b1;
 			end
 
-			LUT.SUB_op	:
+			`SUB_op	:
 			begin
-				EX_ctrl_o	= { LUT.SUB_alu, 1'b0, 1'b1 };
+				EX_ctrl_o	= { `SUB_alu, 1'b0, 1'b1 };
 				MEM_ctrl_o	= { 1'b0, 1'b0 };
 				WB_ctrl_o	= 1'b1;
 			end
 
-			LUT.MUL_op	:	
+			`MUL_op	:	
 			begin
-				EX_ctrl_o	= { LUT.MUL_alu, 1'b0, 1'b1 };
+				EX_ctrl_o	= { `MUL_alu, 1'b0, 1'b1 };
 				MEM_ctrl_o	= { 1'b0, 1'b0 };
 				WB_ctrl_o	= 1'b1;
 			end
 
-			LUT.AND_op	:	
+			`AND_op	:	
 			begin
-				EX_ctrl_o	= { LUT.AND_alu, 1'b0, 1'b1 };
+				EX_ctrl_o	= { `AND_alu, 1'b0, 1'b1 };
 				MEM_ctrl_o	= { 1'b0, 1'b0 };
 				WB_ctrl_o	= 1'b1;
 			end
 
-			LUT.OR_op	:
+			`OR_op	:
 			begin
-				EX_ctrl_o	= { LUT.OR_alu, 1'b0, 1'b1 };
+				EX_ctrl_o	= { `OR_alu, 1'b0, 1'b1 };
 				MEM_ctrl_o	= { 1'b0, 1'b0 };
 				WB_ctrl_o	= 1'b1;
 			end
 
-			LUT.ADDI_op	:
+			`ADDI_op	:
 			begin
-				EX_ctrl_o	= { LUT.ADD_alu, 1'b1, 1'b1 };
+				EX_ctrl_o	= { `ADD_alu, 1'b1, 1'b1 };
 				MEM_ctrl_o	= { 1'b0, 1'b0 };
 				WB_ctrl_o	= 1'b1;
 			end
 
-			LUT.LW_op	:
+			`LW_op	:
 			begin
 
 			end
 
-			LUT.SW_op	:
+			`SW_op	:
 			begin
 			end
 
-			LUT.J_op	:
+			`J_op	:
 			begin
 			end
 
-			LUT.BEQ_op	:
+			`BEQ_op	:
 			begin
 			end
 

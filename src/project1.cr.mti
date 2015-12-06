@@ -7,10 +7,6 @@ Top level modules:
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/LookupTable.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/LookupTable.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module LookupTable
-
-Top level modules:
-	LookupTable
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Latch_TestBench.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -24,12 +20,17 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 } {} {}} Z:/ca_pj1/src/CPU.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/CPU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module LookupTable
 -- Compiling module CPU
 
 Top level modules:
-	LookupTable
 	CPU
+
+} {} {}} Z:/ca_pj1/src/testbench.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/testbench.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module TestBench
+
+Top level modules:
+	TestBench
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Latch.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Latch.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -58,13 +59,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	Multiplexer2Way
-
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module GeneralControl
-
-Top level modules:
-	GeneralControl
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -114,6 +108,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	ALU
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ForwardingUnit.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ForwardingUnit.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module ForwardingUnit
+
+Top level modules:
+	ForwardingUnit
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
