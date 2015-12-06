@@ -69,11 +69,11 @@ always@(posedge clk) begin
     $fdisplay(outfile, "stall = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.stall,CPU.Ctrl.PC_ctrl_o[1]);
 
     // count stall and flush
-	//if(CPU.HDU.stall == 1 && CPU.Ctrl.PC_ctrl_o == 2'b00)
-		//stall = stall + 1;
+	if(CPU.HDU.stall == 1 && CPU.Ctrl.PC_ctrl_o == 2'b00)
+		stall = stall + 1;
 
-    //if(CPU.HDU.flush == 1)
-		//flush = flush + 1;
+    if(CPU.HDU.flush == 1)
+		flush = flush + 1;
     // print PC
     $fdisplay(outfile, "cycle = %d, start = %d, Stall = %d, Flush = %d\nPC = %d", counter, start, stall, flush, CPU.PC.addr_o);
 	
