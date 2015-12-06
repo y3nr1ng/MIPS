@@ -76,9 +76,12 @@ Note: Since the TAs require us to test the result using the program provided, wh
 
 \subsection{Execution}
 The main purpose of this section is to prepare all the data needed for ALU, and execute them. The data are either from register or forwarding from EX/MEM gate or MEM/WB gate. Forwarding unit are the signals controller of picking the data. Noticed that data could be stalled if special signal are received. 
+
 \subsection{Memory}
+There are two signals from MEM\_Ctrl of EX/MEM gate. One is $memread$, another $memwrite$, responsible for read and write respectively. For lw/sw instructions, DataOut is the address and Data2 the value.
 
 \subsection{Write back}
+It is possible for the CPU to write back to Data\_Mux, which is the input of ALU, or the register files. While accessibility of Data\_Mux are controlled by forwarding unit, the accessibility of register files are controlled by general control.
 \subsection{Pipeline}
 	
 \section{Modules}
