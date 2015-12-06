@@ -39,7 +39,7 @@ Multiplexer4Way PC_Mux (
 	.data_2			(32'bz),
 	.data_3			({ PC_Inc.data_o[31:28], addr_imm, 2'b0 }), // Jump to (imm << 2)
 	.data_4			(PC_BranchAddr.data_o),	// Branch address, PC += (imm << 2)
-	.sel			(2'b00),	// TODO
+	.sel			(Ctrl.PC_ctrl_o),
 	.data_o			()
 );
 
@@ -99,7 +99,7 @@ Registers RegFiles (
 	.Rs_data		(),
 	.Rt_data		(),
 	.we				(Reg_we_wire),
-	.Rd_addr		(MEMWB_RegFwd.data_o), // TODO
+	.Rd_addr		(MEMWB_RegFwd.data_o),
 	.Rd_data	 	(WB_Mux.data_o)
 );
 
@@ -132,6 +132,7 @@ GeneralControl Ctrl (
 );
 
 HazardDetectionUnit HDU (
+	
 );
 
 /**
