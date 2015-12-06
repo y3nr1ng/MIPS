@@ -1,8 +1,13 @@
 `ifndef _LOOKUP_TABLE_
 `define _LOOKUP_TABLE_
+	
+	`define	R_type		2'b00
+	`define I_type		2'b01
+	`define J_type		2'b10
 
 	`define ADD_op		6'b000000
 	`define ADD_func	6'b100000
+	`define ADD_type	R_type
 	`define ADD_alu		3'b000
 
 	`define SUB_op		6'b000000

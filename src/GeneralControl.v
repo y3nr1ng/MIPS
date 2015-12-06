@@ -2,13 +2,13 @@
 
 module GeneralControl (
 	input			[5:0]	op_i,
-	output reg		[4:0]	EX_ctrl_o,	// ALUop(3), ALUsrc(1), RegDst(1)
-	output reg		[1:0]	MEM_ctrl_o,	// MEM_cs(1), MEM_we(1)
-	output reg				WB_ctrl_o	// Reg_we(1)
+	output reg		[3:0]	EX_ctrl_o,	
+	output reg		[1:0]	MEM_ctrl_o,
+	output reg				WB_ctrl_o
 );
 	
 	/**
-	 * EX_ctrl_o = { ALUop(3), ALUsrc(1), RegDst(1) }
+	 * EX_ctrl_o = { ALUop(2), ALUsrc(1), RegDst(1) }
 	 * ALUsrc -> 0:register, 1:immediate
 	 * RegDst -> 0:rt, 1:rd
 	 */
@@ -68,19 +68,30 @@ module GeneralControl (
 
 			`LW_op	:
 			begin
-
+				EX_ctrl_o	= { , , };
+				MEM_ctrl_o	= { , };
+				WB_ctrl_o	= ;
 			end
 
 			`SW_op	:
 			begin
+				EX_ctrl_o	= { , , };
+				MEM_ctrl_o	= { , };
+				WB_ctrl_o	= ;
 			end
 
 			`J_op	:
 			begin
+				EX_ctrl_o	= { , , };
+				MEM_ctrl_o	= { , };
+				WB_ctrl_o	= ;
 			end
 
 			`BEQ_op	:
 			begin
+				EX_ctrl_o	= { , , };
+				MEM_ctrl_o	= { , };
+				WB_ctrl_o	= ;
 			end
 
 			default:
