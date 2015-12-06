@@ -11,6 +11,7 @@ always #(`CYCLE_TIME/2) clk = ~clk;
 
 CPU CPU(
     .clk	(clk),
+	.rst	(),
     .start	(start)
 );
 
