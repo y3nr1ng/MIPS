@@ -1,25 +1,17 @@
 module HazardDetectionUnit
 (
-	input	[4:0]	IDEXMr_i,
-	input 	[4:0]	IDEXRt_i,
-	input	[4:0]	IFIDRs_i,
-	input	[4:0]	IFIDRt_i,
-	output			IFIDwr_o,
-	output			PCwr_o,
-	output			stall,
-	output			flush
+	input			IDEX_Mem_cs,
+	input 	[4:0]	IDEX_Rt_i,
+	input	[4:0]	IFID_Rs_i,
+	input	[4:0]	IFID_Rt_i,
+	output			stall
 );
 
-assign IFIDwr_o =	(IDEXMr_i == 1 && IDEXRt_i == IFIDRs_i) ? 0:
-					(IDEXRt_i == 1 && IDEXRt_i == IFIDRt_i) ? 0:
-					1;
+	always @ (*)
+	begin
+		if (IDEX_Mem_cs && ((IDEX_Rt_i == IFID_Rs) || (IDEX_Rt_i == IFID_Rt)))
+			// Stall the pipeline.
 
-assign PCwr_o =		(IDEXMr_i == 1 && IDEXRt_i == IFIDRs_i) ? 0:
-					(IDEXRt_i == 1 && IDEXRt_i == IFIDRt_i) ? 0:
-					1;
-
-assign stall =		(IDEXMr_i == 1 && IDEXRt_i == IFIDRs_i) ? 1:
-					(IDEXRt_i == 1 && IDEXRt_i == IFIDRt_i) ? 1:
-					0;
+	end
 
 endmodule
