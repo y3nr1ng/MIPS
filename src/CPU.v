@@ -89,9 +89,9 @@ module CPU
 	(
 		.clk		(clk),
 		.Rs_addr	(instr_rs),
-		//.Rs_data	(),
+		.Rs_data	(),
 		.Rt_addr	(instr_rt),
-		//.Rt_data	(),
+		.Rt_data	(),
 		.we			(),
 		.Rd_addr	(MEMWB_RegFwd.data_o),
 		.Rd_data	(WB_Mux.data_o)
