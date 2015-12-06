@@ -10,14 +10,19 @@ module CPU
 	//
 	// IF
 	//
+	
+	reg 	PC_enable;
+	initial begin
+		PC_enable = 1;
+	end
 
 	ProgramCounter PC
 	(
     	.clk		(clk),
    		.rst		(rst),
    		.start      (start),
-   		.we			(HDU.PCwr_o),
-		//.we			(1'b1),
+   		//.we			(HDU.PCwr_o),
+		.we			(PC_enable),
    		.addr_i     (PC_Mux.data_o),
    		.addr_o     ()
 	);
@@ -61,7 +66,7 @@ module CPU
 	(
 		.clk		(clk),
 		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
-		.en			(HDU.IFIDwr_o),
+		.en			(HDU.stall),
 		.data_i		(PC_Inc.data_o),
 		.data_o		()
 	);
@@ -70,7 +75,7 @@ module CPU
 	(
 		.clk		(clk),
 		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
-		.en			(HDU.IFIDwr_o),
+		.en			(HDU.stall),
 		.data_i		(InstrMem.data_o),
 		.data_o		(instr)
 	);
@@ -141,13 +146,11 @@ module CPU
 
 	HazardDetectionUnit HDU
 	(
-		.IDEXMr_i	(IDEX_MEM_ctrl.data_o[1]),
+		.IDEX_Mem_cs	(IDEX_MEM_ctrl.data_o[1]),
 		.IDEXRt_i	(IDEX_RtFwd.data_o),
 		.IFIDRs_i	(instr_rs),
 		.IFIDRt_i	(instr_rt),
-		.IFIDwr_o	(IFID_Instr.en),
-		.PCwr_o		(PC.we),
-		.stall		(Ctrl_Mux.sel)
+		.stall	(),
 	);
 
 	GeneralControl Ctrl
@@ -162,8 +165,8 @@ module CPU
 
 	Multiplexer2Way #(.width(9)) Ctrl_Mux
 	(
-		.data_1		({ Ctrl.EX_ctrl_o, Ctrl.MEM_ctrl_o, Ctrl.WB_ctrl_o }),
-		.data_2		(9'b0),
+		.data_1		(9'b0),
+		.data_2		({ Ctrl.EX_ctrl_o, Ctrl.MEM_ctrl_o, Ctrl.WB_ctrl_o }),
 		.sel		(HDU.stall),
 		.data_o		()
 	);

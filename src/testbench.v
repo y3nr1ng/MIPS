@@ -10,7 +10,7 @@ integer     stall, flush;
 
 always #(`CYCLE_TIME/2) clk = ~clk;
 
-CPU CPU(
+SingleCycleCPU CPU(
     .clk	(clk),
 	.rst	(reset),
     .start	(start)
@@ -21,17 +21,17 @@ initial begin
     stall = 0;
     flush = 0;
 
-    // initialize instruction memory
-    for(i=0; i<256; i=i+1) begin
+    // Initialize the instruction memory.
+    for(i=0; i<1024; i=i+1) begin
         CPU.InstrMem.memory[i] = 32'b0;
     end
 
-    // initialize data memory
+    // Initialize the data memory.
     for(i=0; i<32; i=i+1) begin
         CPU.DataMem.memory[i] = 8'b0;
     end
 
-    // initialize Register File
+    // Initialize the registers.
     for(i=0; i<32; i=i+1) begin
         CPU.RegFiles.register[i] = 32'b0;
     end
@@ -40,41 +40,43 @@ initial begin
     $readmemb("instruction.txt", CPU.InstrMem.memory);
 
     // Open output file
-    outfile = $fopen("../dat/output2.txt") | 1;
+    outfile = $fopen("output.txt") | 1;
 
     // Set Input n into data memory at 0x00
     CPU.DataMem.memory[0] = 8'h5;       // n = 5 for example
 
     clk = 0;
+	start = 0;
     reset = 0;
-    start = 0;
 
-    #(`CYCLE_TIME/4)
-    reset = 1;
-    start = 1;
+	#(`CYCLE_TIME/4)
+	reset = 1;
 
+    #(`CYCLE_TIME/2)
+    reset = 0;
+	
 	#(`CYCLE_TIME/2)
-	reset = 0;
+	start = 1;
 
 end
 
 always@(posedge clk) begin
     if(counter == 30)    // stop after 30 cycles
-        $finish;
+        $stop;
 
     // print HDU
     $fdisplay(outfile, "HDU signal");
-    $fdisplay(outfile, "IFIDwr_o = %d, PCwr_o = %d, nope_o = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.stall,CPU.Ctrl.PC_ctrl_o[1]);
+    $fdisplay(outfile, "stall = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.stall,CPU.Ctrl.PC_ctrl_o[1]);
 
     // count stall and flush
-	if(CPU.HDU.stall == 1 && CPU.Ctrl.PC_ctrl_o == 2'b00)
-		stall = stall + 1;
+	//if(CPU.HDU.stall == 1 && CPU.Ctrl.PC_ctrl_o == 2'b00)
+		//stall = stall + 1;
 
-    if(CPU.HDU.flush == 1)
-		flush = flush + 1;
+    //if(CPU.HDU.flush == 1)
+		//flush = flush + 1;
     // print PC
     $fdisplay(outfile, "cycle = %d, start = %d, Stall = %d, Flush = %d\nPC = %d", counter, start, stall, flush, CPU.PC.addr_o);
-
+	
     // print RegFiles
     $fdisplay(outfile, "RegFiles");
     $fdisplay(outfile, "R0(r0) = %d, R8 (t0) = %d, R16(s0) = %d, R24(t8) = %d", CPU.RegFiles.register[0], CPU.RegFiles.register[8] , CPU.RegFiles.register[16], CPU.RegFiles.register[24]);

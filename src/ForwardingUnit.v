@@ -1,12 +1,12 @@
 module ForwardingUnit (
-	input			EXMEM_we_i,
-	input			MEMWB_we_i,
-	input	[4:0]	IDEX_Rs_i,
-	input	[4:0]	IDEX_Rt_i,
-	input	[4:0]	EXMEM_Rd_i,
-	input	[4:0]	MEMWB_Rd_i,
-	output	[1:0]	ALU_data1_sel,
-	output	[1:0]	ALU_data2_sel
+	input				EXMEM_we,
+	input				MEMWB_we,
+	input		[4:0]	IDEX_Rs,
+	input		[4:0]	IDEX_Rt,
+	input		[4:0]	EXMEM_Rd,
+	input		[4:0]	MEMWB_Rd,
+	output reg	[1:0]	ALU_data_1_sel,
+	output reg	[1:0]	ALU_data_2_sel
 );
 
 	/**
@@ -14,13 +14,22 @@ module ForwardingUnit (
 	 * 10 -> EX-hazard
 	 * 01 -> MEM-hazard
 	 */
+	
+	always @ (*)
+	begin
+		if (EXMEM_we && (EXMEM_Rd != 0) && (EXMEM_Rd == IDEX_Rs))
+			ALU_data_1_sel = 2'b10;
+		else if (MEMWB_we && (MEMWB_Rd != 0) && !((EXMEM_we && (EXMEM_Rd != 0)) && (EXMEM_Rd == IDEX_Rs)) && (MEMWB_Rd == IDEX_Rs))
+			ALU_data_1_sel = 2'b01;
+		else
+			ALU_data_1_sel = 2'b00;
 
-	assign ALU_data1_sel = (EXMEM_we_i == 1 && EXMEM_Rd_i != 0 && EXMEM_Rd_i == IDEX_Rs_i) ? 2'b10 :
-					   	   (MEMWB_we_i == 1 && MEMWB_Rd_i != 0 && MEMWB_Rd_i == IDEX_Rs_i) ? 2'b01 :
-																						     2'b00;
-
-	assign ALU_data2_sel = (EXMEM_we_i == 1 && EXMEM_Rd_i != 0 && EXMEM_Rd_i == IDEX_Rt_i) ? 2'b10 :
-					       (MEMWB_we_i == 1 && MEMWB_Rd_i != 0 && MEMWB_Rd_i == IDEX_Rt_i) ? 2'b01 :
-																						     2'b00;
+		if (EXMEM_we && (EXMEM_Rd != 0) && (EXMEM_Rd == IDEX_Rt))
+			ALU_data_2_sel = 2'b10;
+		else if (MEMWB_we && (MEMWB_Rd != 0) && !((EXMEM_we && (EXMEM_Rd != 0)) && (EXMEM_Rd == IDEX_Rt)) && (MEMWB_Rd == IDEX_Rt))
+			ALU_data_2_sel = 2'b01;
+		else
+			ALU_data_2_sel = 2'b00;
+	end
 
 endmodule
