@@ -6,7 +6,7 @@ module HazardDetectionUnit
 	input	[4:0]	IFIDRt_i,
 	output			IFIDwr_o,
 	output			PCwr_o,
-	output			stall,
+	output			stall
 );
 
 assign IFIDwr_o =	(IDEXMr_i == 1 && IDEXRt_i == IFIDRs_i) ? 0:
