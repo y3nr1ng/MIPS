@@ -13,3 +13,6 @@ src/project1/
 
 # Ignore OSX files.
 .DS_STORE
+
+# Diagram ~
+*.dia~
