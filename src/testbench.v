@@ -60,7 +60,7 @@ end
 
 always@(posedge clk) begin
     if(counter == 30)    // stop after 30 cycles
-        $finish;
+        $stop;
 
     // print HDU
     $fdisplay(outfile, "HDU signal");
