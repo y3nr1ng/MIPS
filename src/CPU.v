@@ -16,16 +16,19 @@ module CPU
     	.clk		(clk),
    		.rst		(rst),
    		.start      (start),
-   		.wr_enable	(HDU.PCwr_o),
+   		.we			(HDU.PCwr_o),
    		.addr_i     (PC_Mux.data_o),
    		.addr_o     ()
 	);
-
-	Multiplexer2Way PC_Mux
+	
+	// TODO: directly combine the bus and left out the LSB, instead of using shift operation.
+	Multiplexer4Way PC_Mux
 	(
 		.data_1		(PC_Inc.data_o),
-		.data_2		(PC_BranchAdd.data_o),
-		.sel		(),
+		.data_2		(32'bz),
+		.data_3		({ PC.addr_o[31:28], PC_JumpShl.data_o[27:0] }),
+		.data_4		(PC_BranchAdd.data_o),
+		.sel		(Ctrl.PC_ctrl_o),
 		.data_o		()
 	);	
 
@@ -42,7 +45,7 @@ module CPU
 		.addr_i		(PC.addr_o),
 		.cs			(1'b1),
 		.we			(1'b0),
-		.data_i		(),
+		.data_i		(),	// No input for ROM.
 		.data_o		()
 	);
 
@@ -56,8 +59,8 @@ module CPU
 	Latch #() IFID_PC_Inc
 	(
 		.clk		(clk),
-		.rst		(),
-		.en			(),
+		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
+		.en			(1'b1),
 		.data_i		(PC_Inc.data_o),
 		.data_o		()
 	);
@@ -65,8 +68,8 @@ module CPU
 	Latch #() IFID_Instr
 	(
 		.clk		(clk),
-		.rst		(),
-		.en			(),
+		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
+		.en			(1'b1),
 		.data_i		(InstrMem.data_o),
 		.data_o		(instr)
 	);
@@ -84,6 +87,7 @@ module CPU
 	wire	[4:0] 	instr_rd 	= instr[15:11];
 
 	wire	[15:0]	instr_imm	= instr[15:0];
+	wire	[26:0]	addr_imm	= instr[25:0];
 
 	Registers RegFiles
 	(
@@ -92,7 +96,7 @@ module CPU
 		.Rs_data	(),
 		.Rt_addr	(instr_rt),
 		.Rt_data	(),
-		.we			(),
+		.we			(MEMWB_WB_ctrl.data_o[0]),
 		.Rd_addr	(MEMWB_RegFwd.data_o),
 		.Rd_data	(WB_Mux.data_o)
 	);
@@ -100,6 +104,13 @@ module CPU
 	SignExtend SignExt
 	(
 		.data_i		(instr_imm),
+		.data_o		()
+	);
+
+	Shifter PC_JumpShl
+	(
+		.x			(addr_imm),
+		.y			(32'b0010),
 		.data_o		()
 	);
 	
@@ -129,80 +140,66 @@ module CPU
 
 	HazardDetectionUnit HDU
 	(
-		.IDEXMr_i(),
-		.IDEXRt_i(),
-		.IFIDRs_i(),
-		.IFIDRt_i(),
-		.IFIDwr_o(),
-		.PCwr_o(PC.wr_enable),
-		.nope_o(),
-		.Flush_o()
+		.IDEXMr_i	(),
+		.IDEXRt_i	(),
+		.IFIDRs_i	(),
+		.IFIDRt_i	(),
+		.IFIDwr_o	(),
+		.PCwr_o		(PC.we),
+		.stall		(),
+		.flush		()
 	);
 
 	GeneralControl Ctrl
 	(
 		.op_i		(instr_op),
+		.is_equal_i	(Rs_eq_Rt.is_equal),
+		.PC_ctrl_o	(),
 		.EX_ctrl_o	(),
 		.MEM_ctrl_o	(),
 		.WB_ctrl_o	()		
+	);
+
+	Multiplexer2Way #(.width(8)) Ctrl_Mux
+	(
+		.data_1		({ Ctrl.EX_ctrl_o, Ctrl.MEM_ctrl_o, Ctrl.WB_ctrl_o }),
+		.data_2		(8'b0),
+		.sel		(HDU.stall),
+		.data_o		()
 	);
 
 	//
 	// ID/EX
 	//
 
-	Multiplexer2Way #(5) HDU_EX_ctrl
-	(
-		.data_1		(Ctrl.EX_ctrl_o),
-		.data_2		(5'b0),
-		.sel		(HDU.nope_o),
-		.data_o		(IDEX_EX_ctrl.data_i)
-	);
-	
-	Multiplexer2Way #(2) HDU_MEM_ctrl
-	(
-		.data_1		(Ctrl.MEM_ctrl_o),
-		.data_2		(2'b0),
-		.sel		(HDU.nope_o),
-		.data_o		(IDEX_MEM_ctrl.data_i)
-	);
-
-	Multiplexer2Way #(1) HDU_WB_ctrl
-	(
-		.data_1		(Ctrl.WB_ctrl_o),
-		.data_2		(1'b0),
-		.sel		(HDU.nope_o),
-		.data_o		(IDEX_WB_ctrl.data_i)
-	);
-
-	Latch #(1) IDEX_WB_ctrl
+	Latch #(.width(5)) IDEX_EX_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(HDU_WB_ctrl.data_o),
+		.data_i		(Ctrl_Mux.data_o[8:4]),
 		.data_o		()
 	);
 
-	Latch #(2) IDEX_MEM_ctrl
+	Latch #(.width(2)) IDEX_MEM_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(HDU_MEM_ctrl.data_o),
+		.data_i		(Ctrl_Mux.data_o[3:2]),
 		.data_o		()
 	);
 
-	Latch #(5) IDEX_EX_ctrl
+	Latch #(.width(2)) IDEX_WB_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(HDU_EX_ctrl.data_o),
+		.data_i		(Ctrl_Mux.data_o[1:0]),
 		.data_o		()
 	);
 
-	Latch #() IDEX_PC_Inc
+	Latch IDEX_PC_Inc
 	(
 		.clk		(clk),
 		.rst		(),
@@ -211,7 +208,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #() IDEX_Data1
+	Latch IDEX_Data1
 	(
 		.clk		(clk),
 		.rst		(),
@@ -220,7 +217,7 @@ module CPU
 		.data_o		()
 	);
 	
-	Latch #() IDEX_Data2
+	Latch IDEX_Data2
 	(
 		.clk		(clk),
 		.rst		(),
@@ -229,7 +226,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #() IDEX_SignExt
+	Latch IDEX_SignExt
 	(
 		.clk		(clk),
 		.rst		(),
@@ -238,7 +235,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #(5) IDEX_RsFwd
+	Latch #(.width(5)) IDEX_RsFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -247,7 +244,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #(5) IDEX_RtFwd
+	Latch #(.width(5)) IDEX_RtFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -256,7 +253,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #(5) IDEX_RdFwd
+	Latch #(.width(5)) IDEX_RdFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -272,7 +269,7 @@ module CPU
 	
 	ALU ALU
 	(
-		.ALUop_i	(),
+		.ALUop_i	(IDEX_EX_ctrl.data_o[4:2]),
 		.data_1		(Data1_Mux.data_o),
 		.data_2		(Data2imm_Mux.data_o),
 		.data_o		(),
@@ -282,7 +279,7 @@ module CPU
 	Multiplexer4Way Data1_Mux
 	(
 		.data_1		(IDEX_Data1.data_o),
-		.data_2		(),
+		.data_2		(WB_Mux.data_o),
 		.data_3		(EXMEM_DataOut.data_o),
 		.data_4		(32'bz),
 		.sel		(FwdUnit.ALUdata1_sel_o),
@@ -292,7 +289,7 @@ module CPU
 	Multiplexer4Way Data2_Mux
 	(
 		.data_1		(IDEX_Data2.data_o),
-		.data_2		(),
+		.data_2		(WB_Mux.data_o),
 		.data_3		(EXMEM_DataOut.data_o),
 		.data_4		(32'bz),
 		.sel		(FwdUnit.ALUdata2_sel_o),
@@ -304,7 +301,7 @@ module CPU
 	(
 		.data_1		(Data2_Mux.data_o),
 		.data_2		(IDEX_SignExt.data_o),
-		.sel		(),
+		.sel		(IDEX_EX_ctrl.data_o[1]),
 		.data_o		()
 	);
 
@@ -312,18 +309,18 @@ module CPU
 	(
 		.data_1		(IDEX_RtFwd.data_o),
 		.data_2		(IDEX_RdFwd.data_o),
-		.sel		(),
+		.sel		(IDEX_EX_ctrl.data_o[0]),
 		.data_o		()
 	);
 
 	ForwardingUnit FwdUnit
 	(
-		.EXMEM_rw_i	(EXMEM_WB_ctrl.data_o),
-		.MEMWB_rw_i	(MEMWB_WB_ctrl.data_o),
-		.IDEX_Rs_i	(IDEX_RsFwd.data_o),
-		.IDEX_Rt_i	(IDEX_RtFwd.data_o),
-		.EXMEM_Rd_i	(EXMEM_RegFwd.data_o),
-		.MEMWB_Rd_i	(MEMWB_RegFwd.data_o),
+		.EXMEM_rw_i			(EXMEM_WB_ctrl.data_o),
+		.MEMWB_rw_i			(MEMWB_WB_ctrl.data_o),
+		.IDEX_Rs_i			(IDEX_RsFwd.data_o),
+		.IDEX_Rt_i			(IDEX_RtFwd.data_o),
+		.EXMEM_Rd_i			(EXMEM_RegFwd.data_o),
+		.MEMWB_Rd_i			(MEMWB_RegFwd.data_o),
 		.ALUdata1_sel_o		(Data1_Mux.sel),
 		.ALUdata2_sel_o		(Data2_Mux.sel)
 	);
@@ -386,8 +383,8 @@ module CPU
 	(
 		.clk		(clk),
 		.addr_i		(EXMEM_DataOut.data_o),
-		.cs			(),
-		.we			(),
+		.cs			(EXMEM_MEM_ctrl.data_o[1]),
+		.we			(EXMEM_MEM_ctrl.data_o[0]),
 		.data_i		(EXMEM_Data2.data_o),
 		.data_o		()
 	);
@@ -442,7 +439,7 @@ module CPU
 	(
 		.data_1		(MEMWB_MemOut.data_o),
 		.data_2		(MEMWB_AddrOut.data_o),
-		.sel		(),
+		.sel		(MEMWB_WB_ctrl.data_o[1]),
 		.data_o		()
 	);
 

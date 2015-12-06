@@ -17,18 +17,21 @@ module Memory
 	always @ (posedge clk)
 		if(cs)
 		begin
-			// CS = Chip Select, select to read
-			data_o = memory[addr_i >> 2];
+			if(we) 
+			begin
+				// WE = Write Enable, select to write, output remain the same.
+				memory[addr_i >> 2] <= data_i;
+			end
+			else
+			begin
+				// CS = Chip Select, select to read, update the output.
+				data_o = memory[addr_i >> 2];
+			end
 		end
 		else 
 		begin
 			// Turn off the output pin.
 			data_o = {width{1'bz}};
-			
-			if(we) begin
-				// WE = Write Enable, select to write
-				memory[addr_i >> 2] <= data_i;
-			end
 		end
 
 endmodule
