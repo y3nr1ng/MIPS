@@ -160,7 +160,7 @@ module CPU
 		.WB_ctrl_o	()		
 	);
 
-	Multiplexer2Way #(.size(8)) Ctrl_Mux
+	Multiplexer2Way #(.width(8)) Ctrl_Mux
 	(
 		.data_1		({ Ctrl.EX_ctrl_o, Ctrl.MEM_ctrl_o, Ctrl.WB_ctrl_o }),
 		.data_2		(8'b0),
@@ -172,34 +172,34 @@ module CPU
 	// ID/EX
 	//
 
-	Latch #(5) IDEX_EX_ctrl
+	Latch #(.width(5)) IDEX_EX_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(Ctrl_Mux.data_o[7:3]),
+		.data_i		(Ctrl_Mux.data_o[8:4]),
 		.data_o		()
 	);
 
-	Latch #(2) IDEX_MEM_ctrl
+	Latch #(.width(2)) IDEX_MEM_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(Ctrl_Mux.data_o[2:1]),
+		.data_i		(Ctrl_Mux.data_o[3:2]),
 		.data_o		()
 	);
 
-	Latch #(1) IDEX_WB_ctrl
+	Latch #(.width(2)) IDEX_WB_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
 		.en			(),
-		.data_i		(Ctrl_Mux.data_o[0:0]),
+		.data_i		(Ctrl_Mux.data_o[1:0]),
 		.data_o		()
 	);
 
-	Latch #() IDEX_PC_Inc
+	Latch IDEX_PC_Inc
 	(
 		.clk		(clk),
 		.rst		(),
@@ -208,7 +208,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #() IDEX_Data1
+	Latch IDEX_Data1
 	(
 		.clk		(clk),
 		.rst		(),
@@ -217,7 +217,7 @@ module CPU
 		.data_o		()
 	);
 	
-	Latch #() IDEX_Data2
+	Latch IDEX_Data2
 	(
 		.clk		(clk),
 		.rst		(),
@@ -226,7 +226,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #() IDEX_SignExt
+	Latch IDEX_SignExt
 	(
 		.clk		(clk),
 		.rst		(),
@@ -235,7 +235,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #(5) IDEX_RsFwd
+	Latch #(.width(5)) IDEX_RsFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -244,7 +244,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #(5) IDEX_RtFwd
+	Latch #(.width(5)) IDEX_RtFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -253,7 +253,7 @@ module CPU
 		.data_o		()
 	);
 
-	Latch #(5) IDEX_RdFwd
+	Latch #(.width(5)) IDEX_RdFwd
 	(
 		.clk		(clk),
 		.rst		(),
@@ -269,7 +269,7 @@ module CPU
 	
 	ALU ALU
 	(
-		.ALUop_i	(),
+		.ALUop_i	(IDEX_EX_ctrl.data_o[4:2]),
 		.data_1		(Data1_Mux.data_o),
 		.data_2		(Data2imm_Mux.data_o),
 		.data_o		(),
@@ -301,7 +301,7 @@ module CPU
 	(
 		.data_1		(Data2_Mux.data_o),
 		.data_2		(IDEX_SignExt.data_o),
-		.sel		(),
+		.sel		(IDEX_EX_ctrl.data_o[1]),
 		.data_o		()
 	);
 
@@ -309,7 +309,7 @@ module CPU
 	(
 		.data_1		(IDEX_RtFwd.data_o),
 		.data_2		(IDEX_RdFwd.data_o),
-		.sel		(),
+		.sel		(IDEX_EX_ctrl.data_o[0]),
 		.data_o		()
 	);
 

@@ -50,17 +50,14 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Multiplexer2Way
 
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {0 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module GeneralControl
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(88): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(89): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(90): near ";": syntax error, unexpected ';'
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(95): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(96): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(97): near ";": syntax error, unexpected ';'
 
-} {4.0 10.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v}
+Top level modules:
+	GeneralControl
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module ProgramCounter
 

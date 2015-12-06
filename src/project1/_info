@@ -93,13 +93,13 @@ r1
 R4
 n@comparer
 vCPU
-R1
+!s110 1449412859
 !i10b 1
-!s100 <CM<F3E7UGUb2h2`JZjln3
-IBThY<Sk6BM^cMRh4hD[5;1
+!s100 TiA?@Pm63?6=:=aS1nb?U2
+InMi<F@UaHC;2kXNfEf6HP2
 R2
 R0
-w1449411685
+w1449412854
 8Z:/ca_pj1/src/CPU.v
 FZ:/ca_pj1/src/CPU.v
 L0 3
@@ -107,7 +107,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449412509.345000
+!s108 1449412859.612000
 !s107 LookupTable.v|Z:/ca_pj1/src/CPU.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/CPU.v|
 !i113 1
@@ -511,7 +511,7 @@ r1
 R4
 n@program@counter
 vRegisters
-R5
+!s110 1449412856
 !i10b 1
 !s100 o2YZencHc2z`CC4?nE5k90
 IlmIU_YAfNAXGGlb8:ON3J1
@@ -525,7 +525,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449412512.268000
+!s108 1449412856.201000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/Registers.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Registers.v|
 !i113 1
