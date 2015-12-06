@@ -59,6 +59,10 @@ always@(posedge clk) begin
     if(counter == 30)    // stop after 30 cycles
         $finish;
 
+    // print HDU
+    $fdisplay(outfile, "HDU signal");
+    $fdisplay(outfile, "IFIDwr_o = %d, PCwr_o = %d, nope_o = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.nope_o, CPU.HDU.Flush_o);
+
     // count stall and flush
 	if(CPU.HDU.mux8_o == 1 && CPU.Control.Jump_o == 0 && CPU.Control.Branch_o == 0)
 		stall = stall + 1;
