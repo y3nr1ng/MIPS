@@ -50,6 +50,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	GeneralControl
 
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module ProgramCounter
+
+Top level modules:
+	ProgramCounter
+
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Multiplexer4Way
@@ -64,19 +71,19 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Memory_TestBench
 
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory.v}
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Memory
-
-Top level modules:
-	Memory
-
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module HazardDetectionUnit
 
 Top level modules:
 	HazardDetectionUnit
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Memory
+
+Top level modules:
+	Memory
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014

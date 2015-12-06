@@ -2,16 +2,17 @@
 
 module TestBench;
 
-reg                clk;
-reg                start;
-integer            i, outfile, counter;
-integer            stall, flush;
+reg         clk;
+reg			reset;
+reg         start;
+integer     i, outfile, counter;
+integer     stall, flush;
 
 always #(`CYCLE_TIME/2) clk = ~clk;
 
 CPU CPU(
     .clk	(clk),
-	.rst	(),
+	.rst	(reset),
     .start	(start)
 );
 
@@ -36,22 +37,24 @@ initial begin
     end
 
     // Load instructions into instruction memory
-    $readmemb("..\dat\instruction.txt", CPU.InstrMem.memory);
+    $readmemb("instruction.txt", CPU.InstrMem.memory);
 
     // Open output file
-    outfile = $fopen("..\dat\output2.txt") | 1;
+    outfile = $fopen("../dat/output2.txt") | 1;
 
     // Set Input n into data memory at 0x00
     CPU.DataMem.memory[0] = 8'h5;       // n = 5 for example
 
-    clk = 1;
-    //Reset = 0;
+    clk = 0;
+    reset = 0;
     start = 0;
 
     #(`CYCLE_TIME/4)
-    //Reset = 1;
+    reset = 1;
     start = 1;
 
+	#(`CYCLE_TIME/2)
+	reset = 0;
 
 end
 
@@ -61,7 +64,7 @@ always@(posedge clk) begin
 
     // print HDU
     $fdisplay(outfile, "HDU signal");
-    $fdisplay(outfile, "IFIDwr_o = %d, PCwr_o = %d, nope_o = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.stall, CPU.HDU.flush);
+    $fdisplay(outfile, "IFIDwr_o = %d, PCwr_o = %d, nope_o = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.stall,CPU.Ctrl.PC_ctrl_o[1]);
 
     // count stall and flush
 	if(CPU.HDU.stall == 1 && CPU.Ctrl.PC_ctrl_o == 2'b00)

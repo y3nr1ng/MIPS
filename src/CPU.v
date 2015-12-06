@@ -17,6 +17,7 @@ module CPU
    		.rst		(rst),
    		.start      (start),
    		.we			(HDU.PCwr_o),
+		//.we			(1'b1),
    		.addr_i     (PC_Mux.data_o),
    		.addr_o     ()
 	);
@@ -56,20 +57,20 @@ module CPU
 	
 	wire	[31:0]	instr;
 
-	Latch #() IFID_PC_Inc
+	Latch IFID_PC_Inc
 	(
 		.clk		(clk),
 		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
-		.en			(1'b1),
+		.en			(HDU.IFIDwr_o),
 		.data_i		(PC_Inc.data_o),
 		.data_o		()
 	);
 
-	Latch #() IFID_Instr
+	Latch IFID_Instr
 	(
 		.clk		(clk),
 		.rst		(Ctrl.PC_ctrl_o[1]),	// Perform reset when jump or branch.
-		.en			(1'b1),
+		.en			(HDU.IFIDwr_o),
 		.data_i		(InstrMem.data_o),
 		.data_o		(instr)
 	);
@@ -87,7 +88,7 @@ module CPU
 	wire	[4:0] 	instr_rd 	= instr[15:11];
 
 	wire	[15:0]	instr_imm	= instr[15:0];
-	wire	[26:0]	addr_imm	= instr[25:0];
+	wire	[25:0]	addr_imm	= instr[25:0];
 
 	Registers RegFiles
 	(
@@ -109,7 +110,7 @@ module CPU
 
 	Shifter PC_JumpShl
 	(
-		.x			(addr_imm),
+		.x			({ 6'b0, addr_imm }),
 		.y			(32'b0010),
 		.data_o		()
 	);
@@ -140,14 +141,13 @@ module CPU
 
 	HazardDetectionUnit HDU
 	(
-		.IDEXMr_i	(),
-		.IDEXRt_i	(),
-		.IFIDRs_i	(),
-		.IFIDRt_i	(),
-		.IFIDwr_o	(),
+		.IDEXMr_i	(IDEX_MEM_ctrl.data_o),
+		.IDEXRt_i	(IDEX_RtFwd.data_o),
+		.IFIDRs_i	(instr_rs),
+		.IFIDRt_i	(instr_rt),
+		.IFIDwr_o	(IFID_Instr.en),
 		.PCwr_o		(PC.we),
-		.stall		(),
-		.flush		()
+		.stall		(Ctrl_Mux.sel)
 	);
 
 	GeneralControl Ctrl
@@ -160,10 +160,10 @@ module CPU
 		.WB_ctrl_o	()		
 	);
 
-	Multiplexer2Way #(.width(8)) Ctrl_Mux
+	Multiplexer2Way #(.width(9)) Ctrl_Mux
 	(
 		.data_1		({ Ctrl.EX_ctrl_o, Ctrl.MEM_ctrl_o, Ctrl.WB_ctrl_o }),
-		.data_2		(8'b0),
+		.data_2		(9'b0),
 		.sel		(HDU.stall),
 		.data_o		()
 	);
@@ -282,7 +282,7 @@ module CPU
 		.data_2		(WB_Mux.data_o),
 		.data_3		(EXMEM_DataOut.data_o),
 		.data_4		(32'bz),
-		.sel		(FwdUnit.ALUdata1_sel_o),
+		.sel		(FwdUnit.ALU_data1_sel),
 		.data_o		()
 	);
 
@@ -292,7 +292,7 @@ module CPU
 		.data_2		(WB_Mux.data_o),
 		.data_3		(EXMEM_DataOut.data_o),
 		.data_4		(32'bz),
-		.sel		(FwdUnit.ALUdata2_sel_o),
+		.sel		(FwdUnit.ALU_data2_sel),
 		.data_o		()
 	);
 	
@@ -305,7 +305,7 @@ module CPU
 		.data_o		()
 	);
 
-	Multiplexer2Way #(5) Fwd_Mux
+	Multiplexer2Way #(.width(5)) Fwd_Mux
 	(
 		.data_1		(IDEX_RtFwd.data_o),
 		.data_2		(IDEX_RdFwd.data_o),
@@ -315,61 +315,61 @@ module CPU
 
 	ForwardingUnit FwdUnit
 	(
-		.EXMEM_rw_i			(EXMEM_WB_ctrl.data_o),
-		.MEMWB_rw_i			(MEMWB_WB_ctrl.data_o),
+		.EXMEM_we_i			(EXMEM_WB_ctrl.data_o[0]),
+		.MEMWB_we_i			(MEMWB_WB_ctrl.data_o[0]),
 		.IDEX_Rs_i			(IDEX_RsFwd.data_o),
 		.IDEX_Rt_i			(IDEX_RtFwd.data_o),
 		.EXMEM_Rd_i			(EXMEM_RegFwd.data_o),
 		.MEMWB_Rd_i			(MEMWB_RegFwd.data_o),
-		.ALUdata1_sel_o		(Data1_Mux.sel),
-		.ALUdata2_sel_o		(Data2_Mux.sel)
+		.ALU_data1_sel		(),
+		.ALU_data2_sel		()
 	);
 
 	//
 	// EX/MEM
 	//
-
-	Latch #(1) EXMEM_WB_ctrl
-	(
-		.clk		(clk),
-		.rst		(),
-		.en			(),
-		.data_i		(IDEX_WB_ctrl.data_o),
-		.data_o		()
-	);
 	
-	Latch #(2) EXMEM_MEM_ctrl
+	Latch #(.width(2)) EXMEM_MEM_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(IDEX_MEM_ctrl.data_o),
 		.data_o		()
 	);
 
-	Latch #() EXMEM_DataOut
+	Latch #(.width(2)) EXMEM_WB_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
+		.data_i		(IDEX_WB_ctrl.data_o),
+		.data_o		()
+	);
+	
+	Latch EXMEM_DataOut
+	(
+		.clk		(clk),
+		.rst		(),
+		.en			(1'b1),
 		.data_i		(ALU.data_o),
 		.data_o		()
 	);
 
-	Latch #() EXMEM_Data2
+	Latch EXMEM_Data2
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(Data2_Mux.data_o),
 		.data_o		()
 	);
 
-	Latch #(5) EXMEM_RegFwd
+	Latch #(.width(5)) EXMEM_RegFwd
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(Fwd_Mux.data_o),
 		.data_o		()
 	);
@@ -394,43 +394,42 @@ module CPU
 	// MEM/WB
 	//
 
-	Latch #(1) MEMWB_WB_ctrl
+	Latch #(.width(2)) MEMWB_WB_ctrl
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(EXMEM_WB_ctrl.data_o),
 		.data_o		()
 	);
 
-	Latch #() MEMWB_MemOut
+	Latch MEMWB_MemOut
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(DataMem.data_o),
 		.data_o		()
 	);
 
-	Latch #() MEMWB_AddrOut
+	Latch MEMWB_AddrOut
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(EXMEM_DataOut.data_o),
 		.data_o		()
 	);
 
-	Latch #(5) MEMWB_RegFwd
+	Latch #(.width(5)) MEMWB_RegFwd
 	(
 		.clk		(clk),
 		.rst		(),
-		.en			(),
+		.en			(1'b1),
 		.data_i		(EXMEM_RegFwd.data_o),
 		.data_o		()
 	);
 
-	
 	//
 	// WB
 	//
