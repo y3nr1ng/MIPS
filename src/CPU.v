@@ -141,7 +141,7 @@ module CPU
 
 	HazardDetectionUnit HDU
 	(
-		.IDEXMr_i	(IDEX_MEM_ctrl.data_o),
+		.IDEXMr_i	(IDEX_MEM_ctrl.data_o[1]),
 		.IDEXRt_i	(IDEX_RtFwd.data_o),
 		.IFIDRs_i	(instr_rs),
 		.IFIDRt_i	(instr_rt),
