@@ -106,7 +106,11 @@ module GeneralControl (
 
 			`BEQ_op	:
 			begin
-				PC_ctrl_o	= { 2{is_equal_i} };
+				// Identify the condition.
+				if	(is_equal_i)
+					PC_ctrl_o	= { 1'b1, 1'b1 };
+				else
+					PC_ctrl_o	= { 1'b0, 1'b0 };
 				EX_ctrl_o	= { 6'bz, 1'bz, 1'bz };
 				MEM_ctrl_o	= { 1'bz, 1'b0 };
 				WB_ctrl_o	= { 1'bz, 1'b0 };
