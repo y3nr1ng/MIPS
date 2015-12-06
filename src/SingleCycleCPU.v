@@ -293,8 +293,8 @@ Latch #(.width(5)) EXMEM_RegFwd (
 Memory #(.size(32)) DataMem (
 	.clk			(clk),
 	.addr_i			(EXMEM_ALU_output.data_o),
-	.cs				(1'b1), // TODO
-	.we				(1'b0), // TODO
+	.cs				(MEM_cs_wire),
+	.we				(MEM_we_wire),
 	.data_i			(EXMEM_ALU_data_2.data_o),
 	.data_o			()
 );
