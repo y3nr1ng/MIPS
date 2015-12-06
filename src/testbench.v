@@ -45,7 +45,7 @@ initial begin
     // Set Input n into data memory at 0x00
     //CPU.DataMem.memory[0] = 8'h5;       // n = 5 for example
 
-    clk = 1;
+    clk = 0;
 	start = 0;
     reset = 0;
 

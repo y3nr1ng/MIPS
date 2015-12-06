@@ -1,6 +1,6 @@
 HDU signal
 cycle =           0, start = 0, Stall =           0, Flush =           0
-PC =          x
+PC =          0
 
 
 HDU signal
@@ -10,141 +10,141 @@ PC =          0
 
 HDU signal
 cycle =           2, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =          4
 
 
 HDU signal
 cycle =           3, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =          8
 
 
 HDU signal
 cycle =           4, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         12
 
 
 HDU signal
 cycle =           5, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         16
 
 
 HDU signal
 cycle =           6, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         20
 
 
 HDU signal
 cycle =           7, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         24
 
 
 HDU signal
 cycle =           8, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         28
 
 
 HDU signal
 cycle =           9, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         32
 
 
 HDU signal
 cycle =          10, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         36
 
 
 HDU signal
 cycle =          11, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         40
 
 
 HDU signal
 cycle =          12, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         44
 
 
 HDU signal
 cycle =          13, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         48
 
 
 HDU signal
 cycle =          14, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         52
 
 
 HDU signal
 cycle =          15, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         56
 
 
 HDU signal
 cycle =          16, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         60
 
 
 HDU signal
 cycle =          17, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         64
 
 
 HDU signal
 cycle =          18, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         68
 
 
 HDU signal
 cycle =          19, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         72
 
 
 HDU signal
 cycle =          20, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         76
 
 
 HDU signal
 cycle =          21, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         80
 
 
 HDU signal
 cycle =          22, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         84
 
 
 HDU signal
 cycle =          23, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         88
 
 
 HDU signal
 cycle =          24, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         92
 
 
 HDU signal
 cycle =          25, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =         96
 
 
 HDU signal
 cycle =          26, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =        100
 
 
 HDU signal
 cycle =          27, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =        104
 
 
 HDU signal
 cycle =          28, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =        108
 
 
 HDU signal
 cycle =          29, start = 1, Stall =           0, Flush =           0
-PC =          0
+PC =        112
 
 
