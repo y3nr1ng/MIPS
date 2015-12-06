@@ -21,9 +21,9 @@ initial begin
     stall = 0;
     flush = 0;
 
-    // initialize instruction memory
+    // Initialize instruction memory.
     for(i=0; i<256; i=i+1) begin
-        //CPU.InstrMem.memory[i] = 32'b0;
+        CPU.InstrMem.memory[i] = 32'b0;
     end
 
     // initialize data memory
@@ -37,10 +37,10 @@ initial begin
     end
 
     // Load instructions into instruction memory
-    //$readmemb("instruction.txt", CPU.InstrMem.memory);
+    $readmemb("instruction.txt", CPU.InstrMem.memory);
 
     // Open output file
-    outfile = $fopen("../dat/output2.txt") | 1;
+    //outfile = $fopen("../dat/output2.txt") | 1;
 
     // Set Input n into data memory at 0x00
     //CPU.DataMem.memory[0] = 8'h5;       // n = 5 for example
