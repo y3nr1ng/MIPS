@@ -98,9 +98,9 @@ Registers RegFiles (
 	.Rt_addr		(instr_rt),
 	.Rs_data		(),
 	.Rt_data		(),
-	.we				(1'b0),	// TODO
+	.we				(Reg_we_wire),
 	.Rd_addr		(), // TODO
-	.Rd_data	 	() // TODO
+	.Rd_data	 	(WB_Mux.data_o)
 );
 
 Comparer Rs_eq_Rt (
@@ -303,11 +303,40 @@ Memory #(.size(32)) DataMem (
 /**
  * MEM/WB
  */
+Latch #(.width(2)) MEMWB_WB_ctrl (
+	.clk			(clk),
+	.rst			(1'b0), // TODO
+	.en				(1'b1),
+	.data_i			(IDEX_WB_ctrl.data_o),
+	.data_o			(WB_ctrl)
+);
+
+Latch MEMWB_ALU_output (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(EXMEM_ALU_output.data_o),
+	.data_o			()
+);
+
+Latch MEMWB_Mem_output (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(DataMem.data_o),
+	.data_o			()
+);
 
 
 /**
  * WB
  */
+Multiplexer2Way WB_Mux (
+	.data_1			(MEMWB_Mem_output.data_o),
+	.data_2			(MEMWB_ALU_output.data_o),
+	.sel			(WB_mux_wire),
+	.data_o			()
+);
 
 
 endmodule
