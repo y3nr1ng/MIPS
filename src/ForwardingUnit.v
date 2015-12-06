@@ -1,6 +1,6 @@
 module ForwardingUnit(
-	input	EXMEM_rw_i,
-	input	MEMWB_rw_i,
+	input			EXMEM_rw_i,
+	input			MEMWB_rw_i,
 	input	[4:0]	IDEX_Rs_i,
 	input	[4:0]	IDEX_Rt_i,
 	input	[4:0]	EXMEM_Rd_i,
