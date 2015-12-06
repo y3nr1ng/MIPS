@@ -11,17 +11,26 @@ module SingleCycleCPU
  * Internal bus declarations
  */
 wire		[31:0]	instr;
+	wire		[5:0]	instr_op	= instr[31:26];
+	wire		[5:0]	instr_func	= instr[5:0];
+	wire		[4:0]	instr_rs	= instr[25:21];
+	wire		[4:0]	instr_rt	= instr[20:16];
+	wire		[4:0]	instr_rd	= instr[15:11];
+	wire		[15:0]	instr_imm	= instr[15:0];
+	wire		[25:0]	addr_imm 	= instr[25:0];
 
-wire		[5:0]	instr_op	= instr[31:26];
-wire		[5:0]	instr_func	= instr[5:0];
+wire		[4:0]	EX_ctrl;
+	wire		[2:0]	ALUop_wire	= EX_ctrl[4:2];
+	wire				ALUsrc_wire	= EX_ctrl[1];
+	wire				RegDst_wire	= EX_ctrl[0];
 
-wire		[4:0]	instr_rs	= instr[25:21];
-wire		[4:0]	instr_rt	= instr[20:16];
-wire		[4:0]	instr_rd	= instr[15:11];
+wire		[1:0]	MEM_ctrl;
+	wire				MEM_cs_wire	= MEM_ctrl[1];
+	wire				MEM_we_wire	= MEM_ctrl[0];
 
-wire		[15:0]	instr_imm	= instr[15:0];
-wire		[25:0]	addr_imm 	= instr[25:0];
-
+wire		[1:0]	WB_ctrl;
+	wire				WB_mux_wire	= WB_ctrl[1];
+	wire				Reg_we_wire = WB_ctrl[0];
 /**
  * IF
  */
@@ -122,5 +131,94 @@ GeneralControl Ctrl (
 	.WB_ctrl_o		()
 );
 
+
+/**
+ * ID/EX
+ */
+Latch IDEX_EX_ctrl (
+	.clk			(clk),
+	.rst			(1'b0), // TODO
+	.en				(1'b1),
+	.data_i			(Ctrl.EX_ctrl_o),
+	.data_o			(EX_ctrl)
+);
+
+Latch IDEX_MEM_ctrl (
+	.clk			(clk),
+	.rst			(1'b0), // TODO
+	.en				(1'b1),
+	.data_i			(Ctrl.MEM_ctrl_o),
+	.data_o			()
+);
+
+Latch IDEX_WB_ctrl (
+	.clk			(clk),
+	.rst			(1'b0), // TODO
+	.en				(1'b1),
+	.data_i			(Ctrl.WB_ctrl_o),
+	.data_o			()
+);
+
+Latch IDEX_Rs_data (
+	.clk			(clk),
+	.rst			(1'b0), // TODO
+	.en				(1'b1),
+	.data_i			(RegFiles.Rs_data),
+	.data_o			()
+);
+
+Latch IDEX_Rt_data (
+	.clk			(clk),
+	.rst			(1'b0), // TODO
+	.en				(1'b1),
+	.data_i			(RegFiles.Rt_data),
+	.data_o			()	
+);
+
+Latch IDEX_imm_data (
+	.clk			(clk),
+	.rst			(1'b0), // TODO
+	.en				(1'b1),
+	.data_i			(SignExt.data_o),
+	.data_o			()
+);
+
+
+
+/**
+ * EX
+ */
+Multiplexer4Way Data_1_Mux (
+	.data_1			(IDEX_Rs_data.data_o),
+	.data_2			(32'bz), // TODO
+	.data_3			(32'bz), // TODO
+	.data_4			(32'bz), // TODO
+	.sel			(2'b00), // TODO
+	.data_o			()
+);
+
+Multiplexer4Way Data_2_Mux (
+	.data_1			(IDEX_Rt_data.data_o),
+	.data_2			(32'bz), // TODO
+	.data_3			(32'bz), // TODO
+	.data_4			(32'bz), // TODO
+	.sel			(2'b00), // TODO
+	.data_o			()
+);
+
+Multiplexer2Way Data_2_imm_Mux (
+	.data_1			(Data_2_Mux.data_o),
+	.data_2			(IDEX_imm_data.data_o),
+	.sel			(ALUsrc_wire),
+	.data_o			()
+);
+
+ALU ALU (
+	.ALUop_i		(ALUop_wire),
+	.data_1			(Data_1_Mux.data_o),
+	.data_2			(Data_2_imm_Mux.data_o),
+	.data_o			(),
+	.is_zero		()
+);
 
 endmodule
