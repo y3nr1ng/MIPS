@@ -1,7 +1,7 @@
 HDU signal
 IFIDwr_o = x, PCwr_o = x, nope_o = x, Flush_o = z
-cycle =           0, start = 1, Stall =           0, Flush =           0
-PC =          0
+cycle =           0, start = 0, Stall =           0, Flush =           0
+PC =          x
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
 R1(at) =          0, R9 (t1) =          0, R17(s1) =          0, R25(t9) =          0

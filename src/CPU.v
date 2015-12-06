@@ -10,6 +10,11 @@ module CPU
 	//
 	// IF
 	//
+	
+	reg 	PC_enable;
+	initial begin
+		PC_enable = 1;
+	end
 
 	ProgramCounter PC
 	(
@@ -17,7 +22,7 @@ module CPU
    		.rst		(rst),
    		.start      (start),
    		//.we			(HDU.PCwr_o),
-		.we			(1'b1),
+		.we			(PC_enable),
    		.addr_i     (PC_Mux.data_o),
    		.addr_o     ()
 	);
