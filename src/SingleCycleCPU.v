@@ -56,6 +56,26 @@ Memory #(.size(1024)) InstrMem (
 	.cs				(1'b1),
 	.we				(1'b0),
 	.data_i			(),
+	.data_o			()
+);
+
+
+/**
+ * IF/ID
+ */
+Latch IFID_PC_Inc (
+	.clk			(clk),
+	.rst			(1'b0), // TODO
+	.en				(1'b1),
+	.data_i			(PC_Inc.data_o),
+	.data_o			()
+);
+
+Latch IFID_Instr (
+	.clk			(clk),
+	.rst			(1'b0), // TODO
+	.en				(1'b1),
+	.data_i			(InstrMem.data_o),
 	.data_o			(instr)
 );
 
@@ -74,15 +94,32 @@ Registers RegFiles (
 	.Rd_data		()
 );
 
+Comparer Rs_eq_Rt (
+	.data_1			(RegFiles.Rs_data),
+	.data_2			(RegFiles.Rt_data),
+	.is_greater		(),
+	.is_equal		(),
+	.is_less		()
+);
+
 SignExtend SignExt (
 	.data_i			(instr_imm),
 	.data_o			()
 );
 
 Adder PC_BranchAddr (
-	.data_1			(PC_Inc.data_o),
+	.data_1			(IFID_PC_Inc.data_o),
 	.data_2			({ SignExt.data_o[31:2], 2'b0 }),
 	.data_o			()
+);
+
+GeneralControl Ctrl (
+	.op_i			(instr_op),
+	.is_equal_i		(Rs_eq_Rt.is_equal),
+	.PC_ctrl_o		(),
+	.EX_ctrl_o		(),
+	.MEM_ctrl_o		(),
+	.WB_ctrl_o		()
 );
 
 
