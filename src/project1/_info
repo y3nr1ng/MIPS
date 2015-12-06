@@ -177,13 +177,13 @@ r1
 R4
 n@general@control
 vHazardDetectionUnit
-R5
+!s110 1449437511
 !i10b 1
-!s100 HN<D;naM>dQ;8<gHRf_JM3
-IlBD>z6QZzQNA::Vd6eLn80
+!s100 >e1C2];0ECDR_b1R9Z5QJ1
+I[6<3_lV?NcK0U;3:B3?8;2
 R2
 R0
-w1449414786
+w1449437510
 8//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v
 F//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v
 L0 1
@@ -191,7 +191,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449433930.630000
+!s108 1449437511.645000
 !s107 //vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v|
 !i113 1
@@ -239,27 +239,6 @@ R15
 !i113 1
 R4
 n@instruction@memory
-vLatch
-R8
-!i10b 1
-!s100 NUY47UXhz7PH`[J1z`zbS0
-IP5VYdMXSd4fOL0:efYFc;0
-R2
-R0
-w1449424366
-Z16 8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
-Z17 F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
-L0 1
-R3
-r1
-!s85 0
-31
-!s108 1449433928.428000
-Z18 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
-Z19 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
-!i113 1
-R4
-n@latch
 vlatch
 !s110 1449114262
 !i10b 1
@@ -268,6 +247,26 @@ Izzb`QecZ[NNgLXSmURdSR2
 R2
 R0
 w1449113381
+Z16 8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+Z17 F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449114262.212000
+Z18 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+Z19 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+!i113 1
+R4
+vLatch
+R8
+!i10b 1
+!s100 NUY47UXhz7PH`[J1z`zbS0
+IP5VYdMXSd4fOL0:efYFc;0
+R2
+R0
+w1449424366
 R16
 R17
 L0 1
@@ -275,11 +274,12 @@ R3
 r1
 !s85 0
 31
-!s108 1449114262.212000
+!s108 1449433928.428000
 R18
 R19
 !i113 1
 R4
+n@latch
 vLatch_TestBench
 R6
 !i10b 1
@@ -574,13 +574,13 @@ r1
 R4
 n@sign@extend
 vSingleCycleCPU
-!s110 1449434739
+!s110 1449437464
 !i10b 1
-!s100 N>ch^A?^7918CGlX11g`g2
-I[Q:GSzaT?A1:E6:2^3>SI2
+!s100 ZC[E?Dc^5o?WCg;Qh<IKL1
+IE>M1WKIR2K3WGWj3f<T<A2
 R2
 R0
-w1449434735
+w1449437345
 8//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v
 F//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v
 L0 3
@@ -588,7 +588,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449434738.997000
+!s108 1449437464.843000
 !s107 LookupTable.v|//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v|
 !i113 1
