@@ -16,7 +16,7 @@ module CPU
     	.clk		(clk),
    		.rst		(rst),
    		.start      (start),
-   		.wr_enable	(HDU.PCwr_o),
+   		.we			(HDU.PCwr_o),
    		.addr_i     (PC_Mux.data_o),
    		.addr_o     ()
 	);
@@ -140,14 +140,14 @@ module CPU
 
 	HazardDetectionUnit HDU
 	(
-		.IDEXMr_i(),
-		.IDEXRt_i(),
-		.IFIDRs_i(),
-		.IFIDRt_i(),
-		.IFIDwr_o(),
-		.PCwr_o(PC.wr_enable),
-		.nope_o(),
-		.Flush_o()
+		.IDEXMr_i	(),
+		.IDEXRt_i	(),
+		.IFIDRs_i	(),
+		.IFIDRt_i	(),
+		.IFIDwr_o	(),
+		.PCwr_o		(PC.we),
+		.stall		(),
+		.flush		()
 	);
 
 	GeneralControl Ctrl
@@ -164,7 +164,7 @@ module CPU
 	(
 		.data_1		({ Ctrl.EX_ctrl_o, Ctrl.MEM_ctrl_o, Ctrl.WB_ctrl_o }),
 		.data_2		(8'b0),
-		.sel		(HDU.nope_o),
+		.sel		(HDU.stall),
 		.data_o		()
 	);
 
