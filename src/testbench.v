@@ -52,7 +52,7 @@ initial begin
 	#(`CYCLE_TIME/4)
 	reset = 1;
 
-    #(`CYCLE_TIME/2)
+    #(`CYCLE_TIME)
     reset = 0;
 	
 	#(`CYCLE_TIME/2)

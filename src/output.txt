@@ -21,7 +21,7 @@ Data Memory: 0x1c =                                       0
 
 
 HDU signal
-cycle =           1, start = 1, Stall =           0, Flush =           0
+cycle =           1, start = 0, Stall =           0, Flush =           0
 PC =          0
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
@@ -44,7 +44,7 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =           2, start = 1, Stall =           0, Flush =           0
-PC =          4
+PC =          0
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
 R1(at) =          0, R9 (t1) =          0, R17(s1) =          0, R25(t9) =          0
@@ -66,7 +66,7 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =           3, start = 1, Stall =           0, Flush =           0
-PC =          8
+PC =          4
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
 R1(at) =          0, R9 (t1) =          0, R17(s1) =          0, R25(t9) =          0
@@ -88,7 +88,7 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =           4, start = 1, Stall =           0, Flush =           0
-PC =         12
+PC =          8
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
 R1(at) =          0, R9 (t1) =          0, R17(s1) =          0, R25(t9) =          0
@@ -110,7 +110,7 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =           5, start = 1, Stall =           0, Flush =           0
-PC =         16
+PC =         12
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
 R1(at) =          0, R9 (t1) =          0, R17(s1) =          0, R25(t9) =          0
@@ -132,7 +132,7 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =           6, start = 1, Stall =           0, Flush =           0
-PC =         20
+PC =         16
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
 R1(at) =          0, R9 (t1) =          0, R17(s1) =          0, R25(t9) =          0
@@ -154,7 +154,7 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =           7, start = 1, Stall =           0, Flush =           0
-PC =         24
+PC =         20
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
 R1(at) =          0, R9 (t1) =          0, R17(s1) =          0, R25(t9) =          0
@@ -176,10 +176,10 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =           8, start = 1, Stall =           0, Flush =           0
-PC =         28
+PC =         24
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         10, R17(s1) =          0, R25(t9) =          0
+R1(at) =          0, R9 (t1) =          0, R17(s1) =          0, R25(t9) =          0
 R2(v0) =          0, R10(t2) =          0, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
@@ -198,17 +198,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =           9, start = 1, Stall =           0, Flush =           0
-PC =         32
+PC =         28
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         10, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         13, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =          0, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =          0, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                                       0
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -220,17 +220,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          10, start = 1, Stall =           0, Flush =           0
-PC =         36
+PC =         32
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         13, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =          0, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =          0, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -242,17 +242,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          11, start = 1, Stall =           0, Flush =           0
-PC =         40
+PC =         36
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =          1, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         13, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =          4, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =          0, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -264,17 +264,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          12, start = 1, Stall =           0, Flush =           0
-PC =         44
+PC =         40
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         13, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =          4, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =          0, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -286,17 +286,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          13, start = 1, Stall =           0, Flush =           0
-PC =         48
+PC =         44
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =          4, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =          0, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -308,17 +308,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          14, start = 1, Stall =           0, Flush =           0
-PC =         52
+PC =         48
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
-R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
+R1(at) =          0, R9 (t1) =          4, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         13, R18(s2) =          0, R26(k0) =          0
+R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -330,17 +330,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          15, start = 1, Stall =           0, Flush =           0
-PC =         56
+PC =         52
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
-R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
+R1(at) =          0, R9 (t1) =          4, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         13, R18(s2) =          0, R26(k0) =          0
+R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -352,17 +352,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          16, start = 1, Stall =           0, Flush =           0
-PC =         60
+PC =         56
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
-R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
+R1(at) =          0, R9 (t1) =          8, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         13, R18(s2) =          0, R26(k0) =          0
+R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -374,17 +374,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          17, start = 1, Stall =           0, Flush =           0
-PC =         64
+PC =         60
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
-R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
+R1(at) =          0, R9 (t1) =          8, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         13, R18(s2) =          0, R26(k0) =          0
+R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -396,17 +396,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          18, start = 1, Stall =           0, Flush =           0
-PC =         68
+PC =         64
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
-R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
+R1(at) =          0, R9 (t1) =          9, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         13, R18(s2) =          0, R26(k0) =          0
+R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -418,17 +418,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          19, start = 1, Stall =           0, Flush =           0
-PC =         72
+PC =         68
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
-R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
+R1(at) =          0, R9 (t1) =         17, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         13, R18(s2) =          0, R26(k0) =          0
+R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -440,17 +440,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          20, start = 1, Stall =           0, Flush =           0
-PC =         76
+PC =         72
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
-R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
+R1(at) =          0, R9 (t1) =         17, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         22, R18(s2) =          0, R26(k0) =          0
+R3(v1) =          0, R11(t3) =          0, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -462,17 +462,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          21, start = 1, Stall =           0, Flush =           0
-PC =         80
+PC =         76
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =         17, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         22, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -484,17 +484,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          22, start = 1, Stall =           0, Flush =           0
-PC =         84
+PC =         80
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =         17, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         22, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -506,17 +506,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          23, start = 1, Stall =           0, Flush =           0
-PC =         88
+PC =         84
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =         17, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         22, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -528,17 +528,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          24, start = 1, Stall =           0, Flush =           0
-PC =         92
+PC =         88
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =         17, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         22, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -550,17 +550,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          25, start = 1, Stall =           0, Flush =           0
-PC =         96
+PC =         92
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =         17, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         22, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -572,17 +572,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          26, start = 1, Stall =           0, Flush =           0
-PC =        100
+PC =         96
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =         17, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         22, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -594,17 +594,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          27, start = 1, Stall =           0, Flush =           0
-PC =        104
+PC =        100
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =         17, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         22, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -616,17 +616,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          28, start = 1, Stall =           0, Flush =           0
-PC =        108
+PC =        104
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =         17, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         22, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
@@ -638,17 +638,17 @@ Data Memory: 0x1c =                                       0
 
 HDU signal
 cycle =          29, start = 1, Stall =           0, Flush =           0
-PC =        112
+PC =        108
 RegFiles
 R0(r0) =          0, R8 (t0) =          0, R16(s0) =          0, R24(t8) =          0
-R1(at) =          0, R9 (t1) =         20, R17(s1) =          0, R25(t9) =          0
-R2(v0) =          0, R10(t2) =         14, R18(s2) =          0, R26(k0) =          0
+R1(at) =          0, R9 (t1) =         17, R17(s1) =          0, R25(t9) =          0
+R2(v0) =          0, R10(t2) =         22, R18(s2) =          0, R26(k0) =          0
 R3(v1) =          0, R11(t3) =         13, R19(s3) =          0, R27(k1) =          0
 R4(a0) =          0, R12(t4) =          0, R20(s4) =          0, R28(gp) =          0
 R5(a1) =          0, R13(t5) =          0, R21(s5) =          0, R29(sp) =          0
 R6(a2) =          0, R14(t6) =          0, R22(s6) =          0, R30(s8) =          0
 R7(a3) =          0, R15(t7) =          0, R23(s7) =          0, R31(ra) =          0
-Data Memory: 0x00 =                                       5
+Data Memory: 0x00 =                             17179869184
 Data Memory: 0x04 =                                       0
 Data Memory: 0x08 =                                       0
 Data Memory: 0x0c =                                       0
