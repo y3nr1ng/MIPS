@@ -28,7 +28,7 @@ initial begin
 
     // Initialize the data memory.
     for(i=0; i<32; i=i+1) begin
-        //CPU.DataMem.memory[i] = 8'b0;
+        CPU.DataMem.memory[i] = 8'b0;
     end
 
     // Initialize the registers.
@@ -43,7 +43,7 @@ initial begin
     //outfile = $fopen("../dat/output2.txt") | 1;
 
     // Set Input n into data memory at 0x00
-    //CPU.DataMem.memory[0] = 8'h5;       // n = 5 for example
+    CPU.DataMem.memory[0] = 8'h5;       // n = 5 for example
 
     clk = 1;
 	start = 0;
