@@ -47,7 +47,7 @@ ProgramCounter PC (
 	.clk			(clk),
 	.rst			(rst),
 	.start			(start),
-	.we				(1'b1), // TODO
+	.we				(~HDU.stall),
 	.addr_i			(PC_Mux.data_o),
 	.addr_o			()
 );
@@ -74,7 +74,7 @@ Memory #(.size(1024)) InstrMem (
  */
 Latch IFID_PC_Inc (
 	.clk			(clk),
-	.rst			(1'b0), // TODO
+	.rst			((HDU.stall || Ctrl.PC_ctrl_o[1])),
 	.en				(1'b1),
 	.data_i			(PC_Inc.data_o),
 	.data_o			()
@@ -82,7 +82,7 @@ Latch IFID_PC_Inc (
 
 Latch IFID_Instr (
 	.clk			(clk),
-	.rst			(1'b0), // TODO
+	.rst			((HDU.stall || Ctrl.PC_ctrl_o[1])),
 	.en				(1'b1),
 	.data_i			(InstrMem.data_o),
 	.data_o			(instr)
@@ -144,7 +144,7 @@ HazardDetectionUnit HDU (
  */
 Latch #(.width(5)) IDEX_EX_ctrl (
 	.clk			(clk),
-	.rst			(1'b0), // TODO
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Ctrl.EX_ctrl_o),
 	.data_o			(EX_ctrl)
@@ -152,7 +152,7 @@ Latch #(.width(5)) IDEX_EX_ctrl (
 
 Latch #(.width(2)) IDEX_MEM_ctrl (
 	.clk			(clk),
-	.rst			(1'b0), // TODO
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Ctrl.MEM_ctrl_o),
 	.data_o			()
@@ -160,7 +160,7 @@ Latch #(.width(2)) IDEX_MEM_ctrl (
 
 Latch #(.width(2)) IDEX_WB_ctrl (
 	.clk			(clk),
-	.rst			(1'b0), // TODO
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Ctrl.WB_ctrl_o),
 	.data_o			()
@@ -168,7 +168,7 @@ Latch #(.width(2)) IDEX_WB_ctrl (
 
 Latch IDEX_Rs_data (
 	.clk			(clk),
-	.rst			(1'b0), // TODO
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(RegFiles.Rs_data),
 	.data_o			()
@@ -176,7 +176,7 @@ Latch IDEX_Rs_data (
 
 Latch IDEX_Rt_data (
 	.clk			(clk),
-	.rst			(1'b0), // TODO
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(RegFiles.Rt_data),
 	.data_o			()	
@@ -184,7 +184,7 @@ Latch IDEX_Rt_data (
 
 Latch IDEX_imm_data (
 	.clk			(clk),
-	.rst			(1'b0), // TODO
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(SignExt.data_o),
 	.data_o			()
@@ -323,7 +323,7 @@ Memory #(.size(32)) DataMem (
  */
 Latch #(.width(2)) MEMWB_WB_ctrl (
 	.clk			(clk),
-	.rst			(1'b0), // TODO
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(IDEX_WB_ctrl.data_o),
 	.data_o			(WB_ctrl)
