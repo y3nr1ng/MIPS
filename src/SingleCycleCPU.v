@@ -135,7 +135,7 @@ GeneralControl Ctrl (
 /**
  * ID/EX
  */
-Latch IDEX_EX_ctrl (
+Latch #(.width(5)) IDEX_EX_ctrl (
 	.clk			(clk),
 	.rst			(1'b0), // TODO
 	.en				(1'b1),
@@ -143,7 +143,7 @@ Latch IDEX_EX_ctrl (
 	.data_o			(EX_ctrl)
 );
 
-Latch IDEX_MEM_ctrl (
+Latch #(.width(2)) IDEX_MEM_ctrl (
 	.clk			(clk),
 	.rst			(1'b0), // TODO
 	.en				(1'b1),
@@ -151,7 +151,7 @@ Latch IDEX_MEM_ctrl (
 	.data_o			()
 );
 
-Latch IDEX_WB_ctrl (
+Latch #(.width(2)) IDEX_WB_ctrl (
 	.clk			(clk),
 	.rst			(1'b0), // TODO
 	.en				(1'b1),
