@@ -68,16 +68,16 @@ module GeneralControl (
 
 			`LW_op	:
 			begin
-				EX_ctrl_o	= { , , };
+				EX_ctrl_o	= { `ADD_alu, , };
 				MEM_ctrl_o	= { , };
-				WB_ctrl_o	= ;
+				WB_ctrl_o	= 1'bz;
 			end
 
 			`SW_op	:
 			begin
 				EX_ctrl_o	= { , , };
 				MEM_ctrl_o	= { , };
-				WB_ctrl_o	= ;
+				WB_ctrl_o	= 1'bz;
 			end
 
 			`J_op	:
