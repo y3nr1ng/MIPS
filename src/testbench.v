@@ -10,8 +10,8 @@ integer            stall, flush;
 always #(`CYCLE_TIME/2) clk = ~clk;
 
 CPU CPU(
-    .clk_i  (clk),
-    .start_i(start)
+    .clk	(clk),
+    .start	(start)
 );
 
 initial begin
