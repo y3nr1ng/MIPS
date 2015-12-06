@@ -20,12 +20,15 @@ module CPU
    		.addr_i     (PC_Mux.data_o),
    		.addr_o     ()
 	);
-
-	Multiplexer2Way PC_Mux
+	
+	// TODO: directly combine the bus and left out the LSB, instead of using shift operation.
+	Multiplexer4Way PC_Mux
 	(
 		.data_1		(PC_Inc.data_o),
-		.data_2		(PC_BranchAdd.data_o),
-		.sel		(Ctrl.jump_o),
+		.data_2		(32'bz),
+		.data_3		({ PC.addr_o[31:28], PC_JumpShl.data_o[27:0] }),
+		.data_4		(PC_BranchAdd.data_o),
+		.sel		(Ctrl.PC_ctrl_o),
 		.data_o		()
 	);	
 
@@ -84,6 +87,7 @@ module CPU
 	wire	[4:0] 	instr_rd 	= instr[15:11];
 
 	wire	[15:0]	instr_imm	= instr[15:0];
+	wire	[26:0]	addr_imm	= instr[25:0];
 
 	Registers RegFiles
 	(
@@ -100,6 +104,13 @@ module CPU
 	SignExtend SignExt
 	(
 		.data_i		(instr_imm),
+		.data_o		()
+	);
+
+	Shifter PC_JumpShl
+	(
+		.x			(addr_imm),
+		.y			(32'b0010),
 		.data_o		()
 	);
 	
@@ -143,14 +154,13 @@ module CPU
 	(
 		.op_i		(instr_op),
 		.is_equal_i	(Rs_eq_Rt.is_equal),
-		.jump_o		(),
-		.branch_o	(),
+		.PC_ctrl_o	(),
 		.EX_ctrl_o	(),
 		.MEM_ctrl_o	(),
 		.WB_ctrl_o	()		
 	);
 
-	Multiplexer2Way #(8) Ctrl_Mux
+	Multiplexer2Way #(.size(8)) Ctrl_Mux
 	(
 		.data_1		({ Ctrl.EX_ctrl_o, Ctrl.MEM_ctrl_o, Ctrl.WB_ctrl_o }),
 		.data_2		(8'b0),

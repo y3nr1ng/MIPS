@@ -15,6 +15,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Latch_TestBench
 
+} {} {}} Z:/ca_pj1/src/testbench.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/testbench.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module TestBench
+
+Top level modules:
+	TestBench
+
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Latch.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Latch.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Latch
@@ -46,18 +53,14 @@ Top level modules:
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v} {0 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module GeneralControl
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(71): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(72): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(78): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(79): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(85): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(86): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(87): near ";": syntax error, unexpected ';'
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(92): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(93): near ",": syntax error, unexpected ','
-** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(94): near ";": syntax error, unexpected ';'
+** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(88): near ",": syntax error, unexpected ','
+** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(89): near ",": syntax error, unexpected ','
+** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(90): near ";": syntax error, unexpected ';'
+** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(95): near ",": syntax error, unexpected ','
+** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(96): near ",": syntax error, unexpected ','
+** Error: //vmware-host/Shared Folders/ca_pj1/src/GeneralControl.v(97): near ";": syntax error, unexpected ';'
 
-} {4.0 14.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v}
+} {4.0 10.0} {}} {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module ProgramCounter
 
@@ -77,6 +80,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	Memory_TestBench
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Memory
+
+Top level modules:
+	Memory
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
