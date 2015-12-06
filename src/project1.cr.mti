@@ -73,12 +73,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	GeneralControl
 
-} {} {}} Z:/ca_pj1/src/PC.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/PC.v
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module PC
+-- Compiling module Multiplexer4Way
 
 Top level modules:
-	PC
+	Multiplexer4Way
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -87,12 +87,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Memory_TestBench
 
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v}
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Multiplexer4Way
+-- Compiling module HazardDetectionUnit
 
 Top level modules:
-	Multiplexer4Way
+	HazardDetectionUnit
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -114,6 +114,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	ALU
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ForwardingUnit.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ForwardingUnit.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module ForwardingUnit
+
+Top level modules:
+	ForwardingUnit
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
