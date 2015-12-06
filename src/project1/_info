@@ -239,27 +239,6 @@ R16
 !i113 1
 R4
 n@instruction@memory
-vLatch
-R6
-!i10b 1
-!s100 NUY47UXhz7PH`[J1z`zbS0
-IP5VYdMXSd4fOL0:efYFc;0
-R2
-R0
-w1449424366
-Z17 8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
-Z18 F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
-L0 1
-R3
-r1
-!s85 0
-31
-!s108 1449428974.583000
-Z19 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
-Z20 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
-!i113 1
-R4
-n@latch
 vlatch
 !s110 1449114262
 !i10b 1
@@ -268,6 +247,26 @@ Izzb`QecZ[NNgLXSmURdSR2
 R2
 R0
 w1449113381
+Z17 8//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+Z18 F//vmware-host/Shared Folders/ca_pj1/src/Latch.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1449114262.212000
+Z19 !s107 //vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+Z20 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/Latch.v|
+!i113 1
+R4
+vLatch
+R6
+!i10b 1
+!s100 NUY47UXhz7PH`[J1z`zbS0
+IP5VYdMXSd4fOL0:efYFc;0
+R2
+R0
+w1449424366
 R17
 R18
 L0 1
@@ -275,11 +274,12 @@ R3
 r1
 !s85 0
 31
-!s108 1449114262.212000
+!s108 1449428974.583000
 R19
 R20
 !i113 1
 R4
+n@latch
 vLatch_TestBench
 R5
 !i10b 1
@@ -574,13 +574,13 @@ r1
 R4
 n@sign@extend
 vSingleCycleCPU
-!s110 1449430113
+!s110 1449431148
 !i10b 1
-!s100 ;`[MJ7OH90@^ZT3DEZ`N90
-IQILNlGCahn7JJ`HC]DeG:2
+!s100 JcdK2J356Qb2EGKY]R?7@0
+InDVY`8<S0>QU>^C>6LOZ61
 R2
 R0
-w1449430111
+w1449431146
 8//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v
 F//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v
 L0 3
@@ -588,20 +588,20 @@ R3
 r1
 !s85 0
 31
-!s108 1449430113.006000
+!s108 1449431148.165000
 !s107 LookupTable.v|//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v|
 !i113 1
 R4
 n@single@cycle@c@p@u
 vTestBench
-R1
+!s110 1449431612
 !i10b 1
-!s100 lSJdmnLO5=HWE8K5]N1M71
-INe??0]bEU^R>U:lZ6WBl;1
+!s100 GZaMIYQlRV@olXMT30B`<2
+I0SeYaQkKbjda7JM]9NjLZ0
 R2
 R0
-w1449428969
+w1449431610
 8Z:/ca_pj1/src/testbench.v
 FZ:/ca_pj1/src/testbench.v
 L0 3
@@ -609,7 +609,7 @@ R3
 r1
 !s85 0
 31
-!s108 1449428972.189000
+!s108 1449431612.558000
 !s107 Z:/ca_pj1/src/testbench.v|
 !s90 -reportprogress|300|-work|project1|-stats=none|Z:/ca_pj1/src/testbench.v|
 !i113 1

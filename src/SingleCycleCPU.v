@@ -99,7 +99,7 @@ Registers RegFiles (
 	.Rs_data		(),
 	.Rt_data		(),
 	.we				(Reg_we_wire),
-	.Rd_addr		(), // TODO
+	.Rd_addr		(MEMWB_RegFwd.data_o), // TODO
 	.Rd_data	 	(WB_Mux.data_o)
 );
 
@@ -324,6 +324,14 @@ Latch MEMWB_Mem_output (
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(DataMem.data_o),
+	.data_o			()
+);
+
+Latch #(.width(5)) MEMWB_RegFwd (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(EXMEM_RegFwd.data_o),
 	.data_o			()
 );
 

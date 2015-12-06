@@ -37,10 +37,10 @@ initial begin
     end
 
     // Load instructions into instruction memory
-    $readmemb("instruction.txt", CPU.InstrMem.memory);
+    $readmemb("single_cycle_instruction.txt", CPU.InstrMem.memory);
 
     // Open output file
-    //outfile = $fopen("../dat/output2.txt") | 1;
+    outfile = $fopen("output.txt") | 1;
 
     // Set Input n into data memory at 0x00
     CPU.DataMem.memory[0] = 8'h5;       // n = 5 for example
@@ -72,7 +72,6 @@ always@(posedge clk) begin
     // print PC
     $fdisplay(outfile, "cycle = %d, start = %d, Stall = %d, Flush = %d\nPC = %d", counter, start, stall, flush, CPU.PC.addr_o);
 	
-/*
     // print RegFiles
     $fdisplay(outfile, "RegFiles");
     $fdisplay(outfile, "R0(r0) = %d, R8 (t0) = %d, R16(s0) = %d, R24(t8) = %d", CPU.RegFiles.register[0], CPU.RegFiles.register[8] , CPU.RegFiles.register[16], CPU.RegFiles.register[24]);
@@ -93,7 +92,6 @@ always@(posedge clk) begin
     $fdisplay(outfile, "Data Memory: 0x14 = %d", {CPU.DataMem.memory[23], CPU.DataMem.memory[22], CPU.DataMem.memory[21], CPU.DataMem.memory[20]});
     $fdisplay(outfile, "Data Memory: 0x18 = %d", {CPU.DataMem.memory[27], CPU.DataMem.memory[26], CPU.DataMem.memory[25], CPU.DataMem.memory[24]});
     $fdisplay(outfile, "Data Memory: 0x1c = %d", {CPU.DataMem.memory[31], CPU.DataMem.memory[30], CPU.DataMem.memory[29], CPU.DataMem.memory[28]});
-*/
 
     $fdisplay(outfile, "\n");
 
