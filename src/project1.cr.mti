@@ -15,6 +15,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Latch_TestBench
 
+} {} {}} Z:/ca_pj1/src/testbench.v {1 {vlog -work pipelined_mips -stats=none Z:/ca_pj1/src/testbench.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module TestBench
+
+Top level modules:
+	TestBench
+
 } {} {}} Z:/ca_pj1/src/CPU.v {1 {vlog -work pipelined_mips -stats=none Z:/ca_pj1/src/CPU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module CPU
