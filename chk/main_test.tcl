@@ -31,15 +31,13 @@ add wave -noupdate -expand -group MEM -expand -group {Forwarding Unit} -label ID
 add wave -noupdate -expand -group MEM -expand -group {Forwarding Unit} -label IDEX_Rt -radix decimal /TestBench/CPU/FwdUnit/IDEX_Rt
 add wave -noupdate -expand -group MEM -expand -group {Forwarding Unit} -label EXMEM_Rd -radix decimal /TestBench/CPU/FwdUnit/EXMEM_Rd
 add wave -noupdate -expand -group MEM -expand -group {Forwarding Unit} -label MEMWB_Rd -radix decimal /TestBench/CPU/FwdUnit/MEMWB_Rd
-add wave -noupdate -expand -group MEM -expand -group {Forwarding Unit} -label EXMEM_we /TestBench/CPU/FwdUnit/EXMEM_we
-add wave -noupdate -expand -group MEM -expand -group {Forwarding Unit} -label MEMWB_we /TestBench/CPU/FwdUnit/MEMWB_we
 add wave -noupdate -expand -group MEM -expand -group {Forwarding Unit} -label {ALU mux1} -radix binary -radixshowbase 0 /TestBench/CPU/FwdUnit/ALU_data_1_sel
 add wave -noupdate -expand -group MEM -expand -group {Forwarding Unit} -label {ALU mux2} -radix binary -radixshowbase 0 /TestBench/CPU/FwdUnit/ALU_data_2_sel
 add wave -noupdate -expand -group WB -expand -group WB-Register -label {Write Enable} /TestBench/CPU/Reg_we_wire
 add wave -noupdate -expand -group WB -expand -group WB-Register -label {Rd Address} -radix decimal -radixshowbase 0 /TestBench/CPU/RegFiles/Rd_addr
 add wave -noupdate -expand -group WB -expand -group WB-Register -label {Rd Data} -radix decimal -radixshowbase 0 /TestBench/CPU/RegFiles/Rd_data
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {868 ps} 0}
+WaveRestoreCursors {{Cursor 1} {3137 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 278
 configure wave -valuecolwidth 202
@@ -55,4 +53,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {360 ps} {993 ps}
+WaveRestoreZoom {2615 ps} {3248 ps}

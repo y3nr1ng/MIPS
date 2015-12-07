@@ -59,12 +59,12 @@ initial begin
 end
 
 always@(posedge clk) begin
-    if(counter == 1000)    // stop after 30 cycles
+    if(counter == 500)
         $stop;
 
     // print HDU
     $fdisplay(outfile, "HDU signal");
-    //$fdisplay(outfile, "stall = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.stall,CPU.Ctrl.PC_ctrl_o[1]);
+    $fdisplay(outfile, "stall = %d, Flush_o = %d", CPU.HDU.stall, CPU.Ctrl.PC_ctrl_o[1]);
 
     // count stall and flush
 	if(CPU.HDU.stall == 1 && CPU.Ctrl.PC_ctrl_o[1] == 1)
@@ -99,7 +99,6 @@ always@(posedge clk) begin
     $fdisplay(outfile, "\n");
 
     counter = counter + 1;
-
 
 end
 
