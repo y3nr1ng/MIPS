@@ -83,7 +83,7 @@ module GeneralControl (
 			`LW_op	:
 			begin
 				PC_ctrl_o	= { 1'b0, 1'b0 };
-				EX_ctrl_o	= { `ADD_alu, 1'b1, 1'bz };
+				EX_ctrl_o	= { `ADD_alu, 1'b1, 1'b0 };
 				MEM_ctrl_o	= { 1'b1, 1'b0 };
 				WB_ctrl_o	= { 1'b1, 1'b1 };
 			end
@@ -91,7 +91,7 @@ module GeneralControl (
 			`SW_op	:
 			begin
 				PC_ctrl_o	= { 1'b0, 1'b0 };
-				EX_ctrl_o	= { `ADD_alu, 1'b1, 1'bz };
+				EX_ctrl_o	= { `ADD_alu, 1'b1, 1'b0 };
 				MEM_ctrl_o	= { 1'b1, 1'b1 };
 				WB_ctrl_o	= { 1'b1, 1'b0 };
 			end
