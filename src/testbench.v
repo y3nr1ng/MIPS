@@ -59,7 +59,7 @@ initial begin
 end
 
 always@(posedge clk) begin
-    if(counter == 10)    // stop after 30 cycles
+    if(counter == 100)    // stop after 30 cycles
         $stop;
 
     // print HDU
