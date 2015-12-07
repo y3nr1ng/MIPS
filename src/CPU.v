@@ -31,6 +31,8 @@ wire		[1:0]	MEM_ctrl;
 wire		[1:0]	WB_ctrl;
 	wire				WB_mux_wire	= WB_ctrl[1];
 	wire				Reg_we_wire = WB_ctrl[0];
+
+
 /**
  * IF
  */
@@ -74,7 +76,7 @@ Memory #(.size(1024)) InstrMem (
  */
 Latch IFID_PC_Inc (
 	.clk			(clk),
-	.rst			((HDU.stall || Ctrl.PC_ctrl_o[1])),
+	.rst			(1'b0), // TODO: need to flush the value
 	.en				(1'b1),
 	.data_i			(PC_Inc.data_o),
 	.data_o			()
@@ -82,7 +84,7 @@ Latch IFID_PC_Inc (
 
 Latch IFID_Instr (
 	.clk			(clk),
-	.rst			((HDU.stall || Ctrl.PC_ctrl_o[1])),
+	.rst			(1'b0), // TODO: need to flush the value
 	.en				(1'b1),
 	.data_i			(InstrMem.data_o),
 	.data_o			(instr)
@@ -133,10 +135,10 @@ GeneralControl Ctrl (
 
 HazardDetectionUnit HDU (
 	.IFID_Rs_i		(instr_rs),
-	.IFID_Rt_i		(instr_rt),
+	.IFID_Rt_i		(instr_rt),	
 	.IDEX_Rt_i		(IDEX_Rt.data_o),
 	.IDEX_Mem_cs	(Ctrl.MEM_ctrl_o[1]),
-	.stall			()
+	.stall			()	
 );
 
 /**
@@ -144,7 +146,7 @@ HazardDetectionUnit HDU (
  */
 Latch #(.width(5)) IDEX_EX_ctrl (
 	.clk			(clk),
-	.rst			(HDU.stall),
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Ctrl.EX_ctrl_o),
 	.data_o			(EX_ctrl)
@@ -152,7 +154,7 @@ Latch #(.width(5)) IDEX_EX_ctrl (
 
 Latch #(.width(2)) IDEX_MEM_ctrl (
 	.clk			(clk),
-	.rst			(HDU.stall),
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Ctrl.MEM_ctrl_o),
 	.data_o			()
@@ -160,7 +162,7 @@ Latch #(.width(2)) IDEX_MEM_ctrl (
 
 Latch #(.width(2)) IDEX_WB_ctrl (
 	.clk			(clk),
-	.rst			(HDU.stall),
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Ctrl.WB_ctrl_o),
 	.data_o			()
@@ -179,7 +181,7 @@ Latch IDEX_Rt_data (
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(RegFiles.Rt_data),
-	.data_o			()
+	.data_o			()	
 );
 
 Latch IDEX_imm_data (
@@ -203,6 +205,14 @@ Latch #(.width(5)) IDEX_Rt (
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(instr_rt),
+	.data_o			()
+);
+
+Latch #(.width(5)) IDEX_Rd (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(instr_rd),
 	.data_o			()
 );
 
@@ -243,8 +253,8 @@ ALU ALU (
 );
 
 Multiplexer2Way #(.width(5)) Fwd_Mux (
-	.data_1			(IDEX_Rs.data_o),
-	.data_2			(IDEX_Rt.data_o),
+	.data_1			(IDEX_Rt.data_o),
+	.data_2			(IDEX_Rd.data_o),
 	.sel			(RegDst_wire),
 	.data_o			()
 );
@@ -292,7 +302,7 @@ Latch EXMEM_ALU_data_2 (
 	.clk			(clk),
 	.rst			(1'b0),
 	.en				(1'b1),
-	.data_i			(Data_2_imm_Mux.data_o),
+	.data_i			(Data_2_Mux.data_o),
 	.data_o			()
 );
 
@@ -325,7 +335,7 @@ Latch #(.width(2)) MEMWB_WB_ctrl (
 	.clk			(clk),
 	.rst			(1'b0),
 	.en				(1'b1),
-	.data_i			(IDEX_WB_ctrl.data_o),
+	.data_i			(EXMEM_WB_ctrl.data_o),
 	.data_o			(WB_ctrl)
 );
 
@@ -363,5 +373,6 @@ Multiplexer2Way WB_Mux (
 	.sel			(WB_mux_wire),
 	.data_o			()
 );
+
 
 endmodule
