@@ -10,7 +10,7 @@ integer     stall, flush;
 
 always #(`CYCLE_TIME/2) clk = ~clk;
 
-SingleCycleCPU CPU(
+CPU CPU(
     .clk	(clk),
 	.rst	(reset),
     .start	(start)
