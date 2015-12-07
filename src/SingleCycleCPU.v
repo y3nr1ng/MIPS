@@ -1,6 +1,6 @@
 `include "LookupTable.v"
 
-module CPU
+module SingleCycleCPU
 (
 	input		clk,
 	input		rst,

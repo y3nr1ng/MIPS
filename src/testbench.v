@@ -37,7 +37,7 @@ initial begin
     end
 
     // Load instructions into instruction memory
-    $readmemb("test.txt", CPU.InstrMem.memory);
+    $readmemb("fibonacci_instruction.txt", CPU.InstrMem.memory);
 
     // Open output file
     outfile = $fopen("output.txt") | 1;
@@ -59,7 +59,7 @@ initial begin
 end
 
 always@(posedge clk) begin
-    if(counter == 100)    // stop after 30 cycles
+    if(counter == 1000)    // stop after 30 cycles
         $stop;
 
     // print HDU
@@ -99,6 +99,7 @@ always@(posedge clk) begin
     $fdisplay(outfile, "\n");
 
     counter = counter + 1;
+
 
 end
 

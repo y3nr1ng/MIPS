@@ -6,7 +6,7 @@ module Latch #(parameter width=32) (
 	output reg 	[width-1:0]	data_o
 );
 
-	always@(posedge clk)
+	always@(negedge clk)
   		if (rst)
    			data_o <= { width{1'b0} };
   		else if (en)
