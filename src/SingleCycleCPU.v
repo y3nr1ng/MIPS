@@ -76,7 +76,7 @@ Memory #(.size(1024)) InstrMem (
  */
 Latch IFID_PC_Inc (
 	.clk			(clk),
-	.rst			(1'b0),
+	.rst			(1'b0), // TODO: need to flush the value
 	.en				(1'b1),
 	.data_i			(PC_Inc.data_o),
 	.data_o			()
@@ -84,7 +84,7 @@ Latch IFID_PC_Inc (
 
 Latch IFID_Instr (
 	.clk			(clk),
-	.rst			(1'b0),
+	.rst			(1'b0), // TODO: need to flush the value
 	.en				(1'b1),
 	.data_i			(InstrMem.data_o),
 	.data_o			(instr)
