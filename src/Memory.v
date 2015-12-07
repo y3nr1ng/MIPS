@@ -12,7 +12,7 @@ module Memory
 	output	reg [width-1:0]	data_o
 );
 
-	reg	[width-1:0]	memory	[0:size];
+	reg	[width-1:0]	memory	[0:size-1];
 
 	initial begin
 		data_o = { width{1'bz} };
