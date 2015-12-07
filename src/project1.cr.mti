@@ -106,19 +106,19 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	HazardDetectionUnit
 
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module SingleCycleCPU
+
+Top level modules:
+	SingleCycleCPU
+
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALU.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALU.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module ALU
 
 Top level modules:
 	ALU
-
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ForwardingUnit.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ForwardingUnit.v}
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module ForwardingUnit
-
-Top level modules:
-	ForwardingUnit
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/4WayMux_TestBench.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014

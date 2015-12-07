@@ -6,11 +6,11 @@ add wave -noupdate -label Reset /TestBench/CPU/PC/rst
 add wave -noupdate -label Clock /TestBench/CPU/PC/clk
 add wave -noupdate -expand -group IF -label {Current Address} -radix unsigned -radixshowbase 0 /TestBench/CPU/PC/addr_o
 add wave -noupdate -expand -group IF -label {Write Enable} /TestBench/CPU/PC/we
-add wave -noupdate -expand -group ID -group {Parsed Instruction} -label Instruction /TestBench/CPU/instr
-add wave -noupdate -expand -group ID -group {Parsed Instruction} -label {Rs Address} -radix unsigned -radixshowbase 0 /TestBench/CPU/RegFiles/Rs_addr
-add wave -noupdate -expand -group ID -group {Parsed Instruction} -label {Rt Address} -radix unsigned -radixshowbase 0 /TestBench/CPU/RegFiles/Rt_addr
-add wave -noupdate -expand -group ID -group {Parsed Instruction} -label {I-type Immediate} -radix decimal /TestBench/CPU/SignExt/data_i
-add wave -noupdate -expand -group ID -expand -group Register -label {Write Enable} /TestBench/CPU/Reg_we_wire
+add wave -noupdate -expand -group ID -expand -group {Parsed Instruction} -label Instruction /TestBench/CPU/instr
+add wave -noupdate -expand -group ID -expand -group {Parsed Instruction} -label {Rs Address} -radix unsigned -radixshowbase 0 /TestBench/CPU/RegFiles/Rs_addr
+add wave -noupdate -expand -group ID -expand -group {Parsed Instruction} -label {Rt Address} -radix unsigned -radixshowbase 0 /TestBench/CPU/RegFiles/Rt_addr
+add wave -noupdate -expand -group ID -expand -group {Parsed Instruction} -label {I-type Immediate} -radix decimal /TestBench/CPU/SignExt/data_i
+add wave -noupdate -expand -group ID -group Register -label {Write Enable} /TestBench/CPU/Reg_we_wire
 add wave -noupdate -expand -group ID -label {R[Rs] == R[Rt]?} /TestBench/CPU/Rs_eq_Rt/is_equal
 add wave -noupdate -expand -group ID -label {Branch Target Address} -radix decimal /TestBench/CPU/PC_Mux/data_4
 add wave -noupdate -expand -group ID -label {Jump Target Address} -radix decimal -radixshowbase 0 /TestBench/CPU/PC_Mux/data_3
@@ -23,8 +23,10 @@ add wave -noupdate -expand -group MEM -label {Chip Select} /TestBench/CPU/DataMe
 add wave -noupdate -expand -group MEM -label {Read Data} -radix decimal /TestBench/CPU/DataMem/data_o
 add wave -noupdate -expand -group MEM -label {Write Enable} /TestBench/CPU/DataMem/we
 add wave -noupdate -expand -group MEM -label {Write Data} -radix decimal /TestBench/CPU/DataMem/data_i
+add wave -noupdate -label {ALU mux1} -radix binary -radixshowbase 0 /TestBench/CPU/FwdUnit/ALU_data_1_sel
+add wave -noupdate -label {ALU mux2} -radix binary -radixshowbase 0 /TestBench/CPU/FwdUnit/ALU_data_2_sel
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {249 ps} 0}
+WaveRestoreCursors {{Cursor 1} {383 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 243
 configure wave -valuecolwidth 202
@@ -40,4 +42,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {675 ps}
+WaveRestoreZoom {259 ps} {934 ps}
