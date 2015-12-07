@@ -133,10 +133,10 @@ GeneralControl Ctrl (
 
 HazardDetectionUnit HDU (
 	.IFID_Rs_i		(instr_rs),
-	.IFID_Rt_i		(instr_rt),	
+	.IFID_Rt_i		(instr_rt),
 	.IDEX_Rt_i		(IDEX_Rt.data_o),
 	.IDEX_Mem_cs	(Ctrl.MEM_ctrl_o[1]),
-	.stall			()	
+	.stall			()
 );
 
 /**
@@ -179,7 +179,7 @@ Latch IDEX_Rt_data (
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(RegFiles.Rt_data),
-	.data_o			()	
+	.data_o			()
 );
 
 Latch IDEX_imm_data (
@@ -363,6 +363,5 @@ Multiplexer2Way WB_Mux (
 	.sel			(WB_mux_wire),
 	.data_o			()
 );
-
 
 endmodule
