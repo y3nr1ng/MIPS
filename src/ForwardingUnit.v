@@ -19,6 +19,7 @@ module ForwardingUnit (
 	begin
 		if (EXMEM_we && (EXMEM_Rd != 0) && (EXMEM_Rd == IDEX_Rs))
 			ALU_data_1_sel = 2'b10;
+		//else if (MEMWB_we && (MEMWB_Rd != 0) && (MEMWB_Rd == IDEX_Rs))
 		else if (MEMWB_we && (MEMWB_Rd != 0) && !((EXMEM_we && (EXMEM_Rd != 0)) && (EXMEM_Rd == IDEX_Rs)) && (MEMWB_Rd == IDEX_Rs))
 			ALU_data_1_sel = 2'b01;
 		else
@@ -26,6 +27,7 @@ module ForwardingUnit (
 
 		if (EXMEM_we && (EXMEM_Rd != 0) && (EXMEM_Rd == IDEX_Rt))
 			ALU_data_2_sel = 2'b10;
+		//else if (EXMEM_we &&(EXMEM_Rd != 0) && (MEMWB_Rd == IDEX_Rt) )
 		else if (MEMWB_we && (MEMWB_Rd != 0) && !((EXMEM_we && (EXMEM_Rd != 0)) && (EXMEM_Rd == IDEX_Rt)) && (MEMWB_Rd == IDEX_Rt))
 			ALU_data_2_sel = 2'b01;
 		else

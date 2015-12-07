@@ -37,7 +37,7 @@ initial begin
     end
 
     // Load instructions into instruction memory
-    $readmemb("instruction.txt", CPU.InstrMem.memory);
+    $readmemb("test.txt", CPU.InstrMem.memory);
 
     // Open output file
     outfile = $fopen("output.txt") | 1;
@@ -45,38 +45,36 @@ initial begin
     // Set Input n into data memory at 0x00
     CPU.DataMem.memory[0] = 8'h5;       // n = 5 for example
 
-    clk = 0;
+   	clk = 1;
 	start = 0;
-    reset = 0;
+    reset = 1;
 
-	#(`CYCLE_TIME/4)
-	reset = 1;
-
-    #(`CYCLE_TIME/2)
-    reset = 0;
-	
 	#(`CYCLE_TIME/2)
+	reset = 0;
+
+    #(`CYCLE_TIME/4)
 	start = 1;
+	reset = 1;
 
 end
 
 always@(posedge clk) begin
-    if(counter == 30)    // stop after 30 cycles
+    if(counter == 100)    // stop after 30 cycles
         $stop;
 
     // print HDU
     $fdisplay(outfile, "HDU signal");
-    $fdisplay(outfile, "stall = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.stall,CPU.Ctrl.PC_ctrl_o[1]);
+    //$fdisplay(outfile, "stall = %d, Flush_o = %d", CPU.HDU.IFIDwr_o, CPU.HDU.PCwr_o, CPU.HDU.stall,CPU.Ctrl.PC_ctrl_o[1]);
 
     // count stall and flush
-	if(CPU.HDU.stall == 1 && CPU.Ctrl.PC_ctrl_o == 2'b00)
+	if(CPU.HDU.stall == 1 && CPU.Ctrl.PC_ctrl_o[1] == 1)
 		stall = stall + 1;
 
-    if(CPU.HDU.flush == 1)
+    if(CPU.Ctrl.PC_ctrl_o[1] == 1)
 		flush = flush + 1;
     // print PC
     $fdisplay(outfile, "cycle = %d, start = %d, Stall = %d, Flush = %d\nPC = %d", counter, start, stall, flush, CPU.PC.addr_o);
-	
+
     // print RegFiles
     $fdisplay(outfile, "RegFiles");
     $fdisplay(outfile, "R0(r0) = %d, R8 (t0) = %d, R16(s0) = %d, R24(t8) = %d", CPU.RegFiles.register[0], CPU.RegFiles.register[8] , CPU.RegFiles.register[16], CPU.RegFiles.register[24]);
@@ -101,7 +99,6 @@ always@(posedge clk) begin
     $fdisplay(outfile, "\n");
 
     counter = counter + 1;
-
 
 end
 

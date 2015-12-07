@@ -15,12 +15,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Latch_TestBench
 
-} {} {}} Z:/ca_pj1/src/testbench.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/testbench.v
+} {} {}} Z:/ca_pj1/src/CPU.v {1 {vlog -work project1 -stats=none {Z:\ca_pj1\src\CPU.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module TestBench
+-- Compiling module SingleCycleCPU
 
 Top level modules:
-	TestBench
+	SingleCycleCPU
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Latch.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Latch.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -28,13 +28,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	Latch
-
-} {} {}} Z:/ca_pj1/src/CPU.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/CPU.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module CPU
-
-Top level modules:
-	CPU
 
 } {} {}} Z:/ca_pj1/src/Adder.v {1 {vlog -work project1 -stats=none Z:/ca_pj1/src/Adder.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -64,12 +57,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	GeneralControl
 
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v}
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Memory_TestBench
+-- Compiling module ProgramCounter
 
 Top level modules:
-	Memory_TestBench
+	ProgramCounter
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Multiplexer4Way.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -78,12 +71,19 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Multiplexer4Way
 
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ProgramCounter.v}
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory_TestBench.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module ProgramCounter
+-- Compiling module Memory_TestBench
 
 Top level modules:
-	ProgramCounter
+	Memory_TestBench
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Comparer
+
+Top level modules:
+	Comparer
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Memory.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Memory.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -92,12 +92,19 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Memory
 
-} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/Comparer.v}
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/HazardDetection.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Comparer
+-- Compiling module HazardDetectionUnit
 
 Top level modules:
-	Comparer
+	HazardDetectionUnit
+
+} {} {}} {//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/SingleCycleCPU.v}
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module SingleCycleCPU
+
+Top level modules:
+	SingleCycleCPU
 
 } {} {}} {//vmware-host/Shared Folders/ca_pj1/src/ALU.v} {1 {vlog -work project1 -stats=none {//vmware-host/Shared Folders/ca_pj1/src/ALU.v}
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
