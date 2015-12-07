@@ -118,6 +118,7 @@ module GeneralControl (
 
 			default:
 			begin
+				PC_ctrl_o	= 2'b0;
 				EX_ctrl_o	= 5'bz;
 				MEM_ctrl_o	= 2'bz;
 				WB_ctrl_o	= 1'bz;

@@ -8,14 +8,9 @@ module ProgramCounter
     output reg	[31:0]	addr_o
 );
 
-initial begin
-	addr_o <= 32'b0;
-end
-
-always@(posedge clk) begin
-    if(rst) begin
+always@(posedge clk or negedge rst) begin
+    if(~rst)
         addr_o <= 32'b0;
-    end
     else begin
         if(start && we)
             addr_o <= addr_i;

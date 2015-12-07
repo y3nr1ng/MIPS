@@ -31,6 +31,8 @@ wire		[1:0]	MEM_ctrl;
 wire		[1:0]	WB_ctrl;
 	wire				WB_mux_wire	= WB_ctrl[1];
 	wire				Reg_we_wire = WB_ctrl[0];
+
+
 /**
  * IF
  */
@@ -74,7 +76,7 @@ Memory #(.size(1024)) InstrMem (
  */
 Latch IFID_PC_Inc (
 	.clk			(clk),
-	.rst			((HDU.stall || Ctrl.PC_ctrl_o[1])),
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(PC_Inc.data_o),
 	.data_o			()
@@ -82,7 +84,7 @@ Latch IFID_PC_Inc (
 
 Latch IFID_Instr (
 	.clk			(clk),
-	.rst			((HDU.stall || Ctrl.PC_ctrl_o[1])),
+	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(InstrMem.data_o),
 	.data_o			(instr)
@@ -292,7 +294,7 @@ Latch EXMEM_ALU_data_2 (
 	.clk			(clk),
 	.rst			(1'b0),
 	.en				(1'b1),
-	.data_i			(Data_2_imm_Mux.data_o),
+	.data_i			(Data_2_Mux.data_o),
 	.data_o			()
 );
 
@@ -325,7 +327,7 @@ Latch #(.width(2)) MEMWB_WB_ctrl (
 	.clk			(clk),
 	.rst			(1'b0),
 	.en				(1'b1),
-	.data_i			(IDEX_WB_ctrl.data_o),
+	.data_i			(EXMEM_WB_ctrl.data_o),
 	.data_o			(WB_ctrl)
 );
 
