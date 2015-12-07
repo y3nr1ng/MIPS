@@ -208,6 +208,14 @@ Latch #(.width(5)) IDEX_Rt (
 	.data_o			()
 );
 
+Latch #(.width(5)) IDEX_Rd (
+	.clk			(clk),
+	.rst			(1'b0),
+	.en				(1'b1),
+	.data_i			(instr_rd),
+	.data_o			()
+);
+
 /**
  * EX
  */
@@ -245,8 +253,8 @@ ALU ALU (
 );
 
 Multiplexer2Way #(.width(5)) Fwd_Mux (
-	.data_1			(IDEX_Rs.data_o),
-	.data_2			(IDEX_Rt.data_o),
+	.data_1			(IDEX_Rt.data_o),
+	.data_2			(IDEX_Rd.data_o),
 	.sel			(RegDst_wire),
 	.data_o			()
 );

@@ -39,7 +39,7 @@ add wave -noupdate -expand -group WB -expand -group WB-Register -label {Write En
 add wave -noupdate -expand -group WB -expand -group WB-Register -label {Rd Address} -radix decimal -radixshowbase 0 /TestBench/CPU/RegFiles/Rd_addr
 add wave -noupdate -expand -group WB -expand -group WB-Register -label {Rd Data} -radix decimal -radixshowbase 0 /TestBench/CPU/RegFiles/Rd_data
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {879 ps} 0}
+WaveRestoreCursors {{Cursor 1} {868 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 278
 configure wave -valuecolwidth 202
@@ -55,4 +55,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {453 ps} {1086 ps}
+WaveRestoreZoom {360 ps} {993 ps}
