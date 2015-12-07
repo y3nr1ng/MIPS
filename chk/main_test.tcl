@@ -25,8 +25,14 @@ add wave -noupdate -expand -group MEM -label {Write Enable} /TestBench/CPU/DataM
 add wave -noupdate -expand -group MEM -label {Write Data} -radix decimal /TestBench/CPU/DataMem/data_i
 add wave -noupdate -label {ALU mux1} -radix binary -radixshowbase 0 /TestBench/CPU/FwdUnit/ALU_data_1_sel
 add wave -noupdate -label {ALU mux2} -radix binary -radixshowbase 0 /TestBench/CPU/FwdUnit/ALU_data_2_sel
+add wave -noupdate -radix decimal /TestBench/CPU/Data_2_Mux/data_1
+add wave -noupdate -radix decimal /TestBench/CPU/Data_2_Mux/data_2
+add wave -noupdate -radix decimal /TestBench/CPU/Data_2_Mux/data_3
+add wave -noupdate /TestBench/CPU/Data_2_Mux/sel
+add wave -noupdate /TestBench/CPU/Data_2_Mux/data_o
+add wave -noupdate /TestBench/CPU/PC_Mux/sel
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {383 ps} 0}
+WaveRestoreCursors {{Cursor 1} {386 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 243
 configure wave -valuecolwidth 202
@@ -42,4 +48,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {259 ps} {934 ps}
+WaveRestoreZoom {0 ps} {668 ps}
