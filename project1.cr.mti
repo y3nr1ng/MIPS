@@ -1,6 +1,13 @@
 C:/CA-Project/src/LookupTable.v {1 {vlog -work pipelined_mips -stats=none C:/CA-Project/src/LookupTable.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
+} {} {}} C:/CA-Project/src/ForwardingUnit.v {1 {vlog -work pipelined_mips -stats=none C:/CA-Project/src/ForwardingUnit.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module ForwardingUnit
+
+Top level modules:
+	ForwardingUnit
+
 } {} {}} C:/CA-Project/src/Latch_TestBench.v {1 {vlog -work pipelined_mips -stats=none C:/CA-Project/src/Latch_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Latch_TestBench
