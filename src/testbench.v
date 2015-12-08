@@ -37,7 +37,7 @@ initial begin
     end
 
     // Load instructions into instruction memory
-    $readmemb("fibonacci_instruction.txt", CPU.InstrMem.memory);
+    $readmemb(".\\dat\\fibonacci_instruction.txt", CPU.InstrMem.memory);
 
     // Open output file
     outfile = $fopen("output.txt") | 1;
