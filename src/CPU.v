@@ -19,6 +19,9 @@ wire		[31:0]	instr;
 	wire		[15:0]	instr_imm	= instr[15:0];
 	wire		[25:0]	addr_imm 	= instr[25:0];
 
+wire		[1:0]	PC_ctrl;
+	wire				flush_wire	= PC_ctrl[1];
+
 wire		[4:0]	EX_ctrl;
 	wire		[2:0]	ALUop_wire	= EX_ctrl[4:2];
 	wire				ALUsrc_wire	= EX_ctrl[1];
@@ -41,7 +44,7 @@ Multiplexer4Way PC_Mux (
 	.data_2			(32'bz),
 	.data_3			({ PC_Inc.data_o[31:28], addr_imm, 2'b0 }), // Jump to (imm << 2)
 	.data_4			(PC_BranchAddr.data_o),	// Branch address, PC += (imm << 2)
-	.sel			(Ctrl.PC_ctrl_o),
+	.sel			(PC_ctrl),
 	.data_o			()
 );
 
@@ -76,7 +79,7 @@ Memory #(.size(1024)) InstrMem (
  */
 Latch IFID_PC_Inc (
 	.clk			(clk && ~HDU.stall),
-	.rst			(Ctrl.PC_ctrl_o[1]), // TODO: need to flush the value
+	.rst			(flush_wire),
 	.en				(1'b1),
 	.data_i			(PC_Inc.data_o),
 	.data_o			()
@@ -84,7 +87,7 @@ Latch IFID_PC_Inc (
 
 Latch IFID_Instr (
 	.clk			(clk && ~HDU.stall),
-	.rst			(Ctrl.PC_ctrl_o[1]), // TODO: need to flush the value
+	.rst			(flush_wire),
 	.en				(1'b1),
 	.data_i			(InstrMem.data_o),
 	.data_o			(instr)
@@ -128,7 +131,7 @@ GeneralControl Ctrl (
 	.op_i			(instr_op),
 	.func_i			(instr_func),
 	.is_equal_i		(Rs_eq_Rt.is_equal),
-	.PC_ctrl_o		(),
+	.PC_ctrl_o		(PC_ctrl),
 	.EX_ctrl_o		(),
 	.MEM_ctrl_o		(),
 	.WB_ctrl_o		()

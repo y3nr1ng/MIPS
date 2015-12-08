@@ -2,23 +2,4 @@
 # A bookmarks file was found in the current directory with 9 bookmarks
 # OpenFile C:/CA-Project/project1.mpf
 # Loading project project1
-# Compile of CPU.v was successful.
-# Compile of testbench.v was successful.
-# Compile of ForwardingUnit.v was successful.
-# Compile of GeneralControl.v was successful.
-# Compile of Registers.v was successful.
-# Compile of Latch.v was successful.
-# Compile of ProgramCounter.v was successful.
-# Compile of Multiplexer4Way.v was successful.
-# Compile of SignExtend.v was successful.
-# Compile of LookupTable.v was successful.
-# Compile of Multiplexer2Way.v was successful.
-# Compile of 4WayMux_TestBench.v was successful.
-# Compile of Latch_TestBench.v was successful.
-# Compile of Memory_TestBench.v was successful.
-# Compile of Memory.v was successful.
-# Compile of ALU.v was successful.
-# Compile of Comparer.v was successful.
-# Compile of Adder.v was successful.
-# Compile of HazardDetectionUnit.v was successful.
-# 19 compiles, 0 failed with no errors.
+# Bookmark(s) were restored for window "Source"
