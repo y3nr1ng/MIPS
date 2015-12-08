@@ -123,7 +123,7 @@ SignExtend SignExt (
 
 Adder PC_BranchAddr (
 	.data_1			(IFID_PC_Inc.data_o),
-	.data_2			({ SignExt.data_o[31:2], 2'b0 }),
+	.data_2			({ SignExt.data_o[29:0], 2'b0 }),
 	.data_o			()
 );
 
