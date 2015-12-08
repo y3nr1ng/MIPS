@@ -8,13 +8,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Latch_TestBench
 
-} {} {}} C:/CA-Project/src/ForwardingUnit.v {1 {vlog -work pipelined_mips -stats=none C:/CA-Project/src/ForwardingUnit.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module ForwardingUnit
-
-Top level modules:
-	ForwardingUnit
-
 } {} {}} C:/CA-Project/src/Latch.v {1 {vlog -work pipelined_mips -stats=none C:/CA-Project/src/Latch.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Latch
@@ -70,6 +63,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	GeneralControl
+
+} {} {}} C:/CA-Project/src/testbench.v {1 {vlog -work pipelined_mips -stats=none C:/CA-Project/src/testbench.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module TestBench
+
+Top level modules:
+	TestBench
 
 } {} {}} C:/CA-Project/src/Adder.v {1 {vlog -work pipelined_mips -stats=none C:/CA-Project/src/Adder.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
