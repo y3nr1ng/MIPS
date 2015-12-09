@@ -37,7 +37,7 @@ initial begin
     end
 
     // Load instructions into instruction memory
-    $readmemb(".\\dat\\lw_beq_test.txt", CPU.InstrMem.memory);
+    $readmemb(".\\dat\\instruction.txt", CPU.InstrMem.memory);
 
     // Open output file
     outfile = $fopen(".\\dat\\output.txt") | 1;

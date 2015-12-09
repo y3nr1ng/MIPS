@@ -1,6 +1,5 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate -divider Timing
 add wave -noupdate -label Start /TestBench/CPU/PC/start
 add wave -noupdate -label Reset /TestBench/CPU/PC/rst
 add wave -noupdate -label Clock /TestBench/CPU/PC/clk
@@ -37,9 +36,9 @@ add wave -noupdate -expand -group WB -expand -group WB-Register -label {Write En
 add wave -noupdate -expand -group WB -expand -group WB-Register -label {Rd Address} -radix decimal -radixshowbase 0 /TestBench/CPU/RegFiles/Rd_addr
 add wave -noupdate -expand -group WB -expand -group WB-Register -label {Rd Data} -radix decimal -radixshowbase 0 /TestBench/CPU/RegFiles/Rd_data
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {658 ps} 0}
+WaveRestoreCursors {{Cursor 1} {503 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 278
+configure wave -namecolwidth 196
 configure wave -valuecolwidth 202
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -53,4 +52,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {9401 ps} {10036 ps}
+WaveRestoreZoom {0 ps} {727 ps}
