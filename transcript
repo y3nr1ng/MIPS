@@ -163,3 +163,7 @@ vmap mips C:/CA-Project/lib/mips
 # Compile of L1_Cache.v was successful.
 # Compile of L1_Cache_Controller.v failed with 1 errors.
 # 2 compiles, 1 failed with 1 error.
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of L1_Cache_Controller.v failed with 1 errors.
+# Compile of Multiplexer8Way.v failed with 1 errors.
+# 3 compiles, 3 failed with 3 errors.

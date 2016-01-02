@@ -13,18 +13,30 @@ module L1_Cache
 		wire	[21:0]	mem_tag 	= addr_i[31:10];
 		wire	[4:0]	mem_index	= addr_i[9:5];
 		wire	[4:0]	mem_offset 	= addr_i[4:0];
-		
-	wire	[23:0]	cache_tag_bus;
-		wire			cache_valid = cache_tag_bus[23];
-		wire			cache_dirty = cache_tag_bus[22];
-		wire	[21:0]	cache_tag 	= cache_tag_bus[21:0];
+	
+	wire	[255:0]	cache_data_i;
+	wire	[255:0]	cache_data_o;
+
+	wire	[23:0]	cache_tag_bus_i;
+	wire	[23:0]	cache_tag_bus_o;
+		wire			cache_valid = cache_tag_bus_o[23];
+		wire			cache_dirty = cache_tag_bus_o[22];
+		wire	[21:0]	cache_tag 	= cache_tag_bus_o[21:0];
 		wire	[4:0]	cache_index = mem_index;
-	wire	[255:0]	cache_data;
+	
+	wire	[2:0]	block_offset 	= mem_offset[4:2];
 
 	wire			sram_cs;
 	wire			sram_we;
 	
-	wire			cache_hit;
+	wire			cache_hit;	
+	
+	wire	[31:0]	ext_mem_addr 	= CPU.ext_mem_addr;
+	wire	[255:0]	ext_mem_data_i 	= CPU.ext_mem_data_i;
+	wire	[255:0]	ext_mem_data_o 	= CPU.ext_mem_data_o;
+	wire			ext_mem_ack 	= CPU.ext_mem_ack;	
+	wire			ext_mem_cs 		= CPU.ext_mem_cs; 
+	wire			ext_mem_we 		= CPU.ext_mem_we;
 
 	// cache initialized.
 	initial begin
@@ -33,35 +45,62 @@ module L1_Cache
 	
 	// indicates whether cache hit or not?
 	assign cache_hit = ((mem_tag == cache_tag) && cache_valid) ? 1'b1 : 1'b0;
-
+	
+	// split the cache line and feed into the multiplexer
+	Multiplexer8Way data_write_mux (
+	);
+	
+	Multiplexer8Way data_read_mux (
+	);
+	
 	// read data from cache
+	always @ (addr_i or cache_data_bus_o) begin
+		
+	end
 	
+	// using multiplexer to decide which block to write back
+	generate
+		genvar i;
+		for(i = 0; i < 8; i++) begin // since 256/32 = 8
+			Multiplexer4Way new_data (
+				.data_1	(),
+				.data_2	(),
+				.data_3	(),
+				.data_4	(),
+				.sel	(),
+				.data_o	()
+			);				
+		end
+	endgenerate
+
 	// write data to cache
-	
+	always @ (addr_i or data_i) begin
+
+	end
 
 	// module instantiations.
 	L1_Cache_Controller Controller
 	(
 	);
 
-	SRAM #(.addr_width(5), .data_width(256), .mem_size(32)) tag_mem
+	SRAM #(.addr_width(5), .data_width(24), .mem_size(32)) tag_mem
 	(
 		.clk	(clk),
 		.addr_i	(cache_index),
 		.cs		(sram_cs),
 		.we		(sram_we),
-		.data_i	(),
-		.data_o	()
+		.data_i	(cache_tag_bus_i),
+		.data_o	(cache_tag_bus_o)
 	);
 	
-	SRAM #(.addr_width(5), .data_width(24), .mem_size(32)) data_mem
+	SRAM #(.addr_width(5), .data_width(256), .mem_size(32)) data_mem
 	(
 		.clk	(clk),
 		.addr_i	(cache_index),
 		.cs		(sram_cs),
 		.we		(sram_we),
-		.data_i	(),
-		.data_o	()
+		.data_i	(cache_data_i),
+		.data_o	(cache_data_o)
 	);
 	
 endmodule
