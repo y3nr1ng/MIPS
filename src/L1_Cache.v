@@ -1,7 +1,8 @@
 module L1_Cache
 (
 	input				clk,
-	input		[31:0]	addr_i,
+	input				rst,
+	input		[31:0]	addr,
 	input				cs,
 	input				we,
 	input		[31:0]	data_i,
@@ -10,12 +11,20 @@ module L1_Cache
 );
 	
 	//wire	[31:0]	mem_addr_bus = addr_i;
-		wire	[21:0]	mem_tag 	= addr_i[31:10];
-		wire	[4:0]	mem_index	= addr_i[9:5];
-		wire	[4:0]	mem_offset 	= addr_i[4:0];
+		wire	[21:0]	mem_tag 	= addr[31:10];
+		wire	[4:0]	mem_index	= addr[9:5];
+		wire	[4:0]	mem_offset 	= addr[4:0];
 	
 	wire	[255:0]	cache_data_i;
 	wire	[255:0]	cache_data_o;
+		wire	[255:
+		wire	
+		wire
+		wire	
+		wire
+		wire
+		wire
+		wire	[31:0]	cache_data_o_b7;
 
 	wire	[23:0]	cache_tag_bus_i;
 	wire	[23:0]	cache_tag_bus_o;
@@ -31,12 +40,9 @@ module L1_Cache
 	
 	wire			cache_hit;	
 	
-	wire	[31:0]	ext_mem_addr 	= CPU.ext_mem_addr;
-	wire	[255:0]	ext_mem_data_i 	= CPU.ext_mem_data_i;
-	wire	[255:0]	ext_mem_data_o 	= CPU.ext_mem_data_o;
-	wire			ext_mem_ack 	= CPU.ext_mem_ack;	
-	wire			ext_mem_cs 		= CPU.ext_mem_cs; 
-	wire			ext_mem_we 		= CPU.ext_mem_we;
+	wire	[31:0]	ext_addr	= CPU.ext_mem_addr;
+	wire	[255:0]	ext_data_i 	= CPU.ext_mem_data_i;
+	wire	[255:0]	ext_data_o 	= CPU.ext_mem_data_o;
 
 	// cache initialized.
 	initial begin
@@ -73,6 +79,12 @@ module L1_Cache
 		end
 	endgenerate
 
+	Multiplexer8Way new_data (
+		.data_1	(),
+		.data_2	(),
+		.data_3	(),
+	);
+
 	// write data to cache
 	always @ (addr_i or data_i) begin
 
@@ -81,6 +93,13 @@ module L1_Cache
 	// module instantiations.
 	L1_Cache_Controller Controller
 	(
+		.clk			(clk),
+		.rst			(rst),
+		.cache_hit		(),
+		.cache_dirty	(),
+		.cache_tag		(),
+		.sram_cs		(),
+		.sram_we		()
 	);
 
 	SRAM #(.addr_width(5), .data_width(24), .mem_size(32)) tag_mem

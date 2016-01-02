@@ -1,12 +1,9 @@
 module L1_Cache_Controller
 (
-	input			clk,
-	input			rst,
-	input			cache_valid,
-	input			cache_dirty,
+	input			clk, rst,
+	input			cache_hit, cache_dirty,
 	input	[21:0]	cache_tag,
-	output			sram_cs,
-	output			sram_we
+	output			sram_cs, sram_we
 );
 
 	wire	[255:0]	mem_data = CPU.ext_mem_data_i;
