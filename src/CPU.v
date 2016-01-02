@@ -7,13 +7,13 @@ module CPU
 	input		rst,
 	input		start,
 
-	// for data memory interface 
-	input	[256-1:0]	mem_data_i; 
-	input				mem_ack_i; 	
-	output	[256-1:0]	mem_data_o; 
-	output	[32-1:0]	mem_addr_o; 	
-	output				mem_enable_o; 
-	output				mem_write_o; 
+	// external data memory interface 
+	input	[256-1:0]	ext_mem_data_i; 
+	input				ext_mem_ack; 	
+	output	[256-1:0]	ext_mem_data_o; 
+	output	[32-1:0]	ext_mem_addr; 	
+	output				ext_mem_cs; 
+	output				ext_mem_we; 
 );
 
 /**
@@ -43,7 +43,6 @@ wire		[1:0]	MEM_ctrl;
 wire		[1:0]	WB_ctrl;
 	wire				WB_mux_wire	= WB_ctrl[1];
 	wire				Reg_we_wire = WB_ctrl[0];
-
 
 /**
  * IF
@@ -337,48 +336,14 @@ Latch #(.width(5)) EXMEM_RegFwd (
 
 L1_Cache L1Cache
 (
+	.clk			(clk),
+	.addr_i			(EXMEM_ALU_output.data_o),
+	.cs				(MEM_cs_wire),
+	.we				(MEM_we_wire),
+	.data_i			(EXMEM_ALU_data_2.data_o),
+	.data_o			(),
+	.stall			()
 );
-
-/*
-//data memory
-Data_Memory DataMem
-(
-	.clk_i(clk),
-	.rst_i(1'b0),
-	.addr_i(dcache),
-	.data_i(dcache.mem_data_i),
-	.enable_i(dcache.mem_enable_o),
-	.write_i(dcache.mem_write_o),
-	.ack_o(dcache.mem_ack_i),
-	.data_o(dcache.mem_data_o)
-);
-
-//data cache
-dcache_top dcache
-(
-    // System clock, reset and stall
-	.clk_i(clk), 
-	.rst_i(1'b0),
-	
-	// to Data Memory interface		
-	.mem_data_i(mem_data_i), 
-	.mem_ack_i(mem_ack_i), 	
-	.mem_data_o(mem_data_o), 
-	.mem_addr_o(mem_addr_o), 	
-	.mem_enable_o(mem_enable_o), 
-	.mem_write_o(mem_write_o), 
-	
-	// to CPU interface	
-	.p1_data_i(EXMEM_ALU_data_2.data_o), 
-	.p1_addr_i(EXMEM_ALU_output.data_o), 	
-	.p1_MemRead_i(MEM_cs_wire),   // check whether cs is memRead
-	.p1_MemWrite_i(MEM_we_wire), 
-	.p1_data_o(MEMWB_Mem_output.data_i), 
-	.p1_stall_o()
-);
-
-wire cache_stall = dcache.p1_stall_o;
-*/
 
 /**
  * MEM/WB
@@ -403,7 +368,7 @@ Latch MEMWB_Mem_output (
 	.clk			(clk),
 	.rst			(1'b0),
 	.en				(1'b1),
-	.data_i			(dcache.p1_data_o),
+	.data_i			(L1Cache.data_o),
 	.data_o			()
 );
 
