@@ -29,13 +29,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Multiplexer2Way
 
-} {} {}} C:/CA-Project/src/L1_Cache.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module L1_Cache
-
-Top level modules:
-	L1_Cache
-
 } {} {}} C:/CA-Project/src/Multiplexer4Way.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Multiplexer4Way.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Multiplexer4Way
@@ -64,6 +57,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	ALU
 
+} {} {}} C:/CA-Project/src/SRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SRAM.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module SRAM
+
+Top level modules:
+	SRAM
+
 } {} {}} C:/CA-Project/src/L1_Cache_Controller.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module L1_Cache_Controller
@@ -78,6 +78,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	FourWayMux_TestBench
 
+} {} {}} C:/CA-Project/src/CPU_TestBench.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU_TestBench.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module CPU_TestBench
+
+Top level modules:
+	CPU_TestBench
+
 } {} {}} C:/CA-Project/src/GeneralControl.v {1 {vlog -work mips -stats=none C:/CA-Project/src/GeneralControl.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module GeneralControl
@@ -85,31 +92,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	GeneralControl
 
-} {} {}} C:/CA-Project/src/CPU.v {0 {vlog -work mips -stats=none C:/CA-Project/src/CPU.v
+} {} {}} C:/CA-Project/src/CPU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module CPU
-** Error: C:/CA-Project/src/CPU.v(11): near ";": syntax error, unexpected ';', expecting ')'
-
-} {4.0 5.0} {}} C:/CA-Project/src/Registers.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Registers.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Registers
 
 Top level modules:
-	Registers
-
-} {} {}} C:/CA-Project/src/ProgramCounter.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ProgramCounter.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module ProgramCounter
-
-Top level modules:
-	ProgramCounter
-
-} {} {}} C:/CA-Project/src/Memory_TestBench.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Memory_TestBench.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Memory_TestBench
-
-Top level modules:
-	Memory_TestBench
+	CPU
 
 } {} {}} C:/CA-Project/src/Adder.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Adder.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -118,12 +106,26 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Adder
 
-} {} {}} C:/CA-Project/src/Memory.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Memory.v
+} {} {}} C:/CA-Project/src/Memory_TestBench.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Memory_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Memory
+-- Compiling module Memory_TestBench
 
 Top level modules:
-	Memory
+	Memory_TestBench
+
+} {} {}} C:/CA-Project/src/ProgramCounter.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ProgramCounter.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module ProgramCounter
+
+Top level modules:
+	ProgramCounter
+
+} {} {}} C:/CA-Project/src/Registers.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Registers.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Registers
+
+Top level modules:
+	Registers
 
 } {} {}} C:/CA-Project/src/Comparer.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Comparer.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014

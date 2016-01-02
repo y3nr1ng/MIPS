@@ -72,7 +72,7 @@ Adder PC_Inc (
 );
 
 // Instruction memory acts as a ROM.
-Memory #(.size(1024)) InstrMem (
+DRAM #(.mem_size(1024)) InstrMem (
 	.clk			(clk),
 	.addr_i 		(PC.addr_o),
 	.cs				(1'b1),

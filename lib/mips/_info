@@ -72,13 +72,13 @@ r1
 R5
 n@comparer
 vCPU
-!s110 1451716076
+!s110 1451716908
 !i10b 1
-!s100 hOMX2ZST5<EMjc]UodeTV2
-I]loH[P^V^;@gD4A88cC7K3
+!s100 U6fTUT7KAR:zeW>j<KDLW3
+IKOXZ;iN9KT=:`=IUnV;R;1
 R2
 R0
-w1451716075
+w1451716904
 8C:/CA-Project/src/CPU.v
 FC:/CA-Project/src/CPU.v
 L0 3
@@ -86,7 +86,7 @@ R4
 r1
 !s85 0
 31
-!s108 1451716076.677000
+!s108 1451716908.542000
 !s107 C:\CA-Project\src\LookupTable.v|C:/CA-Project/src/CPU.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/CPU.v|
 !i113 1
@@ -113,6 +113,27 @@ r1
 !i113 1
 R5
 n@c@p@u_@test@bench
+vDRAM
+!s110 1451716926
+!i10b 1
+!s100 F=_aKN1@^U7SEQK1IORHV0
+Ib2R4:YD5YERVP=zUzLY9K2
+R2
+R0
+w1451716876
+8C:/CA-Project/src/DRAM.v
+FC:/CA-Project/src/DRAM.v
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1451716926.753000
+!s107 C:/CA-Project/src/DRAM.v|
+!s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/DRAM.v|
+!i113 1
+R5
+n@d@r@a@m
 vForwardingUnit
 Z6 !s110 1451716020
 !i10b 1
@@ -365,3 +386,24 @@ r1
 !i113 1
 R5
 n@sign@extend
+vSRAM
+!s110 1451717047
+!i10b 1
+!s100 O7k?b8nf]35WAJI?c6QPA1
+IBYO<;aN[6HKM?elXHfNbl2
+R2
+R0
+w1451717046
+8C:/CA-Project/src/SRAM.v
+FC:/CA-Project/src/SRAM.v
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1451717047.425000
+!s107 C:/CA-Project/src/SRAM.v|
+!s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/SRAM.v|
+!i113 1
+R5
+n@s@r@a@m

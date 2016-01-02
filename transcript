@@ -104,3 +104,12 @@ vmap mips C:/CA-Project/lib/mips
 # Compile of ALU.v was successful.
 # 2 compiles, 1 failed with 1 error.
 # Compile of CPU.v was successful.
+# Compile of CPU.v was successful.
+# Compile of DRAM.v failed with 1 errors.
+# Compile of SRAM.v failed with 1 errors.
+# 3 compiles, 2 failed with 2 errors.
+# Compile of DRAM.v was successful.
+# Compile of SRAM.v was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of SRAM.v failed with 1 errors.
+# Compile of SRAM.v was successful.
