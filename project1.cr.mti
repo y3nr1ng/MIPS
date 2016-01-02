@@ -15,6 +15,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Latch_TestBench
 
+} {} {}} C:/CA-Project/src/DRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/DRAM.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module DRAM
+
+Top level modules:
+	DRAM
+
 } {} {}} C:/CA-Project/src/Latch.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Latch.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Latch
@@ -28,6 +35,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	Multiplexer2Way
+
+} {} {}} C:/CA-Project/src/L1_Cache.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module L1_Cache
+
+Top level modules:
+	L1_Cache
 
 } {} {}} C:/CA-Project/src/Multiplexer4Way.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Multiplexer4Way.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -70,6 +84,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	FourWayMux_TestBench
+
+} {} {}} C:/CA-Project/src/CPU_TestBench.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU_TestBench.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module CPU_TestBench
+
+Top level modules:
+	CPU_TestBench
 
 } {} {}} C:/CA-Project/src/GeneralControl.v {1 {vlog -work mips -stats=none C:/CA-Project/src/GeneralControl.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
