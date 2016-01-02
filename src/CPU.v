@@ -335,6 +335,11 @@ Latch #(.width(5)) EXMEM_RegFwd (
  * MEM
  */
 
+L1_Cache L1Cache
+(
+);
+
+/*
 //data memory
 Data_Memory DataMem
 (
@@ -373,6 +378,7 @@ dcache_top dcache
 );
 
 wire cache_stall = dcache.p1_stall_o;
+*/
 
 /**
  * MEM/WB
