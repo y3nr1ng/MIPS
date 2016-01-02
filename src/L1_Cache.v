@@ -17,14 +17,6 @@ module L1_Cache
 	
 	wire	[255:0]	cache_data_i;
 	wire	[255:0]	cache_data_o;
-		wire	[255:
-		wire	
-		wire
-		wire	
-		wire
-		wire
-		wire
-		wire	[31:0]	cache_data_o_b7;
 
 	wire	[23:0]	cache_tag_bus_i;
 	wire	[23:0]	cache_tag_bus_o;
@@ -55,7 +47,7 @@ module L1_Cache
 		.data_2	(cache_data_o[223:192]),
 		.data_3	(cache_data_o[191:160]),
 		.data_4	(cache_data_o[159:128]),
-		.data_5	(cache_data_o[127:96])
+		.data_5	(cache_data_o[127:96]),
 		.data_6	(cache_data_o[95:64]),
 		.data_7	(cache_data_o[63:32]),
 		.data_8	(cache_data_o[31:0]),
@@ -64,12 +56,12 @@ module L1_Cache
 	);
 	
 	// read data from cache
-	always @ (addr_i or cache_data_bus_o) begin
+	always @ (addr or cache_data_o) begin
 		
 	end
 
 	// write data to cache
-	always @ (addr_i or data_i) begin
+	always @ (addr or data_i) begin
 
 	end
 
