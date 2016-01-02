@@ -1,40 +1,173 @@
 module L1_Cache_Controller
 (
+// input from CPU control unit
+	require,
+// external memory input	
+	ext_mem_cs,
+	ext_mem_we,
+	ext_mem_ack,
+// external memory control signal
+	mem_cs, 
+	mem_we,
+// sram input
+	sram_valid,
+	sram_dirty,
+	sram_tag,
+// sram control signal
+	sram_cs,
+	sram_we,
+// Tag comparator
+	hit,
+	write_hit;
 );
-	
-input	[256-1:0]	ext_mem_data_i,
-	input				ext_mem_ack, 	
-	output	[256-1:0]	ext_mem_data_o, 
-	output	[32-1:0]	ext_mem_addr,
-	output				ext_mem_cs, 
-	output				ext_mem_we 
 
-	wire	[255:0]	mem_data = CPU.ext_mem_data_i;
-		assign	mem_cs	= CPU.ext_mem_cs;
-		assign	mem_we	= CPU.ext_mem_we;
-		assign	mem_ack	= CPU.ext_mem_ack;
-		assign	cache_we	= ?;
-		assign	
+// input from CPU control unit
+	input			require; // require signal to cache
 
-	parameter STATE_IDLE 		= 3'd0,
-			  STATE_COMPARE_TAG	= 3'd1,
-			  STATE_ALLOCATE	= 3'd2,
-			  STATE_WRITE_BACK	= 3'd3;
-	reg		[2:0]	state;
+// external memory input	
+	input			ext_mem_cs;
+	input			ext_mem_we;
+	input			ext_mem_ack;
+
+// external memory control signal
+	output			mem_cs; 
+	output			mem_we;
+
+// sram input
+	input			sram_valid;
+	input			sram_dirty;
+	input	[21:0]	sram_tag;
+
+
+// sram control signal
+	output 			sram_cs;
+	output			sram_we;
+
+// Tag comparator
+	input 			hit;
+	input			write_hit;
+
+// controller reg
+	reg				mem_enable;
+	reg				mem_write;
+	reg				cache_we;	
+	reg				write_back;
+
+// external memory signal assignment
+//
+		assign	mem_cs	= mem_enable;
+		assign	mem_we	= mem_write;
+//
+//	sram control signal assignment
+//
+		assign	sram_cs = require;
+		assign	sram_we = cache_we | write_hit;
+
+
+	parameter STATE_IDLE 		= 2'd0,
+			  STATE_COMPARE_TAG	= 2'd1,
+			  STATE_ALLOCATE	= 2'd2,
+			  STATE_WRITE_BACK	= 2'd3;
+
+	reg		[1:0]	state;
+
 
 	always @ (posedge clk or negedge rst) begin
-		if(~rst) begin
+		if(~rst) 
+		begin
 			state <= STATE_IDLE;
-			
+			mem_enable <= 1'b0;
+			mem_write <= 1'b0;
+			cache_we   <= 1'b0; 
+			write_back <= 1'b0;
 		end
-		else begin
+
+		else 
+		begin
 			case(state)
+				
 				STATE_IDLE:
 				begin
+					if(require)
+					begin
+						state <= STATE_COMPARE_TAG;
+					end
+					
+					else
+					begin
+						state <= STATE_IDLE;
+					end
+
 				end
+
 				STATE_COMPARE_TAG:
 				begin
+					//check valid
+					if(sram_valid && hit)
+					begin
+						mem_enable <= 1'b0;
+						mem_write <= 1'b0;
+						cache_we   <= 1'b0; 
+						write_back <= 1'b0;
+						state <= STATE_IDLE;
+					end
+
+					else if(sram_dirty && !hit)
+					begin
+						mem_enable <= 1'b1;
+						mem_write <= 1'b1;
+						cache_we   <= 1'b0; 
+						write_back <= 1'b1;
+						state<= STATE_WRITE_BACK;
+					end
+
+					else if(!sram_dirty && !hit)
+					begin
+						mem_enable <= 1'b1;
+						mem_write <= 1'b0;
+						cache_we   <= 1'b1; 
+						write_back <= 1'b0;
+						state <= STATE_ALLOCATE;
+					end
+
+					else
+					begin
+						mem_enable <= 1'b0;
+						mem_write <= 1'b0;
+						cache_we   <= 1'b0; 
+						write_back <= 1'b0;
+						state <= STATE_IDLE;
+					end
 				end
+				
+				STATE_ALLOCATE:
+				begin
+					if(ext_mem_ack)
+					begin
+						state <= STATE_COMPARE_TAG;
+					end
+					else
+					begin
+						state <= STATE_ALLOCATE;
+					end
+				end
+				
+				STATE_WRITE_BACK:
+				begin
+					if(ext_mem_ack)
+					begin
+						mem_enable <= 1'b1;
+						mem_write <= 1'b0;
+						cache_we   <= 1'b1; 
+						write_back <= 1'b0;
+						state <= STATE_ALLOCATE;
+					end
+					else
+					begin
+						state <= STATE_WRITE_BACK;
+					end
+				end
+
 			endcase
 		end
 	end
