@@ -1,13 +1,6 @@
 module L1_Cache_Controller
 (
 );
-	
-input	[256-1:0]	ext_mem_data_i,
-	input				ext_mem_ack, 	
-	output	[256-1:0]	ext_mem_data_o, 
-	output	[32-1:0]	ext_mem_addr,
-	output				ext_mem_cs, 
-	output				ext_mem_we 
 
 	wire	[255:0]	mem_data = CPU.ext_mem_data_i;
 		assign	mem_cs	= CPU.ext_mem_cs;

@@ -36,13 +36,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Multiplexer2Way
 
-} {} {}} C:/CA-Project/src/L1_Cache.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module L1_Cache
-
-Top level modules:
-	L1_Cache
-
 } {} {}} C:/CA-Project/src/Multiplexer4Way.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Multiplexer4Way.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Multiplexer4Way
@@ -71,7 +64,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	ALU
 
-} {} {}} C:/CA-Project/src/SRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SRAM.v
+} {} {}} C:/CA-Project/src/L1_Cache_Controller.v {0 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module L1_Cache_Controller
+** Error: C:/CA-Project/src/L1_Cache_Controller.v(9): near "?": syntax error, unexpected '?'
+
+} {4.0 5.0} {}} C:/CA-Project/src/SRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SRAM.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module SRAM
 
