@@ -60,7 +60,7 @@ module L1_Cache
 		.data_7	(cache_data_o[63:32]),
 		.data_8	(cache_data_o[31:0]),
 		.sel	(block_offset),
-		.data_o	()
+		.data_o	(data_o)
 	);
 	
 	// read data from cache
@@ -81,7 +81,8 @@ module L1_Cache
 		.cache_hit		(cache_hit),
 		.cache_dirty	(cache_dirty),
 		.sram_cs		(),
-		.sram_we		()
+		.sram_we		(),
+		.stall			()
 	);
 
 	SRAM #(.addr_width(5), .data_width(24), .mem_size(32)) tag_mem
