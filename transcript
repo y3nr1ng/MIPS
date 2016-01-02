@@ -113,3 +113,23 @@ vmap mips C:/CA-Project/lib/mips
 # 2 compiles, 0 failed with no errors.
 # Compile of SRAM.v failed with 1 errors.
 # Compile of SRAM.v was successful.
+# Compile of CPU.v was successful.
+# Compile of ForwardingUnit.v was successful.
+# Compile of GeneralControl.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Latch.v was successful.
+# Compile of ProgramCounter.v was successful.
+# Compile of Multiplexer4Way.v was successful.
+# Compile of SignExtend.v was successful.
+# Compile of LookupTable.v was successful.
+# Compile of Multiplexer2Way.v was successful.
+# Compile of Comparer.v was successful.
+# Compile of Adder.v was successful.
+# Compile of HazardDetectionUnit.v was successful.
+# Compile of L1_Cache.v was successful.
+# Compile of L1_Cache_Controller.v was successful.
+# Compile of CPU_TestBench.v was successful.
+# Compile of ALU.v was successful.
+# Compile of DRAM.v was successful.
+# Compile of SRAM.v was successful.
+# 19 compiles, 0 failed with no errors.
