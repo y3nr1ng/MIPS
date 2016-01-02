@@ -1,6 +1,6 @@
 module Multiplexer8Way #(parameter width=32) (
 	input		[width-1:0]	data_1, data_2, data_3, data_4,
-							data_5, data_6, data_7, data_8
+							data_5, data_6, data_7, data_8,
 	input 		[2:0]		sel,
 	output reg 	[width-1:0]	data_o
 );

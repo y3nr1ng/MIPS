@@ -17,7 +17,7 @@ module L1_Cache_Controller
 	sram_cs,
 	sram_we,
 // Tag comparator
-	hit;
+	hit
 );
 
 // input from CPU control unit
@@ -59,7 +59,7 @@ module L1_Cache_Controller
 //	sram control signal assignment
 //
 		assign	sram_cs = require;
-		wire write_hit = 
+	wire 		write_hit = hit & p_mem_we;
 		assign	sram_we = cache_we | write_hit;
 
 
