@@ -1,6 +1,6 @@
 `define CYCLE_TIME 50
 
-module TestBench;
+module CPU_TestBench;
 
 reg         clk;
 reg			reset;
