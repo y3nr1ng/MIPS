@@ -110,13 +110,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Adder
 
-} {} {}} C:/CA-Project/src/CPU.v {1 {vlog -work pipelined_mips -stats=none C:/CA-Project/src/CPU.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module CPU
-
-Top level modules:
-	CPU
-
 } {} {}} C:/CA-Project/src/Memory.v {1 {vlog -work pipelined_mips -stats=none C:/CA-Project/src/Memory.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Memory
