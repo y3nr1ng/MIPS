@@ -22,7 +22,7 @@ CPU CPU (
 	.ext_mem_we		(memory.we)
 );
 
-DRAM #(.data_width(256)) memory (
+DRAM #(.data_width(256), .delay(10)) memory (
 	.clk			(clk),
 	.addr_i			(CPU.ext_mem_addr),
 	.cs				(CPU.ext_mem_cs),

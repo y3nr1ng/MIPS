@@ -2,7 +2,8 @@ module DRAM
 #(
 	parameter addr_width 	= 32,
 	parameter data_width	= 32,
-	parameter mem_size 		= 1024
+	parameter mem_size 		= 1024,
+	parameter delay			= 0
 )
 (
 	input							clk,
@@ -30,5 +31,30 @@ module DRAM
 		end else
 			// Turn off the output pin.
 			data_o = {data_width{1'bz}};
+
+endmodule
+
+module ShiftDelay
+#(
+	parameter depth = 3
+)
+(
+	input clk,
+	input reset,
+	input data_in,
+	output data_out
+);
+
+	wire [depth-1:0] connect_wire;
+
+	assign data_out = connect_wire[depth-1];
+	assign connect_wire[0] = data_in;
+
+	generate
+		genvar i;
+		for (i = 1; i < depth; i = i+1) begin
+			dff DFF(clk, reset, connect_wire[i-1], connect_wire[i]);
+		end
+	endgenerate
 
 endmodule
