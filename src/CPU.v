@@ -361,12 +361,12 @@ dcache_top dcache
 	.rst_i(1'b0),
 	
 	// to Data Memory interface		
-	.mem_data_i(DataMem.data_i), 
-	.mem_ack_i(DataMem.ack_i), 	
-	.mem_data_o(DataMem.data_o), 
-	.mem_addr_o(DataMem.addr_o), 	
-	.mem_enable_o(DataMem.enable_o), 
-	.mem_write_o(DataMem.write_o), 
+	.mem_data_i(mem_data_i), 
+	.mem_ack_i(mem_ack_i), 	
+	.mem_data_o(mem_data_o), 
+	.mem_addr_o(mem_addr_o), 	
+	.mem_enable_o(mem_enable_o), 
+	.mem_write_o(mem_write_o), 
 	
 	// to CPU interface	
 	.p1_data_i(EXMEM_ALU_data_2.data_o), 
