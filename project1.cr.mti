@@ -36,7 +36,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Multiplexer2Way
 
-} {} {}} C:/CA-Project/src/Multiplexer4Way.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Multiplexer4Way.v
+} {} {}} C:/CA-Project/src/L1_Cache.v {0 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module L1_Cache
+** Error: C:/CA-Project/src/L1_Cache.v(64): near "++": Operator only allowed in SystemVerilog.
+
+} {4.0 5.0} {}} C:/CA-Project/src/Multiplexer4Way.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Multiplexer4Way.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Multiplexer4Way
 
@@ -76,19 +81,18 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	SRAM
 
-} {} {}} C:/CA-Project/src/4WayMux_TestBench.v {1 {vlog -work mips -stats=none C:/CA-Project/src/4WayMux_TestBench.v
+} {} {}} C:/CA-Project/src/Multiplexer8Way.v {0 {vlog -work work -stats=none C:/CA-Project/src/Multiplexer8Way.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} C:/CA-Project/src/4WayMux_TestBench.v {1 {vlog -work mips -stats=none C:/CA-Project/src/4WayMux_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module FourWayMux_TestBench
 
 Top level modules:
 	FourWayMux_TestBench
-
-} {} {}} C:/CA-Project/src/CPU_TestBench.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU_TestBench.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module CPU_TestBench
-
-Top level modules:
-	CPU_TestBench
 
 } {} {}} C:/CA-Project/src/GeneralControl.v {1 {vlog -work mips -stats=none C:/CA-Project/src/GeneralControl.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
