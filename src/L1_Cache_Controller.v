@@ -12,6 +12,7 @@ input	[256-1:0]	ext_mem_data_i,
 	wire	[255:0]	mem_data = CPU.ext_mem_data_i;
 		assign	mem_cs	= CPU.ext_mem_cs;
 		assign	mem_we	= CPU.ext_mem_we;
+		assign	mem_ack	= CPU.ext_mem_ack;
 		assign	cache_we	= ?;
 		assign	
 
