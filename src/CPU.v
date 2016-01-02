@@ -60,7 +60,7 @@ ProgramCounter PC (
 	.clk			(clk),
 	.rst			(rst),
 	.start			(start),
-	.we				(~HDU.stall),
+	.we				(~HDU.stall && ~L1Cache.stall),
 	.addr_i			(PC_Mux.data_o),
 	.addr_o			()
 );
@@ -86,7 +86,7 @@ DRAM #(.mem_size(1024)) InstrMem (
  * IF/ID
  */
 Latch IFID_PC_Inc (
-	.clk			(clk && ~HDU.stall),
+	.clk			(clk && ~HDU.stall && ~L1Cache.stall),
 	.rst			(flush_wire),
 	.en				(1'b1),
 	.data_i			(PC_Inc.data_o),
@@ -94,7 +94,7 @@ Latch IFID_PC_Inc (
 );
 
 Latch IFID_Instr (
-	.clk			(clk && ~HDU.stall),
+	.clk			(clk && ~HDU.stall && ~L1Cache.stall),
 	.rst			(flush_wire),
 	.en				(1'b1),
 	.data_i			(InstrMem.data_o),
@@ -157,7 +157,7 @@ HazardDetectionUnit HDU (
  * ID/EX
  */
 Latch #(.width(5)) IDEX_EX_ctrl (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Ctrl.EX_ctrl_o),
@@ -165,7 +165,7 @@ Latch #(.width(5)) IDEX_EX_ctrl (
 );
 
 Latch #(.width(2)) IDEX_MEM_ctrl (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Ctrl.MEM_ctrl_o),
@@ -173,7 +173,7 @@ Latch #(.width(2)) IDEX_MEM_ctrl (
 );
 
 Latch #(.width(2)) IDEX_WB_ctrl (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Ctrl.WB_ctrl_o),
@@ -181,7 +181,7 @@ Latch #(.width(2)) IDEX_WB_ctrl (
 );
 
 Latch IDEX_Rs_data (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(RegFiles.Rs_data),
@@ -189,7 +189,7 @@ Latch IDEX_Rs_data (
 );
 
 Latch IDEX_Rt_data (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(RegFiles.Rt_data),
@@ -197,7 +197,7 @@ Latch IDEX_Rt_data (
 );
 
 Latch IDEX_imm_data (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(SignExt.data_o),
@@ -205,7 +205,7 @@ Latch IDEX_imm_data (
 );
 
 Latch #(.width(5)) IDEX_Rs (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(instr_rs),
@@ -213,7 +213,7 @@ Latch #(.width(5)) IDEX_Rs (
 );
 
 Latch #(.width(5)) IDEX_Rt (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(instr_rt),
@@ -221,7 +221,7 @@ Latch #(.width(5)) IDEX_Rt (
 );
 
 Latch #(.width(5)) IDEX_Rd (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(instr_rd),
@@ -290,7 +290,7 @@ ForwardingUnit FwdUnit (
 wire EXMEM_en;
 
 Latch #(.width(2)) EXMEM_MEM_ctrl (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(IDEX_MEM_ctrl.data_o),
@@ -298,7 +298,7 @@ Latch #(.width(2)) EXMEM_MEM_ctrl (
 );
 
 Latch #(.width(2)) EXMEM_WB_ctrl (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(IDEX_WB_ctrl.data_o),
@@ -306,7 +306,7 @@ Latch #(.width(2)) EXMEM_WB_ctrl (
 );
 
 Latch EXMEM_ALU_output (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(ALU.data_o),
@@ -314,7 +314,7 @@ Latch EXMEM_ALU_output (
 );
 
 Latch EXMEM_ALU_data_2 (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Data_2_Mux.data_o),
@@ -322,7 +322,7 @@ Latch EXMEM_ALU_data_2 (
 );
 
 Latch #(.width(5)) EXMEM_RegFwd (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Fwd_Mux.data_o),
@@ -349,7 +349,7 @@ L1_Cache L1Cache
  * MEM/WB
  */
 Latch #(.width(2)) MEMWB_WB_ctrl (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(EXMEM_WB_ctrl.data_o),
@@ -357,7 +357,7 @@ Latch #(.width(2)) MEMWB_WB_ctrl (
 );
 
 Latch MEMWB_ALU_output (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(EXMEM_ALU_output.data_o),
@@ -365,7 +365,7 @@ Latch MEMWB_ALU_output (
 );
 
 Latch MEMWB_Mem_output (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(L1Cache.data_o),
@@ -373,7 +373,7 @@ Latch MEMWB_Mem_output (
 );
 
 Latch #(.width(5)) MEMWB_RegFwd (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.stall),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(EXMEM_RegFwd.data_o),
