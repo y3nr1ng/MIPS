@@ -52,11 +52,18 @@ module L1_Cache
 	// indicates whether cache hit or not?
 	assign cache_hit = ((mem_tag == cache_tag) && cache_valid) ? 1'b1 : 1'b0;
 	
-	// split the cache line and feed into the multiplexer
-	Multiplexer8Way data_write_mux (
-	);
-	
-	Multiplexer8Way data_read_mux (
+	// use multiplexer to decide which block to read
+	Multiplexer8Way new_data (
+		.data_1	(cache_data_o[255:224]),
+		.data_2	(cache_data_o[223:192]),
+		.data_3	(cache_data_o[191:160]),
+		.data_4	(cache_data_o[159:128]),
+		.data_5	(cache_data_o[127:96])
+		.data_6	(cache_data_o[95:64]),
+		.data_7	(cache_data_o[63:32]),
+		.data_8	(cache_data_o[31:0]),
+		.sel	(block_offset),
+		.data_o	()
 	);
 	
 	// read data from cache
@@ -79,12 +86,6 @@ module L1_Cache
 		end
 	endgenerate
 
-	Multiplexer8Way new_data (
-		.data_1	(),
-		.data_2	(),
-		.data_3	(),
-	);
-
 	// write data to cache
 	always @ (addr_i or data_i) begin
 
@@ -97,7 +98,6 @@ module L1_Cache
 		.rst			(rst),
 		.cache_hit		(),
 		.cache_dirty	(),
-		.cache_tag		(),
 		.sram_cs		(),
 		.sram_we		()
 	);
