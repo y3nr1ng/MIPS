@@ -2,6 +2,7 @@ module L1_Cache_Controller
 (
 // input from CPU control unit
 	require,
+	p_mem_we,
 // external memory input	
 	ext_mem_cs,
 	ext_mem_we,
@@ -12,17 +13,16 @@ module L1_Cache_Controller
 // sram input
 	sram_valid,
 	sram_dirty,
-	sram_tag,
 // sram control signal
 	sram_cs,
 	sram_we,
 // Tag comparator
-	hit,
-	write_hit;
+	hit;
 );
 
 // input from CPU control unit
 	input			require; // require signal to cache
+	input			p_mem_we;
 
 // external memory input	
 	input			ext_mem_cs;
@@ -36,8 +36,6 @@ module L1_Cache_Controller
 // sram input
 	input			sram_valid;
 	input			sram_dirty;
-	input	[21:0]	sram_tag;
-
 
 // sram control signal
 	output 			sram_cs;
@@ -61,6 +59,7 @@ module L1_Cache_Controller
 //	sram control signal assignment
 //
 		assign	sram_cs = require;
+		wire write_hit = 
 		assign	sram_we = cache_we | write_hit;
 
 
