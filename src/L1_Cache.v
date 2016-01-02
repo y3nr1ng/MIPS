@@ -1,27 +1,27 @@
 module L1_Cache
-#(
-	parameter data_width 	= 32
-)
 (
-	input					clk,
-	input		[width-1:0]	addr_i,
-	input					cs,
-	input					we,
-	input		[width-1:0]	data_i,
-	output	reg	[width-1:0]	data_o,
-	output	reg				stall
+	input				clk,
+	input		[31:0]	addr_i,
+	input				cs,
+	input				we,
+	input		[31:0]	data_i,
+	output	reg	[31:0]	data_o,
+	output	reg			stall
 );
+	
+	wire	[31:0]	mem_addr_bus;
+		wire			mem_tag 	= mem_addr_bus[31:10];
+		wire			mem_index	= mem_addr_bus[9:5];
+		wire			mem_offset 	= mem_addr_bus[4:0];
+		
+	wire	[23:0]	cache_tag_bus;
+		wire			cache_valid = cache_tag_bus[23];
+		wire			cache_dirty = cache_tag_bus[22];
+		wire	[21:0]	cache_tag 	= cache_tag_bus[21:0];
 
 	initial begin
-		data_o = { width{1'bz} };
+		data_o = 32'bz;
 	end
-
-	input	[256-1:0]	ext_mem_data_i,
-	input				ext_mem_ack, 	
-	output	[256-1:0]	ext_mem_data_o, 
-	output	[32-1:0]	ext_mem_addr,
-	output				ext_mem_cs, 
-	output				ext_mem_we 
 	
 	L1_Cache_Controller Controller
 	(
