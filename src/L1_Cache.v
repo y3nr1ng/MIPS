@@ -34,9 +34,6 @@ module L1_Cache
 		wire	[4:0]	cache_index = mem_index;
 	
 	wire	[2:0]	block_offset 	= mem_offset[4:2];
-
-	wire			sram_cs;
-	wire			sram_we;
 	
 	wire			cache_hit;	
 	
@@ -70,21 +67,6 @@ module L1_Cache
 	always @ (addr_i or cache_data_bus_o) begin
 		
 	end
-	
-	// using multiplexer to decide which block to write back
-	generate
-		genvar i;
-		for(i = 0; i < 8; i++) begin // since 256/32 = 8
-			Multiplexer4Way new_data (
-				.data_1	(),
-				.data_2	(),
-				.data_3	(),
-				.data_4	(),
-				.sel	(),
-				.data_o	()
-			);				
-		end
-	endgenerate
 
 	// write data to cache
 	always @ (addr_i or data_i) begin
@@ -92,12 +74,12 @@ module L1_Cache
 	end
 
 	// module instantiations.
-	L1_Cache_Controller Controller
+	L1_Cache_Controller controller
 	(
 		.clk			(clk),
 		.rst			(rst),
-		.cache_hit		(),
-		.cache_dirty	(),
+		.cache_hit		(cache_hit),
+		.cache_dirty	(cache_dirty),
 		.sram_cs		(),
 		.sram_we		()
 	);
@@ -106,8 +88,8 @@ module L1_Cache
 	(
 		.clk	(clk),
 		.addr_i	(cache_index),
-		.cs		(sram_cs),
-		.we		(sram_we),
+		.cs		(controller.sram_cs),
+		.we		(controller.sram_we),
 		.data_i	(cache_tag_bus_i),
 		.data_o	(cache_tag_bus_o)
 	);
@@ -116,8 +98,8 @@ module L1_Cache
 	(
 		.clk	(clk),
 		.addr_i	(cache_index),
-		.cs		(sram_cs),
-		.we		(sram_we),
+		.cs		(controller.sram_cs),
+		.we		(controller.sram_we),
 		.data_i	(cache_data_i),
 		.data_o	(cache_data_o)
 	);
