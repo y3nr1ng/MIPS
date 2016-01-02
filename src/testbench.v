@@ -67,7 +67,7 @@ always@(posedge clk) begin
     $fdisplay(outfile, "stall = %d, Flush_o = %d", CPU.HDU.stall, CPU.Ctrl.PC_ctrl_o[1]);
 
     // count stall and flush
-	if(CPU.HDU.stall == 1 && CPU.Ctrl.PC_ctrl_o[1] == 1)
+	if(CPU.HDU.stall == 1)
 		stall = stall + 1;
 
     if(CPU.Ctrl.PC_ctrl_o[1] == 1)
