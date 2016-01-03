@@ -96,7 +96,7 @@ module L1_Cache
 		.data_2	(cache_data_i),
 		.data_3	(dram_data_i[255:224]),
 		.data_4	(cache_data_o[255:224]),
-		.sel	({decoder.out[7], sram_data_sel}),
+		.sel	({decoder.out[0], sram_data_sel}),
 		.data_o	(cache_data_i[255:224])
 	);
 	Multiplexer4Way write_data_b2 (
@@ -104,7 +104,7 @@ module L1_Cache
 		.data_2	(cache_data_i),
 		.data_3	(dram_data_i[223:192]),
 		.data_4	(cache_data_o[223:192]),
-		.sel	({decoder.out[6], sram_data_sel}),
+		.sel	({decoder.out[1], sram_data_sel}),
 		.data_o	(cache_data_i[223:192])
 	);
 	Multiplexer4Way write_data_b3 (
@@ -112,7 +112,7 @@ module L1_Cache
 		.data_2	(cache_data_i),
 		.data_3	(dram_data_i[191:160]),
 		.data_4	(cache_data_o[191:160]),
-		.sel	({decoder.out[5], sram_data_sel}),
+		.sel	({decoder.out[2], sram_data_sel}),
 		.data_o	(cache_data_i[191:160])
 	);
 	Multiplexer4Way write_data_b4 (
@@ -120,7 +120,7 @@ module L1_Cache
 		.data_2	(cache_data_i),
 		.data_3	(dram_data_i[159:128]),
 		.data_4	(cache_data_o[159:128]),
-		.sel	({decoder.out[4], sram_data_sel}),
+		.sel	({decoder.out[3], sram_data_sel}),
 		.data_o	(cache_data_i[159:128])
 	);
 	Multiplexer4Way write_data_b5 (
@@ -128,7 +128,7 @@ module L1_Cache
 		.data_2	(cache_data_i),
 		.data_3	(dram_data_i[127:96]),
 		.data_4	(cache_data_o[127:96]),
-		.sel	({decoder.out[3], sram_data_sel}),
+		.sel	({decoder.out[4], sram_data_sel}),
 		.data_o	(cache_data_i[127:96])
 	);
 	Multiplexer4Way write_data_b6 (
@@ -136,7 +136,7 @@ module L1_Cache
 		.data_2	(cache_data_i),
 		.data_3	(dram_data_i[95:64]),
 		.data_4	(cache_data_o[95:64]),
-		.sel	({decoder.out[2], sram_data_sel}),
+		.sel	({decoder.out[5], sram_data_sel}),
 		.data_o	(cache_data_i[95:64])
 	);
 	Multiplexer4Way write_data_b7 (
@@ -144,7 +144,7 @@ module L1_Cache
 		.data_2	(cache_data_i),
 		.data_3	(dram_data_i[63:32]),
 		.data_4	(cache_data_o[63:32]),
-		.sel	({decoder.out[1], sram_data_sel}),
+		.sel	({decoder.out[6], sram_data_sel}),
 		.data_o	(cache_data_i[63:32])
 	);
 	Multiplexer4Way write_data_b8 (
@@ -152,7 +152,7 @@ module L1_Cache
 		.data_2	(cache_data_i),
 		.data_3	(dram_data_i[31:0]),
 		.data_4	(cache_data_o[31:0]),
-		.sel	({decoder.out[0], sram_data_sel}),
+		.sel	({decoder.out[7], sram_data_sel}),
 		.data_o	(cache_data_i[31:0])
 	);
 	
@@ -195,14 +195,14 @@ module Decoder_3to8 (
 
 	always @ (sel) begin
 		case (sel)
-        	3'b000  : out = 8'b10000000;
-            3'b001  : out = 8'b01000000;
-            3'b010  : out = 8'b00100000;
-            3'b011  : out = 8'b00010000;
-            3'b100  : out = 8'b00001000;
-            3'b101  : out = 8'b00000100;
-            3'b110  : out = 8'b00000010;
-            3'b111 	: out = 8'b00000001;
+        	3'b000  : out = 8'b00000001;
+            3'b001  : out = 8'b00000010;
+            3'b010  : out = 8'b00000100;
+            3'b011  : out = 8'b00001000;
+            3'b100  : out = 8'b00010000;
+            3'b101  : out = 8'b00100000;
+            3'b110  : out = 8'b01000000;
+            3'b111 	: out = 8'b10000000;
 		endcase
 	end
 
