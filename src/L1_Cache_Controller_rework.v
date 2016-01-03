@@ -99,7 +99,7 @@ module L1_Cache_Controller (
 					if(`DEBUG)
 						$display(" -> WRITE", $time);
 					
-					if(cache_match && cache_valid)
+					if(cache_hit && cache_valid)
 						next_state = `STATE_WRITEHIT;
 					else	
 						next_state = `STATE_WRITEMISS;

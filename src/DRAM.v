@@ -21,7 +21,10 @@ module DRAM
 		data_o = {data_width{1'bz}};
 	end
 	
-	always @ (posedge clk)
+	always @ (posedge clk) begin
+		// Pull down the ACK signal.
+		ack = 1'b0;
+		
 		if(cs) begin
 			if(we)
 				// WE = Write Enable, select to write, output remain the same.
@@ -29,33 +32,12 @@ module DRAM
 			else
 				// CS = Chip Select, select to read, update the output.
 				data_o = memory[addr_i >> 2];
+			
+			// Delay the output of ACK signal.
+			ack = #10 1'b1;
 		end else
 			// Turn off the output pin.
 			data_o = {data_width{1'bz}};
-
-endmodule
-
-module ShiftDelay
-#(
-	parameter depth = 3
-)
-(
-	input clk,
-	input reset,
-	input data_in,
-	output data_out
-);
-
-	wire [depth-1:0] connect_wire;
-
-	assign data_out = connect_wire[depth-1];
-	assign connect_wire[0] = data_in;
-
-	generate
-		genvar i;
-		for (i = 1; i < depth; i = i+1) begin
-			dff DFF(clk, reset, connect_wire[i-1], connect_wire[i]);
-		end
-	endgenerate
+	end
 
 endmodule

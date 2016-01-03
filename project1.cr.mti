@@ -15,16 +15,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Latch_TestBench
 
-} {} {}} C:/CA-Project/src/DRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/DRAM.v
+} {} {}} C:/CA-Project/src/L1_Cache_Controller_rework.v {0 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller_rework.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module DRAM
--- Compiling module ShiftDelay
+-- Compiling module L1_Cache_Controller
+** Error: C:/CA-Project/src/L1_Cache_Controller_rework.v(171): Dynamic range only allowed in SystemVerilog.
+** Error: C:/CA-Project/src/L1_Cache_Controller_rework.v(171): near "sig_vector": syntax error, unexpected IDENTIFIER, expecting ')'
 
-Top level modules:
-	DRAM
-	ShiftDelay
-
-} {} {}} C:/CA-Project/src/Latch.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Latch.v
+} {4.0 6.0} {}} C:/CA-Project/src/Latch.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Latch.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Latch
 
@@ -41,7 +38,7 @@ Top level modules:
 } {} {}} C:/CA-Project/src/L1_Cache.v {0 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module L1_Cache
-** Error: C:/CA-Project/src/L1_Cache.v(128): LHS in procedural continuous assignment may not be a net: cache_tag_bus_i.
+** Error: C:/CA-Project/src/L1_Cache.v(138): LHS in procedural continuous assignment may not be a net: cache_tag_bus_i.
 
 } {4.0 5.0} {}} C:/CA-Project/src/Multiplexer4Way.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Multiplexer4Way.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
