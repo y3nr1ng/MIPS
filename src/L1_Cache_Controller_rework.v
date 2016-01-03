@@ -22,7 +22,7 @@ module L1_Cache_Controller (
 	output reg		dram_addr_sel,
 	output reg		dram_cs,
 	output reg		dram_we,
-	output reg		dram_ack
+	input 			dram_ack
 );
 	
 	// Internal registers for state recording.
@@ -30,7 +30,7 @@ module L1_Cache_Controller (
 	reg	[3:0]	next_state;
 
 	reg			cache_ack_en;	// Enable CPU-side ACK response.
-	reg			r_cache_ack;	// Internal ACK register.
+	reg			r_cache_ack;	// Internal ACK signal driver.
 
 	initial begin	
 		state		= `STATE_IDLE;
@@ -131,7 +131,11 @@ module L1_Cache_Controller (
 				begin
 					if(`DEBUG)
 						$display(" -> WRITE MEM", $time);
-
+					
+					if(dram_ack)
+						next_state = `STATE_WRITEDATA;
+					else
+						next_state = `STATE_WRITEMEM;
 				end
 
 				`STATE_WRITEDATA:
@@ -146,12 +150,21 @@ module L1_Cache_Controller (
 				begin
 					if(`DEBUG)
 						$display(" -> WRITE BACK", $time);
+
+					// DELAY THE MEMORY HERE IF DRAM FAIL TO DELAY PROPERLY.
+					
+					next_state =  `STATE_WRITEBACKMEM;
 				end
 
 				`STATE_WRITEBACKMEM:
 				begin
 					if(`DEBUG)
 						$display(" -> WRITE BACK MEM", $time);
+
+					if(dram_ack)
+						next_state = `STATE_READMISS;
+					else
+						next_state = `STATE_WRITEBACKMEM;
 				end
 								
 			endcase
