@@ -15,11 +15,9 @@ module L1_Cache_Controller (
 	input			cache_valid,
 	input			cache_dirty_i,
 	output reg		cache_dirty_o,
-	output reg		dram_data_sel,
-	output reg		cpu_data_sel,
+	output reg		sram_data_sel,
 	
 	// Interface to the DRAM (external memory).
-	output reg		dram_addr_sel,
 	output reg		dram_cs,
 	output reg		dram_we,
 	input 			dram_ack
@@ -186,41 +184,39 @@ module L1_Cache_Controller (
 	);
 
 		case(state)
-			`STATE_IDLE:      		ApplySignals({3'bzzz, 2'bzz, 4'b0zzz});
-	      	`STATE_READ:      		ApplySignals({3'bzz0, 2'bzz, 4'bzzzz});
-	     	`STATE_READ_MISS:  		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
-	     	`STATE_READ_MEM:   		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
-	     	`STATE_READ_DATA:  		ApplySignals({3'b110, 2'b00, 4'b00xx});
-	     	`STATE_WRITE:     		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
-	     	`STATE_WRITE_HIT:  		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
-	     	`STATE_WRITE_MISS: 		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
-	     	`STATE_WRITE_MEM:  		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
-	     	`STATE_WRITE_DATA: 		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
-	     	`STATE_WRITE_BACK:		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
-	     	`STATE_WRITE_BACK_MEM: 	ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+			`STATE_IDLE:      		ApplySignals({2'bzz, 3'bzzz, 2'bzz});
+	      	`STATE_READ:      		ApplySignals({2'bzz, 3'bzzz, 2'bzz});
+	     	`STATE_READ_MISS:  		ApplySignals({2'bzz, 3'bzzz, 2'bzz});
+	     	`STATE_READ_MEM:   		ApplySignals({2'bzz, 3'bzzz, 2'bzz});
+	     	`STATE_READ_DATA:  		ApplySignals({2'bzz, 3'bzzz, 2'bzz});
+	     	`STATE_WRITE:     		ApplySignals({2'bzz, 3'bzzz, 2'bzz});
+	     	`STATE_WRITE_HIT:  		ApplySignals({2'bzz, 3'bzzz, 2'bzz});
+	     	`STATE_WRITE_MISS: 		ApplySignals({2'bzz, 3'bzzz, 2'bzz});
+	     	`STATE_WRITE_MEM:  		ApplySignals({2'bzz, 3'bzzz, 2'bzz});
+	     	`STATE_WRITE_DATA: 		ApplySignals({2'bzz, 3'bzzz, 2'bzz});
+	     	`STATE_WRITE_BACK:		ApplySignals({2'bzz, 3'bzzz, 2'bzz});
+	     	`STATE_WRITE_BACK_MEM: 	ApplySignals({2'bzz, 3'bzzz, 2'bzz});
 		endcase
 
 	endtask
 
 	task ApplySignals (
-		input	[8:0]	sig_vector
+		input	[6:0]	sig_vector
 	);
 
 		begin
 			// Control the CPU-side cache interface.
-			cache_ack_en	= sig_vector[8];
-			r_cache_ack		= sig_vector[7];
-			cpu_data_sel	= sig_vector[6];
+			cache_ack_en	= sig_vector[6];
+			r_cache_ack		= sig_vector[5];
 	
 			// Control the internal SRAM of L1 cache.
-			sram_we			= sig_vector[5];
-			cache_dirty_o	= sig_vector[4];
+			sram_we			= sig_vector[4];
+			cache_dirty_o	= sig_vector[3];
+			sram_data_sel	= sig_vector[2];
 	
 			// Control the DRAM-side cache interface.
-			dram_cs			= sig_vector[3];
-			dram_we			= sig_vector[2];
-			dram_data_sel	= sig_vector[1];
-			dram_addr_sel	= sig_vector[0];
+			dram_cs			= sig_vector[1];
+			dram_we			= sig_vector[0];
 		end
 	endtask
 

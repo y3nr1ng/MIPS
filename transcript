@@ -569,3 +569,7 @@ vsim -gui mips.CPU_TestBench
 # Compile of L1_Cache_rework.v was successful.
 # Compile of L1_Cache_Controller_rework.v was successful.
 # 2 compiles, 0 failed with no errors.
+# Compile of L1_Cache_rework.v failed with 1 errors.
+# Compile of L1_Cache_rework.v failed with 1 errors.
+# Compile of L1_Cache_rework.v was successful.
+# Compile of L1_Cache_Controller_rework.v was successful.

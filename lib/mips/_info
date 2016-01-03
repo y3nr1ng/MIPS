@@ -113,24 +113,45 @@ r1
 !i113 1
 R5
 n@c@p@u_@test@bench
+vDecoder_3to8
+Z7 !s110 1451835334
+!i10b 1
+!s100 `TE2b?m:cdAn47f2RG=[K2
+I]6]H;H[a?>R_dKHXc>eY>3
+R2
+R0
+Z8 w1451835333
+Z9 8C:/CA-Project/src/L1_Cache_rework.v
+Z10 FC:/CA-Project/src/L1_Cache_rework.v
+L0 191
+R4
+r1
+!s85 0
+31
+Z11 !s108 1451835334.391000
+Z12 !s107 C:/CA-Project/src/L1_Cache_rework.v|
+Z13 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/L1_Cache_rework.v|
+!i113 1
+R5
+n@decoder_3to8
 vDRAM
-Z7 !s110 1451828923
+Z14 !s110 1451828923
 !i10b 1
 !s100 EWTEO3QK>61eSC6JKRoC81
 IN_h6zk70KYCQfB[<>@5Q;1
 R2
 R0
 w1451825609
-Z8 8C:/CA-Project/src/DRAM.v
-Z9 FC:/CA-Project/src/DRAM.v
+Z15 8C:/CA-Project/src/DRAM.v
+Z16 FC:/CA-Project/src/DRAM.v
 L0 1
 R4
 r1
 !s85 0
 31
 !s108 1451828922.981000
-Z10 !s107 C:/CA-Project/src/DRAM.v|
-Z11 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/DRAM.v|
+Z17 !s107 C:/CA-Project/src/DRAM.v|
+Z18 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/DRAM.v|
 !i113 1
 R5
 n@d@r@a@m
@@ -198,34 +219,34 @@ r1
 R5
 n@hazard@detection@unit
 vL1_Cache
-!s110 1451832499
+R7
 !i10b 1
-!s100 ooB6`[aXaXC0?Pe:jBRiC2
-IJDW>`eVAi5GEB:3:>:`?P1
+!s100 dj__Wi_cI1B3TNH4_3]aD3
+I1=NEl8gB?Pa<2Kk7L?0?J3
 R2
 R0
-w1451832378
-8C:/CA-Project/src/L1_Cache_rework.v
-FC:/CA-Project/src/L1_Cache_rework.v
+R8
+R9
+R10
 L0 1
 R4
 r1
 !s85 0
 31
-!s108 1451832499.976000
-!s107 C:/CA-Project/src/L1_Cache_rework.v|
-!s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/L1_Cache_rework.v|
+R11
+R12
+R13
 !i113 1
 R5
 n@l1_@cache
 vL1_Cache_Controller
-!s110 1451832500
+!s110 1451835447
 !i10b 1
-!s100 bFd8Mojf[@cS7P=75_2c80
-Im7915]ZXo>B5_;Ag6ZzzF0
+!s100 VoGk^nnlVRMVh[hg[7;@^1
+IHe21H;Y25ZhgR;D@Va`h=3
 R2
 R0
-w1451831585
+w1451835444
 8C:/CA-Project/src/L1_Cache_Controller_rework.v
 FC:/CA-Project/src/L1_Cache_Controller_rework.v
 L0 3
@@ -233,7 +254,7 @@ R4
 r1
 !s85 0
 31
-!s108 1451832500.086000
+!s108 1451835447.087000
 !s107 C:\CA-Project\src\StateTable.v|C:/CA-Project/src/L1_Cache_Controller_rework.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/L1_Cache_Controller_rework.v|
 !i113 1
@@ -324,7 +345,7 @@ r1
 R5
 n@multiplexer4@way
 vMultiplexer8Way
-R7
+R14
 !i10b 1
 !s100 dB1ODm4RS_?0eE<BW<GD>1
 IEa<UUIb3d;<S<JDaS4iFz1
@@ -394,16 +415,16 @@ I?knZ@4?BG5R6RgF>95HBQ0
 R2
 R0
 w1451740292
-R8
-R9
+R15
+R16
 L0 38
 R4
 r1
 !s85 0
 31
 !s108 1451809431.340000
-R10
-R11
+R17
+R18
 !i113 1
 R5
 n@shift@delay
@@ -429,7 +450,7 @@ r1
 R5
 n@sign@extend
 vSRAM
-R7
+R14
 !i10b 1
 !s100 O7k?b8nf]35WAJI?c6QPA1
 IBYO<;aN[6HKM?elXHfNbl2

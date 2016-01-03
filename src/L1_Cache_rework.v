@@ -17,12 +17,12 @@ module L1_Cache
 	output	reg	[cpu_data_width-1:0]	cache_data_o,
 	
 	// external memory side
-	output	reg	[addr_width-1:0]		dram_addr,
+	output		[addr_width-1:0]		dram_addr,
 	output	reg							dram_cs,
 	output	reg							dram_we,
 	input								dram_ack,
 	input		[mem_data_width-1:0]	dram_data_i,
-	output	reg	[mem_data_width-1:0]	dram_data_o
+	output		[mem_data_width-1:0]	dram_data_o
 );
 	
 	// address from CPU
@@ -48,9 +48,10 @@ module L1_Cache
 	assign sram_dirty	= tag_storage.data_o[22];
 	assign sram_tag		= tag_storage.data_o[21:0];
 
-	assign cache_hit = ((addr_tag == sram_tag) && sram_valid) ? 1'b1 : 1'b0;
+	assign cache_hit	= ((addr_tag == sram_tag) && sram_valid) ? 1'b1 : 1'b0;
 	
-	assign dram_addr = {sram_tag, addr_index, 5'b0};
+	assign dram_addr 	= {sram_tag, addr_index, 5'b0};
+	assign dram_data_o 	= data_storage.data_o;
 
 	L1_Cache_Controller_rework controller (
 		.clk			(clk),
@@ -67,11 +68,9 @@ module L1_Cache
 		.cache_valid	(sram_valid),
 		.cache_dirty_i	(sram_dirty),
 		.cache_dirty_o	(),
-		.dram_data_sel	(),
-		.cpu_data_sel	(),
+		.sram_data_sel	(),
 
 		// interface to DRAM
-		.dram_addr_sel	(),
 		.dram_cs		(dram_cs),
 		.dram_we		(dram_we),
 		.dram_ack		(dram_ack)
@@ -87,6 +86,76 @@ module L1_Cache
 		.data_o	()
 	);
 	
+	Decode_3to8 decoder (
+		.sel 	(block_offset),
+		.out	()
+	);
+	
+	Multiplexer4Way write_data_b1 (
+		.data_1	(cache_data_i),
+		.data_2	(cache_data_i),
+		.data_3	(dram_data_i[255:224]),
+		.data_4	(cache_data_o[255:224]),
+		.sel	({decoder.out[7], sram_data_sel}),
+		.data_o	(cache_data_i[255:224])
+	);
+	Multiplexer4Way write_data_b2 (
+		.data_1	(cache_data_i),
+		.data_2	(cache_data_i),
+		.data_3	(dram_data_i[223:192]),
+		.data_4	(cache_data_o[223:192]),
+		.sel	({decoder.out[6], sram_data_sel}),
+		.data_o	(cache_data_i[223:192])
+	);
+	Multiplexer4Way write_data_b3 (
+		.data_1	(cache_data_i),
+		.data_2	(cache_data_i),
+		.data_3	(dram_data_i[191:160]),
+		.data_4	(cache_data_o[191:160]),
+		.sel	({decoder.out[5], sram_data_sel}),
+		.data_o	(cache_data_i[191:160])
+	);
+	Multiplexer4Way write_data_b4 (
+		.data_1	(cache_data_i),
+		.data_2	(cache_data_i),
+		.data_3	(dram_data_i[159:128]),
+		.data_4	(cache_data_o[159:128]),
+		.sel	({decoder.out[4], sram_data_sel}),
+		.data_o	(cache_data_i[159:128])
+	);
+	Multiplexer4Way write_data_b5 (
+		.data_1	(cache_data_i),
+		.data_2	(cache_data_i),
+		.data_3	(dram_data_i[127:96]),
+		.data_4	(cache_data_o[127:96]),
+		.sel	({decoder.out[3], sram_data_sel}),
+		.data_o	(cache_data_i[127:96])
+	);
+	Multiplexer4Way write_data_b6 (
+		.data_1	(cache_data_i),
+		.data_2	(cache_data_i),
+		.data_3	(dram_data_i[95:64]),
+		.data_4	(cache_data_o[95:64]),
+		.sel	({decoder.out[2], sram_data_sel}),
+		.data_o	(cache_data_i[95:64])
+	);
+	Multiplexer4Way write_data_b7 (
+		.data_1	(cache_data_i),
+		.data_2	(cache_data_i),
+		.data_3	(dram_data_i[63:32]),
+		.data_4	(cache_data_o[63:32]),
+		.sel	({decoder.out[1], sram_data_sel}),
+		.data_o	(cache_data_i[63:32])
+	);
+	Multiplexer4Way write_data_b8 (
+		.data_1	(cache_data_i),
+		.data_2	(cache_data_i),
+		.data_3	(dram_data_i[31:0]),
+		.data_4	(cache_data_o[31:0]),
+		.sel	({decoder.out[0], sram_data_sel}),
+		.data_o	(cache_data_i[31:0])
+	);
+	
 	SRAM #(.addr_width(5), .data_width(256), .mem_size(32)) data_storage
 	(
 		.clk	(clk),
@@ -97,18 +166,44 @@ module L1_Cache
 		.data_o	()
 	);
 
+	Multiplexer8Way read_data (
+		.data_1	(data_storage.data_o[255:224]),
+		.data_2	(data_storage.data_o[223:192]),
+		.data_3	(data_storage.data_o[191:160]),
+		.data_4	(data_storage.data_o[159:128]),
+		.data_5	(data_storage.data_o[127:96]),
+		.data_6	(data_storage.data_o[95:64]),
+		.data_7	(data_storage.data_o[63:32]),
+		.data_8	(data_storage.data_o[31:0]),
+		.sel	(block_offset),
+		.data_o	(cache_data_o)
+	);
+
 	Multiplexer2Way DRAM_data_mux (
 		.data_1	(cache_data_i),
 		.data_2	(data_storage.data_o),
 		.sel	(controller.dram_data_sel),
 		.data_o	(dram_data_o)
 	);
-	
-	Multiplexer2Way CPU_data_mux (
-		.data_1	(data_storage.data_o),	
-		.data_2	(dram_data_i),
-		.sel	(controller.cpu_data_sel),
-		.data_o	(cache_data_o)
-	);
+
+endmodule
+
+module Decoder_3to8 (
+	input		[2:0]	sel,
+	output	reg	[7:0]	out
+);
+
+	always @ (sel) begin
+		case (sel)
+        	3'b000  : out = 8'b10000000;
+            3'b001  : out = 8'b01000000;
+            3'b010  : out = 8'b00100000;
+            3'b011  : out = 8'b00010000;
+            3'b100  : out = 8'b00001000;
+            3'b101  : out = 8'b00000100;
+            3'b110  : out = 8'b00000010;
+            3'b111 	: out = 8'b00000001;
+		endcase
+	end
 
 endmodule
