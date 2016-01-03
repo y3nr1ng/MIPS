@@ -210,3 +210,111 @@ vmap mips C:/CA-Project/lib/mips
 # Compile of L1_Cache.v failed with 1 errors.
 # Compile of L1_Cache_Controller.v failed with 1 errors.
 # 3 compiles, 2 failed with 2 errors.
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of L1_Cache_Controller.v was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of L1_Cache_Controller.v was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of CPU.v was successful.
+# Compile of L1_Cache.v failed with 1 errors.
+# 2 compiles, 1 failed with 1 error.
+# Compile of L1_Cache.v failed with 3 errors.
+# Compile of L1_Cache.v failed with 3 errors.
+# Compile of L1_Cache.v failed with 2 errors.
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of L1_Cache.v was successful.
+# Compile of CPU.v was successful.
+# Compile of ForwardingUnit.v was successful.
+# Compile of GeneralControl.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Latch.v was successful.
+# Compile of ProgramCounter.v was successful.
+# Compile of Multiplexer4Way.v was successful.
+# Compile of SignExtend.v was successful.
+# Compile of LookupTable.v was successful.
+# Compile of Multiplexer2Way.v was successful.
+# Compile of Comparer.v was successful.
+# Compile of Adder.v was successful.
+# Compile of HazardDetectionUnit.v was successful.
+# Compile of L1_Cache.v was successful.
+# Compile of L1_Cache_Controller.v was successful.
+# Compile of CPU_TestBench.v was successful.
+# Compile of ALU.v was successful.
+# Compile of DRAM.v was successful.
+# Compile of SRAM.v was successful.
+# Compile of Multiplexer8Way.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui mips.CPU_TestBench
+# vsim -gui C:\CA-Project\project1.mpf 
+# Start time: 11:22:20 on Jan 03,2016
+# Loading mips.CPU_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.Multiplexer8Way
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# ** Warning: (vsim-3017) C:/CA-Project/src/CPU.v(75): [TFMPC] - Too few port connections. Expected 7, found 6.
+# 
+#         Region: /CPU_TestBench/CPU/InstrMem
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(75): [TFMPC] - Missing connection for port 'ack'.
+# 
+# ** Warning: (vsim-3017) C:/CA-Project/src/CPU.v(337): [TFMPC] - Too few port connections. Expected 8, found 7.
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache
+# ** Error: (vsim-3063) C:/CA-Project/src/CPU.v(337): Port 'addr_i' not found in the connected module (2nd connection).
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(337): [TFMPC] - Missing connection for port 'rst'.
+# 
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(337): [TFMPC] - Missing connection for port 'addr'.
+# 
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache.v(47): Illegal output or inout port connection for port 'data_o'.
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/read_data
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache.v(61): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/write_data_b1
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache.v(69): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/write_data_b2
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache.v(77): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/write_data_b3
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache.v(85): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/write_data_b4
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache.v(93): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/write_data_b5
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache.v(101): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/write_data_b6
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache.v(109): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/write_data_b7
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache.v(117): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/write_data_b8
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache.v(133): Illegal output or inout port connection for port 'stall'.
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/controller
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache.v(149): Illegal output or inout port connection for port 'data_o'.
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/tag_mem
+# Error loading design
+# A time value could not be extracted from the current line

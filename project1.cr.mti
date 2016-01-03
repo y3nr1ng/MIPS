@@ -66,15 +66,14 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	ALU
 
-} {} {}} C:/CA-Project/src/L1_Cache_Controller.v {0 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller.v
+} {} {}} C:/CA-Project/src/L1_Cache_Controller.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module L1_Cache_Controller
-** Error: C:/CA-Project/src/L1_Cache_Controller.v(74): (vlog-2730) Undefined variable: 'clk'.
 
-** Error: C:/CA-Project/src/L1_Cache_Controller.v(74): (vlog-2730) Undefined variable: 'rst'.
+Top level modules:
+	L1_Cache_Controller
 
-
-} {4.0 5.0 6.0 7.0} {}} C:/CA-Project/src/SRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SRAM.v
+} {} {}} C:/CA-Project/src/SRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SRAM.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module SRAM
 
@@ -108,6 +107,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	GeneralControl
+
+} {} {}} C:/CA-Project/src/CPU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module CPU
+
+Top level modules:
+	CPU
 
 } {} {}} C:/CA-Project/src/Adder.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Adder.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014

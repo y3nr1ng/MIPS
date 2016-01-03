@@ -32,9 +32,9 @@ module L1_Cache_Controller
 
 	//	sram control signal assignment
 	wire	write_hit;
-	assign	sram_cs 	= (cache_cs || cache_we);
-	assign 	write_hit 	= hit && cache_we;
+	assign	sram_cs 	= cache_cs || cache_we;	
 	assign	sram_we 	= r_cache_we || write_hit;
+	assign 	write_hit 	= cache_hit && cache_we;
 	assign  stall 		= ~cache_hit && (cache_cs || cache_we) ;
 
 

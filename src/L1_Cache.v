@@ -18,8 +18,8 @@ module L1_Cache
 	wire	[255:0]	cache_data_i;
 	wire	[255:0]	cache_data_o;
 
-	wire	[23:0]	cache_tag_bus_i;
-	wire	[23:0]	cache_tag_bus_o;
+	reg		[23:0]	cache_tag_bus_i;
+	reg		[23:0]	cache_tag_bus_o;
 		wire			cache_valid = cache_tag_bus_o[23];
 		wire			cache_dirty = cache_tag_bus_o[22];
 		wire	[21:0]	cache_tag 	= cache_tag_bus_o[21:0];
@@ -31,7 +31,8 @@ module L1_Cache
 	
 	wire	[31:0]	ext_addr	= CPU.ext_mem_addr;
 	wire	[255:0]	ext_data_i 	= CPU.ext_mem_data_i;
-	wire	[255:0]	ext_data_o 	= CPU.ext_mem_data_o;
+	reg		[255:0]	ext_data_o;
+	assign CPU.ext_mem_data_o = ext_data_o;
 
 	// cache initialized.
 	initial begin
@@ -42,7 +43,8 @@ module L1_Cache
 	assign cache_hit = ((mem_tag == cache_tag) && cache_valid) ? 1'b1 : 1'b0;
 	
 	// use multiplexer to decide which block to read
-	Multiplexer8Way new_data (
+	// TODO: fuck this part, need to change it to generate statement
+	Multiplexer8Way read_data (
 		.data_1	(cache_data_o[255:224]),
 		.data_2	(cache_data_o[223:192]),
 		.data_3	(cache_data_o[191:160]),
@@ -54,27 +56,86 @@ module L1_Cache
 		.sel	(block_offset),
 		.data_o	(data_o)
 	);
-	
-	// read data from cache
-	always @ (addr or cache_data_o) begin
+
+	// write data to specified cache block
+	Multiplexer4Way write_data_b1 (
+		.data_1	(data_i),
+		.data_2	(ext_data_i[255:224]),
+		.data_3	(cache_data_o[255:224]),
+		.data_4	(32'bz),
+		.sel	(),
+		.data_o	(cache_data_i[255:224])
+	);
+	Multiplexer4Way write_data_b2 (
+		.data_1	(data_i),
+		.data_2	(ext_data_i[223:192]),
+		.data_3	(cache_data_o[223:192]),
+		.data_4	(32'bz),
+		.sel	(),
+		.data_o	(cache_data_i[223:192])
+	);
+	Multiplexer4Way write_data_b3 (
+		.data_1	(data_i),
+		.data_2	(ext_data_i[191:160]),
+		.data_3	(cache_data_o[191:160]),
+		.data_4	(32'bz),
+		.sel	(),
+		.data_o	(cache_data_i[191:160])
+	);
+	Multiplexer4Way write_data_b4 (
+		.data_1	(data_i),
+		.data_2	(ext_data_i[159:128]),
+		.data_3	(cache_data_o[159:128]),
+		.data_4	(32'bz),
+		.sel	(),
+		.data_o	(cache_data_i[159:128])
+	);
+	Multiplexer4Way write_data_b5 (
+		.data_1	(data_i),
+		.data_2	(ext_data_i[127:96]),
+		.data_3	(cache_data_o[127:96]),
+		.data_4	(32'bz),
+		.sel	(),
+		.data_o	(cache_data_i[127:96])
+	);
+	Multiplexer4Way write_data_b6 (
+		.data_1	(data_i),
+		.data_2	(ext_data_i[95:64]),
+		.data_3	(cache_data_o[95:64]),
+		.data_4	(32'bz),
+		.sel	(),
+		.data_o	(cache_data_i[95:64])
+	);
+	Multiplexer4Way write_data_b7 (
+		.data_1	(data_i),
+		.data_2	(ext_data_i[63:32]),
+		.data_3	(cache_data_o[63:32]),
+		.data_4	(32'bz),
+		.sel	(),
+		.data_o	(cache_data_i[63:32])
+	);
+	Multiplexer4Way write_data_b8 (
+		.data_1	(data_i),
+		.data_2	(ext_data_i[31:0]),
+		.data_3	(cache_data_o[31:0]),
+		.data_4	(32'bz),
+		.sel	(),
+		.data_o	(cache_data_i[31:0])
+	);
+
+	// write tag
+	always @ (controller.sram_we) begin
+		assign cache_tag_bus_i = {1'b1, 1'b1, mem_tag};
+		assign ext_data_o = cache_data_i;
+	end
 		
-	end
-
-	// write data to cache
-	always @ (addr or data_i) begin
-
-	end
-
 	// module instantiations.
-	reg		p1require;
-	assign p1require = cs | we ;
-
 	L1_Cache_Controller controller
 	(
 		.clk			(clk),
 		.rst			(rst),
-		.require		(p1require),
-		.p_mem_we		(we),
+		.cache_cs		(cs),
+		.cache_we		(we),
 		.cache_hit		(cache_hit),
 		.cache_dirty	(cache_dirty),
 		.sram_cs		(),

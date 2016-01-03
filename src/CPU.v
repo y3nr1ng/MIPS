@@ -8,12 +8,12 @@ module CPU
 	input		start,
 
 	// external data memory interface 
-	input	[256-1:0]	ext_mem_data_i,
-	input				ext_mem_ack, 	
-	output	[256-1:0]	ext_mem_data_o, 
-	output	[32-1:0]	ext_mem_addr,
-	output				ext_mem_cs, 
-	output				ext_mem_we 
+	input		[256-1:0]	ext_mem_data_i,
+	input					ext_mem_ack, 	
+	output		[256-1:0]	ext_mem_data_o, 
+	output		[32-1:0]	ext_mem_addr,
+	output					ext_mem_cs, 
+	output					ext_mem_we 
 );
 
 /**
