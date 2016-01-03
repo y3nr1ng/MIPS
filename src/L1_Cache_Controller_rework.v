@@ -53,28 +53,37 @@ module L1_Cache_Controller (
 					if(`DEBUG)
 						$display(" -> IDLE", $time);
 					
-					if(cache_cs && cache_we)
-						next_state = `STATE_WRITE;
-					else if(cache_cs && !cache_we)
-						next_state = `STATE_READ;
+					if(cache_cs || cache_we)
+						next_state = `STATE_COMPARE;
 					else
 						next_state = `STATE_IDLE;
 				end
 
-				`STATE_READ:
+				`STATE_COMPARE:
 				begin
 					if(`DEBUG)
-						$display(" -> READ", $time);
-					
-					if(cache_hit && cache_valid) begin
-						next_state = `STATE_IDLE;
+						$display(" -> COMPARE ", $time);
+					if(cache_hit && cache_valid)
+					begin
+						if(cache_we)
+							next_state = `STATE_WRITE_HIT;	
+						else
+						begin
+							next_state = `STATE_IDLE;
 						if(`DEBUG)
 							$display(" ... READ HIT");
-					end 
-					else if((!cache_hit) && cache_valid && cache_dirty_i)
-						next_state = `STATE_WRITE_BACK;
+						end
+					end
+
 					else
-						next_state = `STATE_READ_MISS;					
+					begin
+						if(cache_valid && cache_dirty_i)
+							next_state = `STATE_WRITE_BACK;
+						else if(cache_we)
+							next_state = `STATE_WRITE_MISS;
+						else
+							next_state = `STATE_READ_MISS;
+					end
 				end
 		
 				`STATE_READ_MISS:
@@ -106,23 +115,12 @@ module L1_Cache_Controller (
 					next_state = `STATE_IDLE;
 				end
 				
-				`STATE_WRITE:
-				begin
-					if(`DEBUG)
-						$display(" -> WRITE", $time);
-					
-					if(cache_hit && cache_valid)
-						next_state = `STATE_WRITE_HIT;
-					else	
-						next_state = `STATE_WRITE_MISS;
-				end
-				
 				`STATE_WRITE_HIT:
 				begin
 					if(`DEBUG)
 						$display(" ... WRITE HIT", $time);
-
-					next_state = `STATE_IDLE;
+					
+						next_state = `STATE_IDLE;
 				end
 	
 				`STATE_WRITE_MISS:
@@ -151,7 +149,7 @@ module L1_Cache_Controller (
 					if(`DEBUG)
 						$display(" -> WRITE DATA", $time);
 
-					next_state = `STATE_IDLE;
+					next_state = `STATE_WRITE_HIT;
 				end
 
 				`STATE_WRITE_BACK:
@@ -168,9 +166,9 @@ module L1_Cache_Controller (
 				begin
 					if(`DEBUG)
 						$display(" -> WRITE BACK MEM", $time);
-
+					
 					if(dram_ack)
-						next_state = `STATE_READ_MISS;
+						next_state = `STATE_COMPARE;
 					else
 						next_state = `STATE_WRITE_BACK_MEM;
 				end
@@ -184,18 +182,17 @@ module L1_Cache_Controller (
 	);
 
 		case(state)
-			`STATE_IDLE:      		ApplySignals({2'b1z, 3'b00z, 2'b00});
-	      	`STATE_READ:      		ApplySignals({2'b0z, 3'b00z, 2'b00});
-	     	`STATE_READ_MISS:  		ApplySignals({2'b0z, 3'b00z, 2'b00}); // preserve for delay
-	     	`STATE_READ_MEM:   		ApplySignals({2'b0z, 3'b00z, 2'b10}); // wait delay
-	     	`STATE_READ_DATA:  		ApplySignals({2'b0z, 3'b00z, 2'b00});
-	     	`STATE_WRITE:     		ApplySignals({2'b0z, 3'b00z, 2'b00});
-	     	`STATE_WRITE_HIT:  		ApplySignals({2'b0z, 3'b00z, 2'b00});
-	     	`STATE_WRITE_MISS: 		ApplySignals({2'b0z, 3'b00z, 2'b00});
-	     	`STATE_WRITE_MEM:  		ApplySignals({2'b0z, 3'b00z, 2'b11}); // wait delay
-	     	`STATE_WRITE_DATA: 		ApplySignals({2'b0z, 3'b11z, 2'b00});
-	     	`STATE_WRITE_BACK:		ApplySignals({2'b0z, 3'b00z, 2'b00}); // preserve for delay
-	     	`STATE_WRITE_BACK_MEM: 	ApplySignals({2'b0z, 3'b00z, 2'b11}); // wait delay
+			`STATE_IDLE:      		ApplySignals({2'b10, 3'b000, 2'b00});
+	      	`STATE_COMPARE:      	ApplySignals({2'b01, 3'b000, 2'b00});
+	     	`STATE_READ_MISS:  		ApplySignals({2'b01, 3'b000, 2'b00}); // preserve for delay
+	     	`STATE_READ_MEM:   		ApplySignals({2'b01, 3'b000, 2'b10}); // wait delay
+	     	`STATE_READ_DATA:  		ApplySignals({2'b01, 3'b000, 2'b00});
+	     	`STATE_WRITE_HIT:  		ApplySignals({2'b01, 3'b110, 2'b00});
+	     	`STATE_WRITE_MISS: 		ApplySignals({2'b01, 3'b000, 2'b00});
+	     	`STATE_WRITE_MEM:  		ApplySignals({2'b01, 3'b000, 2'b11}); // wait delay
+	     	`STATE_WRITE_DATA: 		ApplySignals({2'b01, 3'b101, 2'b00});
+	     	`STATE_WRITE_BACK:		ApplySignals({2'b01, 3'b000, 2'b00}); // preserve for delay
+	     	`STATE_WRITE_BACK_MEM: 	ApplySignals({2'b01, 3'b000, 2'b11}); // wait delay
 		endcase
 
 	endtask
