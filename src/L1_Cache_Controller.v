@@ -2,8 +2,8 @@ module L1_Cache_Controller
 (
 	input	clk,
 	input	rst,
-	input	require,
-	input	p_mem_we,
+	input	cache_cs,
+	input	cache_we,
 	input	cache_hit,
 	input	cache_dirty,
 	output	sram_cs,
@@ -16,28 +16,26 @@ module L1_Cache_Controller
 	output 	mem_wb
 );
 
-// external memory input	
-	wire	ext_mem_ack = CPU.ext_mem_ack;
+	// external memory input	
+	wire	ext_mem_ack	= CPU.ext_mem_ack;
 
-// controller reg
-	reg				mem_enable;
-	reg				mem_write;
-	reg				cache_we;	
-	reg				write_back;
+	// controller reg
+	reg		mem_enable;
+	reg		mem_write;
+	reg		r_cache_we;	
+	reg		write_back;
 
-// external memory signal assignment
-//
-		assign	mem_cs	= mem_enable;
-		assign	mem_we	= mem_write;
-		assign 	mem_wb	= write_back;
-//
-//	sram control signal assignment
-//
-		assign	sram_cs = require;
-		wire		write_hit;
-		assign 	write_hit = hit & p_mem_we;
-		assign	sram_we = cache_we | write_hit;
-		assign  stall = ~cache_hit & require ;
+	// external memory signal assignment
+	assign	mem_cs		= mem_enable;
+	assign	mem_we		= mem_write;
+	assign 	mem_wb		= write_back;
+
+	//	sram control signal assignment
+	wire	write_hit;
+	assign	sram_cs 	= (cache_cs || cache_we);
+	assign 	write_hit 	= hit && cache_we;
+	assign	sram_we 	= r_cache_we || write_hit;
+	assign  stall 		= ~cache_hit && (cache_cs || cache_we) ;
 
 
 	parameter STATE_IDLE 		= 2'd0,
@@ -54,7 +52,7 @@ module L1_Cache_Controller
 			state <= STATE_IDLE;
 			mem_enable <= 1'b0;
 			mem_write <= 1'b0;
-			cache_we   <= 1'b0; 
+			r_cache_we   <= 1'b0; 
 			write_back <= 1'b0;
 		end
 
@@ -64,7 +62,7 @@ module L1_Cache_Controller
 				
 				STATE_IDLE:
 				begin
-					if(require)
+					if(cache_cs || cache_we)
 					begin
 						state <= STATE_COMPARE_TAG;
 					end
@@ -82,7 +80,7 @@ module L1_Cache_Controller
 					begin
 						mem_enable <= 1'b0;
 						mem_write <= 1'b0;
-						cache_we   <= 1'b0; 
+						r_cache_we   <= 1'b0; 
 						write_back <= 1'b0;
 						state <= STATE_IDLE;
 					end
@@ -91,7 +89,7 @@ module L1_Cache_Controller
 					begin
 						mem_enable <= 1'b1;
 						mem_write <= 1'b1;
-						cache_we   <= 1'b0; 
+						r_cache_we   <= 1'b0; 
 						write_back <= 1'b1;
 						state<= STATE_WRITE_BACK;
 					end
@@ -100,7 +98,7 @@ module L1_Cache_Controller
 					begin
 						mem_enable <= 1'b1;
 						mem_write <= 1'b0;
-						cache_we   <= 1'b1; 
+						r_cache_we   <= 1'b1; 
 						write_back <= 1'b0;
 						state <= STATE_ALLOCATE;
 					end
@@ -109,7 +107,7 @@ module L1_Cache_Controller
 					begin
 						mem_enable <= 1'b0;
 						mem_write <= 1'b0;
-						cache_we   <= 1'b0; 
+						r_cache_we   <= 1'b0; 
 						write_back <= 1'b0;
 						state <= STATE_IDLE;
 					end
@@ -133,7 +131,7 @@ module L1_Cache_Controller
 					begin
 						mem_enable <= 1'b1;
 						mem_write <= 1'b0;
-						cache_we   <= 1'b1; 
+						r_cache_we   <= 1'b1; 
 						write_back <= 1'b0;
 						state <= STATE_ALLOCATE;
 					end

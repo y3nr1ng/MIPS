@@ -72,13 +72,13 @@ r1
 R5
 n@comparer
 vCPU
-Z7 !s110 1451718663
+!s110 1451788292
 !i10b 1
-!s100 U6fTUT7KAR:zeW>j<KDLW3
-IKOXZ;iN9KT=:`=IUnV;R;1
+!s100 @Aoa8l`S2PISX8_O2hOeJ0
+IzEUj3eo8iJF5kFMGj03Kz1
 R2
 R0
-w1451716904
+w1451786919
 8C:/CA-Project/src/CPU.v
 FC:/CA-Project/src/CPU.v
 L0 3
@@ -86,14 +86,14 @@ R4
 r1
 !s85 0
 31
-!s108 1451718663.576000
+!s108 1451788292.552000
 !s107 C:\CA-Project\src\LookupTable.v|C:/CA-Project/src/CPU.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/CPU.v|
 !i113 1
 R5
 n@c@p@u
 vCPU_TestBench
-Z8 !s110 1451740673
+Z7 !s110 1451740673
 !i10b 1
 !s100 7nMk;gRjTOZGn=@GP2K_E2
 I]OboQDT6:CGf6hOaEdFc]2
@@ -114,28 +114,28 @@ r1
 R5
 n@c@p@u_@test@bench
 vDRAM
-R8
+R7
 !i10b 1
 !s100 NaO8Z5j2Xcof^AJDklD1^0
 IO0oIWU];ioG9lNSAAk@Po0
 R2
 R0
-Z9 w1451740292
-Z10 8C:/CA-Project/src/DRAM.v
-Z11 FC:/CA-Project/src/DRAM.v
+Z8 w1451740292
+Z9 8C:/CA-Project/src/DRAM.v
+Z10 FC:/CA-Project/src/DRAM.v
 L0 1
 R4
 r1
 !s85 0
 31
-Z12 !s108 1451740673.931000
-Z13 !s107 C:/CA-Project/src/DRAM.v|
-Z14 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/DRAM.v|
+Z11 !s108 1451740673.931000
+Z12 !s107 C:/CA-Project/src/DRAM.v|
+Z13 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/DRAM.v|
 !i113 1
 R5
 n@d@r@a@m
 vForwardingUnit
-R7
+Z14 !s110 1451718663
 !i10b 1
 !s100 ZL0RAdB1cXc>[l4KXf96;0
 I<`9jK`c=a7NhCUFca:DW10
@@ -156,7 +156,7 @@ r1
 R5
 n@forwarding@unit
 vGeneralControl
-R7
+R14
 !i10b 1
 !s100 G9=E@?g8DWEi[QW3S4hNT3
 Iin4]za]NX<OH>984=hM=f3
@@ -366,7 +366,7 @@ r1
 R5
 n@program@counter
 vRegisters
-R7
+R14
 !i10b 1
 !s100 o2YZencHc2z`CC4?nE5k90
 ID`Xg1ZJO@8d^ABh7O:NS>0
@@ -387,23 +387,23 @@ r1
 R5
 n@registers
 vShiftDelay
-R8
+R7
 !i10b 1
 !s100 BmIfi?H6d>z]SLlF13`Q]3
 I?knZ@4?BG5R6RgF>95HBQ0
 R2
 R0
+R8
 R9
 R10
-R11
 L0 38
 R4
 r1
 !s85 0
 31
+R11
 R12
 R13
-R14
 !i113 1
 R5
 n@shift@delay
