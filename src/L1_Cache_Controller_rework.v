@@ -35,7 +35,7 @@ module L1_Cache_Controller (
 
 	always @ (posedge clk) begin
 		state = next_state;
-		update_signals(state);
+		UpdateSignals(state);
 
 		if(~rst) begin	
 			next_state = `STATE_IDLE;
@@ -62,7 +62,8 @@ module L1_Cache_Controller (
 					
 					if(cache_hit && cache_valid) begin
 						next_state = `STATE_IDLE;
-						$display(" ... READ HIT");
+						if(`DEBUG)
+							$display(" ... READ HIT");
 					end 
 					else if((!cache_hit) && cache_valid && cache_dirty_i)
 						next_state = `STATE_WRITEBACK;
@@ -72,6 +73,11 @@ module L1_Cache_Controller (
 		
 				`STATE_READMISS:
 				begin
+					if(`DEBUG)
+						$display(" -> READ MISS", $time);
+					
+					// SCREW THIS STATE
+					
 				end
 	
 				`STATE_READMEM:
@@ -80,14 +86,27 @@ module L1_Cache_Controller (
 				
 				`STATE_READDATA:
 				begin
+					if(`DEBUG)
+						$display(" -> READ DATA", $time);
+				
+					next_state = `STATE_IDLE;
 				end
 				
 				`STATE_WRITE:
 				begin
+					if(`DEBUG)
+						$display(" -> WRITE", $time);
+					
+					if(cache_match && cache_valid)
+						next_state = `STATE_WRITEHIT;
+					else	
+						next_state = `STATE_WRITEMISS;
 				end
 				
 				`STATE_WRITEHIT:
 				begin
+					if(`DEBUG)
+						$display(" ... WRITE HIT", $time);
 				end
 	
 				`STATE_WRITEMISS:
@@ -116,6 +135,34 @@ module L1_Cache_Controller (
 								
 			endcase
 		end
+	end
+
+task UpdateSignals (
+	input	[3:0]	state
+);
+
+	case(state)
+		`STATE_IDLE:      		ApplySignals();
+      	`STATE_READ:      		ApplySignals();
+     	`STATE_READMISS:  		ApplySignals();
+     	`STATE_READMEM:   		ApplySignals();
+     	`STATE_READDATA:  		ApplySignals();
+     	`STATE_WRITE:     		ApplySignals();
+     	`STATE_WRITEHIT:  		ApplySignals();
+     	`STATE_WRITEMISS: 		ApplySignals();
+     	`STATE_WRITEMEM:  		ApplySignals();
+     	`STATE_WRITEDATA: 		ApplySignals();
+     	`STATE_WRITEBACK:		ApplySignals();
+     	`STATE_WRITEBACKMEM: 	ApplySignals();
+	endcase
+
+endtask
+
+task ApplySignals (
+	intput	[]	sig_vector
+);
+
+	begin
 	end
 
 endmodule
