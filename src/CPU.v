@@ -335,7 +335,7 @@ Latch #(.width(5)) EXMEM_RegFwd (
  * MEM
  */
 
-L1_Cache L1Cache
+L1_Cache_rework L1Cache
 (
 	.clk			(clk),
 	.rst			(rst),
