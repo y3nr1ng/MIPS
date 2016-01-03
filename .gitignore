@@ -16,3 +16,6 @@ src/project1/
 
 # Diagram ~
 *.dia~
+
+# Test file
+test.v
