@@ -187,10 +187,10 @@ module L1_Cache_Controller (
 
 		case(state)
 			`STATE_IDLE:      		ApplySignals({3'bzzz, 2'bzz, 4'b0zzz});
-	      	`STATE_READ:      		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	      	`STATE_READ:      		ApplySignals({3'bzz0, 2'bzz, 4'bzzzz});
 	     	`STATE_READ_MISS:  		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
 	     	`STATE_READ_MEM:   		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
-	     	`STATE_READ_DATA:  		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	     	`STATE_READ_DATA:  		ApplySignals({3'b110, 2'b00, 4'b00xx});
 	     	`STATE_WRITE:     		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
 	     	`STATE_WRITE_HIT:  		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
 	     	`STATE_WRITE_MISS: 		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
