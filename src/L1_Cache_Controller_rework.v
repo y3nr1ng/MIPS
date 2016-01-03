@@ -1,6 +1,8 @@
 `include "StateTable.v"
 
 module L1_Cache_Controller (
+	input			clk,
+	
 	// interface to CPU
 	input			cache_cs,
 	input			cache_we,
@@ -22,6 +24,15 @@ module L1_Cache_Controller (
 	output reg		dram_ack
 );
 
+	reg	[3:0]	state;	
+	reg	[3:0]	next_state;
 
+	initial begin	
+		state		= `STATE_IDLE;
+		next_state 	= `STATE_IDLE;
+	end
+
+	always @ (posedge clk) begin
+	end
 
 endmodule
