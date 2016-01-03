@@ -74,7 +74,7 @@ module L1_Cache_Controller (
 				`STATE_READMISS:
 				begin
 					if(`DEBUG)
-						$display(" -> READ MISS", $time);
+						$display(" ... READ MISS", $time);
 					
 					// SCREW THIS STATE
 					
@@ -82,6 +82,8 @@ module L1_Cache_Controller (
 	
 				`STATE_READMEM:
 				begin
+					if(`DEBUG)
+						$display(" -> READ MEM", $time);
 				end
 				
 				`STATE_READDATA:
@@ -111,26 +113,33 @@ module L1_Cache_Controller (
 	
 				`STATE_WRITEMISS:
 				begin
-				end
-
-				`STATE_WRITEMISS:
-				begin
+					if(`DEBUG)
+						$display(" ... WRITE MISS", $time);
 				end
 
 				`STATE_WRITEMEM:
 				begin
+					if(`DEBUG)
+						$display(" -> WRITE MEM", $time);
+
 				end
 
 				`STATE_WRITEDATA:
 				begin
+					if(`DEBUG)
+						$display(" -> WRITE DATA", $time);
 				end
 
 				`STATE_WRITEBACK:
 				begin
+					if(`DEBUG)
+						$display(" -> WRITE BACK", $time);
 				end
 
 				`STATE_WRITEBACKMEM:
 				begin
+					if(`DEBUG)
+						$display(" -> WRITE BACK MEM", $time);
 				end
 								
 			endcase
