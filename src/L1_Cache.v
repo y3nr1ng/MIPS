@@ -135,7 +135,7 @@ module L1_Cache
 
 	// write tag
 	always @ (controller.sram_we) begin
-		assign cache_tag_bus_i = (we) ?{1'b1, 1'b1, mem_tag} :{1'b1, 1'b0, mem_tag};
+		assign cache_tag_bus_i = {1'b1, we, mem_tag};
 		assign ext_data_o = cache_data_i;
 	end
 		
