@@ -74,27 +74,33 @@ module L1_Cache_Controller (
 							$display(" ... READ HIT");
 					end 
 					else if((!cache_hit) && cache_valid && cache_dirty_i)
-						next_state = `STATE_WRITEBACK;
+						next_state = `STATE_WRITE_BACK;
 					else
-						next_state = `STATE_READMISS;					
+						next_state = `STATE_READ_MISS;					
 				end
 		
-				`STATE_READMISS:
+				`STATE_READ_MISS:
 				begin
 					if(`DEBUG)
 						$display(" ... READ MISS", $time);
 					
-					// SCREW THIS STATE
+					// DELAY THE MEMORY HERE IF DRAM FAIL TO DELAY PROPERLY.
 					
+					next_state =  `STATE_READ_MEM;
 				end
 	
-				`STATE_READMEM:
+				`STATE_READ_MEM:
 				begin
 					if(`DEBUG)
 						$display(" -> READ MEM", $time);
+
+					if(dram_ack)
+						next_state = `STATE_READ_DATA;
+					else
+						next_state = `STATE_READ_MEM;
 				end
 				
-				`STATE_READDATA:
+				`STATE_READ_DATA:
 				begin
 					if(`DEBUG)
 						$display(" -> READ DATA", $time);
@@ -108,12 +114,12 @@ module L1_Cache_Controller (
 						$display(" -> WRITE", $time);
 					
 					if(cache_hit && cache_valid)
-						next_state = `STATE_WRITEHIT;
+						next_state = `STATE_WRITE_HIT;
 					else	
-						next_state = `STATE_WRITEMISS;
+						next_state = `STATE_WRITE_MISS;
 				end
 				
-				`STATE_WRITEHIT:
+				`STATE_WRITE_HIT:
 				begin
 					if(`DEBUG)
 						$display(" ... WRITE HIT", $time);
@@ -121,24 +127,28 @@ module L1_Cache_Controller (
 					next_state = `STATE_IDLE;
 				end
 	
-				`STATE_WRITEMISS:
+				`STATE_WRITE_MISS:
 				begin
 					if(`DEBUG)
 						$display(" ... WRITE MISS", $time);
+
+					// DELAY THE MEMORY HERE IF DRAM FAIL TO DELAY PROPERLY.
+					
+					next_state =  `STATE_WRITE_MEM;
 				end
 
-				`STATE_WRITEMEM:
+				`STATE_WRITE_MEM:
 				begin
 					if(`DEBUG)
 						$display(" -> WRITE MEM", $time);
 					
 					if(dram_ack)
-						next_state = `STATE_WRITEDATA;
+						next_state = `STATE_WRITE_DATA;
 					else
-						next_state = `STATE_WRITEMEM;
+						next_state = `STATE_WRITE_MEM;
 				end
 
-				`STATE_WRITEDATA:
+				`STATE_WRITE_DATA:
 				begin
 					if(`DEBUG)
 						$display(" -> WRITE DATA", $time);
@@ -146,25 +156,25 @@ module L1_Cache_Controller (
 					next_state = `STATE_IDLE;
 				end
 
-				`STATE_WRITEBACK:
+				`STATE_WRITE_BACK:
 				begin
 					if(`DEBUG)
 						$display(" -> WRITE BACK", $time);
 
 					// DELAY THE MEMORY HERE IF DRAM FAIL TO DELAY PROPERLY.
 					
-					next_state =  `STATE_WRITEBACKMEM;
+					next_state =  `STATE_WRITE_BACK_MEM;
 				end
 
-				`STATE_WRITEBACKMEM:
+				`STATE_WRITE_BACK_MEM:
 				begin
 					if(`DEBUG)
 						$display(" -> WRITE BACK MEM", $time);
 
 					if(dram_ack)
-						next_state = `STATE_READMISS;
+						next_state = `STATE_READ_MISS;
 					else
-						next_state = `STATE_WRITEBACKMEM;
+						next_state = `STATE_WRITE_BACK_MEM;
 				end
 								
 			endcase
@@ -178,16 +188,16 @@ task UpdateSignals (
 	case(state)
 		`STATE_IDLE:      		ApplySignals();
       	`STATE_READ:      		ApplySignals();
-     	`STATE_READMISS:  		ApplySignals();
-     	`STATE_READMEM:   		ApplySignals();
-     	`STATE_READDATA:  		ApplySignals();
+     	`STATE_READ_MISS:  		ApplySignals();
+     	`STATE_READ_MEM:   		ApplySignals();
+     	`STATE_READ_DATA:  		ApplySignals();
      	`STATE_WRITE:     		ApplySignals();
-     	`STATE_WRITEHIT:  		ApplySignals();
-     	`STATE_WRITEMISS: 		ApplySignals();
-     	`STATE_WRITEMEM:  		ApplySignals();
-     	`STATE_WRITEDATA: 		ApplySignals();
-     	`STATE_WRITEBACK:		ApplySignals();
-     	`STATE_WRITEBACKMEM: 	ApplySignals();
+     	`STATE_WRITE_HIT:  		ApplySignals();
+     	`STATE_WRITE_MISS: 		ApplySignals();
+     	`STATE_WRITE_MEM:  		ApplySignals();
+     	`STATE_WRITE_DATA: 		ApplySignals();
+     	`STATE_WRITE_BACK:		ApplySignals();
+     	`STATE_WRITE_BACK_MEM: 	ApplySignals();
 	endcase
 
 endtask
