@@ -38,8 +38,67 @@ module L1_Cache_Controller (
 		update_signals(state);
 
 		if(~rst) begin	
+			next_state = `STATE_IDLE;
 		end
 		else begin
+			case(state)
+				`STATE_IDLE: 
+				begin
+				end
+
+				`STATE_READ:
+				begin
+				end
+		
+				`STATE_READMISS:
+				begin
+				end
+	
+				`STATE_READMEM:
+				begin
+				end
+				
+				`STATE_READDATA:
+				begin
+				end
+				
+				`STATE_WRITE:
+				begin
+				end
+				
+				`STATE_WRITEHIT:
+				begin
+				end
+	
+				`STATE_WRITEMISS:
+				begin
+				end
+
+				`STATE_WRITEMISS:
+				begin
+				end
+
+				`STATE_WRITEMEM:
+				begin
+				end
+
+				`STATE_WRITEDATA:
+				begin
+				end
+
+				`STATE_WRITEACK:
+				begin
+				end
+
+				`STATE_WRITEBACK:
+				begin
+				end
+
+				`STATE_WRITEBACKMEM:
+				begin
+				end
+								
+			endcase
 		end
 	end
 
