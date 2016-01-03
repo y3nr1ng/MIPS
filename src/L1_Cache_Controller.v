@@ -1,49 +1,23 @@
 module L1_Cache_Controller
 (
-// input from CPU control unit
-	require,
-	p_mem_we,
-// external memory input	
-	ext_mem_cs,
-	ext_mem_we,
-	ext_mem_ack,
+	input	clk,
+	input	rst,
+	input	require,
+	input	p_mem_we,
+	input	cache_hit,
+	input	cache_dirty,
+	output	sram_cs,
+	output	sram_we,
+	output	stall,
+
 // external memory control signal
-	mem_cs, 
-	mem_we,
-// sram input
-	sram_valid,
-	sram_dirty,
-// sram control signal
-	sram_cs,
-	sram_we,
-// Tag comparator
-	hit
+	output	mem_cs, 
+	output	mem_we,
+	output 	mem_wb
 );
 
-// input from CPU control unit
-	input			require; // require signal to cache
-	input			p_mem_we;
-
 // external memory input	
-	input			ext_mem_cs;
-	input			ext_mem_we;
-	input			ext_mem_ack;
-
-// external memory control signal
-	output			mem_cs; 
-	output			mem_we;
-
-// sram input
-	input			sram_valid;
-	input			sram_dirty;
-
-// sram control signal
-	output 			sram_cs;
-	output			sram_we;
-
-// Tag comparator
-	input 			hit;
-	input			write_hit;
+	wire	ext_mem_ack = CPU.ext_mem_ack;
 
 // controller reg
 	reg				mem_enable;
@@ -55,12 +29,15 @@ module L1_Cache_Controller
 //
 		assign	mem_cs	= mem_enable;
 		assign	mem_we	= mem_write;
+		assign 	mem_wb	= write_back;
 //
 //	sram control signal assignment
 //
 		assign	sram_cs = require;
-	wire 		write_hit = hit & p_mem_we;
+		wire		write_hit;
+		assign 	write_hit = hit & p_mem_we;
 		assign	sram_we = cache_we | write_hit;
+		assign  stall = ~cache_hit & require ;
 
 
 	parameter STATE_IDLE 		= 2'd0,
@@ -101,8 +78,7 @@ module L1_Cache_Controller
 
 				STATE_COMPARE_TAG:
 				begin
-					//check valid
-					if(sram_valid && hit)
+					if(cache_hit)
 					begin
 						mem_enable <= 1'b0;
 						mem_write <= 1'b0;
@@ -111,7 +87,7 @@ module L1_Cache_Controller
 						state <= STATE_IDLE;
 					end
 
-					else if(sram_dirty && !hit)
+					else if(cache_dirty && ~cache_hit)
 					begin
 						mem_enable <= 1'b1;
 						mem_write <= 1'b1;
@@ -120,7 +96,7 @@ module L1_Cache_Controller
 						state<= STATE_WRITE_BACK;
 					end
 
-					else if(!sram_dirty && !hit)
+					else if(~cache_dirty && ~cache_hit)
 					begin
 						mem_enable <= 1'b1;
 						mem_write <= 1'b0;
