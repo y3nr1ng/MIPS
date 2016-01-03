@@ -44,6 +44,15 @@ module L1_Cache_Controller (
 			case(state)
 				`STATE_IDLE: 
 				begin
+					if(`DEBUG)
+						$display(" -> IDLE", $time);
+					
+					if(cache_cs && cache_we)
+						next_state = `STATE_WRITE;
+					else if(cache_cs && !cache_we)
+						next_state = `STATE_READ;
+					else
+						next_state = `STATE_IDLE;
 				end
 
 				`STATE_READ:
@@ -83,10 +92,6 @@ module L1_Cache_Controller (
 				end
 
 				`STATE_WRITEDATA:
-				begin
-				end
-
-				`STATE_WRITEACK:
 				begin
 				end
 
