@@ -11,7 +11,8 @@ module DRAM
 	input							cs,		
 	input							we,		
 	input 		[data_width-1:0] 	data_i,
-	output	reg [data_width-1:0]	data_o
+	output	reg [data_width-1:0]	data_o,
+	output	reg						ack
 );
 
 	reg			[data_width-1:0]	memory	[0:mem_size-1];

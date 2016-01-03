@@ -15,7 +15,7 @@ CPU CPU (
 	.rst			(reset),
     .start			(start),
 	.ext_mem_data_i	(memory.data_o),
-	.ext_mem_ack	(),
+	.ext_mem_ack	(memory.ack),
 	.ext_mem_data_o	(memory.data_i),
 	.ext_mem_addr	(memory.addr_i),
 	.ext_mem_cs		(memory.cs),
@@ -28,7 +28,8 @@ DRAM #(.data_width(256), .delay(10)) memory (
 	.cs				(CPU.ext_mem_cs),
 	.we				(CPU.ext_mem_we),
 	.data_i			(CPU.ext_mem_data_o),
-	.data_o			(CPU.ext_mem_data_i)
+	.data_o			(CPU.ext_mem_data_i),
+	.ack			()
 );
 
 initial begin

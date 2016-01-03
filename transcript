@@ -202,3 +202,7 @@ vmap mips C:/CA-Project/lib/mips
 # Compile of L1_Cache.v was successful.
 # Compile of L1_Cache_Controller.v failed with 2 errors.
 # 2 compiles, 1 failed with 2 errors.
+# Compile of L1_Cache_Controller.v failed with 2 errors.
+# Compile of CPU_TestBench.v was successful.
+# Compile of DRAM.v was successful.
+# 3 compiles, 1 failed with 2 errors.
