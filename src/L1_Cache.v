@@ -57,13 +57,23 @@ module L1_Cache
 		.data_o	(data_o)
 	);
 
+	wire [1:0] mux_sel_0 = (we && block_offset == 3'd0) ? 2'b00 : (cache_hit) ? 2'b10 : 2'b01;
+	wire [1:0] mux_sel_1 = (we && block_offset == 3'd1) ? 2'b00 : (cache_hit) ? 2'b10 : 2'b01;
+	wire [1:0] mux_sel_2 = (we && block_offset == 3'd2) ? 2'b00 : (cache_hit) ? 2'b10 : 2'b01;
+	wire [1:0] mux_sel_3 = (we && block_offset == 3'd3) ? 2'b00 : (cache_hit) ? 2'b10 : 2'b01;
+	wire [1:0] mux_sel_4 = (we && block_offset == 3'd4) ? 2'b00 : (cache_hit) ? 2'b10 : 2'b01;
+	wire [1:0] mux_sel_5 = (we && block_offset == 3'd5) ? 2'b00 : (cache_hit) ? 2'b10 : 2'b01;
+	wire [1:0] mux_sel_6 = (we && block_offset == 3'd6) ? 2'b00 : (cache_hit) ? 2'b10 : 2'b01;
+	wire [1:0] mux_sel_7 = (we && block_offset == 3'd7) ? 2'b00 : (cache_hit) ? 2'b10 : 2'b01;
+
+
 	// write data to specified cache block
 	Multiplexer4Way write_data_b1 (
 		.data_1	(data_i),
 		.data_2	(ext_data_i[255:224]),
 		.data_3	(cache_data_o[255:224]),
 		.data_4	(32'bz),
-		.sel	((cache_hit==0)?2'b01:(block_offset==3'b000)?2'b00:2'b10),
+		.sel	(mux_sel_0),
 		.data_o	(cache_data_i[255:224])
 	);
 	Multiplexer4Way write_data_b2 (
@@ -71,7 +81,7 @@ module L1_Cache
 		.data_2	(ext_data_i[223:192]),
 		.data_3	(cache_data_o[223:192]),
 		.data_4	(32'bz),
-		.sel	((cache_hit==0)?2'b01:(block_offset==3'b001)?2'b00:2'b10),
+		.sel	(mux_sel_1),
 		.data_o	(cache_data_i[223:192])
 	);
 	Multiplexer4Way write_data_b3 (
@@ -79,7 +89,7 @@ module L1_Cache
 		.data_2	(ext_data_i[191:160]),
 		.data_3	(cache_data_o[191:160]),
 		.data_4	(32'bz),
-		.sel	((cache_hit==0)?2'b01:(block_offset==3'b010)?2'b00:2'b10),
+		.sel	(mux_sel_2),
 		.data_o	(cache_data_i[191:160])
 	);
 	Multiplexer4Way write_data_b4 (
@@ -87,7 +97,7 @@ module L1_Cache
 		.data_2	(ext_data_i[159:128]),
 		.data_3	(cache_data_o[159:128]),
 		.data_4	(32'bz),
-		.sel	((cache_hit==0)?2'b01:(block_offset==3'b011)?2'b00:2'b10),
+		.sel	(mux_sel_3),
 		.data_o	(cache_data_i[159:128])
 	);
 	Multiplexer4Way write_data_b5 (
@@ -95,7 +105,7 @@ module L1_Cache
 		.data_2	(ext_data_i[127:96]),
 		.data_3	(cache_data_o[127:96]),
 		.data_4	(32'bz),
-		.sel	((cache_hit==0)?2'b01:(block_offset==3'b100)?2'b00:2'b10),
+		.sel	(mux_sel_4),
 		.data_o	(cache_data_i[127:96])
 	);
 	Multiplexer4Way write_data_b6 (
@@ -103,7 +113,7 @@ module L1_Cache
 		.data_2	(ext_data_i[95:64]),
 		.data_3	(cache_data_o[95:64]),
 		.data_4	(32'bz),
-		.sel	((cache_hit==0)?2'b01:(block_offset==3'b101)?2'b00:2'b10),
+		.sel	(mux_sel_5),
 		.data_o	(cache_data_i[95:64])
 	);
 	Multiplexer4Way write_data_b7 (
@@ -111,7 +121,7 @@ module L1_Cache
 		.data_2	(ext_data_i[63:32]),
 		.data_3	(cache_data_o[63:32]),
 		.data_4	(32'bz),
-		.sel	((cache_hit==0)?2'b01:(block_offset==3'b110)?2'b00:2'b10),
+		.sel	(mux_sel_6),
 		.data_o	(cache_data_i[63:32])
 	);
 	Multiplexer4Way write_data_b8 (
@@ -119,13 +129,13 @@ module L1_Cache
 		.data_2	(ext_data_i[31:0]),
 		.data_3	(cache_data_o[31:0]),
 		.data_4	(32'bz),
-		.sel	((cache_hit==0)?2'b01:(block_offset==3'b111)?2'b00:2'b10),
+		.sel	(mux_sel_7),
 		.data_o	(cache_data_i[31:0])
 	);
 
 	// write tag
 	always @ (controller.sram_we) begin
-		assign cache_tag_bus_i = {1'b1, 1'b1, mem_tag};
+		assign cache_tag_bus_i = (we) ?{1'b1, 1'b1, mem_tag} :{1'b1, 1'b0, mem_tag};
 		assign ext_data_o = cache_data_i;
 	end
 		
