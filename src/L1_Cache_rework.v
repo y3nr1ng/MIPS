@@ -92,66 +92,66 @@ module L1_Cache
 	);
 	
 	Multiplexer4Way write_data_b1 (
-		.data_1	(cache_data_i),
-		.data_2	(cache_data_i),
-		.data_3	(dram_data_i[255:224]),
-		.data_4	(cache_data_o[255:224]),
+		.data_1	(data_storage.data_o),
+		.data_2	(data_storage.data_o),
+		.data_3	(cache_data_i),
+		.data_4	(dram_data_i[255:224]),
 		.sel	({decoder.out[0], sram_data_sel}),
 		.data_o	(cache_data_i[255:224])
 	);
 	Multiplexer4Way write_data_b2 (
-		.data_1	(cache_data_i),
-		.data_2	(cache_data_i),
-		.data_3	(dram_data_i[223:192]),
-		.data_4	(cache_data_o[223:192]),
+		.data_1	(data_storage.data_o),
+		.data_2	(data_storage.data_o),
+		.data_3	(cache_data_i),
+		.data_4	(dram_data_i[223:192]),
 		.sel	({decoder.out[1], sram_data_sel}),
 		.data_o	(cache_data_i[223:192])
 	);
 	Multiplexer4Way write_data_b3 (
-		.data_1	(cache_data_i),
-		.data_2	(cache_data_i),
-		.data_3	(dram_data_i[191:160]),
-		.data_4	(cache_data_o[191:160]),
+		.data_1	(data_storage.data_o),
+		.data_2	(data_storage.data_o),
+		.data_3	(cache_data_i),
+		.data_4	(dram_data_i[191:160]),
 		.sel	({decoder.out[2], sram_data_sel}),
 		.data_o	(cache_data_i[191:160])
 	);
 	Multiplexer4Way write_data_b4 (
-		.data_1	(cache_data_i),
-		.data_2	(cache_data_i),
-		.data_3	(dram_data_i[159:128]),
-		.data_4	(cache_data_o[159:128]),
+		.data_1	(data_storage.data_o),
+		.data_2	(data_storage.data_o),
+		.data_3	(cache_data_i),
+		.data_4	(dram_data_i[159:128]),
 		.sel	({decoder.out[3], sram_data_sel}),
 		.data_o	(cache_data_i[159:128])
 	);
 	Multiplexer4Way write_data_b5 (
-		.data_1	(cache_data_i),
-		.data_2	(cache_data_i),
-		.data_3	(dram_data_i[127:96]),
-		.data_4	(cache_data_o[127:96]),
+		.data_1	(data_storage.data_o),
+		.data_2	(data_storage.data_o),
+		.data_3	(cache_data_i),
+		.data_4	(dram_data_i[127:96]),
 		.sel	({decoder.out[4], sram_data_sel}),
 		.data_o	(cache_data_i[127:96])
 	);
 	Multiplexer4Way write_data_b6 (
-		.data_1	(cache_data_i),
-		.data_2	(cache_data_i),
-		.data_3	(dram_data_i[95:64]),
-		.data_4	(cache_data_o[95:64]),
+		.data_1	(data_storage.data_o),
+		.data_2	(data_storage.data_o),
+		.data_3	(cache_data_i),
+		.data_4	(dram_data_i[95:64]),
 		.sel	({decoder.out[5], sram_data_sel}),
 		.data_o	(cache_data_i[95:64])
 	);
 	Multiplexer4Way write_data_b7 (
-		.data_1	(cache_data_i),
-		.data_2	(cache_data_i),
-		.data_3	(dram_data_i[63:32]),
-		.data_4	(cache_data_o[63:32]),
+		.data_1	(data_storage.data_o),
+		.data_2	(data_storage.data_o),
+		.data_3	(cache_data_i),
+		.data_4	(dram_data_i[63:32]),
 		.sel	({decoder.out[6], sram_data_sel}),
 		.data_o	(cache_data_i[63:32])
 	);
 	Multiplexer4Way write_data_b8 (
-		.data_1	(cache_data_i),
-		.data_2	(cache_data_i),
-		.data_3	(dram_data_i[31:0]),
-		.data_4	(cache_data_o[31:0]),
+		.data_1	(data_storage.data_o),
+		.data_2	(data_storage.data_o),
+		.data_3	(cache_data_i),
+		.data_4	(dram_data_i[31:0]),
 		.sel	({decoder.out[7], sram_data_sel}),
 		.data_o	(cache_data_i[31:0])
 	);
