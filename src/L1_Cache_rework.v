@@ -6,6 +6,7 @@ module L1_Cache
 )
 (
 	input								clk,
+	input								rst,
 
 	// cpu side
 	input		[addr_width-1:0]		cache_addr,
@@ -50,6 +51,9 @@ module L1_Cache
 	assign cache_hit = ((addr_tag == sram_tag) && sram_valid) ? 1'b1 : 1'b0;
 		
 	L1_Cache_Controller_rework controller (
+		.clk			(clk),
+		.rst			(rst),
+	
 		// interface to CPU
 		.cache_cs		(cache_cs),
 		.cache_we		(cache_we),

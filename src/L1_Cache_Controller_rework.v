@@ -2,6 +2,7 @@
 
 module L1_Cache_Controller (
 	input			clk,
+	input			rst,
 	
 	// interface to CPU
 	input			cache_cs,
@@ -33,6 +34,13 @@ module L1_Cache_Controller (
 	end
 
 	always @ (posedge clk) begin
+		state = next_state;
+		update_signals(state);
+
+		if(~rst) begin	
+		end
+		else begin
+		end
 	end
 
 endmodule

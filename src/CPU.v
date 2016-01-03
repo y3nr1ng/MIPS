@@ -10,10 +10,10 @@ module CPU
 	// external data memory interface 
 	output		[32-1:0]	ext_mem_addr,
 	output					ext_mem_cs, 
-	output					ext_mem_we 
+	output					ext_mem_we,
 	input		[256-1:0]	ext_mem_data_i,
 	output		[256-1:0]	ext_mem_data_o, 
-	input					ext_mem_ack, 	
+	input					ext_mem_ack
 );
 
 /**
@@ -338,6 +338,7 @@ Latch #(.width(5)) EXMEM_RegFwd (
 L1_Cache L1Cache
 (
 	.clk			(clk),
+	.rst			(rst),
 	.addr			(EXMEM_ALU_output.data_o),
 	.cs				(MEM_cs_wire),
 	.we				(MEM_we_wire),
