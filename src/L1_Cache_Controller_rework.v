@@ -57,6 +57,17 @@ module L1_Cache_Controller (
 
 				`STATE_READ:
 				begin
+					if(`DEBUG)
+						$display(" -> READ", $time);
+					
+					if(cache_hit && cache_valid) begin
+						next_state = `STATE_IDLE;
+						$display(" ... READ HIT");
+					end 
+					else if((!cache_hit) && cache_valid && cache_dirty_i)
+						next_state = `STATE_WRITEBACK;
+					else
+						next_state = `STATE_READMISS;					
 				end
 		
 				`STATE_READMISS:

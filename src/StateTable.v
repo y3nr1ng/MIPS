@@ -1,5 +1,7 @@
 `ifndef _STATE_TABLE_
 `define _STATE_TABLE_
+	
+	`define	DEBUG				1
 
 	`define STATE_IDLE      	0
 	`define STATE_READ      	1
