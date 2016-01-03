@@ -14,6 +14,8 @@ module DRAM
 	output	reg [data_width-1:0]	data_o,
 	output	reg						ack
 );
+	
+	integer i;
 
 	reg			[data_width-1:0]	memory	[0:mem_size-1];
 
@@ -25,6 +27,10 @@ module DRAM
 		// Pull down the ACK signal.
 		ack = 1'b0;
 		
+		// Delay for specific cycles.
+		for(i = 0; i < delay; i = i+1)
+			#10
+		
 		if(cs) begin
 			if(we)
 				// WE = Write Enable, select to write, output remain the same.
@@ -33,8 +39,8 @@ module DRAM
 				// CS = Chip Select, select to read, update the output.
 				data_o = memory[addr_i >> 2];
 			
-			// Delay the output of ACK signal.
-			ack = #10 1'b1;
+			// Output the ACK signal.
+			ack = 1'b1;
 		end else
 			// Turn off the output pin.
 			data_o = {data_width{1'bz}};
