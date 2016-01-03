@@ -186,18 +186,18 @@ module L1_Cache_Controller (
 	);
 
 		case(state)
-			`STATE_IDLE:      		ApplySignals({3'b000, 2'b00, 4'b0000});
-	      	`STATE_READ:      		ApplySignals({3'b000, 2'b00, 4'b0000});
-	     	`STATE_READ_MISS:  		ApplySignals({3'b000, 2'b00, 4'b0000});
-	     	`STATE_READ_MEM:   		ApplySignals({3'b000, 2'b00, 4'b0000});
-	     	`STATE_READ_DATA:  		ApplySignals({3'b000, 2'b00, 4'b0000});
-	     	`STATE_WRITE:     		ApplySignals({3'b000, 2'b00, 4'b0000});
-	     	`STATE_WRITE_HIT:  		ApplySignals({3'b000, 2'b00, 4'b0000});
-	     	`STATE_WRITE_MISS: 		ApplySignals({3'b000, 2'b00, 4'b0000});
-	     	`STATE_WRITE_MEM:  		ApplySignals({3'b000, 2'b00, 4'b0000});
-	     	`STATE_WRITE_DATA: 		ApplySignals({3'b000, 2'b00, 4'b0000});
-	     	`STATE_WRITE_BACK:		ApplySignals({3'b000, 2'b00, 4'b0000});
-	     	`STATE_WRITE_BACK_MEM: 	ApplySignals({3'b000, 2'b00, 4'b0000});
+			`STATE_IDLE:      		ApplySignals({3'bzzz, 2'bzz, 4'b0zzz});
+	      	`STATE_READ:      		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	     	`STATE_READ_MISS:  		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	     	`STATE_READ_MEM:   		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	     	`STATE_READ_DATA:  		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	     	`STATE_WRITE:     		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	     	`STATE_WRITE_HIT:  		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	     	`STATE_WRITE_MISS: 		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	     	`STATE_WRITE_MEM:  		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	     	`STATE_WRITE_DATA: 		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	     	`STATE_WRITE_BACK:		ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
+	     	`STATE_WRITE_BACK_MEM: 	ApplySignals({3'bzzz, 2'bzz, 4'bzzzz});
 		endcase
 
 	endtask
