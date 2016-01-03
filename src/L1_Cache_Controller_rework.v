@@ -4,12 +4,12 @@ module L1_Cache_Controller (
 	input			clk,
 	input			rst,
 	
-	// interface to CPU
+	// Interface to CPU-side components.
 	input			cache_cs,
 	input			cache_we,
-	output reg		cache_ack,
+	output			cache_ack,
 
-	// interface to internal components
+	// Interface to the internal components.
 	input			cache_hit,
 	output reg		sram_we,
 	input			cache_valid,
@@ -18,21 +18,29 @@ module L1_Cache_Controller (
 	output reg		dram_data_sel,
 	output reg		cpu_data_sel,
 	
-	// interface to DRAM
+	// Interface to the DRAM (external memory).
 	output reg		dram_addr_sel,
 	output reg		dram_cs,
 	output reg		dram_we,
 	output reg		dram_ack
 );
-
+	
+	// Internal registers for state recording.
 	reg	[3:0]	state;	
 	reg	[3:0]	next_state;
+
+	reg			cache_ack_en;	// Enable CPU-side ACK response.
+	reg			r_cache_ack;	// Internal ACK register.
 
 	initial begin	
 		state		= `STATE_IDLE;
 		next_state 	= `STATE_IDLE;
 	end
 
+	// Control when the ACK signal is emitted.
+	assign cache_ack = (cache_ack_en && cache_hit && cache_valid && cache_we) || r_cache_ack;
+
+	// Finite state machine of the L1 cache controller.
 	always @ (posedge clk) begin
 		state = next_state;
 		UpdateSignals(state);
@@ -109,6 +117,8 @@ module L1_Cache_Controller (
 				begin
 					if(`DEBUG)
 						$display(" ... WRITE HIT", $time);
+
+					next_state = `STATE_IDLE;
 				end
 	
 				`STATE_WRITEMISS:
@@ -128,6 +138,8 @@ module L1_Cache_Controller (
 				begin
 					if(`DEBUG)
 						$display(" -> WRITE DATA", $time);
+
+					next_state = `STATE_IDLE;
 				end
 
 				`STATE_WRITEBACK:
@@ -168,7 +180,7 @@ task UpdateSignals (
 endtask
 
 task ApplySignals (
-	intput	[]	sig_vector
+	input	[:]	sig_vector
 );
 
 	begin
