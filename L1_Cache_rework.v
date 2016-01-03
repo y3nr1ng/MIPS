@@ -11,9 +11,9 @@ module L1_Cache
 	input		[addr_width-1:0]		cache_addr,
 	input								cache_cs,
 	input								cache_we,
-	output	reg							cache_ack,
+	output								cache_ack,
 	input		[cpu_data_width-1:0]	cache_data_i,
-	output	reg	[cpu_data_width-1:0]	cache_data_o
+	output	reg	[cpu_data_width-1:0]	cache_data_o,
 	
 	// external memory side
 	output	reg	[addr_width-1:0]		dram_addr,
@@ -51,9 +51,9 @@ module L1_Cache
 		
 	L1_Cache_Controller controller (
 		// interface to CPU
-		.cache_cs		(),
-		.cache_we		(),
-		.cache_ack		(),
+		.cache_cs		(cache_cs),
+		.cache_we		(cache_we),
+		.cache_ack		(cache_ack),
 
 		// interface to internal components
 		.cache_hit		(cache_hit),
@@ -61,13 +61,14 @@ module L1_Cache
 		.cache_valid	(sram_valid),
 		.cache_dirty_i	(sram_dirty),
 		.cache_dirty_o	(),
-		.dram_sel		(),
-		.cpu_sel		(),
+		.dram_data_sel	(),
+		.cpu_data_sel	(),
 
 		// interface to DRAM
-		.dram_cs		(),
-		.dram_we		(),
-		.dram_ack		()
+		.dram_addr_sel	(),
+		.dram_cs		(dram_cs),
+		.dram_we		(dram_we),
+		.dram_ack		(dram_ack)
 	);
 	
 	SRAM #(.addr_width(5), .data_width(24), .mem_size(32)) tag_storage
@@ -89,19 +90,26 @@ module L1_Cache
 		.data_i	(cache_data_i),
 		.data_o	()
 	);
+	
+	Multiplexer2Way DRAM_addr_mux (
+		.data_1	({sram_tag, addr_index, 2'b0}),
+		.data_2	(cache_addr),
+		.sel	(dram_addr_sel),
+		.data_o	(dram_addr)
+	);
 
 	Multiplexer2Way DRAM_data_mux (
 		.data_1	(cache_data_i),
 		.data_2	(data_storage.data_o),
-		.sel	(controller.dram_sel),
-		.data_o	(cache_data_o)
+		.sel	(controller.dram_data_sel),
+		.data_o	(dram_data_o)
 	);
 	
 	Multiplexer2Way CPU_data_mux (
 		.data_1	(data_storage.data_o),	
 		.data_2	(dram_data_i),
-		.sel	(controller.cpu_sel),
-		.data_o	(data_storage.data_o)
+		.sel	(controller.cpu_data_sel),
+		.data_o	(cache_data_o)
 	);
 
 endmodule
