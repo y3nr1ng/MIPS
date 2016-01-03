@@ -49,7 +49,9 @@ module L1_Cache
 	assign sram_tag		= tag_storage.data_o[21:0];
 
 	assign cache_hit = ((addr_tag == sram_tag) && sram_valid) ? 1'b1 : 1'b0;
-		
+	
+	assign dram_addr = {sram_tag, addr_index, 5'b0};
+
 	L1_Cache_Controller_rework controller (
 		.clk			(clk),
 		.rst			(rst),
@@ -93,13 +95,6 @@ module L1_Cache
 		.we		(controller.sram_we),
 		.data_i	(cache_data_i),
 		.data_o	()
-	);
-	
-	Multiplexer2Way DRAM_addr_mux (
-		.data_1	({sram_tag, addr_index, 5'b0}),
-		.data_2	(cache_addr),
-		.sel	(dram_addr_sel),
-		.data_o	(dram_addr)
 	);
 
 	Multiplexer2Way DRAM_data_mux (
