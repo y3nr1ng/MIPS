@@ -181,32 +181,47 @@ module L1_Cache_Controller (
 		end
 	end
 
-task UpdateSignals (
-	input	[3:0]	state
-);
+	task UpdateSignals (
+		input	[3:0]	state
+	);
 
-	case(state)
-		`STATE_IDLE:      		ApplySignals();
-      	`STATE_READ:      		ApplySignals();
-     	`STATE_READ_MISS:  		ApplySignals();
-     	`STATE_READ_MEM:   		ApplySignals();
-     	`STATE_READ_DATA:  		ApplySignals();
-     	`STATE_WRITE:     		ApplySignals();
-     	`STATE_WRITE_HIT:  		ApplySignals();
-     	`STATE_WRITE_MISS: 		ApplySignals();
-     	`STATE_WRITE_MEM:  		ApplySignals();
-     	`STATE_WRITE_DATA: 		ApplySignals();
-     	`STATE_WRITE_BACK:		ApplySignals();
-     	`STATE_WRITE_BACK_MEM: 	ApplySignals();
-	endcase
+		case(state)
+			`STATE_IDLE:      		ApplySignals({3'b000, 2'b00, 4'b0000});
+	      	`STATE_READ:      		ApplySignals({3'b000, 2'b00, 4'b0000});
+	     	`STATE_READ_MISS:  		ApplySignals({3'b000, 2'b00, 4'b0000});
+	     	`STATE_READ_MEM:   		ApplySignals({3'b000, 2'b00, 4'b0000});
+	     	`STATE_READ_DATA:  		ApplySignals({3'b000, 2'b00, 4'b0000});
+	     	`STATE_WRITE:     		ApplySignals({3'b000, 2'b00, 4'b0000});
+	     	`STATE_WRITE_HIT:  		ApplySignals({3'b000, 2'b00, 4'b0000});
+	     	`STATE_WRITE_MISS: 		ApplySignals({3'b000, 2'b00, 4'b0000});
+	     	`STATE_WRITE_MEM:  		ApplySignals({3'b000, 2'b00, 4'b0000});
+	     	`STATE_WRITE_DATA: 		ApplySignals({3'b000, 2'b00, 4'b0000});
+	     	`STATE_WRITE_BACK:		ApplySignals({3'b000, 2'b00, 4'b0000});
+	     	`STATE_WRITE_BACK_MEM: 	ApplySignals({3'b000, 2'b00, 4'b0000});
+		endcase
 
-endtask
+	endtask
 
-task ApplySignals (
-	input	[:]	sig_vector
-);
+	task ApplySignals (
+		input	[8:0]	sig_vector
+	);
 
-	begin
-	end
+		begin
+			// Control the CPU-side cache interface.
+			cache_ack_en	= sig_vector[8];
+			r_cache_ack		= sig_vector[7];
+			cpu_data_sel	= sig_vector[6];
+	
+			// Control the internal SRAM of L1 cache.
+			sram_we			= sig_vector[5];
+			cache_dirty_o	= sig_vector[4];
+	
+			// Control the DRAM-side cache interface.
+			dram_cs			= sig_vector[3];
+			dram_we			= sig_vector[2];
+			dram_data_sel	= sig_vector[1];
+			dram_addr_sel	= sig_vector[0];
+		end
+	endtask
 
 endmodule
