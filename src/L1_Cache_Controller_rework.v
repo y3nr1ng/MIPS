@@ -183,16 +183,16 @@ module L1_Cache_Controller (
 
 		case(state)
 			`STATE_IDLE:      		ApplySignals({2'b10, 3'b000, 2'b00});
-	      	`STATE_COMPARE:      	ApplySignals({2'b01, 3'b000, 2'b00});
-	     	`STATE_READ_MISS:  		ApplySignals({2'b01, 3'b000, 2'b00}); // preserve for delay
-	     	`STATE_READ_MEM:   		ApplySignals({2'b01, 3'b000, 2'b10}); // wait delay
-	     	`STATE_READ_DATA:  		ApplySignals({2'b01, 3'b000, 2'b00});
-	     	`STATE_WRITE_HIT:  		ApplySignals({2'b01, 3'b110, 2'b00});
-	     	`STATE_WRITE_MISS: 		ApplySignals({2'b01, 3'b000, 2'b00});
-	     	`STATE_WRITE_MEM:  		ApplySignals({2'b01, 3'b000, 2'b11}); // wait delay
-	     	`STATE_WRITE_DATA: 		ApplySignals({2'b01, 3'b101, 2'b00});
-	     	`STATE_WRITE_BACK:		ApplySignals({2'b01, 3'b000, 2'b00}); // preserve for delay
-	     	`STATE_WRITE_BACK_MEM: 	ApplySignals({2'b01, 3'b000, 2'b11}); // wait delay
+	      	`STATE_COMPARE:      	ApplySignals({2'b0z, 3'b000, 2'b00});
+	     	`STATE_READ_MISS:  		ApplySignals({2'b0z, 3'b000, 2'b00}); // preserve for delay
+	     	`STATE_READ_MEM:   		ApplySignals({2'b0z, 3'b000, 2'b10}); // wait delay
+	     	`STATE_READ_DATA:  		ApplySignals({2'b0z, 3'b000, 2'b00});
+	     	`STATE_WRITE_HIT:  		ApplySignals({2'b0z, 3'b110, 2'b00});
+	     	`STATE_WRITE_MISS: 		ApplySignals({2'b0z, 3'b000, 2'b00});
+	     	`STATE_WRITE_MEM:  		ApplySignals({2'b0z, 3'b000, 2'b11}); // wait delay
+	     	`STATE_WRITE_DATA: 		ApplySignals({2'b0z, 3'b101, 2'b00});
+	     	`STATE_WRITE_BACK:		ApplySignals({2'b0z, 3'b000, 2'b00}); // preserve for delay
+	     	`STATE_WRITE_BACK_MEM: 	ApplySignals({2'b0z, 3'b000, 2'b11}); // wait delay
 		endcase
 
 	endtask
