@@ -198,44 +198,44 @@ r1
 R5
 n@hazard@detection@unit
 vL1_Cache
-!s110 1451807941
+!s110 1451808552
 !i10b 1
-!s100 ZWkRT9Ak_DRZbA8AT^o752
-IJ7<z@^n<nER`4n_0h;NN00
+!s100 i15jYYK^PN:DZ8:`Vf0j91
+IgBbgV^om]m81VLEoagngc0
 R2
 R0
-w1451807939
-8C:/CA-Project/L1_Cache_rework.v
-FC:/CA-Project/L1_Cache_rework.v
+w1451808270
+8C:/CA-Project/src/L1_Cache_rework.v
+FC:/CA-Project/src/L1_Cache_rework.v
 L0 1
 R4
 r1
 !s85 0
 31
-!s108 1451807941.389000
-!s107 C:/CA-Project/L1_Cache_rework.v|
-!s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/L1_Cache_rework.v|
+!s108 1451808552.442000
+!s107 C:/CA-Project/src/L1_Cache_rework.v|
+!s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/L1_Cache_rework.v|
 !i113 1
 R5
 n@l1_@cache
 vL1_Cache_Controller
-R6
+!s110 1451808595
 !i10b 1
-!s100 Y52UgeG5[Jl@=TeI=cO]C2
-I0UFRf_3Rh6i>m0:S?19TC3
+!s100 Z>afBRDaQ`WW;]68c^[[Q3
+IdgjK0@cPjQ>I8nEXkBNAO3
 R2
 R0
-w1451790698
-8C:/CA-Project/src/L1_Cache_Controller.v
-FC:/CA-Project/src/L1_Cache_Controller.v
-L0 1
+w1451808594
+8C:/CA-Project/src/L1_Cache_Controller_rework.v
+FC:/CA-Project/src/L1_Cache_Controller_rework.v
+L0 3
 R4
 r1
 !s85 0
 31
-!s108 1451791895.232000
-!s107 C:/CA-Project/src/L1_Cache_Controller.v|
-!s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/L1_Cache_Controller.v|
+!s108 1451808595.282000
+!s107 C:\CA-Project\src\StateTable.v|C:/CA-Project/src/L1_Cache_Controller_rework.v|
+!s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/L1_Cache_Controller_rework.v|
 !i113 1
 R5
 n@l1_@cache_@controller
