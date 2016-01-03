@@ -18,8 +18,8 @@ module L1_Cache
 	wire	[255:0]	cache_data_i;
 	wire	[255:0]	cache_data_o;
 
-	reg		[23:0]	cache_tag_bus_i;
-	reg		[23:0]	cache_tag_bus_o;
+	wire	[23:0]	cache_tag_bus_i;
+	wire	[23:0]	cache_tag_bus_o;
 		wire			cache_valid = cache_tag_bus_o[23];
 		wire			cache_dirty = cache_tag_bus_o[22];
 		wire	[21:0]	cache_tag 	= cache_tag_bus_o[21:0];

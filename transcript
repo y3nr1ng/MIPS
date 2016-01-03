@@ -318,3 +318,104 @@ vsim -gui mips.CPU_TestBench
 #         Region: /CPU_TestBench/CPU/L1Cache/tag_mem
 # Error loading design
 # A time value could not be extracted from the current line
+# Compile of CPU.v failed with 1 errors.
+# Compile of ForwardingUnit.v was successful.
+# Compile of GeneralControl.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Latch.v was successful.
+# Compile of ProgramCounter.v was successful.
+# Compile of Multiplexer4Way.v was successful.
+# Compile of SignExtend.v was successful.
+# Compile of LookupTable.v was successful.
+# Compile of Multiplexer2Way.v was successful.
+# Compile of Comparer.v was successful.
+# Compile of Adder.v was successful.
+# Compile of HazardDetectionUnit.v was successful.
+# Compile of L1_Cache.v was successful.
+# Compile of L1_Cache_Controller.v was successful.
+# Compile of CPU_TestBench.v was successful.
+# Compile of ALU.v was successful.
+# Compile of DRAM.v was successful.
+# Compile of SRAM.v was successful.
+# Compile of Multiplexer8Way.v was successful.
+# 20 compiles, 1 failed with 1 error.
+# Compile of CPU.v was successful.
+# Compile of ForwardingUnit.v was successful.
+# Compile of GeneralControl.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Latch.v was successful.
+# Compile of ProgramCounter.v was successful.
+# Compile of Multiplexer4Way.v was successful.
+# Compile of SignExtend.v was successful.
+# Compile of LookupTable.v was successful.
+# Compile of Multiplexer2Way.v was successful.
+# Compile of Comparer.v was successful.
+# Compile of Adder.v was successful.
+# Compile of HazardDetectionUnit.v was successful.
+# Compile of L1_Cache.v was successful.
+# Compile of L1_Cache_Controller.v was successful.
+# Compile of CPU_TestBench.v was successful.
+# Compile of ALU.v was successful.
+# Compile of DRAM.v was successful.
+# Compile of SRAM.v was successful.
+# Compile of Multiplexer8Way.v was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui mips.CPU_TestBench
+# vsim 
+# Start time: 11:30:11 on Jan 03,2016
+# Loading mips.CPU_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.Multiplexer8Way
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache.v(47): Illegal output or inout port connection for port 'data_o'.
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/read_data
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache.v(133): Illegal output or inout port connection for port 'stall'.
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/controller
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache.v(149): Illegal output or inout port connection for port 'data_o'.
+# 
+#         Region: /CPU_TestBench/CPU/L1Cache/tag_mem
+# Error loading design
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of CPU.v was successful.
+# Compile of ForwardingUnit.v was successful.
+# Compile of GeneralControl.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Latch.v was successful.
+# Compile of ProgramCounter.v was successful.
+# Compile of Multiplexer4Way.v was successful.
+# Compile of SignExtend.v was successful.
+# Compile of LookupTable.v was successful.
+# Compile of Multiplexer2Way.v was successful.
+# Compile of Comparer.v was successful.
+# Compile of Adder.v was successful.
+# Compile of HazardDetectionUnit.v was successful.
+# Compile of L1_Cache.v failed with 1 errors.
+# Compile of L1_Cache_Controller.v was successful.
+# Compile of CPU_TestBench.v was successful.
+# Compile of ALU.v was successful.
+# Compile of DRAM.v was successful.
+# Compile of SRAM.v was successful.
+# Compile of Multiplexer8Way.v was successful.
+# 20 compiles, 1 failed with 1 error.
