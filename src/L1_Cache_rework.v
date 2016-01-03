@@ -96,7 +96,7 @@ module L1_Cache
 	);
 	
 	Multiplexer2Way DRAM_addr_mux (
-		.data_1	({sram_tag, addr_index, 2'b0}),
+		.data_1	({sram_tag, addr_index, 5'b0}),
 		.data_2	(cache_addr),
 		.sel	(dram_addr_sel),
 		.data_o	(dram_addr)
