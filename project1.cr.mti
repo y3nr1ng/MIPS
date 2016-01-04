@@ -8,6 +8,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Cache_TestBench
 
+} {} {}} C:/CA-Project/src/Decoder_3to8.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Decoder_3to8.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Decoder_3to8
+
+Top level modules:
+	Decoder_3to8
+
 } {} {}} C:/CA-Project/src/ForwardingUnit.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ForwardingUnit.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module ForwardingUnit
@@ -65,11 +72,9 @@ Top level modules:
 } {} {}} C:/CA-Project/src/L1_Cache_rework.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_rework.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module L1_Cache
--- Compiling module Decoder_3to8
 
 Top level modules:
 	L1_Cache
-	Decoder_3to8
 
 } {} {}} C:/CA-Project/src/HazardDetectionUnit.v {1 {vlog -work mips -stats=none C:/CA-Project/src/HazardDetectionUnit.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -134,12 +139,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	GeneralControl
 
-} {} {}} C:/CA-Project/src/Registers.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Registers.v
+} {} {}} C:/CA-Project/src/CPU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Registers
+-- Compiling module CPU
 
 Top level modules:
-	Registers
+	CPU
 
 } {} {}} C:/CA-Project/src/Memory_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/Memory_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014

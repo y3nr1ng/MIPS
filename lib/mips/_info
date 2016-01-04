@@ -72,13 +72,13 @@ r1
 R5
 n@comparer
 vCPU
-!s110 1451890688
+!s110 1451894910
 !i10b 1
-!s100 :^Wm@=`IS>bddU@kU;BFE2
-I22;MhN`63MUNE7M_MjkB<3
+!s100 Yf;I==OMg?W`dA:cMKOj`1
+IBNF^NC_PX8H[W^9IHTRaE0
 R2
 R0
-w1451890687
+w1451894909
 8C:/CA-Project/src/CPU.v
 FC:/CA-Project/src/CPU.v
 L0 3
@@ -86,7 +86,7 @@ R4
 r1
 !s85 0
 31
-!s108 1451890688.365000
+!s108 1451894910.708000
 !s107 C:\CA-Project\src\LookupTable.v|C:/CA-Project/src/CPU.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/CPU.v|
 !i113 1
@@ -198,13 +198,13 @@ r1
 R5
 n@hazard@detection@unit
 vL1_Cache
-!s110 1451890805
+!s110 1451895663
 !i10b 1
-!s100 WVFV=?DSA8e@>WWJU23k]0
-IjN14E1gEhMWN@IGDc4X8S1
+!s100 dc7ZYY`m4z>BRCFn1N`F12
+IIH9=0m[f@2QeKF^:]K>[D3
 R2
 R0
-w1451890803
+w1451895662
 8C:/CA-Project/src/L1_Cache_rework.v
 FC:/CA-Project/src/L1_Cache_rework.v
 L0 1
@@ -212,7 +212,7 @@ R4
 r1
 !s85 0
 31
-!s108 1451890805.077000
+!s108 1451895663.512000
 !s107 C:/CA-Project/src/L1_Cache_rework.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/L1_Cache_rework.v|
 !i113 1
@@ -345,13 +345,13 @@ r1
 R5
 n@program@counter
 vRegisters
-R6
+!s110 1451895291
 !i10b 1
-!s100 CL`]PFS8UkKAV<iLBi1z;1
-IUT>jVLMhK4lhlK1]TDAj<2
+!s100 bToI@zXWVbBO=4kUEBfR_2
+IY>Zm::lc6QX9F@LeCT`kc1
 R2
 R0
-w1451889665
+w1451895288
 8C:/CA-Project/src/Registers.v
 FC:/CA-Project/src/Registers.v
 L0 1
@@ -359,7 +359,7 @@ R4
 r1
 !s85 0
 31
-!s108 1451890153.277000
+!s108 1451895291.347000
 !s107 C:/CA-Project/src/Registers.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/Registers.v|
 !i113 1

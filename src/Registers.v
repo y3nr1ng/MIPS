@@ -19,7 +19,7 @@ module Registers #(parameter width=32, size=32) (
 	// Initialize the register files.
 	initial begin
 		for(i = 0; i < size; i = i+1)
-			CPU.Registers.register[i] = {width{1'b0}};
+			register[i] = {width{1'b0}};
 	end
 
 	// Write Data   

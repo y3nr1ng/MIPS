@@ -1371,3 +1371,669 @@ vsim -L mips -gui mips_tb.Cache_TestBench
 #    Time: 0 ps  Iteration: 0  Instance: /Cache_TestBench/CPU/L1Cache File: C:/CA-Project/src/L1_Cache_rework.v
 # FATAL ERROR while loading design
 # Error loading design
+# Compile of CPU.v was successful.
+# Compile of CPU.v was successful.
+# Compile of Cache_TestBench.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:07:40 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(56): [CNNODP] - Component name (Instruction_Memory) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(56): Unresolved reference to 'Instruction_Memory' in CPU.Instruction_Memory.
+# 
+#         Region: /Cache_TestBench
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(120): [CNNODP] - Component name (state) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(120): Unresolved reference to 'state' in CPU.L1Cache.state.
+# 
+#         Region: /Cache_TestBench
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(80): [CNNODP] - Component name (dcache) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(80): Unresolved reference to 'dcache' in CPU.dcache.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(63): Unresolved reference to 'Data_Memory'.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'clk_i' not found in the connected module (1st connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'rst_i' not found in the connected module (2nd connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'start_i' not found in the connected module (3rd connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Warning: (vsim-3008) C:/CA-Project/src/CPU.v(386): [CNNODP] - Component name (cache_Ack) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3043) C:/CA-Project/src/CPU.v(386): Unresolved reference to 'cache_Ack' in L1Cache.cache_Ack.
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3043) C:/CA-Project/src/Registers.v(22): Unresolved reference to 'Registers' in CPU.Registers.
+# 
+#         Region: /Cache_TestBench/CPU/RegFiles
+# ** Warning: (vsim-3008) C:/CA-Project/src/L1_Cache_rework.v(185): [CNNODP] - Component name (dram_data_sel) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3043) C:/CA-Project/src/L1_Cache_rework.v(185): Unresolved reference to 'dram_data_sel' in controller.dram_data_sel.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Fatal: (vsim-3374) C:/CA-Project/src/L1_Cache_rework.v(100): MSB of part-select into 'cache_data_i' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Instance: /Cache_TestBench/CPU/L1Cache File: C:/CA-Project/src/L1_Cache_rework.v
+# FATAL ERROR while loading design
+# Error loading design
+# Compile of Cache_TestBench.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:08:12 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(56): [CNNODP] - Component name (Instruction_Memory) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(56): Unresolved reference to 'Instruction_Memory' in CPU.Instruction_Memory.
+# 
+#         Region: /Cache_TestBench
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(120): [CNNODP] - Component name (state) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(120): Unresolved reference to 'state' in CPU.L1Cache.state.
+# 
+#         Region: /Cache_TestBench
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(80): [CNNODP] - Component name (dcache) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(80): Unresolved reference to 'dcache' in CPU.dcache.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(63): Unresolved reference to 'Data_Memory'.
+# 
+#         Region: /Cache_TestBench
+# ** Warning: (vsim-3008) C:/CA-Project/src/CPU.v(386): [CNNODP] - Component name (cache_Ack) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3043) C:/CA-Project/src/CPU.v(386): Unresolved reference to 'cache_Ack' in L1Cache.cache_Ack.
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3043) C:/CA-Project/src/Registers.v(22): Unresolved reference to 'Registers' in CPU.Registers.
+# 
+#         Region: /Cache_TestBench/CPU/RegFiles
+# ** Warning: (vsim-3008) C:/CA-Project/src/L1_Cache_rework.v(185): [CNNODP] - Component name (dram_data_sel) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3043) C:/CA-Project/src/L1_Cache_rework.v(185): Unresolved reference to 'dram_data_sel' in controller.dram_data_sel.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Fatal: (vsim-3374) C:/CA-Project/src/L1_Cache_rework.v(100): MSB of part-select into 'cache_data_i' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Instance: /Cache_TestBench/CPU/L1Cache File: C:/CA-Project/src/L1_Cache_rework.v
+# FATAL ERROR while loading design
+# Error loading design
+# Compile of CPU.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:08:33 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(56): [CNNODP] - Component name (Instruction_Memory) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(56): Unresolved reference to 'Instruction_Memory' in CPU.Instruction_Memory.
+# 
+#         Region: /Cache_TestBench
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(120): [CNNODP] - Component name (state) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(120): Unresolved reference to 'state' in CPU.L1Cache.state.
+# 
+#         Region: /Cache_TestBench
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(80): [CNNODP] - Component name (dcache) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(80): Unresolved reference to 'dcache' in CPU.dcache.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(63): Unresolved reference to 'Data_Memory'.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Registers.v(22): Unresolved reference to 'Registers' in CPU.Registers.
+# 
+#         Region: /Cache_TestBench/CPU/RegFiles
+# ** Warning: (vsim-3008) C:/CA-Project/src/L1_Cache_rework.v(185): [CNNODP] - Component name (dram_data_sel) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3043) C:/CA-Project/src/L1_Cache_rework.v(185): Unresolved reference to 'dram_data_sel' in controller.dram_data_sel.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Fatal: (vsim-3374) C:/CA-Project/src/L1_Cache_rework.v(100): MSB of part-select into 'cache_data_i' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Instance: /Cache_TestBench/CPU/L1Cache File: C:/CA-Project/src/L1_Cache_rework.v
+# FATAL ERROR while loading design
+# Error loading design
+# Compile of Cache_TestBench.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:09:38 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(120): [CNNODP] - Component name (state) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(120): Unresolved reference to 'state' in CPU.L1Cache.state.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(63): Unresolved reference to 'Data_Memory'.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Registers.v(22): Unresolved reference to 'Registers' in CPU.Registers.
+# 
+#         Region: /Cache_TestBench/CPU/RegFiles
+# ** Warning: (vsim-3008) C:/CA-Project/src/L1_Cache_rework.v(185): [CNNODP] - Component name (dram_data_sel) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3043) C:/CA-Project/src/L1_Cache_rework.v(185): Unresolved reference to 'dram_data_sel' in controller.dram_data_sel.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Fatal: (vsim-3374) C:/CA-Project/src/L1_Cache_rework.v(100): MSB of part-select into 'cache_data_i' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Instance: /Cache_TestBench/CPU/L1Cache File: C:/CA-Project/src/L1_Cache_rework.v
+# FATAL ERROR while loading design
+# Error loading design
+# Compile of Cache_TestBench.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:10:07 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(63): Unresolved reference to 'Data_Memory'.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Registers.v(22): Unresolved reference to 'Registers' in CPU.Registers.
+# 
+#         Region: /Cache_TestBench/CPU/RegFiles
+# ** Warning: (vsim-3008) C:/CA-Project/src/L1_Cache_rework.v(185): [CNNODP] - Component name (dram_data_sel) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3043) C:/CA-Project/src/L1_Cache_rework.v(185): Unresolved reference to 'dram_data_sel' in controller.dram_data_sel.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Fatal: (vsim-3374) C:/CA-Project/src/L1_Cache_rework.v(100): MSB of part-select into 'cache_data_i' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Instance: /Cache_TestBench/CPU/L1Cache File: C:/CA-Project/src/L1_Cache_rework.v
+# FATAL ERROR while loading design
+# Error loading design
+# Compile of Cache_TestBench.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:10:40 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(83): Unresolved reference to 'Data_Memory'.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Registers.v(22): Unresolved reference to 'Registers' in CPU.Registers.
+# 
+#         Region: /Cache_TestBench/CPU/RegFiles
+# ** Warning: (vsim-3008) C:/CA-Project/src/L1_Cache_rework.v(185): [CNNODP] - Component name (dram_data_sel) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3043) C:/CA-Project/src/L1_Cache_rework.v(185): Unresolved reference to 'dram_data_sel' in controller.dram_data_sel.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Fatal: (vsim-3374) C:/CA-Project/src/L1_Cache_rework.v(100): MSB of part-select into 'cache_data_i' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Instance: /Cache_TestBench/CPU/L1Cache File: C:/CA-Project/src/L1_Cache_rework.v
+# FATAL ERROR while loading design
+# Error loading design
+# Compile of Cache_TestBench.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:11:35 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Error: (vsim-3043) C:/CA-Project/src/Registers.v(22): Unresolved reference to 'Registers' in CPU.Registers.
+# 
+#         Region: /Cache_TestBench/CPU/RegFiles
+# ** Warning: (vsim-3008) C:/CA-Project/src/L1_Cache_rework.v(185): [CNNODP] - Component name (dram_data_sel) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3043) C:/CA-Project/src/L1_Cache_rework.v(185): Unresolved reference to 'dram_data_sel' in controller.dram_data_sel.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Fatal: (vsim-3374) C:/CA-Project/src/L1_Cache_rework.v(100): MSB of part-select into 'cache_data_i' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Instance: /Cache_TestBench/CPU/L1Cache File: C:/CA-Project/src/L1_Cache_rework.v
+# FATAL ERROR while loading design
+# Error loading design
+# Compile of L1_Cache_rework.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:14:00 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Error: (vsim-3043) C:/CA-Project/src/Registers.v(22): Unresolved reference to 'Registers' in CPU.Registers.
+# 
+#         Region: /Cache_TestBench/CPU/RegFiles
+# ** Fatal: (vsim-3374) C:/CA-Project/src/L1_Cache_rework.v(100): MSB of part-select into 'cache_data_i' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Instance: /Cache_TestBench/CPU/L1Cache File: C:/CA-Project/src/L1_Cache_rework.v
+# FATAL ERROR while loading design
+# Error loading design
+# Compile of Registers.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:14:53 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Fatal: (vsim-3374) C:/CA-Project/src/L1_Cache_rework.v(100): MSB of part-select into 'cache_data_i' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Instance: /Cache_TestBench/CPU/L1Cache File: C:/CA-Project/src/L1_Cache_rework.v
+# FATAL ERROR while loading design
+# Error loading design
+# Compile of L1_Cache_rework.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:20:01 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache_rework.v(56): Illegal output or inout port connection for port 'dram_cs'.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/controller
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache_rework.v(56): Illegal output or inout port connection for port 'dram_we'.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/controller
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(94): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b1
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(94): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b1
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(102): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b2
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(102): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b2
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(110): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b3
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(110): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b3
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(118): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b4
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(118): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b4
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(126): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b5
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(126): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b5
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(134): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b6
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(134): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b6
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(142): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b7
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(142): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b7
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(150): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b8
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(150): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b8
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache_rework.v(169): Illegal output or inout port connection for port 'data_o'.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/read_data
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(182): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer2Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/DRAM_data_mux
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(182): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_o'. The port definition is at: C:/CA-Project/src/Multiplexer2Way.v(4).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/DRAM_data_mux
+# Error loading design
+# Compile of L1_Cache_rework.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:20:49 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache_rework.v(56): Illegal output or inout port connection for port 'dram_cs'.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/controller
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache_rework.v(56): Illegal output or inout port connection for port 'dram_we'.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/controller
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(102): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b2
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(102): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b2
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(110): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b3
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(110): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b3
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(118): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b4
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(118): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b4
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(126): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b5
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(126): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b5
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(134): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b6
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(134): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b6
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(142): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b7
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(142): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b7
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(150): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b8
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(150): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b8
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache_rework.v(169): Illegal output or inout port connection for port 'data_o'.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/read_data
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(182): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer2Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/DRAM_data_mux
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(182): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_o'. The port definition is at: C:/CA-Project/src/Multiplexer2Way.v(4).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/DRAM_data_mux
+# Error loading design
+# Compile of L1_Cache_rework.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 16:21:05 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache_rework.v(56): Illegal output or inout port connection for port 'dram_cs'.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/controller
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache_rework.v(56): Illegal output or inout port connection for port 'dram_we'.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/controller
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(102): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b2
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(102): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b2
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(110): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b3
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(110): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b3
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(118): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b4
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(118): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b4
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(126): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b5
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(126): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b5
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(134): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b6
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(134): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b6
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(142): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_1'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b7
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(142): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer4Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/write_data_b7
+# ** Error: (vsim-3053) C:/CA-Project/src/L1_Cache_rework.v(169): Illegal output or inout port connection for port 'data_o'.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/read_data
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(182): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_2'. The port definition is at: C:/CA-Project/src/Multiplexer2Way.v(2).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/DRAM_data_mux
+# ** Warning: (vsim-3015) C:/CA-Project/src/L1_Cache_rework.v(182): [PCDPC] - Port size (32) does not match connection size (256) for port 'data_o'. The port definition is at: C:/CA-Project/src/Multiplexer2Way.v(4).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache/DRAM_data_mux
+# Error loading design

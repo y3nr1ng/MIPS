@@ -23,17 +23,17 @@ module Cache_TestBench;
 		clk = ~clk;	
 
 	CPU CPU(
-		.clk_i  		(clk),
-   	 	.rst_i  		(rst),
-		.start_i		(start),
+		.clk	  		(clk),
+   	 	.rst	  		(rst),
+		.start			(start),
 		
 		// Interface to external memory.
-		.mem_data_i		(mem_cpu_data), 
-		.mem_ack_i		(mem_cpu_ack), 	
-		.mem_data_o		(cpu_mem_data), 
-		.mem_addr_o		(cpu_mem_addr), 	
-		.mem_enable_o	(cpu_mem_enable), 
-		.mem_write_o	(cpu_mem_write)
+		.ext_mem_addr	(cpu_mem_addr), 	
+		.ext_mem_data_i	(mem_cpu_data), 
+		.ext_mem_cs		(cpu_mem_enable), 
+		.ext_mem_we		(cpu_mem_write),
+		.ext_mem_data_o	(cpu_mem_data),
+		.ext_mem_ack	(mem_cpu_ack)
 	);
 	
 	// External memory, 16KB.
@@ -53,14 +53,14 @@ module Cache_TestBench;
 		counter = 1;
 	
 		// Load instructions into instruction memory
-		$readmemb("instruction.txt", CPU.Instruction_Memory.memory);
+		$readmemb("instruction.txt", CPU.InstrMem.memory);
 	
 		// Open output file
 		outfile = $fopen("output.txt") | 1;
 		outfile2 = $fopen("cache.txt") | 1;
 	
 		// Set Input n into data memory at 0x00
-		Data_Memory.memory[0] = 256'h5;		// n = 5 for example
+		ExtMem.memory[0] = 256'h5;		// n = 5 for example
 	
     	clk = 0;
     	rst = 0;
@@ -77,10 +77,10 @@ module Cache_TestBench;
 			$fdisplay(outfile, "Flush Cache! \n");
 
 			for(i = 0; i < 32; i = i+1) begin
-				tag = CPU.dcache.dcache_tag_sram.memory[i];
+				tag = CPU.L1Cache.tag_storage.memory[i];
 				index = i;
 				address = {tag[21:0], index};
-				Data_Memory.memory[address] = CPU.dcache.dcache_data_sram.memory[i];
+				ExtMem.memory[address] = CPU.L1Cache.data_storage.memory[i];
 			end 
 		end
 		
@@ -117,7 +117,7 @@ module Cache_TestBench;
 		$fdisplay(outfile, "\n");
 		
 		// Print the status of data cache.
-		if(!CPU.L1Cache.cache_ack && CPU.L1Cache.state == `STATE_IDLE) begin
+		if(!CPU.L1Cache.cache_ack && CPU.L1Cache.controller.state == `STATE_IDLE) begin
 			if(CPU.L1Cache.sram_dirty) begin
 				if(CPU.L1Cache.dram_we) 
 					$fdisplay(outfile2, "Cycle: %d, Write Miss, Address: %h, Write Data: %h (Write Back!)", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
