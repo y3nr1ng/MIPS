@@ -93,16 +93,6 @@ module L1_Cache_Controller (
 				begin
 					if(`DEBUG)
 						$display(" ... READ MISS", $time);
-					
-					// DELAY THE MEMORY HERE IF DRAM FAIL TO DELAY PROPERLY.
-					
-					next_state =  `STATE_READ_MEM;
-				end
-	
-				`STATE_READ_MEM:
-				begin
-					if(`DEBUG)
-						$display(" -> READ MEM", $time);
 
 					if(dram_ack)
 						next_state = `STATE_READ_DATA;
@@ -130,16 +120,6 @@ module L1_Cache_Controller (
 				begin
 					if(`DEBUG)
 						$display(" ... WRITE MISS", $time);
-
-					// DELAY THE MEMORY HERE IF DRAM FAIL TO DELAY PROPERLY.
-					
-					next_state =  `STATE_WRITE_MEM;
-				end
-
-				`STATE_WRITE_MEM:
-				begin
-					if(`DEBUG)
-						$display(" -> WRITE MEM", $time);
 					
 					if(dram_ack)
 						next_state = `STATE_WRITE_DATA;
@@ -160,20 +140,10 @@ module L1_Cache_Controller (
 					if(`DEBUG)
 						$display(" -> WRITE BACK", $time);
 
-					// DELAY THE MEMORY HERE IF DRAM FAIL TO DELAY PROPERLY.
-					
-					next_state =  `STATE_WRITE_BACK_MEM;
-				end
-
-				`STATE_WRITE_BACK_MEM:
-				begin
-					if(`DEBUG)
-						$display(" -> WRITE BACK MEM", $time);
-					
 					if(dram_ack)
 						next_state = `STATE_COMPARE;
 					else
-						next_state = `STATE_WRITE_BACK_MEM;
+						next_state = `STATE_WRITE_BACK;
 				end
 								
 			endcase
@@ -187,15 +157,12 @@ module L1_Cache_Controller (
 		case(state)
 			`STATE_IDLE:      		ApplySignals({2'b11, 3'b000, 2'b00});
 	      	`STATE_COMPARE:      	ApplySignals({2'b00, 3'b000, 2'b00});
-	     	`STATE_READ_MISS:  		ApplySignals({2'b00, 3'b000, 2'b00}); // preserve for delay
-	     	`STATE_READ_MEM:   		ApplySignals({2'b00, 3'b000, 2'b10}); // wait delay
-	     	`STATE_READ_DATA:  		ApplySignals({2'b00, 3'b000, 2'b00});
+	     	`STATE_READ_MISS:  		ApplySignals({2'b00, 3'b000, 2'b10}); 
+	     	`STATE_READ_DATA:  		ApplySignals({2'b00, 3'b101, 2'b00});
 	     	`STATE_WRITE_HIT:  		ApplySignals({2'b00, 3'b110, 2'b00});
-	     	`STATE_WRITE_MISS: 		ApplySignals({2'b00, 3'b000, 2'b00});
-	     	`STATE_WRITE_MEM:  		ApplySignals({2'b00, 3'b000, 2'b10}); // wait delay
+	     	`STATE_WRITE_MISS: 		ApplySignals({2'b00, 3'b000, 2'b10});
 	     	`STATE_WRITE_DATA: 		ApplySignals({2'b00, 3'b101, 2'b00});
-	     	`STATE_WRITE_BACK:		ApplySignals({2'b00, 3'b000, 2'b00}); // preserve for delay
-	     	`STATE_WRITE_BACK_MEM: 	ApplySignals({2'b00, 3'b000, 2'b11}); // wait delay
+	     	`STATE_WRITE_BACK:		ApplySignals({2'b00, 3'b000, 2'b11}); 
 		endcase
 
 	endtask
