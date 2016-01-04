@@ -25,7 +25,8 @@ module TestBench;
 		.clk_i  		(clk),
    	 	.rst_i  		(rst),
 		.start_i		(start),
-	
+		
+		// Interface to external memory.
 		.mem_data_i		(mem_cpu_data), 
 		.mem_ack_i		(mem_cpu_ack), 	
 		.mem_data_o		(cpu_mem_data), 
@@ -37,6 +38,8 @@ module TestBench;
 	// External memory, 16KB.
 	DRAM #(.data_width(256), .mem_size(2048), .delay(10)) memory (
 		.clk    		(clk),
+		
+		// Interface to the CPU.
 		.addr_i   		(cpu_mem_addr),
 		.data_i   		(cpu_mem_data),
 		.cs		 		(cpu_mem_enable),
