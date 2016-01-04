@@ -45,7 +45,7 @@ wire		[1:0]	WB_ctrl;
 	wire				WB_mux_wire	= WB_ctrl[1];
 	wire				Reg_we_wire = WB_ctrl[0];
 
-wire cache_stall = cache_stall && 1'b1;
+wire cache_stall = L1Cache.p1_stall_o | 0;
 
 /**
  * IF
