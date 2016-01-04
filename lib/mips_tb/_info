@@ -8,18 +8,39 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/CA-Project
+vCache_TestBench
+!s110 1451890624
+!i10b 1
+!s100 AiJ:b4U_DkV300NEQ[02N1
+I[QScECFEdWIKe<_T32bX72
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+R0
+w1451890611
+Z2 8C:/CA-Project/src/Cache_TestBench.v
+Z3 FC:/CA-Project/src/Cache_TestBench.v
+L0 4
+Z4 OV;L;10.3d;59
+r1
+!s85 0
+31
+!s108 1451890624.356000
+!s107 C:\CA-Project\src\StateTable.v|C:/CA-Project/src/Cache_TestBench.v|
+Z5 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Cache_TestBench.v|
+!i113 1
+Z6 o-work mips_tb
+n@cache_@test@bench
 vFourWayMux_TestBench
-Z1 !s110 1451890155
+Z7 !s110 1451890155
 !i10b 1
 !s100 aXmKFJVeNF6>nfhM7^ZoF3
 IJSk8gcUbjJV1KG8m032:=0
-Z2 V`JN@9S9cnhjKRR_L]QIcM3
+R1
 R0
-Z3 w1449558760
+Z8 w1449558760
 8C:/CA-Project/src/4WayMux_TestBench.v
 FC:/CA-Project/src/4WayMux_TestBench.v
 L0 3
-Z4 OV;L;10.3d;59
+R4
 r1
 !s85 0
 31
@@ -27,16 +48,16 @@ r1
 !s107 C:/CA-Project/src/4WayMux_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/4WayMux_TestBench.v|
 !i113 1
-Z5 o-work mips_tb
+R6
 n@four@way@mux_@test@bench
 vLatch_TestBench
-R1
+R7
 !i10b 1
 !s100 >_8MYBb:2]?mn1NJ0ijoT2
 Ik]FVMe85L0jKQXJd49>>13
-R2
+R1
 R0
-R3
+R8
 8C:/CA-Project/src/Latch_TestBench.v
 FC:/CA-Project/src/Latch_TestBench.v
 L0 3
@@ -48,14 +69,14 @@ r1
 !s107 C:/CA-Project/src/Latch_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Latch_TestBench.v|
 !i113 1
-R5
+R6
 n@latch_@test@bench
 vMemory_TestBench
-R1
+R7
 !i10b 1
 !s100 OnhD=o78NE1@nYjKT^]XN1
 I`PXd`Yk`HcE]VPY7mmYhz3
-R2
+R1
 R0
 w1451885236
 8C:/CA-Project/src/Memory_TestBench.v
@@ -69,14 +90,14 @@ r1
 !s107 C:/CA-Project/src/Memory_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Memory_TestBench.v|
 !i113 1
-R5
+R6
 n@memory_@test@bench
 vPipeline_TestBench
 !s110 1451890154
 !i10b 1
 !s100 8^HVa`_Ye`G5R]^BQQ5MF3
 I[Kh`F;IBn=Zk0g6;K5``Y2
-R2
+R1
 R0
 w1451879494
 8C:/CA-Project/src/Pipeline_TestBench.v
@@ -90,18 +111,18 @@ r1
 !s107 C:/CA-Project/src/Pipeline_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Pipeline_TestBench.v|
 !i113 1
-R5
+R6
 n@pipeline_@test@bench
 vTestBench
 !s110 1451890528
 !i10b 1
 !s100 Y3dA7PYlfeQ::4jYXm_C01
 IHzIKaOG>gk5HPDNcQAEWk2
-R2
+R1
 R0
 w1451890527
-8C:/CA-Project/src/Cache_TestBench.v
-FC:/CA-Project/src/Cache_TestBench.v
+R2
+R3
 L0 4
 R4
 r1
@@ -109,7 +130,7 @@ r1
 31
 !s108 1451890528.581000
 !s107 C:\CA-Project\src\StateTable.v|C:/CA-Project/src/Cache_TestBench.v|
-!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Cache_TestBench.v|
-!i113 1
 R5
+!i113 1
+R6
 n@test@bench

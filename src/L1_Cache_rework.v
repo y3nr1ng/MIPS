@@ -53,7 +53,7 @@ module L1_Cache
 	assign dram_addr 	= {sram_tag, addr_index, 5'b0};
 	assign dram_data_o 	= data_storage.data_o;
 
-	L1_Cache_Controller_rework controller (
+	L1_Cache_Controller controller (
 		.clk			(clk),
 		.rst			(rst),
 	
@@ -86,7 +86,7 @@ module L1_Cache
 		.data_o	()
 	);
 	
-	Decode_3to8 decoder (
+	Decoder_3to8 decoder (
 		.sel 	(block_offset),
 		.out	()
 	);
@@ -185,25 +185,5 @@ module L1_Cache
 		.sel	(controller.dram_data_sel),
 		.data_o	(dram_data_o)
 	);
-
-endmodule
-
-module Decoder_3to8 (
-	input		[2:0]	sel,
-	output	reg	[7:0]	out
-);
-
-	always @ (sel) begin
-		case (sel)
-        	3'b000  : out = 8'b00000001;
-            3'b001  : out = 8'b00000010;
-            3'b010  : out = 8'b00000100;
-            3'b011  : out = 8'b00001000;
-            3'b100  : out = 8'b00010000;
-            3'b101  : out = 8'b00100000;
-            3'b110  : out = 8'b01000000;
-            3'b111 	: out = 8'b10000000;
-		endcase
-	end
 
 endmodule

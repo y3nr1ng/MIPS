@@ -1,7 +1,7 @@
 `define CYCLE_TIME 50	
 `include "StateTable.v"
 
-module TestBench;
+module Cache_TestBench;
 
 	integer			i, outfile, outfile2, counter;
 

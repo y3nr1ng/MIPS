@@ -1099,3 +1099,275 @@ run
 # 25 compiles, 1 failed with 1 error.
 # Compile of Cache_TestBench.v failed with 1 errors.
 # Compile of Cache_TestBench.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 14:56:34 on Jan 04,2016
+# ** Error: (vsim-3170) Could not find 'C:/CA-Project/lib/mips_tb.Cache_TestBench'.
+# 
+# Error loading design
+# Break key hit
+quit -sim
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 14:57:02 on Jan 04,2016
+# ** Error: (vsim-3170) Could not find 'C:/CA-Project/lib/mips_tb.Cache_TestBench'.
+# 
+# Error loading design
+# Compile of Cache_TestBench.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 14:57:05 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# ** Error: (vsim-3033) C:/CA-Project/src/CPU.v(338): Instantiation of 'L1_Cache_rework' failed. The design unit was not found.
+# 
+#         Region: /Cache_TestBench/CPU
+#         Searched libraries:
+#             C:/CA-Project/lib/mips
+#             C:/CA-Project/lib/mips
+# Error loading design
+# Compile of CPU.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 14:58:10 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# ** Error: (vsim-3033) C:/CA-Project/src/L1_Cache_rework.v(56): Instantiation of 'L1_Cache_Controller_rework' failed. The design unit was not found.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+#         Searched libraries:
+#             C:/CA-Project/lib/mips
+#             C:/CA-Project/lib/mips
+# Loading mips.SRAM
+# ** Error: (vsim-3033) C:/CA-Project/src/L1_Cache_rework.v(89): Instantiation of 'Decode_3to8' failed. The design unit was not found.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+#         Searched libraries:
+#             C:/CA-Project/lib/mips
+#             C:/CA-Project/lib/mips
+# Loading mips.Multiplexer8Way
+# Error loading design
+# Compile of L1_Cache_rework.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 14:58:42 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# ** Error: (vsim-3033) C:/CA-Project/src/L1_Cache_rework.v(89): Instantiation of 'Decode_3to8' failed. The design unit was not found.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+#         Searched libraries:
+#             C:/CA-Project/lib/mips
+#             C:/CA-Project/lib/mips
+# Loading mips.Multiplexer8Way
+# Error loading design
+# No bookmark changes exist in window "Source"
+# Compile of Decoder_3to8.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 14:59:46 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# ** Error: (vsim-3033) C:/CA-Project/src/L1_Cache_rework.v(89): Instantiation of 'Decode_3to8' failed. The design unit was not found.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+#         Searched libraries:
+#             C:/CA-Project/lib/mips
+#             C:/CA-Project/lib/mips
+# Loading mips.Multiplexer8Way
+# Error loading design
+# Compile of L1_Cache_rework.v was successful.
+vsim -L mips -gui mips_tb.Cache_TestBench
+# vsim 
+# Start time: 15:00:07 on Jan 04,2016
+# Loading mips_tb.Cache_TestBench
+# Loading mips.CPU
+# Loading mips.Multiplexer4Way
+# Loading mips.ProgramCounter
+# Loading mips.Adder
+# Loading mips.DRAM
+# Loading mips.Latch
+# Loading mips.Registers
+# Loading mips.Comparer
+# Loading mips.SignExtend
+# Loading mips.GeneralControl
+# Loading mips.HazardDetectionUnit
+# Loading mips.Multiplexer2Way
+# Loading mips.ALU
+# Loading mips.ForwardingUnit
+# Loading mips.L1_Cache
+# Loading mips.L1_Cache_Controller
+# Loading mips.SRAM
+# Loading mips.Decoder_3to8
+# Loading mips.Multiplexer8Way
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(56): [CNNODP] - Component name (Instruction_Memory) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(56): Unresolved reference to 'Instruction_Memory' in CPU.Instruction_Memory.
+# 
+#         Region: /Cache_TestBench
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(120): [CNNODP] - Component name (state) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(120): Unresolved reference to 'state' in CPU.L1Cache.state.
+# 
+#         Region: /Cache_TestBench
+# ** Warning: (vsim-3008) C:/CA-Project/src/Cache_TestBench.v(80): [CNNODP] - Component name (dcache) is not on a downward path.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(80): Unresolved reference to 'dcache' in CPU.dcache.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3043) C:/CA-Project/src/Cache_TestBench.v(63): Unresolved reference to 'Data_Memory'.
+# 
+#         Region: /Cache_TestBench
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'clk_i' not found in the connected module (1st connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'rst_i' not found in the connected module (2nd connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'start_i' not found in the connected module (3rd connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'mem_data_i' not found in the connected module (4th connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'mem_ack_i' not found in the connected module (5th connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'mem_data_o' not found in the connected module (6th connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'mem_addr_o' not found in the connected module (7th connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'mem_enable_o' not found in the connected module (8th connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3063) C:/CA-Project/src/Cache_TestBench.v(25): Port 'mem_write_o' not found in the connected module (9th connection).
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Warning: (vsim-3008) C:/CA-Project/src/CPU.v(373): [CNNODP] - Component name (data_o) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3043) C:/CA-Project/src/CPU.v(373): Unresolved reference to 'data_o' in L1Cache.data_o.
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Warning: (vsim-3008) C:/CA-Project/src/CPU.v(63): [CNNODP] - Component name (stall) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3043) C:/CA-Project/src/CPU.v(63): Unresolved reference to 'stall' in L1Cache.stall.
+# 
+#         Region: /Cache_TestBench/CPU
+# ** Error: (vsim-3043) C:/CA-Project/src/Registers.v(22): Unresolved reference to 'Registers' in CPU.Registers.
+# 
+#         Region: /Cache_TestBench/CPU/RegFiles
+# ** Warning: (vsim-3017) C:/CA-Project/src/CPU.v(338): [TFMPC] - Too few port connections. Expected 14, found 8.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3063) C:/CA-Project/src/CPU.v(338): Port 'addr' not found in the connected module (3rd connection).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3063) C:/CA-Project/src/CPU.v(338): Port 'cs' not found in the connected module (4th connection).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3063) C:/CA-Project/src/CPU.v(338): Port 'we' not found in the connected module (5th connection).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3063) C:/CA-Project/src/CPU.v(338): Port 'data_i' not found in the connected module (6th connection).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3063) C:/CA-Project/src/CPU.v(338): Port 'data_o' not found in the connected module (7th connection).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3063) C:/CA-Project/src/CPU.v(338): Port 'stall' not found in the connected module (8th connection).
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(338): [TFMPC] - Missing connection for port 'cache_cs'.
+# 
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(338): [TFMPC] - Missing connection for port 'cache_we'.
+# 
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(338): [TFMPC] - Missing connection for port 'cache_data_o'.
+# 
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(338): [TFMPC] - Missing connection for port 'dram_addr'.
+# 
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(338): [TFMPC] - Missing connection for port 'dram_cs'.
+# 
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(338): [TFMPC] - Missing connection for port 'dram_we'.
+# 
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(338): [TFMPC] - Missing connection for port 'dram_ack'.
+# 
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(338): [TFMPC] - Missing connection for port 'dram_data_i'.
+# 
+# ** Warning: (vsim-3722) C:/CA-Project/src/CPU.v(338): [TFMPC] - Missing connection for port 'dram_data_o'.
+# 
+# ** Warning: (vsim-3008) C:/CA-Project/src/L1_Cache_rework.v(185): [CNNODP] - Component name (dram_data_sel) is not on a downward path.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Error: (vsim-3043) C:/CA-Project/src/L1_Cache_rework.v(185): Unresolved reference to 'dram_data_sel' in controller.dram_data_sel.
+# 
+#         Region: /Cache_TestBench/CPU/L1Cache
+# ** Fatal: (vsim-3374) C:/CA-Project/src/L1_Cache_rework.v(100): MSB of part-select into 'cache_data_i' is out of bounds.
+#    Time: 0 ps  Iteration: 0  Instance: /Cache_TestBench/CPU/L1Cache File: C:/CA-Project/src/L1_Cache_rework.v
+# FATAL ERROR while loading design
+# Error loading design
