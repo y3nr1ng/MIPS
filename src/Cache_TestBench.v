@@ -139,6 +139,17 @@ module Cache_TestBench;
 							$fdisplay(outfile2, "Cycle: %d, Read Miss , Address: %h, Read Data : %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
 					end
 				end
+				
+				`STATE_READ_DATA:
+				begin
+					$fdisplay(outfile2, "Cycle: %d, Read Hit  , Address: %h, Read Data : %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
+				end
+	
+				`STATE_WRITE_DATA:
+				begin
+					$fdisplay(outfile2, "Cycle: %d, Write Hit , Address: %h, Write Data: %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
+				end				
+
 		endcase
 		counter = counter+1;
 	end

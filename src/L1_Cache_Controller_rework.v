@@ -8,6 +8,7 @@ module L1_Cache_Controller (
 	input			cache_cs,
 	input			cache_we,
 	output			cache_ack,
+	output			stall;
 
 	// Interface to the internal components.
 	input			cache_hit,
@@ -33,13 +34,16 @@ module L1_Cache_Controller (
 	reg			r_cache_cs;
 	reg			r_cache_we;
 
+	assign stall = !cache_hit & (cache_cs | cache_we);
+
 	initial begin	
 		state		= `STATE_IDLE;
 		next_state 	= `STATE_IDLE;
 	end
 
 	// Control when the ACK signal is emitted.
-	assign cache_ack = (cache_ack_en && cache_hit && cache_valid && cache_we) || r_cache_ack;
+	assign cache_ack = !stall;
+	//(cache_ack_en && cache_hit && cache_valid && cache_we) || r_cache_ack;
 
 	// Finite state machine of the L1 cache controller.
 	always @ (posedge clk) begin
