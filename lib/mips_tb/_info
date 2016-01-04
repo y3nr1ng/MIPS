@@ -8,18 +8,60 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/CA-Project
+vFourWayMux_TestBench
+Z1 !s110 1451885688
+!i10b 1
+!s100 aXmKFJVeNF6>nfhM7^ZoF3
+IJSk8gcUbjJV1KG8m032:=0
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+R0
+Z3 w1449558760
+8C:/CA-Project/src/4WayMux_TestBench.v
+FC:/CA-Project/src/4WayMux_TestBench.v
+L0 3
+Z4 OV;L;10.3d;59
+r1
+!s85 0
+31
+!s108 1451885688.646000
+!s107 C:/CA-Project/src/4WayMux_TestBench.v|
+!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/4WayMux_TestBench.v|
+!i113 1
+Z5 o-work mips_tb
+n@four@way@mux_@test@bench
+vLatch_TestBench
+R1
+!i10b 1
+!s100 >_8MYBb:2]?mn1NJ0ijoT2
+Ik]FVMe85L0jKQXJd49>>13
+R2
+R0
+R3
+8C:/CA-Project/src/Latch_TestBench.v
+FC:/CA-Project/src/Latch_TestBench.v
+L0 3
+R4
+r1
+!s85 0
+31
+!s108 1451885688.752000
+!s107 C:/CA-Project/src/Latch_TestBench.v|
+!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Latch_TestBench.v|
+!i113 1
+R5
+n@latch_@test@bench
 vMemory_TestBench
 !s110 1451885237
 !i10b 1
 !s100 OnhD=o78NE1@nYjKT^]XN1
 I`PXd`Yk`HcE]VPY7mmYhz3
-Z1 V`JN@9S9cnhjKRR_L]QIcM3
+R2
 R0
 w1451885236
 8C:/CA-Project/src/Memory_TestBench.v
 FC:/CA-Project/src/Memory_TestBench.v
 L0 1
-Z2 OV;L;10.3d;59
+R4
 r1
 !s85 0
 31
@@ -27,20 +69,20 @@ r1
 !s107 C:/CA-Project/src/Memory_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Memory_TestBench.v|
 !i113 1
-Z3 o-work mips_tb
+R5
 n@memory_@test@bench
 vPipeline_TestBench
 !s110 1451880427
 !i10b 1
 !s100 8^HVa`_Ye`G5R]^BQQ5MF3
 I[Kh`F;IBn=Zk0g6;K5``Y2
-R1
+R2
 R0
 w1451879494
 8C:/CA-Project/src/Pipeline_TestBench.v
 FC:/CA-Project/src/Pipeline_TestBench.v
 L0 3
-R2
+R4
 r1
 !s85 0
 31
@@ -48,5 +90,26 @@ r1
 !s107 C:/CA-Project/src/Pipeline_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Pipeline_TestBench.v|
 !i113 1
-R3
+R5
 n@pipeline_@test@bench
+vTestBench
+!s110 1451885904
+!i10b 1
+!s100 Hm?@;??n`jJQV;8chchUo0
+I9L;GTMLWSNPNbGaL2bZFT0
+R2
+R0
+w1451885902
+8C:/CA-Project/src/Cache_TestBench.v
+FC:/CA-Project/src/Cache_TestBench.v
+L0 3
+R4
+r1
+!s85 0
+31
+!s108 1451885904.506000
+!s107 C:/CA-Project/src/Cache_TestBench.v|
+!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Cache_TestBench.v|
+!i113 1
+R5
+n@test@bench

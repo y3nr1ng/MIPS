@@ -8,12 +8,19 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	ForwardingUnit
 
-} {} {}} C:/CA-Project/src/Latch_TestBench.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Latch_TestBench.v
+} {} {}} C:/CA-Project/src/Latch_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/Latch_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Latch_TestBench
 
 Top level modules:
 	Latch_TestBench
+
+} {} {}} C:/CA-Project/src/DRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/DRAM.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module DRAM
+
+Top level modules:
+	DRAM
 
 } {} {}} C:/CA-Project/src/L1_Cache_Controller_rework.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller_rework.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -78,6 +85,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	ALU
 
+} {} {}} C:/CA-Project/src/SRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SRAM.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module SRAM
+
+Top level modules:
+	SRAM
+
 } {} {}} C:/CA-Project/src/L1_Cache_Controller.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module L1_Cache_Controller
@@ -99,7 +113,7 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Pipeline_TestBench
 
-} {} {}} C:/CA-Project/src/4WayMux_TestBench.v {1 {vlog -work mips -stats=none C:/CA-Project/src/4WayMux_TestBench.v
+} {} {}} C:/CA-Project/src/4WayMux_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/4WayMux_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module FourWayMux_TestBench
 
