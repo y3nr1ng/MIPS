@@ -1,1 +1,0 @@
-Cycle:           8, Write Miss, Address: 00000000, Write Data: 00000000

@@ -1,6 +1,13 @@
 C:/CA-Project/src/LookupTable.v {1 {vlog -work mips -stats=none C:/CA-Project/src/LookupTable.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
+} {} {}} C:/CA-Project/src/Cache_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/Cache_TestBench.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Cache_TestBench
+
+Top level modules:
+	Cache_TestBench
+
 } {} {}} C:/CA-Project/src/Decoder_3to8.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Decoder_3to8.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Decoder_3to8
@@ -49,13 +56,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	Multiplexer2Way
-
-} {} {}} C:/CA-Project/src/L1_Cache_Controller_ta.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller_ta.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module L1Cache_top
-
-Top level modules:
-	L1Cache_top
 
 } {} {}} C:/CA-Project/src/L1_Cache.v {0 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014

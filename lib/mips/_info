@@ -72,13 +72,13 @@ r1
 R5
 n@comparer
 vCPU
-Z7 !s110 1451929377
+!s110 1451930257
 !i10b 1
-!s100 XV@_DSHUNel1>FR^F16FE1
-IzC6JZW>:;^Yz829iMeeDa1
+!s100 jaZE04XKOEJmoc]=FhLAH0
+IU2K<SUY?9[AaI=2a3nBA91
 R2
 R0
-w1451929096
+w1451930235
 8C:/CA-Project/src/CPU.v
 FC:/CA-Project/src/CPU.v
 L0 3
@@ -86,20 +86,20 @@ R4
 r1
 !s85 0
 31
-!s108 1451929377.595000
+!s108 1451930257.484000
 !s107 C:\CA-Project\src\LookupTable.v|C:/CA-Project/src/CPU.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/CPU.v|
 !i113 1
 R5
 n@c@p@u
 vData_Memory
-Z8 !s110 1451929380
+Z7 !s110 1451929380
 !i10b 1
 !s100 H^l4_VX2fTOiQFY0GE_Tc1
 IL4MT8U;NU]Pan?SjeK0UG2
 R2
 R0
-Z9 w1451701038
+Z8 w1451701038
 8C:/CA-Project/src/Data_Memory.v
 FC:/CA-Project/src/Data_Memory.v
 L0 1
@@ -114,13 +114,13 @@ r1
 R5
 n@data_@memory
 vdcache_data_sram
-R8
+R7
 !i10b 1
 !s100 G4eech4?^c?iYR:ZQ5:LC2
 IZXRmnF<b9DkAFe;@@mGmb3
 R2
 R0
-R9
+R8
 8C:/CA-Project/src/dcache_data_sram.v
 FC:/CA-Project/src/dcache_data_sram.v
 L0 1
@@ -134,13 +134,13 @@ r1
 !i113 1
 R5
 vdcache_tag_sram
-R8
+R7
 !i10b 1
 !s100 iXoGmQB5=JYO8?kIaFVOZ2
 IF_>Rz79]J5PPOYgl8Y>Gm1
 R2
 R0
-R9
+R8
 8C:/CA-Project/src/dcache_tag_sram.v
 FC:/CA-Project/src/dcache_tag_sram.v
 L0 1
@@ -154,7 +154,7 @@ r1
 !i113 1
 R5
 vDecoder_3to8
-R8
+R7
 !i10b 1
 !s100 ]E3bAR`]WbAmVjG[M3HIM3
 I]G6SM4F6WA]R^aY;`W9=f1
@@ -175,7 +175,7 @@ r1
 R5
 n@decoder_3to8
 vDRAM
-Z10 !s110 1451919696
+Z9 !s110 1451919696
 !i10b 1
 !s100 CF^I5]WQ6WT<bY``n_hQ_0
 IHL;CSh6zb8VDRdXGm`DM>3
@@ -196,7 +196,7 @@ r1
 R5
 n@d@r@a@m
 vForwardingUnit
-R7
+Z10 !s110 1451929377
 !i10b 1
 !s100 ZL0RAdB1cXc>[l4KXf96;0
 I<`9jK`c=a7NhCUFca:DW10
@@ -217,7 +217,7 @@ r1
 R5
 n@forwarding@unit
 vGeneralControl
-R7
+R10
 !i10b 1
 !s100 G9=E@?g8DWEi[QW3S4hNT3
 Iin4]za]NX<OH>984=hM=f3
@@ -259,7 +259,7 @@ r1
 R5
 n@hazard@detection@unit
 vL1_Cache
-R10
+R9
 !i10b 1
 !s100 >5TAND]n<:QXCI]70AWKn3
 IOg5<X=Qk^?EYUz>fQ8]oF2
@@ -427,7 +427,7 @@ r1
 R5
 n@program@counter
 vRegisters
-R7
+R10
 !i10b 1
 !s100 bToI@zXWVbBO=4kUEBfR_2
 IY>Zm::lc6QX9F@LeCT`kc1
@@ -448,7 +448,7 @@ r1
 R5
 n@registers
 vROM
-R8
+R7
 !i10b 1
 !s100 Dl?9ZoLFQPzPJdG9I>=zA1
 I8CGNd^FXOnf`;RaP`B=9T0
@@ -490,7 +490,7 @@ r1
 R5
 n@sign@extend
 vSRAM
-R10
+R9
 !i10b 1
 !s100 UbRdJ2o0j0L^6M7V4`=Fg0
 I2IUNI2_=T[Ilzl]]^K`Qz2
