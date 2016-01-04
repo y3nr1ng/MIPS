@@ -97,7 +97,7 @@ module L1_Cache_Controller (
 					if(dram_ack)
 						next_state = `STATE_READ_DATA;
 					else
-						next_state = `STATE_READ_MEM;
+						next_state = `STATE_READ_MISS;
 				end
 				
 				`STATE_READ_DATA:
@@ -124,7 +124,7 @@ module L1_Cache_Controller (
 					if(dram_ack)
 						next_state = `STATE_WRITE_DATA;
 					else
-						next_state = `STATE_WRITE_MEM;
+						next_state = `STATE_WRITE_MISS;
 				end
 
 				`STATE_WRITE_DATA:
