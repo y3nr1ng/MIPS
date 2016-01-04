@@ -72,13 +72,13 @@ r1
 R5
 n@comparer
 vCPU
-Z7 !s110 1451919694
+!s110 1451923703
 !i10b 1
 !s100 l0D4YP025m545]I?ISB`10
 If_BUkEhWB5:E:oGB7RjIz2
 R2
 R0
-w1451919692
+w1451923702
 8C:/CA-Project/src/CPU.v
 FC:/CA-Project/src/CPU.v
 L0 3
@@ -86,14 +86,14 @@ R4
 r1
 !s85 0
 31
-!s108 1451919694.547000
+!s108 1451923703.190000
 !s107 C:\CA-Project\src\LookupTable.v|C:/CA-Project/src/CPU.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/CPU.v|
 !i113 1
 R5
 n@c@p@u
 vDecoder_3to8
-Z8 !s110 1451919697
+Z7 !s110 1451919697
 !i10b 1
 !s100 ]E3bAR`]WbAmVjG[M3HIM3
 I]G6SM4F6WA]R^aY;`W9=f1
@@ -135,7 +135,7 @@ r1
 R5
 n@d@r@a@m
 vForwardingUnit
-R7
+Z8 !s110 1451919694
 !i10b 1
 !s100 ZL0RAdB1cXc>[l4KXf96;0
 I<`9jK`c=a7NhCUFca:DW10
@@ -156,7 +156,7 @@ r1
 R5
 n@forwarding@unit
 vGeneralControl
-R7
+R8
 !i10b 1
 !s100 G9=E@?g8DWEi[QW3S4hNT3
 Iin4]za]NX<OH>984=hM=f3
@@ -219,13 +219,13 @@ r1
 R5
 n@l1_@cache
 vL1_Cache_Controller
-!s110 1451919813
+!s110 1451923994
 !i10b 1
-!s100 njm^Q_VZXS<o3e6@Pecno0
-IWehnz0]ASMzW?9gGUcQa?3
+!s100 6f_^2RKL1TlNib0Kh0`R90
+IB=F;H[<=86zeS54KDmTn>0
 R2
 R0
-w1451919812
+w1451923993
 8C:/CA-Project/src/L1_Cache_Controller_rework.v
 FC:/CA-Project/src/L1_Cache_Controller_rework.v
 L0 3
@@ -233,20 +233,20 @@ R4
 r1
 !s85 0
 31
-!s108 1451919813.442000
+!s108 1451923994.875000
 !s107 C:\CA-Project\src\StateTable.v|C:/CA-Project/src/L1_Cache_Controller_rework.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/L1_Cache_Controller_rework.v|
 !i113 1
 R5
 n@l1_@cache_@controller
 vLatch
-R1
+!s110 1451922497
 !i10b 1
 !s100 5`MQSGdhB[egEhCb]YIkU1
 I4@^PnP04cA9j3n8XM=cRH0
 R2
 R0
-R3
+w1451922494
 8C:/CA-Project/src/Latch.v
 FC:/CA-Project/src/Latch.v
 L0 1
@@ -254,7 +254,7 @@ R4
 r1
 !s85 0
 31
-!s108 1451919695.048000
+!s108 1451922497.777000
 !s107 C:/CA-Project/src/Latch.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/Latch.v|
 !i113 1
@@ -345,7 +345,7 @@ r1
 R5
 n@program@counter
 vRegisters
-R7
+R8
 !i10b 1
 !s100 bToI@zXWVbBO=4kUEBfR_2
 IY>Zm::lc6QX9F@LeCT`kc1
@@ -366,7 +366,7 @@ r1
 R5
 n@registers
 vROM
-R8
+R7
 !i10b 1
 !s100 Dl?9ZoLFQPzPJdG9I>=zA1
 I8CGNd^FXOnf`;RaP`B=9T0
