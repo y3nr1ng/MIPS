@@ -1,0 +1,52 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/CA-Project
+vMemory_TestBench
+!s110 1451882222
+!i10b 1
+!s100 0M<07j;c2HD7A4GLlh45z1
+I=miWc7;LP4>FJgUkCe8:S3
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+R0
+w1451882220
+8C:/CA-Project/src/Memory_TestBench.v
+FC:/CA-Project/src/Memory_TestBench.v
+L0 1
+Z2 OV;L;10.3d;59
+r1
+!s85 0
+31
+!s108 1451882222.097000
+!s107 C:/CA-Project/src/Memory_TestBench.v|
+!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Memory_TestBench.v|
+!i113 1
+Z3 o-work mips_tb
+n@memory_@test@bench
+vPipeline_TestBench
+!s110 1451880427
+!i10b 1
+!s100 8^HVa`_Ye`G5R]^BQQ5MF3
+I[Kh`F;IBn=Zk0g6;K5``Y2
+R1
+R0
+w1451879494
+8C:/CA-Project/src/Pipeline_TestBench.v
+FC:/CA-Project/src/Pipeline_TestBench.v
+L0 3
+R2
+r1
+!s85 0
+31
+!s108 1451880427.159000
+!s107 C:/CA-Project/src/Pipeline_TestBench.v|
+!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Pipeline_TestBench.v|
+!i113 1
+R3
+n@pipeline_@test@bench

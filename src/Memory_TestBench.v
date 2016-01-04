@@ -1,69 +1,72 @@
 module Memory_TestBench;
 
-	reg			Clk, CS, WE;
+	reg				clk, cs, we;
 	reg	[31:0] 		addr, data_i;
 	
 	integer 		i;
 
-	parameter mem_size	= 32;
+	parameter mem_size = 32;
 
-	Memory #(.size(mem_size)) Mem 
+	DRAM #(.mem_size(mem_size), .delay(5)) mem_dut 
 	(
-		.clk_i		(Clk),
+		.clk		(clk),
 		.addr_i		(addr),
-		.cs		(CS),
-		.we		(WE),
+		.cs			(cs),
+		.we			(we),
 		.data_i		(data_i),
-		.data_o		()
+		.data_o		(),
+		.ack		()
 	);
-
-	// Reset the memory.
+	
+	// The clock pulse.
 	initial begin
-		Clk = 0;
+		clk = 0;
+		forever #10
+			clk = ~clk;
+	end
+
+	// Reset the memory and control signals.
+	initial begin
 		for(i = 0; i < mem_size; i = i+1) begin
-       	 		Mem.memory[i] = 32'b0;
+       		mem_dut.memory[i] = 32'b0;
    		end
-		
-		#0
-		$display("Read at 0x0A...");
-		addr = 32'h01;
-		#1
-		Clk = 1; 
-		#2
-		Clk = 0;
-		#3
-		$display("... not selected, value is %d", Mem.data_o);
-		CS = 1;
-		WE = 0;
-		#4
-		Clk = 1; 
-		#5
-		Clk = 0;
-		#6
-		$display("... selected, value is %d", Mem.data_o);
-		$display("\nWrite 42 at 0x0A, but not write enabled...");
-		data_i = 42;
-		#7
-		Clk = 1; 
-		#8
-		Clk = 0;
-		#9
-		$display("... value is %d", Mem.data_o);
-		CS = 0;
-		WE = 1;
-		#10
-		Clk = 1; 
-		#11
-		Clk = 0;
-		#12
-		CS = 1;
-		WE = 0;
-		#13
-		Clk = 1; 
-		#14
-		Clk = 0;
-		#15
-		$display("... enabled, value is %d\n", Mem.data_o);
+	
+		i = 0;
+		cs = 0;
+		we = 0;
+		data_i = 32'bz;
+	end
+
+	// Stimulus
+	always @ (posedge clk) begin
+		if(i < 30) begin
+			if(i > 15)
+				addr = 32'h01;
+		end else if(i < 60) begin
+			if(i > 45) begin
+				cs = 1;
+				we = 0;
+			end
+		end else if(i < 90) begin
+			if(i > 75)
+				data_i = 42;
+		end else if(i < 120) begin
+			if(i > 105) begin
+				cs = 0;
+				we = 1;
+			end
+		end else if(i < 150) begin
+			if(i > 135) begin
+				cs = 1;
+				we = 1;
+			end
+		end else if(i < 180) begin
+			cs = 0;
+			we = 0;
+		end else
+			$stop;
+
+		i = i+1;
 	end
 
 endmodule

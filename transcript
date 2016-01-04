@@ -599,3 +599,271 @@ vsim -gui mips.CPU_TestBench
 # Compile of L1_Cache_rework.v was successful.
 # Compile of DRAM.v failed with 1 errors.
 # Compile of DRAM.v was successful.
+# Compile of CPU.v was successful.
+# Compile of ForwardingUnit.v was successful.
+# Compile of GeneralControl.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Latch.v was successful.
+# Compile of ProgramCounter.v was successful.
+# Compile of Multiplexer4Way.v was successful.
+# Compile of SignExtend.v was successful.
+# Compile of LookupTable.v was successful.
+# Compile of Multiplexer2Way.v was successful.
+# Compile of Comparer.v was successful.
+# Compile of Adder.v was successful.
+# Compile of HazardDetectionUnit.v was successful.
+# Compile of CPU_TestBench.v was successful.
+# Compile of ALU.v was successful.
+# Compile of DRAM.v was successful.
+# Compile of SRAM.v was successful.
+# Compile of Multiplexer8Way.v was successful.
+# Compile of L1_Cache_rework.v was successful.
+# Compile of StateTable.v was successful.
+# Compile of L1_Cache_Controller_rework.v was successful.
+# 21 compiles, 0 failed with no errors.
+# Load canceled
+vlib {lib\mips_tb}
+vmap mips_tb {lib\mips_tb}
+# Model Technology ModelSim PE vmap 10.3d Lib Mapping Utility 2014.10 Oct  7 2014
+# vmap -modelsim_quiet mips_tb lib\mips_tb 
+# Modifying C:/CA-Project/project1.mpf
+# ** Error: (vdel-11) Could not find mips.Adder.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.ALU.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.Comparer.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.CPU.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.CPU_TestBench.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.Decoder_3to8.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.DRAM.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.ForwardingUnit.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.GeneralControl.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.HazardDetectionUnit.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.L1_Cache.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.L1_Cache_Controller.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.Latch.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.Memory.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.Multiplexer2Way.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.Multiplexer4Way.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.Multiplexer8Way.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.ProgramCounter.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.Registers.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.ShiftDelay.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.SignExtend.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# ** Error: (vdel-11) Could not find mips.SRAM.
+# 
+# C:/altera/15.0/modelsim_ase/win32aloem/vdel failed.
+# Compile of CPU.v was successful.
+# Compile of ForwardingUnit.v was successful.
+# Compile of GeneralControl.v was successful.
+# Compile of Registers.v was successful.
+# Compile of Latch.v was successful.
+# Compile of ProgramCounter.v was successful.
+# Compile of Multiplexer4Way.v was successful.
+# Compile of SignExtend.v was successful.
+# Compile of LookupTable.v was successful.
+# Compile of Multiplexer2Way.v was successful.
+# Compile of Comparer.v was successful.
+# Compile of Adder.v was successful.
+# Compile of HazardDetectionUnit.v was successful.
+# Compile of ALU.v was successful.
+# Compile of DRAM.v was successful.
+# Compile of SRAM.v was successful.
+# Compile of Multiplexer8Way.v was successful.
+# Compile of L1_Cache_rework.v was successful.
+# Compile of StateTable.v was successful.
+# Compile of L1_Cache_Controller_rework.v was successful.
+# Compile of Pipeline_TestBench.v was successful.
+# Compile of Memory_TestBench.v was successful.
+# 22 compiles, 0 failed with no errors.
+vsim -gui mips_tb.Memory_TestBench
+# vsim 
+# Start time: 12:07:19 on Jan 04,2016
+# Loading mips_tb.Memory_TestBench
+# ** Error: (vsim-3033) C:/CA-Project/src/Memory_TestBench.v(10): Instantiation of 'Memory' failed. The design unit was not found.
+# 
+#         Region: /Memory_TestBench
+#         Searched libraries:
+#             C:/CA-Project/lib/mips_tb
+# Error loading design
+# Compile of Memory_TestBench.v was successful.
+vsim -gui mips_tb.Memory_TestBench
+# vsim 
+# Start time: 12:11:27 on Jan 04,2016
+# Loading mips_tb.Memory_TestBench
+# ** Error: (vsim-3033) C:/CA-Project/src/Memory_TestBench.v(10): Instantiation of 'Memory' failed. The design unit was not found.
+# 
+#         Region: /Memory_TestBench
+#         Searched libraries:
+#             C:/CA-Project/lib/mips_tb
+# Error loading design
+vsim -gui mips_tb.Memory_TestBench -L mips
+# vsim 
+# Start time: 12:11:35 on Jan 04,2016
+# Loading mips_tb.Memory_TestBench
+# ** Error: (vsim-3033) C:/CA-Project/src/Memory_TestBench.v(10): Instantiation of 'Memory' failed. The design unit was not found.
+# 
+#         Region: /Memory_TestBench
+#         Searched libraries:
+#             C:/CA-Project/lib/mips
+#             C:/CA-Project/lib/mips_tb
+# Error loading design
+# Compile of Memory_TestBench.v was successful.
+vsim -gui mips_tb.Memory_TestBench -L mips
+# vsim 
+# Start time: 12:12:18 on Jan 04,2016
+# Loading mips_tb.Memory_TestBench
+# Loading mips.DRAM
+# ** Error: (vsim-3584) C:/CA-Project/src/Memory_TestBench.v(10): Module parameter 'size' not found for override.
+# 
+#         Region: /Memory_TestBench
+# Error loading design
+# Compile of Memory_TestBench.v was successful.
+vsim -gui mips_tb.Memory_TestBench -L mips
+# vsim 
+# Start time: 12:13:24 on Jan 04,2016
+# Loading mips_tb.Memory_TestBench
+# Loading mips.DRAM
+# ** Error: (vsim-3063) C:/CA-Project/src/Memory_TestBench.v(10): Port 'clk_i' not found in the connected module (1st connection).
+# 
+#         Region: /Memory_TestBench/Mem
+# Error loading design
+# Compile of Memory_TestBench.v was successful.
+vsim -gui mips_tb.Memory_TestBench -L mips
+# vsim 
+# Start time: 12:13:36 on Jan 04,2016
+# Loading mips_tb.Memory_TestBench
+# Loading mips.DRAM
+# A bookmarks file was found in the current directory with 9 bookmarks
+do C:/CA-Project/macro/memory_test.tcl
+# ** Error: (vish-4014) No objects found matching '/Memory_TestBench/Mem/clk_i'.
+# Executing ONERROR command at macro C:\CA-Project\macro\memory_test.tcl line 4
+add wave -position insertpoint sim:/Memory_TestBench/Mem/*
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/CA-Project/macro/memory_test.tcl
+run
+# Read at 0x0A...
+# ... not selected, value is          z
+# ... selected, value is          z
+# 
+# Write 42 at 0x0A, but not write enabled...
+# ... value is          z
+# ... enabled, value is          z
+# 
+restart
+run
+# Read at 0x0A...
+# ... not selected, value is          z
+# ... selected, value is          z
+# 
+# Write 42 at 0x0A, but not write enabled...
+# ... value is          z
+# ... enabled, value is          z
+# 
+# Compile of Memory_TestBench.v failed with 1 errors.
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+# Warning in wave window restart: (vish-4014) No objects found matching '/Memory_TestBench/Mem/clk'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/Memory_TestBench/Mem/addr_i'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/Memory_TestBench/Mem/data_i'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/Memory_TestBench/Mem/cs'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/Memory_TestBench/Mem/we'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/Memory_TestBench/Mem/data_o'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/Memory_TestBench/Mem/ack'. 
+run
+add wave -position insertpoint sim:/Memory_TestBench/mem_dut/*
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/CA-Project/macro/memory_test.tcl
+vsim -gui mips_tb.Memory_TestBench -L mips
+# vsim 
+# Start time: 12:28:40 on Jan 04,2016
+# Loading mips_tb.Memory_TestBench
+# Loading mips.DRAM
+# A bookmarks file was found in the current directory with 9 bookmarks
+quit -sim
+vsim -L mips -gui mips_tb.Memory_TestBench
+# vsim 
+# Start time: 12:29:08 on Jan 04,2016
+# Loading mips_tb.Memory_TestBench
+# Loading mips.DRAM
+# A bookmarks file was found in the current directory with 9 bookmarks
+do C:/CA-Project/macro/memory_test.tcl
+run
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+run
+# Compile of Memory_TestBench.v was successful.
+restsart
+# invalid command name "restsart"
+restart
+# Loading mips_tb.Memory_TestBench
+run
+restart
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(63)
+#    Time: 3010 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 63
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(64)
+#    Time: 3010 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 64
+restart
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(64)
+#    Time: 3010 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 64
+restart
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(64)
+#    Time: 3010 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 64
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(67)
+#    Time: 3610 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 67
