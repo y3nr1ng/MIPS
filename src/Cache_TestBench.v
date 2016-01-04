@@ -53,11 +53,11 @@ module Cache_TestBench;
 		counter = 1;
 	
 		// Load instructions into instruction memory
-		$readmemb("instruction.txt", CPU.InstrMem.memory);
+		$readmemb(".\\dat\\instruction.txt", CPU.InstrMem.memory);
 	
 		// Open output file
-		outfile = $fopen("output.txt") | 1;
-		outfile2 = $fopen("cache.txt") | 1;
+		outfile = $fopen(".\\dat\\output.txt") | 1;
+		outfile2 = $fopen(".\\dat\\cache.txt") | 1;
 	
 		// Set Input n into data memory at 0x00
 		ExtMem.memory[0] = 256'h5;		// n = 5 for example
