@@ -85,13 +85,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	L1_Cache_Controller
 
-} {} {}} C:/CA-Project/src/SRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SRAM.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module SRAM
-
-Top level modules:
-	SRAM
-
 } {} {}} C:/CA-Project/src/Multiplexer8Way.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Multiplexer8Way.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Multiplexer8Way

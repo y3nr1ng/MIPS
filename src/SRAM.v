@@ -12,8 +12,15 @@ module SRAM
 	input 		[data_width-1:0] 	data_i,
 	output	reg [data_width-1:0]	data_o
 );
+	
+	integer i;
 
 	reg			[data_width-1:0]	memory	[0:mem_size-1];
+	
+	initial begin
+		for(i = 0; i < mem_size; i = i+1)
+       		memory[i] = {data_width{1'b0}};
+	end
 
 	initial begin
 		data_o = {data_width{1'bz}};

@@ -1035,3 +1035,6 @@ run
 # ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
 #    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
 # Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v was successful.
+# Compile of SRAM.v was successful.
+# 2 compiles, 0 failed with no errors.

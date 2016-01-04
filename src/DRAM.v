@@ -14,6 +14,7 @@ module DRAM
 	output	reg [data_width-1:0]	data_o,
 	output	reg						ack
 );
+
 	`define	DRAM_IDLE			0
 	`define	DRAM_READ_WAIT		1
 	`define DRAM_WRITE_WAIT		2
@@ -30,6 +31,11 @@ module DRAM
 
 	reg	[addr_width-1:0]	r_addr;
 	reg	[data_width-1:0]	r_data_i;
+
+	initial begin
+		for(i = 0; i < mem_size; i = i+1)
+       		memory[i] = {data_width{1'b0}};
+	end
 
 	initial begin
 		data_o = {data_width{1'bz}};
