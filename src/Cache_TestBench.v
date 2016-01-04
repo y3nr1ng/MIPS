@@ -122,12 +122,12 @@ module Cache_TestBench;
 		case(CPU.L1Cache.controller.state)
 			`STATE_WRITE_MISS:
 			begin
-				$fdisplay(outfile2, "Cycle: %d, Write Miss, Address: %h, Write Data: %h (Write Back!)", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
+				$fdisplay(outfile2, "Cycle: %d, Write Miss, Address: %h, Write Data: %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
 			end
 
 			`STATE_READ_MISS:
 			begin
-				$fdisplay(outfile2, "Cycle: %d, Read Miss , Address: %h, Read Data : %h (Write Back!)", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
+				$fdisplay(outfile2, "Cycle: %d, Read Miss , Address: %h, Read Data : %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
 			end
 
 			`STATE_WRITE_HIT:
