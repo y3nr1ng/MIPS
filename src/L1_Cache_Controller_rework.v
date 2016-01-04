@@ -7,7 +7,7 @@ module L1_Cache_Controller (
 	// Interface to CPU-side components.
 	input			cache_cs,
 	input			cache_we,
-	output			cache_ack,
+	output 			cache_ack,
 
 	// Interface to the internal components.
 	input			cache_hit,
@@ -45,7 +45,7 @@ module L1_Cache_Controller (
 	always @ (posedge clk) begin
 		state = next_state;
 		UpdateSignals(state);
-
+		
 		if(~rst) begin	
 			next_state = `STATE_IDLE;
 		end
@@ -97,7 +97,7 @@ module L1_Cache_Controller (
 					if(dram_ack)
 						next_state = `STATE_READ_DATA;
 					else
-						next_state = `STATE_READ_MISS;
+						next_state = `STATE_READ_MEM;
 				end
 				
 				`STATE_READ_DATA:

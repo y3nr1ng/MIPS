@@ -1,91 +1,12 @@
-Cycle:           6, Read Hit  , Address: 00000000, Read Data : 00000000
-Cycle:           7, Read Hit  , Address: 00001111, Read Data : 00000000
-Cycle:           8, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:           9, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          10, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          11, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          12, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          13, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          14, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          15, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          16, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          17, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          18, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          19, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          20, Write Miss, Address: 00001111, Write Data: 00001111
-Cycle:          21, Read Hit  , Address: 00001111, Read Data : 00000000
-Cycle:          22, Write Hit , Address: 00001111, Write Data: 00001111
-Cycle:          24, Read Hit  , Address: 00000004, Read Data : 00000000
-Cycle:          25, Read Hit  , Address: 00002222, Read Data : 00000000
-Cycle:          26, Write Miss, Address: 00002222, Write Data: 00002222
-Cycle:          27, Write Miss, Address: 00002222, Write Data: 00002222
-Cycle:          28, Write Miss, Address: 00002222, Write Data: 00002222
-Cycle:          29, Write Miss, Address: 00002222, Write Data: 00002222
-Cycle:          30, Write Miss, Address: 00002222, Write Data: 00002222
-Cycle:          31, Write Miss, Address: 00002222, Write Data: 00002222
-Cycle:          32, Write Miss, Address: 00002222, Write Data: 00002222
-Cycle:          33, Read Hit  , Address: 00002222, Read Data : 00000000
-Cycle:          34, Write Hit , Address: 00002222, Write Data: 00002222
-Cycle:          36, Read Hit  , Address: 00000008, Read Data : 00000000
-Cycle:          37, Read Hit  , Address: 00003333, Read Data : 00000000
-Cycle:          38, Write Miss, Address: 00003333, Write Data: 00003333
-Cycle:          39, Write Miss, Address: 00003333, Write Data: 00003333
-Cycle:          40, Write Miss, Address: 00003333, Write Data: 00003333
-Cycle:          41, Write Miss, Address: 00003333, Write Data: 00003333
-Cycle:          42, Write Miss, Address: 00003333, Write Data: 00003333
-Cycle:          43, Write Miss, Address: 00003333, Write Data: 00003333
-Cycle:          44, Write Miss, Address: 00003333, Write Data: 00003333
-Cycle:          45, Read Hit  , Address: 00003333, Read Data : 00000000
-Cycle:          46, Write Hit , Address: 00003333, Write Data: 00003333
-Cycle:          48, Read Hit  , Address: 0000000c, Read Data : 00000000
-Cycle:          49, Read Hit  , Address: 00004444, Read Data : 00000000
-Cycle:          50, Write Miss, Address: 00004444, Write Data: 00004444
-Cycle:          51, Write Miss, Address: 00004444, Write Data: 00004444
-Cycle:          52, Write Miss, Address: 00004444, Write Data: 00004444
-Cycle:          53, Write Miss, Address: 00004444, Write Data: 00004444
-Cycle:          54, Write Miss, Address: 00004444, Write Data: 00004444
-Cycle:          55, Write Miss, Address: 00004444, Write Data: 00004444
-Cycle:          56, Write Miss, Address: 00004444, Write Data: 00004444
-Cycle:          57, Read Hit  , Address: 00004444, Read Data : 00000000
-Cycle:          58, Write Hit , Address: 00004444, Write Data: 00004444
-Cycle:          60, Read Hit  , Address: 00000010, Read Data : 00000000
-Cycle:          61, Read Hit  , Address: 00005555, Read Data : 00000000
-Cycle:          62, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          63, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          64, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          65, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          66, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          67, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          68, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          69, Read Hit  , Address: 00005555, Read Data : 00000000
-Cycle:          70, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          71, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          72, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          73, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          74, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          75, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          76, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          77, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          78, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          79, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          80, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          81, Read Hit  , Address: 00005555, Read Data : 00000000
-Cycle:          82, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          83, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          84, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          85, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          86, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          87, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          88, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          89, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          90, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          91, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          92, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          93, Read Hit  , Address: 00005555, Read Data : 00000000
-Cycle:          94, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          95, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          96, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          97, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          98, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          99, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:         100, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
+Cycle:           7, Write Miss, Address: 00001111, Write Data: 00000000
+Cycle:          25, Write Miss, Address: 00002222, Write Data: 00001111
+Cycle:          37, Write Miss, Address: 00003333, Write Data: 00002222
+Cycle:          49, Write Miss, Address: 00004444, Write Data: 00003333
+Cycle:          61, Write Miss, Address: 00005555, Write Data: 00004444 (Write Back!)
+Cycle:          69, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
+Cycle:          81, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
+Cycle:          93, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
+Cycle:         105, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
+Cycle:         117, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
+Cycle:         129, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
+Cycle:         141, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
