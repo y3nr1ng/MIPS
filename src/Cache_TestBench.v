@@ -137,7 +137,7 @@ module Cache_TestBench;
 
 			`STATE_WRITE_BACK:
 			begin
-				if(CPU.L1Cache.r_cache_we)
+				if(CPU.L1Cache.controller.r_cache_we)
 					$fdisplay(outfile2, "Cycle: %d, Write Miss, Address: %h, Write Data: %h (Write Back!)", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
 				else
 					$fdisplay(outfile2, "Cycle: %d, Read Miss , Address: %h, Read Data : %h (Write Back!)", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
@@ -145,7 +145,7 @@ module Cache_TestBench;
 
 			default:
 			begin
-				if(CPU.L1Cache.r_cache_cs)
+				if(CPU.L1Cache.controller.r_cache_cs)
 					$fdisplay(outfile2, "Cycle: %d, Read Hit  , Address: %h, Read Data : %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
 			end
 		endcase
