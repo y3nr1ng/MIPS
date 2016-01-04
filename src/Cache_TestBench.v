@@ -132,7 +132,7 @@ module Cache_TestBench;
 
 			`STATE_WRITE_HIT:
 			begin
-				$fdisplay(outfile2, "Cycle: %d, Write Hit , Address: %h, Write Data: %h", counter, CPU.dcache.p1_addr_i, CPU.dcache.p1_data_i);
+				$fdisplay(outfile2, "Cycle: %d, Write Hit , Address: %h, Write Data: %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
 			end
 
 			`STATE_WRITE_BACK:

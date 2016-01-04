@@ -36,7 +36,7 @@ add wave -noupdate /Cache_TestBench/CPU/L1Cache/write_data_b1/data_4
 add wave -noupdate /Cache_TestBench/CPU/L1Cache/write_data_b1/sel
 add wave -noupdate /Cache_TestBench/CPU/L1Cache/write_data_b1/data_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {325 ps} 0}
+WaveRestoreCursors {{Cursor 1} {198 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 320
 configure wave -valuecolwidth 100
@@ -52,4 +52,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {786 ps}
+WaveRestoreZoom {4254 ps} {5040 ps}
