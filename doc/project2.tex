@@ -94,7 +94,7 @@ B03902104 Yi-ying Chao}
 \draw (34.68,-16.95) node [right, align=left] {hit\\!cache\_we};
 \draw [black] (33.1,-12.2) -- (33.1,-21.7);
 \fill [black] (33.1,-21.7) -- (33.6,-20.9) -- (32.6,-20.9);
-\draw (32.6,-16.95) node [left, align=left] {cache\_cs\\$or$ cache\_we};
+\draw (32.6,-16.95) node [left, align=left] {cache\_cs\\or cache\_we};
 \draw [black] (30.1,-24.7) -- (22.6,-24.7);
 \fill [black] (22.6,-24.7) -- (23.4,-25.2) -- (23.4,-24.2);
 \draw (26.35,-24.2) node [above, align=left] {!hit\\!cache\_we};
@@ -134,5 +134,66 @@ B03902104 Yi-ying Chao}
 \end{tikzpicture}
 \end{center}
 \end{frame}
+
+\section{DRAM}
+\frame{
+  \frametitle{FSM}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.12]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (13,-32.5) circle (3);
+\draw (13,-32.5) node {Idle};
+\draw [black] (35.5,-23.1) circle (3);
+\draw (35.5,-23.1) node [align=left] {Read\\Wait};
+\draw [black] (35.5,-13.8) circle (3);
+\draw (35.5,-13.8) node [align=left] {Write\\Wait};
+\draw [black] (55.9,-13.8) circle (3);
+\draw (55.9,-13.8) node {Write};
+\draw [black] (38.3,-45.6) circle (3);
+\draw (38.3,-45.6) node {Ack};
+\draw [black] (55.9,-23.1) circle (3);
+\draw (55.9,-23.1) node {Read};
+\draw [black] (21.7,-32.5) circle (3);
+\draw [black] (21.7,-18.9) circle (3);
+\draw [black] (5.1,-32.5) -- (10,-32.5);
+\fill [black] (10,-32.5) -- (9.2,-32) -- (9.2,-33);
+\draw [black] (16,-32.5) -- (18.7,-32.5);
+\fill [black] (18.7,-32.5) -- (17.9,-32) -- (17.9,-33);
+\draw (17.35,-33) node [below] {cs};
+\draw [black] (21.7,-29.5) -- (21.7,-21.9);
+\fill [black] (21.7,-21.9) -- (21.2,-22.7) -- (22.2,-22.7);
+\draw (21.2,-25.7) node [left] {delayCnt$>$0};
+\draw [black] (24.06,-34.36) -- (35.94,-43.74);
+\fill [black] (35.94,-43.74) -- (35.63,-42.85) -- (35.01,-43.64);
+\draw (34.01,-38.55) node [above] {delayCnt$\leq$0};
+\draw [black] (24.51,-17.86) -- (32.69,-14.84);
+\fill [black] (32.69,-14.84) -- (31.76,-14.65) -- (32.11,-15.59);
+\draw (26.78,-15.8) node [above] {we};
+\draw [black] (24.57,-19.77) -- (32.63,-22.23);
+\fill [black] (32.63,-22.23) -- (32.01,-21.52) -- (31.72,-22.47);
+\draw (30.58,-20.39) node [above] {!we};
+\draw [black] (36.823,-25.78) arc (54:-234:2.25);
+\draw (35.5,-30.35) node [below] {delayCnt$>$0};
+\fill [black] (34.18,-25.78) -- (33.3,-26.13) -- (34.11,-26.72);
+\draw [black] (34.177,-11.12) arc (234:-54:2.25);
+\draw (35.5,-6.55) node [above] {delayCnt$>$0};
+\fill [black] (36.82,-11.12) -- (37.7,-10.77) -- (36.89,-10.18);
+\draw [black] (38.5,-23.1) -- (52.9,-23.1);
+\fill [black] (52.9,-23.1) -- (52.1,-22.6) -- (52.1,-23.6);
+\draw (45.7,-23.6) node [below] {delayCnt$\leq$0};
+\draw [black] (38.5,-13.8) -- (52.9,-13.8);
+\fill [black] (52.9,-13.8) -- (52.1,-13.3) -- (52.1,-14.3);
+\draw (45.7,-14.3) node [below] {delayCnt$\leq$0};
+\draw [black] (55.379,-26.053) arc (-13.1233:-62.94332:27.626);
+\fill [black] (41.04,-44.38) -- (41.98,-44.46) -- (41.53,-43.57);
+\draw [black] (58.172,-15.754) arc (44.6111:-102.53657:18.311);
+\fill [black] (41.16,-46.49) -- (41.83,-47.15) -- (42.05,-46.17);
+\draw [black] (35.347,-46.113) arc (-84.11911:-150.62991:21.625);
+\fill [black] (14.29,-35.21) -- (14.24,-36.15) -- (15.11,-35.66);
+\end{tikzpicture}
+\end{center}
+}
+
 \end{document}
 
