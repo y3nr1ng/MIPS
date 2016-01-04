@@ -1,5 +1,5 @@
 
-module dcache_top
+module L1Cache_top
 (
     // System clock, reset and stall
 	clk_i, 
@@ -190,7 +190,7 @@ end
 //
 // Tag SRAM 0
 //
-dcache_tag_sram dcache_tag_sram
+L1Cache_tag_sram L1Cache_tag_sram
 (
 	.clk_i(clk_i),
 	.addr_i(cache_sram_index),
@@ -203,7 +203,7 @@ dcache_tag_sram dcache_tag_sram
 //
 // Data SRAM 0
 //
-dcache_data_sram dcache_data_sram
+L1Cache_data_sram L1Cache_data_sram
 (
 	.clk_i(clk_i),
 	.addr_i(cache_sram_index),

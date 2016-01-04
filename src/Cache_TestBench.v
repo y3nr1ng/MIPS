@@ -36,8 +36,21 @@ module Cache_TestBench;
 		.ext_mem_ack	(mem_cpu_ack)
 	);
 	
+	Data_Memory Data_Memory
+	(
+		.clk_i    (Clk),
+  		.rst_i    (Reset),
+		.addr_i   (cpu_mem_addr),
+		.data_i   (cpu_mem_data),
+		.enable_i (cpu_mem_enable),
+		.write_i  (cpu_mem_write),
+		.ack_o    (mem_cpu_ack),
+		.data_o   (mem_cpu_data)
+	);
+	
+	/*
 	// External memory, 16KB.
-	DRAM #(.data_width(256), .mem_size(2048), .delay(10)) ExtMem (
+	DRAM #(.data_width(256), .mem_size(2048), .delay(10)) Data_Memory (
 		.clk    		(clk),
 		
 		// Interface to the CPU.
@@ -48,9 +61,21 @@ module Cache_TestBench;
 		.ack    		(mem_cpu_ack),
 		.data_o   		(mem_cpu_data)
 	);
+*/
   
 	initial begin
 		counter = 1;
+
+		// initialize data memory	(16KB)
+		for(i=0; i<512; i=i+1) begin
+			Data_Memory.memory[i] = 256'b0;
+		end
+		
+		// initialize cache memory	(1KB)
+		for(i=0; i<32; i=i+1) begin
+			CPU.L1Cache.L1Cache_tag_sram.memory[i] = 24'b0;
+			CPU.L1Cache.L1Cache_data_sram.memory[i] = 256'b0;
+		end
 	
 		// Load instructions into instruction memory
 		$readmemb(".\\dat\\cache_instruction.txt", CPU.InstrMem.memory);
@@ -59,9 +84,14 @@ module Cache_TestBench;
 		outfile = $fopen(".\\dat\\output.txt") | 1;
 		outfile2 = $fopen(".\\dat\\cache.txt") | 1;
 	
+		/*
 		// Set Input n into data memory at 0x00
-		ExtMem.memory[0] = 256'h5;		// n = 5 for example
-	
+		Data_Memory.memory[0] = 256'h5;		// n = 5 for example
+		*/
+		
+		// Set Input n into data memory at 0x00
+		Data_Memory.memory[0] = 256'h5;		// n = 5 for example
+
     	clk = 0;
     	rst = 0;
     	start = 0;
@@ -76,12 +106,12 @@ module Cache_TestBench;
 		if(counter == 150) begin	
 			$fdisplay(outfile, "Flush Cache! \n");
 
-			for(i = 0; i < 32; i = i+1) begin
-				tag = CPU.L1Cache.tag_storage.memory[i];
-				index = i;
-				address = {tag[21:0], index};
-				ExtMem.memory[address] = CPU.L1Cache.data_storage.memory[i];
-			end 
+			for(i=0; i<32; i=i+1) begin
+			tag = CPU.L1Cache.L1Cache_tag_sram.memory[i];
+			index = i;
+			address = {tag[21:0], index};
+			Data_Memory.memory[address] = CPU.L1Cache.L1Cache_data_sram.memory[i];
+		end 
 		end
 		
 		// Stop the simulation.
@@ -104,53 +134,46 @@ module Cache_TestBench;
     	$fdisplay(outfile, "R7(a3) = %h, R15(t7) = %h, R23(s7) = %h, R31(ra) = %h", CPU.RegFiles.register[7], CPU.RegFiles.register[15], CPU.RegFiles.register[23], CPU.RegFiles.register[31]);
 
 		// Dump the data memory.
-		$fdisplay(outfile, "Data Memory: 0x0000 = %h", ExtMem.memory[0]);
-		$fdisplay(outfile, "Data Memory: 0x0020 = %h", ExtMem.memory[1]);
-		$fdisplay(outfile, "Data Memory: 0x0040 = %h", ExtMem.memory[2]);
-		$fdisplay(outfile, "Data Memory: 0x0060 = %h", ExtMem.memory[3]);
-		$fdisplay(outfile, "Data Memory: 0x0080 = %h", ExtMem.memory[4]);
-		$fdisplay(outfile, "Data Memory: 0x00A0 = %h", ExtMem.memory[5]);
-		$fdisplay(outfile, "Data Memory: 0x00C0 = %h", ExtMem.memory[6]);
-		$fdisplay(outfile, "Data Memory: 0x00E0 = %h", ExtMem.memory[7]);
-		$fdisplay(outfile, "Data Memory: 0x0400 = %h", ExtMem.memory[32]);
+		$fdisplay(outfile, "Data Memory: 0x0000 = %h", Data_Memory.memory[0]);
+		$fdisplay(outfile, "Data Memory: 0x0020 = %h", Data_Memory.memory[1]);
+		$fdisplay(outfile, "Data Memory: 0x0040 = %h", Data_Memory.memory[2]);
+		$fdisplay(outfile, "Data Memory: 0x0060 = %h", Data_Memory.memory[3]);
+		$fdisplay(outfile, "Data Memory: 0x0080 = %h", Data_Memory.memory[4]);
+		$fdisplay(outfile, "Data Memory: 0x00A0 = %h", Data_Memory.memory[5]);
+		$fdisplay(outfile, "Data Memory: 0x00C0 = %h", Data_Memory.memory[6]);
+		$fdisplay(outfile, "Data Memory: 0x00E0 = %h", Data_Memory.memory[7]);
+		$fdisplay(outfile, "Data Memory: 0x0400 = %h", Data_Memory.memory[32]);
 		
 		$fdisplay(outfile, "\n");
 		
 		// Print the status of data cache.
 
-		case(CPU.L1Cache.controller.state)
-				`STATE_COMPARE:
-				begin
-					if(CPU.L1Cache.controller.cache_hit && CPU.L1Cache.controller.cache_valid) begin
-						if(CPU.L1Cache.controller.r_cache_we)
-							$fdisplay(outfile2, "Cycle: %d, Write Hit , Address: %h, Write Data: %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);	
-						else begin
-							$fdisplay(outfile2, "Cycle: %d, Read Hit  , Address: %h, Read Data : %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
-						end
-					end
-					else begin
-						if(CPU.L1Cache.controller.cache_valid && CPU.L1Cache.controller.cache_dirty_i && CPU.L1Cache.controller.r_cache_we)
-							$fdisplay(outfile2, "Cycle: %d, Write Miss, Address: %h, Write Data: %h (Write Back!)", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
-						else if(CPU.L1Cache.controller.cache_valid && CPU.L1Cache.controller.cache_dirty_i && !CPU.L1Cache.controller.r_cache_we)
-							$fdisplay(outfile2, "Cycle: %d, Read Miss , Address: %h, Read Data : %h (Write Back!)", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
-						else if(CPU.L1Cache.controller.r_cache_we)
-							$fdisplay(outfile2, "Cycle: %d, Write Miss, Address: %h, Write Data: %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
-						else
-							$fdisplay(outfile2, "Cycle: %d, Read Miss , Address: %h, Read Data : %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
-					end
-				end
-				
-				`STATE_READ_DATA:
-				begin
-					$fdisplay(outfile2, "Cycle: %d, Read Hit  , Address: %h, Read Data : %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
-				end
-	
-				`STATE_WRITE_DATA:
-				begin
-					$fdisplay(outfile2, "Cycle: %d, Write Hit , Address: %h, Write Data: %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
-				end				
-
-		endcase
+		// print Data Cache Status
+	if(CPU.L1Cache.p1_stall_o && CPU.L1Cache.state==0) begin
+		if(CPU.L1Cache.sram_dirty) begin
+			if(CPU.L1Cache.p1_MemWrite_i) 
+				$fdisplay(outfile2, "Cycle: %d, Write Miss, Address: %h, Write Data: %h (Write Back!)", counter, CPU.L1Cache.p1_addr_i, CPU.L1Cache.p1_data_i);
+			else if(CPU.L1Cache.p1_MemRead_i) 
+				$fdisplay(outfile2, "Cycle: %d, Read Miss , Address: %h, Read Data : %h (Write Back!)", counter, CPU.L1Cache.p1_addr_i, CPU.L1Cache.p1_data_o);
+		end
+		else begin
+			if(CPU.L1Cache.p1_MemWrite_i) 
+				$fdisplay(outfile2, "Cycle: %d, Write Miss, Address: %h, Write Data: %h", counter, CPU.L1Cache.p1_addr_i, CPU.L1Cache.p1_data_i);
+			else if(CPU.L1Cache.p1_MemRead_i) 
+				$fdisplay(outfile2, "Cycle: %d, Read Miss , Address: %h, Read Data : %h", counter, CPU.L1Cache.p1_addr_i, CPU.L1Cache.p1_data_o);
+		end
+		flag = 1'b1;
+	end
+	else if(!CPU.L1Cache.p1_stall_o) begin
+		if(!flag) begin
+			if(CPU.L1Cache.p1_MemWrite_i) 
+				$fdisplay(outfile2, "Cycle: %d, Write Hit , Address: %h, Write Data: %h", counter, CPU.L1Cache.p1_addr_i, CPU.L1Cache.p1_data_i);
+			else if(CPU.L1Cache.p1_MemRead_i) 
+				$fdisplay(outfile2, "Cycle: %d, Read Hit  , Address: %h, Read Data : %h", counter, CPU.L1Cache.p1_addr_i, CPU.L1Cache.p1_data_o);
+		end
+		flag = 1'b0;
+	end
+		
 		counter = counter+1;
 	end
   
