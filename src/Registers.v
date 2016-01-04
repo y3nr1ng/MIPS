@@ -6,6 +6,8 @@ module Registers #(parameter width=32, size=32) (
 	input	[4:0]		Rd_addr,
 	input	[width-1:0]	Rd_data
 );
+	
+	integer i;
 
 	// Register File
 	reg     [31:0]      register        [0:31];
@@ -13,6 +15,12 @@ module Registers #(parameter width=32, size=32) (
 	// Read Data      
 	assign  Rs_data = register[Rs_addr];
 	assign  Rt_data = register[Rt_addr];
+
+	// Initialize the register files.
+	initial begin
+		for(i = 0; i < size; i = i+1)
+			CPU.Registers.register[i] = {width{1'b0}};
+	end
 
 	// Write Data   
 	always@(posedge clk) begin

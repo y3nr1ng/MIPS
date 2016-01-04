@@ -2,92 +2,70 @@
 
 module TestBench;
 
-reg				clk, rst, start;
-integer			i, outfile, outfile2, counter;
-reg					flag;
-reg		[26:0]		address;
-reg		[23:0]		tag;
-reg		[4:0]		index;
+	integer			i, outfile, outfile2, counter;
 
-wire	[256-1:0]	mem_cpu_data; 
-wire				mem_cpu_ack; 	
-wire	[256-1:0]	cpu_mem_data; 
-wire	[32-1:0]	cpu_mem_addr; 	
-wire				cpu_mem_enable; 
-wire				cpu_mem_write; 
+	reg					clk, rst, start;
 
-always #(`CYCLE_TIME/2) Clk = ~Clk;	
+	reg					flag;
+	reg		[26:0]		address;
+	reg		[23:0]		tag;
+	reg		[4:0]		index;
 
-CPU CPU(
-	.clk_i  (Clk),
-    .rst_i  (Reset),
-	.start_i(Start),
+	wire	[256-1:0]	mem_cpu_data; 
+	wire				mem_cpu_ack; 	
+	wire	[256-1:0]	cpu_mem_data; 
+	wire	[32-1:0]	cpu_mem_addr; 	
+	wire				cpu_mem_enable; 
+	wire				cpu_mem_write; 
 	
-	.mem_data_i(mem_cpu_data), 
-	.mem_ack_i(mem_cpu_ack), 	
-	.mem_data_o(cpu_mem_data), 
-	.mem_addr_o(cpu_mem_addr), 	
-	.mem_enable_o(cpu_mem_enable), 
-	.mem_write_o(cpu_mem_write)
-);
+	always #(`CYCLE_TIME/2) 
+		Clk = ~Clk;	
 
-Data_Memory Data_Memory
-(
-	.clk_i    (Clk),
-	.rst_i    (Reset),
-	.addr_i   (cpu_mem_addr),
-	.data_i   (cpu_mem_data),
-	.enable_i (cpu_mem_enable),
-	.write_i  (cpu_mem_write),
-	.ack_o    (mem_cpu_ack),
-	.data_o   (mem_cpu_data)
-);
+	CPU CPU(
+		.clk_i  		(clk),
+   	 	.rst_i  		(rst),
+		.start_i		(start),
+	
+		.mem_data_i		(mem_cpu_data), 
+		.mem_ack_i		(mem_cpu_ack), 	
+		.mem_data_o		(cpu_mem_data), 
+		.mem_addr_o		(cpu_mem_addr), 	
+		.mem_enable_o	(cpu_mem_enable), 
+		.mem_write_o	(cpu_mem_write)
+	);
+	
+	// External memory, 16KB.
+	DRAM #(.data_width(256), .mem_size(2048), .delay(10)) memory (
+		.clk    		(clk),
+		.addr_i   		(cpu_mem_addr),
+		.data_i   		(cpu_mem_data),
+		.cs		 		(cpu_mem_enable),
+		.we  			(cpu_mem_write),
+		.ack    		(mem_cpu_ack),
+		.data_o   		(mem_cpu_data)
+	);
   
-initial begin
-	counter = 1;
+	initial begin
+		counter = 1;
 	
-	// initialize instruction memory (2KB)
-	for(i=0; i<512; i=i+1) begin
-		CPU.Instruction_Memory.memory[i] = 32'b0;
-	end
+		// Load instructions into instruction memory
+		$readmemb("instruction.txt", CPU.Instruction_Memory.memory);
 	
-	// initialize data memory	(16KB)
-	for(i=0; i<512; i=i+1) begin
-		Data_Memory.memory[i] = 256'b0;
-	end
-		
-	// initialize cache memory	(1KB)
-	for(i=0; i<32; i=i+1) begin
-		CPU.dcache.dcache_tag_sram.memory[i] = 24'b0;
-		CPU.dcache.dcache_data_sram.memory[i] = 256'b0;
-	end
+		// Open output file
+		outfile = $fopen("output.txt") | 1;
+		outfile2 = $fopen("cache.txt") | 1;
 	
-	// initialize Register File
-	for(i=0; i<32; i=i+1) begin
-		CPU.Registers.register[i] = 32'b0;
-	end
+		// Set Input n into data memory at 0x00
+		Data_Memory.memory[0] = 256'h5;		// n = 5 for example
 	
-	// Load instructions into instruction memory
-	$readmemb("instruction.txt", CPU.Instruction_Memory.memory);
-	
-	// Open output file
-	outfile = $fopen("output.txt") | 1;
-	outfile2 = $fopen("cache.txt") | 1;
-	
-	
-	// Set Input n into data memory at 0x00
-	Data_Memory.memory[0] = 256'h5;		// n = 5 for example
-	
-    Clk = 0;
-    Reset = 0;
-    Start = 0;
+    	Clk = 0;
+    	Reset = 0;
+    	Start = 0;
     
-    #(`CYCLE_TIME/4) 
-    Reset = 1;
-    Start = 1;
-
-    
-end
+    	#(`CYCLE_TIME/4) 
+    	Reset = 1;
+    	Start = 1;
+	end
   
 always@(posedge Clk) begin
 	if(counter == 150) begin	// store cache to memory
