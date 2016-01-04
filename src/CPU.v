@@ -381,7 +381,7 @@ Latch MEMWB_Mem_output (
 	.clk			(clk && L1Cache.cache_ack),
 	.rst			(1'b0),
 	.en				(1'b1),
-	.data_i			(DataMem.data_o),
+	.data_i			(L1Cache.cache_data_o),
 	.data_o			()
 );
 

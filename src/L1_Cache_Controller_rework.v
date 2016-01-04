@@ -44,7 +44,6 @@ module L1_Cache_Controller (
 	// Finite state machine of the L1 cache controller.
 	always @ (posedge clk) begin
 		state = next_state;
-		#120
 		UpdateSignals(state);
 		
 		if(~rst) begin	
