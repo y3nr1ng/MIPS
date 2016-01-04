@@ -15,6 +15,8 @@ module CPU
 	input					ext_mem_ack	
 );
 
+
+
 /**
  * Internal bus declarations
  */
@@ -43,6 +45,8 @@ wire		[1:0]	WB_ctrl;
 	wire				WB_mux_wire	= WB_ctrl[1];
 	wire				Reg_we_wire = WB_ctrl[0];
 
+wire cache_stall = cache_stall && 1'b1;
+
 /**
  * IF
  */
@@ -59,7 +63,7 @@ ProgramCounter PC (
 	.clk			(clk),
 	.rst			(rst),
 	.start			(start),
-	.we				(~HDU.stall && !L1Cache.p1_stall_o),
+	.we				(~HDU.stall && !cache_stall),
 	.addr_i			(PC_Mux.data_o),
 	.addr_o			()
 );
@@ -87,7 +91,7 @@ ROM #(.mem_size(1024)) InstrMem (
 Latch IFID_PC_Inc (
 	.clk			(clk && ~HDU.stall),
 	.rst			(flush_wire),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(PC_Inc.data_o),
 	.data_o			()
 );
@@ -95,7 +99,7 @@ Latch IFID_PC_Inc (
 Latch IFID_Instr (
 	.clk			(clk && ~HDU.stall ),
 	.rst			(flush_wire),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(InstrMem.data_o),
 	.data_o			(instr)
 );
@@ -158,7 +162,7 @@ HazardDetectionUnit HDU (
 Latch #(.width(5)) IDEX_EX_ctrl (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(Ctrl.EX_ctrl_o),
 	.data_o			(EX_ctrl)
 );
@@ -166,7 +170,7 @@ Latch #(.width(5)) IDEX_EX_ctrl (
 Latch #(.width(2)) IDEX_MEM_ctrl (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(Ctrl.MEM_ctrl_o),
 	.data_o			()
 );
@@ -174,7 +178,7 @@ Latch #(.width(2)) IDEX_MEM_ctrl (
 Latch #(.width(2)) IDEX_WB_ctrl (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(Ctrl.WB_ctrl_o),
 	.data_o			()
 );
@@ -182,7 +186,7 @@ Latch #(.width(2)) IDEX_WB_ctrl (
 Latch IDEX_Rs_data (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(RegFiles.Rs_data),
 	.data_o			()
 );
@@ -190,7 +194,7 @@ Latch IDEX_Rs_data (
 Latch IDEX_Rt_data (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(RegFiles.Rt_data),
 	.data_o			()	
 );
@@ -198,7 +202,7 @@ Latch IDEX_Rt_data (
 Latch IDEX_imm_data (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(SignExt.data_o),
 	.data_o			()
 );
@@ -206,7 +210,7 @@ Latch IDEX_imm_data (
 Latch #(.width(5)) IDEX_Rs (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(instr_rs),
 	.data_o			()
 );
@@ -214,7 +218,7 @@ Latch #(.width(5)) IDEX_Rs (
 Latch #(.width(5)) IDEX_Rt (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(instr_rt),
 	.data_o			()
 );
@@ -222,7 +226,7 @@ Latch #(.width(5)) IDEX_Rt (
 Latch #(.width(5)) IDEX_Rd (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(instr_rd),
 	.data_o			()
 );
@@ -288,7 +292,7 @@ ForwardingUnit FwdUnit (
 Latch #(.width(2)) EXMEM_MEM_ctrl (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(IDEX_MEM_ctrl.data_o),
 	.data_o			(MEM_ctrl)
 );
@@ -296,7 +300,7 @@ Latch #(.width(2)) EXMEM_MEM_ctrl (
 Latch #(.width(2)) EXMEM_WB_ctrl (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(IDEX_WB_ctrl.data_o),
 	.data_o			()
 );
@@ -304,7 +308,7 @@ Latch #(.width(2)) EXMEM_WB_ctrl (
 Latch EXMEM_ALU_output (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(ALU.data_o),
 	.data_o			()
 );
@@ -312,7 +316,7 @@ Latch EXMEM_ALU_output (
 Latch EXMEM_ALU_data_2 (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(Data_2_Mux.data_o),
 	.data_o			()
 );
@@ -320,7 +324,7 @@ Latch EXMEM_ALU_data_2 (
 Latch #(.width(5)) EXMEM_RegFwd (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(Fwd_Mux.data_o),
 	.data_o			()
 );
@@ -393,7 +397,7 @@ L1_Cache L1Cache (
 Latch #(.width(2)) MEMWB_WB_ctrl (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(EXMEM_WB_ctrl.data_o),
 	.data_o			(WB_ctrl)
 );
@@ -401,7 +405,7 @@ Latch #(.width(2)) MEMWB_WB_ctrl (
 Latch MEMWB_ALU_output (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(EXMEM_ALU_output.data_o),
 	.data_o			()
 );
@@ -409,7 +413,7 @@ Latch MEMWB_ALU_output (
 Latch MEMWB_Mem_output (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(L1Cache.p1_data_o),
 	.data_o			()
 );
@@ -417,7 +421,7 @@ Latch MEMWB_Mem_output (
 Latch #(.width(5)) MEMWB_RegFwd (
 	.clk			(clk),
 	.rst			(1'b0),
-	.en				(!L1Cache.p1_stall_o),
+	.en				(!cache_stall),
 	.data_i			(EXMEM_RegFwd.data_o),
 	.data_o			()
 );
