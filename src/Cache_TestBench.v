@@ -121,26 +121,25 @@ module Cache_TestBench;
 		case(CPU.L1Cache.controller.state)
 				`STATE_COMPARE:
 				begin
-					if(cache_hit && cache_valid) begin
-						if(r_cache_we)
+					if(CPU.L1Cache.controller.cache_hit && CPU.L1Cache.controller.cache_valid) begin
+						if(CPU.L1Cache.controller.r_cache_we)
 							$fdisplay(outfile2, "Cycle: %d, Write Hit , Address: %h, Write Data: %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);	
 						else begin
 							$fdisplay(outfile2, "Cycle: %d, Read Hit  , Address: %h, Read Data : %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
 						end
 					end
 					else begin
-						if(cache_valid && cache_dirty_i && r_cache_we)
+						if(CPU.L1Cache.controller.cache_valid && CPU.L1Cache.controller.cache_dirty_i && CPU.L1Cache.controller.r_cache_we)
 							$fdisplay(outfile2, "Cycle: %d, Write Miss, Address: %h, Write Data: %h (Write Back!)", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
-						else if(cache_valid && cache_dirty_i && !r_cache_we)
+						else if(CPU.L1Cache.controller.cache_valid && CPU.L1Cache.controller.cache_dirty_i && !CPU.L1Cache.controller.r_cache_we)
 							$fdisplay(outfile2, "Cycle: %d, Read Miss , Address: %h, Read Data : %h (Write Back!)", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
-						else if(r_cache_we)
+						else if(CPU.L1Cache.controller.r_cache_we)
 							$fdisplay(outfile2, "Cycle: %d, Write Miss, Address: %h, Write Data: %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
 						else
 							$fdisplay(outfile2, "Cycle: %d, Read Miss , Address: %h, Read Data : %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
 					end
 				end
 		endcase
-	
 		counter = counter+1;
 	end
   
