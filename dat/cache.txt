@@ -1,16 +1,1 @@
-Cycle:           7, Write Miss, Address: 00001111, Write Data: 00000000
-Cycle:          21, Write Hit , Address: 00001111, Write Data: 00001111
-Cycle:          25, Write Miss, Address: 00002222, Write Data: 00001111
-Cycle:          33, Write Hit , Address: 00002222, Write Data: 00002222
-Cycle:          37, Write Miss, Address: 00003333, Write Data: 00002222
-Cycle:          45, Write Hit , Address: 00003333, Write Data: 00003333
-Cycle:          49, Write Miss, Address: 00004444, Write Data: 00003333
-Cycle:          57, Write Hit , Address: 00004444, Write Data: 00004444
-Cycle:          61, Write Miss, Address: 00005555, Write Data: 00004444 (Write Back!)
-Cycle:          69, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          81, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:          93, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:         105, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:         117, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:         129, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
-Cycle:         141, Write Miss, Address: 00005555, Write Data: 00005555 (Write Back!)
+Cycle:           8, Write Miss, Address: 00000000, Write Data: 00000000

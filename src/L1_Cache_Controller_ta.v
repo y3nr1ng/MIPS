@@ -20,6 +20,9 @@ module L1Cache_top
 	p1_data_o, 
 	p1_stall_o
 );
+
+integer i;
+
 //
 // System clock, start
 //
@@ -118,7 +121,7 @@ assign	cache_dirty  = write_hit;
 
 // tag comparator
 //!!! add you code here!  (hit=...?,  r_hit_data=...?)
-assign	hit = ((sram_tag == p1_tag) && sram_valid ) 1'b1 : 1'b0;
+assign	hit = ((sram_tag == p1_tag) && sram_valid ) ? 1'b1 : 1'b0;
 assign r_hit_data = sram_cache_data;
 	
 // read data :  256-bit to 32-bit
@@ -210,7 +213,7 @@ end
 //
 // Tag SRAM 0
 //
-L1Cache_tag_sram L1Cache_tag_sram
+dcache_tag_sram dcache_tag_sram
 (
 	.clk_i(clk_i),
 	.addr_i(cache_sram_index),
@@ -223,7 +226,7 @@ L1Cache_tag_sram L1Cache_tag_sram
 //
 // Data SRAM 0
 //
-L1Cache_data_sram L1Cache_data_sram
+dcache_data_sram dcache_data_sram
 (
 	.clk_i(clk_i),
 	.addr_i(cache_sram_index),

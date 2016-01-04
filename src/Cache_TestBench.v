@@ -73,8 +73,8 @@ module Cache_TestBench;
 		
 		// initialize cache memory	(1KB)
 		for(i=0; i<32; i=i+1) begin
-			CPU.L1Cache.L1Cache_tag_sram.memory[i] = 24'b0;
-			CPU.L1Cache.L1Cache_data_sram.memory[i] = 256'b0;
+			CPU.L1Cache.dcache_tag_sram.memory[i] = 24'b0;
+			CPU.L1Cache.dcache_data_sram.memory[i] = 256'b0;
 		end
 	
 		// Load instructions into instruction memory
@@ -107,10 +107,10 @@ module Cache_TestBench;
 			$fdisplay(outfile, "Flush Cache! \n");
 
 			for(i=0; i<32; i=i+1) begin
-			tag = CPU.L1Cache.L1Cache_tag_sram.memory[i];
+			tag = CPU.L1Cache.dcache_tag_sram.memory[i];
 			index = i;
 			address = {tag[21:0], index};
-			Data_Memory.memory[address] = CPU.L1Cache.L1Cache_data_sram.memory[i];
+			Data_Memory.memory[address] = CPU.L1Cache.dcache_data_sram.memory[i];
 		end 
 		end
 		
