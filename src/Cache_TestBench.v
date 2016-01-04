@@ -117,7 +117,7 @@ module Cache_TestBench;
 		$fdisplay(outfile, "\n");
 		
 		// Print the status of data cache.
-		if(!CPU.L1Cache.cache_ack && CPU.L1Cache.controller.state == `STATE_IDLE) begin
+		if(CPU.L1Cache.cache_ack && CPU.L1Cache.controller.state == `STATE_IDLE) begin
 			if(CPU.L1Cache.sram_dirty) begin
 				if(CPU.L1Cache.dram_we) 
 					$fdisplay(outfile2, "Cycle: %d, Write Miss, Address: %h, Write Data: %h (Write Back!)", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);
@@ -132,7 +132,7 @@ module Cache_TestBench;
 			end
 			flag = 1'b1;
 		end
-		else if(CPU.L1Cache.cache_ack) begin
+		else if(!CPU.L1Cache.cache_ack) begin
 			if(!flag) begin
 				if(CPU.L1Cache.dram_we) 
 					$fdisplay(outfile2, "Cycle: %d, Write Hit , Address: %h, Write Data: %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_i);

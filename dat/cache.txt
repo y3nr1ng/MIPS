@@ -1,0 +1,69 @@
+Cycle:           9, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          10, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          11, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          12, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          13, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          14, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          15, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          16, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          17, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          18, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          19, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          20, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          21, Read Hit  , Address: 00001111, Read Data : 00000000
+Cycle:          27, Read Hit  , Address: 00002222, Read Data : 00000000
+Cycle:          28, Read Hit  , Address: 00002222, Read Data : 00000000
+Cycle:          29, Read Hit  , Address: 00002222, Read Data : 00000000
+Cycle:          30, Read Hit  , Address: 00002222, Read Data : 00000000
+Cycle:          31, Read Hit  , Address: 00002222, Read Data : 00000000
+Cycle:          32, Read Hit  , Address: 00002222, Read Data : 00000000
+Cycle:          33, Read Hit  , Address: 00002222, Read Data : 00000000
+Cycle:          39, Read Hit  , Address: 00003333, Read Data : 00000000
+Cycle:          40, Read Hit  , Address: 00003333, Read Data : 00000000
+Cycle:          41, Read Hit  , Address: 00003333, Read Data : 00000000
+Cycle:          42, Read Hit  , Address: 00003333, Read Data : 00000000
+Cycle:          43, Read Hit  , Address: 00003333, Read Data : 00000000
+Cycle:          44, Read Hit  , Address: 00003333, Read Data : 00000000
+Cycle:          45, Read Hit  , Address: 00003333, Read Data : 00000000
+Cycle:          51, Read Hit  , Address: 00004444, Read Data : 00000000
+Cycle:          52, Read Hit  , Address: 00004444, Read Data : 00000000
+Cycle:          53, Read Hit  , Address: 00004444, Read Data : 00000000
+Cycle:          54, Read Hit  , Address: 00004444, Read Data : 00000000
+Cycle:          55, Read Hit  , Address: 00004444, Read Data : 00000000
+Cycle:          56, Read Hit  , Address: 00004444, Read Data : 00000000
+Cycle:          57, Read Hit  , Address: 00004444, Read Data : 00000000
+Cycle:          63, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          64, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          65, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          66, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          67, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          68, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          69, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          71, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          72, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          73, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          74, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          75, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          76, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          77, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          78, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          79, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          80, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          81, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          83, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          84, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          85, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          86, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          87, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          88, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          89, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          90, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          91, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          92, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          93, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          95, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          96, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          97, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          98, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:          99, Write Hit , Address: 00005555, Write Data: 00005555
+Cycle:         100, Write Hit , Address: 00005555, Write Data: 00005555
