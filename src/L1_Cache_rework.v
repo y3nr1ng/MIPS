@@ -14,15 +14,15 @@ module L1_Cache
 	input								cache_we,
 	output								cache_ack,
 	input		[cpu_data_width-1:0]	cache_data_i,
-	output	reg	[cpu_data_width-1:0]	cache_data_o,
+	output		[cpu_data_width-1:0]	cache_data_o,
 	
 	// external memory side
 	output		[addr_width-1:0]		dram_addr,
-	output	reg							dram_cs,
-	output	reg							dram_we,
+	output								dram_cs,
+	output								dram_we,
 	input								dram_ack,
-	input		[mem_data_width-1:0]	dram_data_i,
-	output		[mem_data_width-1:0]	dram_data_o
+	input		[mem_data_width-1:0]	dram_data_o,
+	output		[mem_data_width-1:0]	dram_data_i
 );
 	
 	// address from CPU
@@ -51,7 +51,7 @@ module L1_Cache
 	assign cache_hit	= ((addr_tag == sram_tag) && sram_valid) ? 1'b1 : 1'b0;
 	
 	assign dram_addr 	= {sram_tag, addr_index, 5'b0};
-	assign dram_data_o 	= data_storage.data_o;
+	assign dram_data_i 	= data_storage.data_o;
 
 	L1_Cache_Controller controller (
 		.clk			(clk),
@@ -95,64 +95,64 @@ module L1_Cache
 		.data_1	(data_storage.data_o[255:224]),
 		.data_2	(data_storage.data_o[255:224]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[255:224]),
-		.sel	({decoder.out[0], sram_data_sel}),
+		.data_4	(dram_data_o[255:224]),
+		.sel	({decoder.out[0], controller.sram_data_sel}),
 		.data_o	(data_storage.data_i[255:224])
 	);
 	Multiplexer4Way write_data_b2 (
-		.data_1	(data_storage.data_o),
-		.data_2	(data_storage.data_o),
+		.data_1	(data_storage.data_o[223:192]),
+		.data_2	(data_storage.data_o[223:192]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[223:192]),
-		.sel	({decoder.out[1], sram_data_sel}),
+		.data_4	(dram_data_o[223:192]),
+		.sel	({decoder.out[1], controller.sram_data_sel}),
 		.data_o	(data_storage.data_i[223:192])
 	);
 	Multiplexer4Way write_data_b3 (
-		.data_1	(data_storage.data_o),
-		.data_2	(data_storage.data_o),
+		.data_1	(data_storage.data_o[191:160]),
+		.data_2	(data_storage.data_o[191:160]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[191:160]),
-		.sel	({decoder.out[2], sram_data_sel}),
+		.data_4	(dram_data_o[191:160]),
+		.sel	({decoder.out[2], controller.sram_data_sel}),
 		.data_o	(data_storage.data_i[191:160])
 	);
 	Multiplexer4Way write_data_b4 (
-		.data_1	(data_storage.data_o),
-		.data_2	(data_storage.data_o),
+		.data_1	(data_storage.data_o[159:128]),
+		.data_2	(data_storage.data_o[159:128]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[159:128]),
-		.sel	({decoder.out[3], sram_data_sel}),
+		.data_4	(dram_data_o[159:128]),
+		.sel	({decoder.out[3], controller.sram_data_sel}),
 		.data_o	(data_storage.data_i[159:128])
 	);
 	Multiplexer4Way write_data_b5 (
-		.data_1	(data_storage.data_o),
-		.data_2	(data_storage.data_o),
+		.data_1	(data_storage.data_o[127:96]),
+		.data_2	(data_storage.data_o[127:96]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[127:96]),
-		.sel	({decoder.out[4], sram_data_sel}),
+		.data_4	(dram_data_o[127:96]),
+		.sel	({decoder.out[4], controller.sram_data_sel}),
 		.data_o	(data_storage.data_i[127:96])
 	);
 	Multiplexer4Way write_data_b6 (
-		.data_1	(data_storage.data_o),
-		.data_2	(data_storage.data_o),
+		.data_1	(data_storage.data_o[95:64]),
+		.data_2	(data_storage.data_o[95:64]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[95:64]),
-		.sel	({decoder.out[5], sram_data_sel}),
+		.data_4	(dram_data_o[95:64]),
+		.sel	({decoder.out[5], controller.sram_data_sel}),
 		.data_o	(data_storage.data_i[95:64])
 	);
 	Multiplexer4Way write_data_b7 (
-		.data_1	(data_storage.data_o),
-		.data_2	(data_storage.data_o),
+		.data_1	(data_storage.data_o[63:32]),
+		.data_2	(data_storage.data_o[63:32]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[63:32]),
-		.sel	({decoder.out[6], sram_data_sel}),
+		.data_4	(dram_data_o[63:32]),
+		.sel	({decoder.out[6], controller.sram_data_sel}),
 		.data_o	(data_storage.data_i[63:32])
 	);
 	Multiplexer4Way write_data_b8 (
 		.data_1	(data_storage.data_o[31:0]),
 		.data_2	(data_storage.data_o[31:0]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[31:0]),
-		.sel	({decoder.out[7], sram_data_sel}),
+		.data_4	(dram_data_o[31:0]),
+		.sel	({decoder.out[7], controller.sram_data_sel}),
 		.data_o	(data_storage.data_i[31:0])
 	);
 	
@@ -177,13 +177,6 @@ module L1_Cache
 		.data_8	(data_storage.data_o[31:0]),
 		.sel	(block_offset),
 		.data_o	(cache_data_o)
-	);
-
-	Multiplexer2Way DRAM_data_mux (
-		.data_1	(cache_data_i),
-		.data_2	(data_storage.data_o),
-		.sel	(controller.sram_data_sel),
-		.data_o	(dram_data_o)
 	);
 
 endmodule

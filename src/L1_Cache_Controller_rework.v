@@ -29,6 +29,11 @@ module L1_Cache_Controller (
 
 	reg			cache_ack_en;	// Enable CPU-side ACK response.
 	reg			r_cache_ack;	// Internal ACK signal driver.
+	
+	reg			r_cache_cs;
+	reg			r_cache_we;
+
+	assign stall = !cache_hit && (r_cache_cs || r_cache_we);
 
 	initial begin	
 		state		= `STATE_IDLE;
@@ -36,7 +41,8 @@ module L1_Cache_Controller (
 	end
 
 	// Control when the ACK signal is emitted.
-	assign cache_ack = (cache_ack_en && cache_hit && cache_valid && cache_we) || r_cache_ack;
+	assign cache_ack = !stall;
+	//(cache_ack_en && cache_hit && cache_valid && cache_we) || r_cache_ack;
 
 	// Finite state machine of the L1 cache controller.
 	always @ (posedge clk) begin
@@ -53,7 +59,10 @@ module L1_Cache_Controller (
 					if(`DEBUG)
 						$display(" -> IDLE", $time);
 					
-					if(cache_cs || cache_we)
+					r_cache_cs = cache_cs;
+					r_cache_we = cache_we;
+	
+					if(r_cache_cs || r_cache_we)
 						next_state = `STATE_COMPARE;
 					else
 						next_state = `STATE_IDLE;
@@ -63,23 +72,20 @@ module L1_Cache_Controller (
 				begin
 					if(`DEBUG)
 						$display(" -> COMPARE ", $time);
-					if(cache_hit && cache_valid)
-					begin
-						if(cache_we)
+					if(cache_hit && cache_valid) begin
+						if(r_cache_we)
 							next_state = `STATE_WRITE_HIT;	
-						else
-						begin
+						else begin
 							next_state = `STATE_IDLE;
-						if(`DEBUG)
-							$display(" ... READ HIT");
+							
+							if(`DEBUG)
+								$display(" ... READ HIT");
 						end
 					end
-
-					else
-					begin
+					else begin
 						if(cache_valid && cache_dirty_i)
 							next_state = `STATE_WRITE_BACK;
-						else if(cache_we)
+						else if(r_cache_we)
 							next_state = `STATE_WRITE_MISS;
 						else
 							next_state = `STATE_READ_MISS;
@@ -90,21 +96,11 @@ module L1_Cache_Controller (
 				begin
 					if(`DEBUG)
 						$display(" ... READ MISS", $time);
-					
-					// DELAY THE MEMORY HERE IF DRAM FAIL TO DELAY PROPERLY.
-					
-					next_state =  `STATE_READ_MEM;
-				end
-	
-				`STATE_READ_MEM:
-				begin
-					if(`DEBUG)
-						$display(" -> READ MEM", $time);
 
 					if(dram_ack)
 						next_state = `STATE_READ_DATA;
 					else
-						next_state = `STATE_READ_MEM;
+						next_state = `STATE_READ_MISS;
 				end
 				
 				`STATE_READ_DATA:
@@ -127,21 +123,11 @@ module L1_Cache_Controller (
 				begin
 					if(`DEBUG)
 						$display(" ... WRITE MISS", $time);
-
-					// DELAY THE MEMORY HERE IF DRAM FAIL TO DELAY PROPERLY.
-					
-					next_state =  `STATE_WRITE_MEM;
-				end
-
-				`STATE_WRITE_MEM:
-				begin
-					if(`DEBUG)
-						$display(" -> WRITE MEM", $time);
 					
 					if(dram_ack)
 						next_state = `STATE_WRITE_DATA;
 					else
-						next_state = `STATE_WRITE_MEM;
+						next_state = `STATE_WRITE_MISS;
 				end
 
 				`STATE_WRITE_DATA:
@@ -157,20 +143,10 @@ module L1_Cache_Controller (
 					if(`DEBUG)
 						$display(" -> WRITE BACK", $time);
 
-					// DELAY THE MEMORY HERE IF DRAM FAIL TO DELAY PROPERLY.
-					
-					next_state =  `STATE_WRITE_BACK_MEM;
-				end
-
-				`STATE_WRITE_BACK_MEM:
-				begin
-					if(`DEBUG)
-						$display(" -> WRITE BACK MEM", $time);
-					
 					if(dram_ack)
 						next_state = `STATE_COMPARE;
 					else
-						next_state = `STATE_WRITE_BACK_MEM;
+						next_state = `STATE_WRITE_BACK;
 				end
 								
 			endcase
@@ -182,17 +158,14 @@ module L1_Cache_Controller (
 	);
 
 		case(state)
-			`STATE_IDLE:      		ApplySignals({2'b10, 3'b000, 2'b00});
-	      	`STATE_COMPARE:      	ApplySignals({2'b0z, 3'b000, 2'b00});
-	     	`STATE_READ_MISS:  		ApplySignals({2'b0z, 3'b000, 2'b00}); // preserve for delay
-	     	`STATE_READ_MEM:   		ApplySignals({2'b0z, 3'b000, 2'b10}); // wait delay
-	     	`STATE_READ_DATA:  		ApplySignals({2'b0z, 3'b000, 2'b00});
-	     	`STATE_WRITE_HIT:  		ApplySignals({2'b0z, 3'b110, 2'b00});
-	     	`STATE_WRITE_MISS: 		ApplySignals({2'b0z, 3'b000, 2'b00});
-	     	`STATE_WRITE_MEM:  		ApplySignals({2'b0z, 3'b000, 2'b11}); // wait delay
-	     	`STATE_WRITE_DATA: 		ApplySignals({2'b0z, 3'b101, 2'b00});
-	     	`STATE_WRITE_BACK:		ApplySignals({2'b0z, 3'b000, 2'b00}); // preserve for delay
-	     	`STATE_WRITE_BACK_MEM: 	ApplySignals({2'b0z, 3'b000, 2'b11}); // wait delay
+			`STATE_IDLE:      		ApplySignals({2'b11, 3'b000, 2'b00});
+	      	`STATE_COMPARE:      	ApplySignals({2'b00, 3'b000, 2'b00});
+	     	`STATE_READ_MISS:  		ApplySignals({2'b00, 3'b000, 2'b10}); 
+	     	`STATE_READ_DATA:  		ApplySignals({2'b00, 3'b101, 2'b00});
+	     	`STATE_WRITE_HIT:  		ApplySignals({2'b00, 3'b110, 2'b00});
+	     	`STATE_WRITE_MISS: 		ApplySignals({2'b00, 3'b000, 2'b10});
+	     	`STATE_WRITE_DATA: 		ApplySignals({2'b00, 3'b101, 2'b00});
+	     	`STATE_WRITE_BACK:		ApplySignals({2'b00, 3'b000, 2'b11}); 
 		endcase
 
 	endtask
