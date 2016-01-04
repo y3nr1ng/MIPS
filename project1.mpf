@@ -219,7 +219,7 @@ Resolution = ps
 UserTimeUnit = default
 
 ; Default run length
-RunLength = 10 ns
+RunLength = 5 ns
 
 ; Maximum iterations that can be run without advancing simulation time
 IterationLimit = 5000
@@ -416,7 +416,7 @@ Project_File_P_0 = cover_toggle 0 vlog_protect 0 file_type verilog group_id 0 co
 Project_File_1 = C:/CA-Project/src/Decoder_3to8.v
 Project_File_P_1 = cover_toggle 0 vlog_protect 0 file_type verilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat 0 vlog_nodebug 0 vlog_noload 0 cover_branch 0 folder Utilities last_compile 1451890778 cover_fsm 0 cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to mips vlog_options {} compile_order 25 cover_expr 0 dont_compile 0 cover_stmt 0
 Project_File_2 = C:/CA-Project/src/Cache_TestBench.v
-Project_File_P_2 = cover_toggle 0 vlog_protect 0 file_type verilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat 0 vlog_nodebug 0 cover_fsm 0 cover_branch 0 vlog_noload 0 last_compile 1451911320 folder {Top Level} cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to mips_tb vlog_options {} compile_order 24 cover_expr 0 dont_compile 0 cover_stmt 0
+Project_File_P_2 = cover_toggle 0 vlog_protect 0 file_type verilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat 0 vlog_nodebug 0 vlog_noload 0 last_compile 1451914978 folder {Top Level} cover_branch 0 cover_fsm 0 vlog_enable0In 0 cover_excludedefault 0 vlog_disableopt 0 cover_covercells 0 vlog_hazard 0 vlog_showsource 0 cover_optlevel 3 voptflow 1 ood 0 vlog_0InOptions {} toggle - vlog_options {} compile_to mips_tb vlog_upper 0 cover_noshort 0 compile_order 24 dont_compile 0 cover_expr 0 cover_stmt 0
 Project_File_3 = C:/CA-Project/src/Latch_TestBench.v
 Project_File_P_3 = cover_toggle 0 vlog_protect 0 file_type verilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat 0 vlog_nodebug 0 vlog_noload 0 last_compile 1449558760 folder {Test Bench} cover_branch 0 cover_fsm 0 vlog_enable0In 0 cover_excludedefault 0 vlog_disableopt 0 cover_covercells 0 vlog_hazard 0 vlog_showsource 0 cover_optlevel 3 voptflow 1 ood 0 vlog_0InOptions {} toggle - vlog_options {} compile_to mips_tb vlog_upper 0 cover_noshort 0 compile_order 23 dont_compile 0 cover_expr 0 cover_stmt 0
 Project_File_4 = C:/CA-Project/src/ForwardingUnit.v
@@ -434,7 +434,7 @@ Project_File_P_9 = cover_toggle 0 vlog_protect 0 file_type verilog group_id 0 co
 Project_File_10 = C:/CA-Project/src/Multiplexer4Way.v
 Project_File_P_10 = cover_toggle 0 vlog_protect 0 file_type verilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat 0 vlog_nodebug 0 vlog_noload 0 last_compile 1449558760 folder Utilities cover_branch 0 cover_fsm 0 vlog_enable0In 0 cover_excludedefault 0 vlog_disableopt 0 cover_covercells 0 vlog_hazard 0 vlog_showsource 0 cover_optlevel 3 voptflow 1 ood 0 vlog_0InOptions {} toggle - vlog_options {} compile_to mips vlog_upper 0 cover_noshort 0 compile_order 6 dont_compile 0 cover_expr 0 cover_stmt 0
 Project_File_11 = C:/CA-Project/src/L1_Cache_rework.v
-Project_File_P_11 = cover_toggle 0 vlog_protect 0 file_type verilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat 0 vlog_nodebug 0 cover_fsm 0 cover_branch 0 vlog_noload 0 last_compile 1451911453 folder Memories cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to mips vlog_options {} compile_order 17 cover_expr 0 dont_compile 0 cover_stmt 0
+Project_File_P_11 = cover_toggle 0 vlog_protect 0 file_type verilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat 0 vlog_nodebug 0 cover_fsm 0 last_compile 1451914500 vlog_noload 0 cover_branch 0 folder Memories vlog_enable0In 0 cover_excludedefault 0 vlog_disableopt 0 cover_covercells 0 vlog_hazard 0 vlog_showsource 0 cover_optlevel 3 voptflow 1 ood 0 vlog_0InOptions {} toggle - vlog_options {} compile_to mips vlog_upper 0 cover_noshort 0 compile_order 17 dont_compile 0 cover_expr 0 cover_stmt 0
 Project_File_12 = C:/CA-Project/src/HazardDetectionUnit.v
 Project_File_P_12 = cover_toggle 0 vlog_protect 0 file_type verilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat 0 vlog_nodebug 0 cover_fsm 0 last_compile 1449558760 vlog_noload 0 cover_branch 0 folder {Control Units} vlog_enable0In 0 cover_excludedefault 0 vlog_disableopt 0 cover_covercells 0 vlog_hazard 0 vlog_showsource 0 cover_optlevel 3 voptflow 1 ood 0 vlog_0InOptions {} toggle - vlog_options {} compile_to mips vlog_upper 0 cover_noshort 0 compile_order 12 dont_compile 0 cover_expr 0 cover_stmt 0
 Project_File_13 = C:/CA-Project/src/SignExtend.v
