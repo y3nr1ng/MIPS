@@ -1,55 +1,27 @@
 module L1Cache_top
 (
     // System clock, reset and stall
-	clk_i, 
-	rst_i,
+	input				clk_i, 
+	input				rst_i,
 	
 	// to Data Memory interface		
-	mem_data_i, 
-	mem_ack_i, 	
-	mem_data_o, 
-	mem_addr_o, 	
-	mem_enable_o, 
-	mem_write_o, 
+	input	[256-1:0]	mem_data_i, 
+	input				mem_ack_i, 	
+	output	[256-1:0]	mem_data_o, 
+	output	[32-1:0]	mem_addr_o, 	
+	output				mem_enable_o, 
+	output				mem_write_o, 
 	
 	// to CPU interface	
-	p1_data_i, 
-	p1_addr_i, 	
-	p1_MemRead_i, 
-	p1_MemWrite_i, 
-	p1_data_o, 
-	p1_stall_o
+	input	[32-1:0]	p1_data_i, 
+	input	[32-1:0]	p1_addr_i, 	
+	input				p1_MemRead_i, 
+	input				p1_MemWrite_i, 
+	output	[32-1:0]	p1_data_o, 
+	output				p1_stall_o
 );
 
 integer i;
-
-//
-// System clock, start
-//
-input				clk_i; 
-input				rst_i;
-
-//
-// to Data Memory interface		
-//
-input	[256-1:0]	  mem_data_i; 
-input				      mem_ack_i; 
-	
-output	[256-1:0]	mem_data_o; 
-output	[32-1:0]	mem_addr_o; 	
-output				    mem_enable_o; 
-output				    mem_write_o; 
-	
-//	
-// to core interface			
-//	
-input	[32-1:0]	p1_data_i; 
-input	[32-1:0]	p1_addr_i; 	
-input				    p1_MemRead_i; 
-input				    p1_MemWrite_i; 
-
-output	[32-1:0]p1_data_o; 
-output				  p1_stall_o; 
 
 //
 // to SRAM interface
@@ -120,24 +92,28 @@ assign	write_hit    = hit & p1_MemWrite_i;
 assign	cache_dirty  = write_hit;
 
 // tag comparator
-//!!! add you code here!  (hit=...?,  r_hit_data=...?)
+// add you code here!  (hit=...?,  r_hit_data=...?)
 assign	hit = ((sram_tag == p1_tag) && sram_valid ) ? 1'b1 : 1'b0;
 assign r_hit_data = sram_cache_data;
 
 // read data :  256-bit to 32-bit
 always@(p1_offset or r_hit_data) begin
-	//!!! add you code here! (p1_data=...?)
-	for(i = 0 ; i < 32 ; i = i+1)
-		p1_data[i] = r_hit_data[i + p1_offset & 5'b11100];
+	// add you code here! (p1_data=...?)
+	//if(hit) begin
+		for(i = 0 ; i < 32 ; i = i+1)
+			p1_data[i] <= r_hit_data[i + p1_offset[4:2] * 32];
+	//end
 end
 
 
 // write data :  32-bit to 256-bit
 always@(p1_offset or r_hit_data or p1_data_i) begin
-	//!!! add you code here! (w_hit_data=...?)
-	w_hit_data = r_hit_data;
-	for (i = 0 ; i < 32  ; i = i+1)
-		w_hit_data[i+ p1_offset & 5'b11100] = p1_data_i[i];
+	// add you code here! (w_hit_data=...?)
+	//if(hit) begin
+		w_hit_data = r_hit_data;
+		for (i = 0 ; i < 32  ; i = i+1)
+			w_hit_data[i+ p1_offset[4:2] * 32] <= p1_data_i[i];
+	//end
 end
 
 // controller 

@@ -29,17 +29,17 @@ module Cache_TestBench;
 		
 		// Interface to external memory.
 		.ext_mem_addr	(cpu_mem_addr), 	
-		.ext_mem_data_i	(cpu_mem_data), 
+		.ext_mem_data_i	(mem_cpu_data), 
 		.ext_mem_cs		(cpu_mem_enable), 
 		.ext_mem_we		(cpu_mem_write),
-		.ext_mem_data_o	(mem_cpu_data),
+		.ext_mem_data_o	(cpu_mem_data),
 		.ext_mem_ack	(mem_cpu_ack)
 	);
 	
 	Data_Memory Data_Memory
 	(
-		.clk_i    (Clk),
-  		.rst_i    (Reset),
+		.clk_i    (clk),
+  		.rst_i    (rst),
 		.addr_i   (cpu_mem_addr),
 		.data_i   (cpu_mem_data),
 		.enable_i (cpu_mem_enable),
@@ -84,11 +84,6 @@ module Cache_TestBench;
 		outfile = $fopen(".\\dat\\output.txt") | 1;
 		outfile2 = $fopen(".\\dat\\cache.txt") | 1;
 	
-		/*
-		// Set Input n into data memory at 0x00
-		Data_Memory.memory[0] = 256'h5;		// n = 5 for example
-		*/
-		
 		// Set Input n into data memory at 0x00
 		Data_Memory.memory[0] = 256'h5;		// n = 5 for example
 

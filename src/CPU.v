@@ -59,10 +59,10 @@ Multiplexer4Way PC_Mux (
 );
 
 ProgramCounter PC (
-	.clk			(clk),
+	.clk			(clk && ~L1Cache.p1_stall_o),
 	.rst			(rst),
 	.start			(start),
-	.we				(~HDU.stall && ~L1Cache.p1_stall_o),
+	.we				(~HDU.stall),
 	.addr_i			(PC_Mux.data_o),
 	.addr_o			()
 );
@@ -351,20 +351,20 @@ L1Cache_top L1Cache
 	.rst_i(rst),
 	
 	// to Data Memory interface		
-	.mem_data_i(ext_mem_data_i), 
-	.mem_ack_i(ext_mem_ack), 	
-	.mem_data_o(ext_mem_data_o), 
-	.mem_addr_o(ext_mem_addr), 	
-	.mem_enable_o(ext_mem_cs), 
-	.mem_write_o(ext_mem_we), 
+	.mem_data_i		(ext_mem_data_i), 
+	.mem_ack_i		(ext_mem_ack), 	
+	.mem_data_o		(ext_mem_data_o), 
+	.mem_addr_o		(ext_mem_addr), 	
+	.mem_enable_o	(ext_mem_cs), 
+	.mem_write_o	(ext_mem_we), 
 	
 	// to CPU interface	
-	.p1_data_i(EXMEM_ALU_data_2.data_o), 
-	.p1_addr_i(EXMEM_ALU_output.data_o), 	
-	.p1_MemRead_i(MEM_cs_wire), 
-	.p1_MemWrite_i(MEM_we_wire), 
-	.p1_data_o(), 
-	.p1_stall_o()
+	.p1_addr_i		(EXMEM_ALU_output.data_o), 	
+	.p1_MemRead_i	(MEM_cs_wire), 
+	.p1_MemWrite_i	(MEM_we_wire), 
+	.p1_data_i		(EXMEM_ALU_data_2.data_o), 
+	.p1_data_o		(), 
+	.p1_stall_o		()
 );
 
 
