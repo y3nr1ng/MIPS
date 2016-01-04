@@ -1097,3 +1097,5 @@ run
 # Compile of Latch_TestBench.v was successful.
 # Compile of Cache_TestBench.v failed with 1 errors.
 # 25 compiles, 1 failed with 1 error.
+# Compile of Cache_TestBench.v failed with 1 errors.
+# Compile of Cache_TestBench.v was successful.
