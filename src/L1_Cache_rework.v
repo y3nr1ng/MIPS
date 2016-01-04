@@ -21,8 +21,8 @@ module L1_Cache
 	output								dram_cs,
 	output								dram_we,
 	input								dram_ack,
-	input		[mem_data_width-1:0]	dram_data_i,
-	output		[mem_data_width-1:0]	dram_data_o
+	input		[mem_data_width-1:0]	dram_data_o,
+	output		[mem_data_width-1:0]	dram_data_i
 );
 	
 	// address from CPU
@@ -51,7 +51,7 @@ module L1_Cache
 	assign cache_hit	= ((addr_tag == sram_tag) && sram_valid) ? 1'b1 : 1'b0;
 	
 	assign dram_addr 	= {sram_tag, addr_index, 5'b0};
-	assign dram_data_o 	= data_storage.data_o;
+	assign dram_data_i 	= data_storage.data_o;
 
 	L1_Cache_Controller controller (
 		.clk			(clk),
@@ -95,7 +95,7 @@ module L1_Cache
 		.data_1	(data_storage.data_o[255:224]),
 		.data_2	(data_storage.data_o[255:224]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[255:224]),
+		.data_4	(dram_data_o[255:224]),
 		.sel	({decoder.out[0], sram_data_sel}),
 		.data_o	(data_storage.data_i[255:224])
 	);
@@ -103,7 +103,7 @@ module L1_Cache
 		.data_1	(data_storage.data_o[223:192]),
 		.data_2	(data_storage.data_o[223:192]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[223:192]),
+		.data_4	(dram_data_o[223:192]),
 		.sel	({decoder.out[1], sram_data_sel}),
 		.data_o	(data_storage.data_i[223:192])
 	);
@@ -111,7 +111,7 @@ module L1_Cache
 		.data_1	(data_storage.data_o[191:160]),
 		.data_2	(data_storage.data_o[191:160]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[191:160]),
+		.data_4	(dram_data_o[191:160]),
 		.sel	({decoder.out[2], sram_data_sel}),
 		.data_o	(data_storage.data_i[191:160])
 	);
@@ -119,7 +119,7 @@ module L1_Cache
 		.data_1	(data_storage.data_o[159:128]),
 		.data_2	(data_storage.data_o[159:128]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[159:128]),
+		.data_4	(dram_data_o[159:128]),
 		.sel	({decoder.out[3], sram_data_sel}),
 		.data_o	(data_storage.data_i[159:128])
 	);
@@ -127,7 +127,7 @@ module L1_Cache
 		.data_1	(data_storage.data_o[127:96]),
 		.data_2	(data_storage.data_o[127:96]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[127:96]),
+		.data_4	(dram_data_o[127:96]),
 		.sel	({decoder.out[4], sram_data_sel}),
 		.data_o	(data_storage.data_i[127:96])
 	);
@@ -135,7 +135,7 @@ module L1_Cache
 		.data_1	(data_storage.data_o[95:64]),
 		.data_2	(data_storage.data_o[95:64]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[95:64]),
+		.data_4	(dram_data_o[95:64]),
 		.sel	({decoder.out[5], sram_data_sel}),
 		.data_o	(data_storage.data_i[95:64])
 	);
@@ -143,7 +143,7 @@ module L1_Cache
 		.data_1	(data_storage.data_o[63:32]),
 		.data_2	(data_storage.data_o[63:32]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[63:32]),
+		.data_4	(dram_data_o[63:32]),
 		.sel	({decoder.out[6], sram_data_sel}),
 		.data_o	(data_storage.data_i[63:32])
 	);
@@ -151,7 +151,7 @@ module L1_Cache
 		.data_1	(data_storage.data_o[31:0]),
 		.data_2	(data_storage.data_o[31:0]),
 		.data_3	(cache_data_i),
-		.data_4	(dram_data_i[31:0]),
+		.data_4	(dram_data_o[31:0]),
 		.sel	({decoder.out[7], sram_data_sel}),
 		.data_o	(data_storage.data_i[31:0])
 	);

@@ -29,10 +29,10 @@ module Cache_TestBench;
 		
 		// Interface to external memory.
 		.ext_mem_addr	(cpu_mem_addr), 	
-		.ext_mem_data_i	(mem_cpu_data), 
+		.ext_mem_data_i	(cpu_mem_data), 
 		.ext_mem_cs		(cpu_mem_enable), 
 		.ext_mem_we		(cpu_mem_write),
-		.ext_mem_data_o	(cpu_mem_data),
+		.ext_mem_data_o	(mem_cpu_data),
 		.ext_mem_ack	(mem_cpu_ack)
 	);
 	

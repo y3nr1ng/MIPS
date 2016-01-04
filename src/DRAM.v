@@ -20,7 +20,8 @@ module DRAM
 	`define DRAM_WRITE_WAIT		2
 	`define	DRAM_READ			3
 	`define	DRAM_WRITE			4
-	`define	DRAM_NCS			5
+	`define	DRAM_ACK			5
+	`define DRAM_ACK_END		6
 	
 	integer i;
 	integer delay_cnt;
@@ -39,7 +40,6 @@ module DRAM
 
 	initial begin
 		data_o = {data_width{1'bz}};
-		ack = 1'b0;
 
 		state = `DRAM_IDLE;
 	end
@@ -48,7 +48,7 @@ module DRAM
 		case(state)
 			`DRAM_IDLE: 
 			begin
-				ack = 1'b1;
+				ack = 1'b0;
 
 				r_addr = addr_i;
 				r_data_i = data_i;
@@ -56,7 +56,6 @@ module DRAM
 				if(cs) begin
 					delay_cnt = delay-2;
 					if(delay_cnt > 0) begin
-						ack = 1'b0;
 						if(we)
 							state = `DRAM_WRITE_WAIT;
 						else
@@ -67,9 +66,14 @@ module DRAM
 							memory[addr_i >> 2] <= data_i;
 						else
 							data_o = memory[addr_i >> 2];
-						state = `DRAM_NCS;
+
+						state = `DRAM_ACK;
 					end
 				end
+				else
+					// Turn off output pins.
+					data_o = {data_width{1'bz}};
+
 			end
 
 			`DRAM_READ_WAIT:
@@ -93,7 +97,7 @@ module DRAM
 				data_o = memory[r_addr >> 2];
 				ack = 1'b1;
 				
-				state = `DRAM_NCS;
+				state = `DRAM_ACK;
 			end
 
 			`DRAM_WRITE:
@@ -101,16 +105,16 @@ module DRAM
 				memory[r_addr >> 2] <= r_data_i;
 				ack = 1'b1;
 				
-				state = `DRAM_NCS;
+				state = `DRAM_ACK;
 			end
 
-			`DRAM_NCS:
+			`DRAM_ACK:
 			begin	
-				// Turn off output pins.
-				data_o = {data_width{1'bz}};
-
+				ack = 1'b1;
+	
 				state = `DRAM_IDLE;
 			end
+
 		endcase
 	end
 
