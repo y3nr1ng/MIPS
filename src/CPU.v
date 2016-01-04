@@ -43,7 +43,6 @@ wire		[1:0]	WB_ctrl;
 	wire				WB_mux_wire	= WB_ctrl[1];
 	wire				Reg_we_wire = WB_ctrl[0];
 
-
 /**
  * IF
  */

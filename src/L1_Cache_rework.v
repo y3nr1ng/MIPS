@@ -12,7 +12,7 @@ module L1_Cache
 	input		[addr_width-1:0]		cache_addr,
 	input								cache_cs,
 	input								cache_we,
-	output								cache_ack,
+	output 								cache_ack,
 	input		[cpu_data_width-1:0]	cache_data_i,
 	output		[cpu_data_width-1:0]	cache_data_o,
 	
