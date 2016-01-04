@@ -143,9 +143,9 @@ module Cache_TestBench;
 					$fdisplay(outfile2, "Cycle: %d, Read Miss , Address: %h, Read Data : %h (Write Back!)", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
 			end
 
-			default:
+			`STATE_COMPARE:
 			begin
-				if(CPU.L1Cache.controller.r_cache_cs)
+				if(!CPU.L1Cache.controller.r_cache_we && CPU.L1Cache.controller.cache_hit && CPU.L1Cache.controller.cache_valid)
 					$fdisplay(outfile2, "Cycle: %d, Read Hit  , Address: %h, Read Data : %h", counter, CPU.L1Cache.cache_addr, CPU.L1Cache.cache_data_o);
 			end
 		endcase
