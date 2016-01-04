@@ -22,13 +22,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	L1_Cache_Controller
 
-} {} {}} C:/CA-Project/src/DRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/DRAM.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module DRAM
-
-Top level modules:
-	DRAM
-
 } {} {}} C:/CA-Project/src/Latch.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Latch.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Latch
@@ -126,6 +119,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	GeneralControl
+
+} {} {}} C:/CA-Project/src/Memory_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/Memory_TestBench.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Memory_TestBench
+
+Top level modules:
+	Memory_TestBench
 
 } {} {}} C:/CA-Project/src/CPU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014

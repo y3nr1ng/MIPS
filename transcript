@@ -867,3 +867,171 @@ run
 # ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(67)
 #    Time: 3610 ps  Iteration: 1  Instance: /Memory_TestBench
 # Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 67
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(67)
+#    Time: 3610 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 67
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(69)
+#    Time: 4210 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 69
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(71)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 71
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(82)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 82
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v failed with 1 errors.
+# Compile of DRAM.v was successful.
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/CA-Project/macro/memory_test.tcl
+# Compile of Memory_TestBench.v was successful.
+# Compile of DRAM.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+restart
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v failed with 1 errors.
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v failed with 1 errors.
+# Compile of DRAM.v failed with 1 errors.
+# Compile of DRAM.v failed with 1 errors.
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v was successful.
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4830 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of Memory_TestBench.v was successful.
+restart
+# Loading mips_tb.Memory_TestBench
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83
+# Compile of DRAM.v was successful.
+restart
+# Loading mips.DRAM
+run
+# ** Note: $stop    : C:/CA-Project/src/Memory_TestBench.v(83)
+#    Time: 4810 ps  Iteration: 1  Instance: /Memory_TestBench
+# Break in Module Memory_TestBench at C:/CA-Project/src/Memory_TestBench.v line 83

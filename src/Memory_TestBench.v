@@ -5,9 +5,9 @@ module Memory_TestBench;
 	
 	integer 		i;
 
-	parameter mem_size = 32;
+	parameter mem_size = 5;
 
-	DRAM #(.mem_size(mem_size), .delay(5)) mem_dut 
+	DRAM #(.mem_size(mem_size), .delay(0)) mem_dut 
 	(
 		.clk		(clk),
 		.addr_i		(addr),
@@ -43,7 +43,10 @@ module Memory_TestBench;
 			if(i > 15)
 				addr = 32'h01;
 		end else if(i < 60) begin
-			if(i > 45) begin
+			if(i > 46) begin
+				cs = 0;
+				we = 0;
+			end else if(i > 45) begin
 				cs = 1;
 				we = 0;
 			end
@@ -51,18 +54,31 @@ module Memory_TestBench;
 			if(i > 75)
 				data_i = 42;
 		end else if(i < 120) begin
-			if(i > 105) begin
+			if(i > 106) begin
+				cs = 0;
+				we = 0;
+			end else if(i > 105) begin
 				cs = 0;
 				we = 1;
 			end
 		end else if(i < 150) begin
-			if(i > 135) begin
+			if(i > 136) begin
+				cs = 0;
+				we = 0;
+			end else if(i > 135) begin
 				cs = 1;
 				we = 1;
 			end
 		end else if(i < 180) begin
 			cs = 0;
 			we = 0;
+		end else if(i < 210) begin
+			if(i > 196)
+				cs = 0;
+			else if(i > 195)
+				cs = 1;
+		end else if(i < 240) begin
+			cs = 0;
 		end else
 			$stop;
 
