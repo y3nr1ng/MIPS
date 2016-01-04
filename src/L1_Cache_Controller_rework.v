@@ -33,7 +33,7 @@ module L1_Cache_Controller (
 	reg			r_cache_cs;
 	reg			r_cache_we;
 
-	assign stall = !cache_hit & (cache_cs | cache_we);
+	assign stall = !cache_hit && (r_cache_cs || r_cache_we);
 
 	initial begin	
 		state		= `STATE_IDLE;
