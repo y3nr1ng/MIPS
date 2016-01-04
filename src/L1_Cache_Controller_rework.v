@@ -36,7 +36,7 @@ module L1_Cache_Controller (
 	end
 
 	// Control when the ACK signal is emitted.
-	assign cache_ack = (cache_ack_en && cache_hit && cache_valid && cache_we) || r_cache_ack;
+	assign cache_ack = (cache_ack_en && cache_hit && cache_valid && cache_we); // || r_cache_ack;
 
 	// Finite state machine of the L1 cache controller.
 	always @ (posedge clk) begin
@@ -63,20 +63,17 @@ module L1_Cache_Controller (
 				begin
 					if(`DEBUG)
 						$display(" -> COMPARE ", $time);
-					if(cache_hit && cache_valid)
-					begin
+					if(cache_hit && cache_valid) begin
 						if(cache_we)
 							next_state = `STATE_WRITE_HIT;	
-						else
-						begin
+						else begin
 							next_state = `STATE_IDLE;
-						if(`DEBUG)
-							$display(" ... READ HIT");
+							
+							if(`DEBUG)
+								$display(" ... READ HIT");
 						end
 					end
-
-					else
-					begin
+					else begin
 						if(cache_valid && cache_dirty_i)
 							next_state = `STATE_WRITE_BACK;
 						else if(cache_we)

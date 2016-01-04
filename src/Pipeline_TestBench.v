@@ -13,23 +13,7 @@ always #(`CYCLE_TIME/2) clk = ~clk;
 CPU CPU (
     .clk			(clk),
 	.rst			(reset),
-    .start			(start),
-	.ext_mem_data_i	(memory.data_o),
-	.ext_mem_ack	(memory.ack),
-	.ext_mem_data_o	(memory.data_i),
-	.ext_mem_addr	(memory.addr_i),
-	.ext_mem_cs		(memory.cs),
-	.ext_mem_we		(memory.we)
-);
-
-DRAM #(.data_width(256), .delay(10)) memory (
-	.clk			(clk),
-	.addr_i			(CPU.ext_mem_addr),
-	.cs				(CPU.ext_mem_cs),
-	.we				(CPU.ext_mem_we),
-	.data_i			(CPU.ext_mem_data_o),
-	.data_o			(CPU.ext_mem_data_i),
-	.ack			()
+    .start			(start)
 );
 
 initial begin
@@ -44,7 +28,7 @@ initial begin
 
     // Initialize the data memory.
     for(i=0; i<32; i=i+1) begin
-        memory.memory[i] = 8'b0;
+        CPU.DataMem.memory[i] = 8'b0;
     end
 
     // Initialize the registers.
@@ -59,7 +43,7 @@ initial begin
     outfile = $fopen(".\\dat\\output.txt") | 1;
 
     // Set Input n into data memory at 0x00
-    memory.memory[0] = 8'h5;       // n = 5 for example
+    CPU.DataMem.memory[0] = 8'h5;       // n = 5 for example
 
    	clk = 1;
 	start = 0;
@@ -103,14 +87,14 @@ always@(posedge clk) begin
     $fdisplay(outfile, "R7(a3) = %d, R15(t7) = %d, R23(s7) = %d, R31(ra) = %d", CPU.RegFiles.register[7], CPU.RegFiles.register[15], CPU.RegFiles.register[23], CPU.RegFiles.register[31]);
 
     // print data memory
-    $fdisplay(outfile, "Data Memory: 0x00 = %d", {memory.memory[3] , memory.memory[2] , memory.memory[1] , memory.memory[0] });
-    $fdisplay(outfile, "Data Memory: 0x04 = %d", {memory.memory[7] , memory.memory[6] , memory.memory[5] , memory.memory[4] });
-    $fdisplay(outfile, "Data Memory: 0x08 = %d", {memory.memory[11], memory.memory[10], memory.memory[9] , memory.memory[8] });
-    $fdisplay(outfile, "Data Memory: 0x0c = %d", {memory.memory[15], memory.memory[14], memory.memory[13], memory.memory[12]});
-    $fdisplay(outfile, "Data Memory: 0x10 = %d", {memory.memory[19], memory.memory[18], memory.memory[17], memory.memory[16]});
-    $fdisplay(outfile, "Data Memory: 0x14 = %d", {memory.memory[23], memory.memory[22], memory.memory[21], memory.memory[20]});
-    $fdisplay(outfile, "Data Memory: 0x18 = %d", {memory.memory[27], memory.memory[26], memory.memory[25], memory.memory[24]});
-    $fdisplay(outfile, "Data Memory: 0x1c = %d", {memory.memory[31], memory.memory[30], memory.memory[29], memory.memory[28]});
+    $fdisplay(outfile, "Data Memory: 0x00 = %d", {CPU.DataMem.memory[3] , CPU.DataMem.memory[2] , CPU.DataMem.memory[1] , CPU.DataMem.memory[0] });
+    $fdisplay(outfile, "Data Memory: 0x04 = %d", {CPU.DataMem.memory[7] , CPU.DataMem.memory[6] , CPU.DataMem.memory[5] , CPU.DataMem.memory[4] });
+    $fdisplay(outfile, "Data Memory: 0x08 = %d", {CPU.DataMem.memory[11], CPU.DataMem.memory[10], CPU.DataMem.memory[9] , CPU.DataMem.memory[8] });
+    $fdisplay(outfile, "Data Memory: 0x0c = %d", {CPU.DataMem.memory[15], CPU.DataMem.memory[14], CPU.DataMem.memory[13], CPU.DataMem.memory[12]});
+    $fdisplay(outfile, "Data Memory: 0x10 = %d", {CPU.DataMem.memory[19], CPU.DataMem.memory[18], CPU.DataMem.memory[17], CPU.DataMem.memory[16]});
+    $fdisplay(outfile, "Data Memory: 0x14 = %d", {CPU.DataMem.memory[23], CPU.DataMem.memory[22], CPU.DataMem.memory[21], CPU.DataMem.memory[20]});
+    $fdisplay(outfile, "Data Memory: 0x18 = %d", {CPU.DataMem.memory[27], CPU.DataMem.memory[26], CPU.DataMem.memory[25], CPU.DataMem.memory[24]});
+    $fdisplay(outfile, "Data Memory: 0x1c = %d", {CPU.DataMem.memory[31], CPU.DataMem.memory[30], CPU.DataMem.memory[29], CPU.DataMem.memory[28]});
 
     $fdisplay(outfile, "\n");
 
