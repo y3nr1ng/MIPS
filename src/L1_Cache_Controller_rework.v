@@ -8,7 +8,6 @@ module L1_Cache_Controller (
 	input			cache_cs,
 	input			cache_we,
 	output			cache_ack,
-	output			stall;
 
 	// Interface to the internal components.
 	input			cache_hit,
