@@ -1,27 +1,28 @@
-Cycle:           6, Write Miss, Address: 00000000, Write Data: 00000000
+Cycle:           5, Write Miss, Address: 00000000, Write Data: 00000000
+Cycle:          20, Write Hit , Address: 00000004, Write Data: 00001111
 Cycle:          23, Write Hit , Address: 00000008, Write Data: 00002222
-Cycle:          28, Write Hit , Address: 00000010, Write Data: 00004444
-Cycle:          33, Write Hit , Address: 00000018, Write Data: 00006666
-Cycle:          38, Write Miss, Address: 00000020, Write Data: 00000888
-Cycle:          55, Write Hit , Address: 00000028, Write Data: 00000aaa
-Cycle:          60, Write Hit , Address: 00000030, Write Data: 00000ccc
-Cycle:          65, Write Hit , Address: 00000038, Write Data: 00000eee
-Cycle:          70, Write Miss, Address: 00000400, Write Data: 00000123 (Write Back!)
-Cycle:          96, Write Hit , Address: 00000408, Write Data: 00002345
-Cycle:         101, Write Hit , Address: 00000410, Write Data: 00004567
-Cycle:         106, Write Hit , Address: 00000418, Write Data: 00006789
-Cycle:         109, Read Miss , Address: 00000000, Read Data : 00000123 (Write Back!)
-Cycle:         131, Read Hit  , Address: 00000000, Read Data : 00000000
-Cycle:         132, Read Hit  , Address: 00000000, Read Data : 00000000
-Cycle:         133, Read Hit  , Address: 00000000, Read Data : 00000000
-Cycle:         134, Read Hit  , Address: 00000000, Read Data : 00000000
-Cycle:         135, Read Hit  , Address: 00000000, Read Data : 00000000
-Cycle:         136, Read Hit  , Address: 00000000, Read Data : 00000000
-Cycle:         137, Read Hit  , Address: 00000000, Read Data : 00000000
-Cycle:         138, Read Hit  , Address: 00000000, Read Data : 00000000
-Cycle:         139, Read Hit  , Address: 00000000, Read Data : 00000000
-Cycle:         140, Read Hit  , Address: 00000000, Read Data : 00000000
-Cycle:         141, Read Hit  , Address: 00000000, Read Data : 00000000
+Cycle:          26, Write Hit , Address: 0000000c, Write Data: 00003333
+Cycle:          29, Write Hit , Address: 00000010, Write Data: 00004444
+Cycle:          32, Write Hit , Address: 00000014, Write Data: 00005555
+Cycle:          35, Write Hit , Address: 00000018, Write Data: 00006666
+Cycle:          38, Write Hit , Address: 0000001c, Write Data: 00007777
+Cycle:          41, Write Miss, Address: 00000020, Write Data: 00000888
+Cycle:          56, Write Hit , Address: 00000024, Write Data: 00000999
+Cycle:          59, Write Hit , Address: 00000028, Write Data: 00000aaa
+Cycle:          62, Write Hit , Address: 0000002c, Write Data: 00000bbb
+Cycle:          65, Write Hit , Address: 00000030, Write Data: 00000ccc
+Cycle:          68, Write Hit , Address: 00000034, Write Data: 00000ddd
+Cycle:          71, Write Hit , Address: 00000038, Write Data: 00000eee
+Cycle:          74, Write Hit , Address: 0000003c, Write Data: 00000fff
+Cycle:          77, Write Miss, Address: 00000400, Write Data: 00000123 (Write Back!)
+Cycle:         101, Write Hit , Address: 00000404, Write Data: 00001234
+Cycle:         104, Write Hit , Address: 00000408, Write Data: 00002345
+Cycle:         107, Write Hit , Address: 0000040c, Write Data: 00003456
+Cycle:         110, Write Hit , Address: 00000410, Write Data: 00004567
+Cycle:         113, Write Hit , Address: 00000414, Write Data: 00005678
+Cycle:         116, Write Hit , Address: 00000418, Write Data: 00006789
+Cycle:         119, Write Hit , Address: 0000041c, Write Data: 00007890
+Cycle:         120, Read Miss , Address: 00000000, Read Data : 00000000 (Write Back!)
 Cycle:         142, Read Hit  , Address: 00000000, Read Data : 00000000
 Cycle:         143, Read Hit  , Address: 00000000, Read Data : 00000000
 Cycle:         144, Read Hit  , Address: 00000000, Read Data : 00000000

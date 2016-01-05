@@ -57,13 +57,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Multiplexer2Way
 
-} {} {}} C:/CA-Project/src/L1_Cache_Controller_ta.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller_ta.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module L1Cache_top
-
-Top level modules:
-	L1Cache_top
-
 } {} {}} C:/CA-Project/src/L1_Cache.v {0 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module L1_Cache
@@ -75,6 +68,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	Multiplexer4Way
+
+} {} {}} C:/CA-Project/src/HazardDetectionUnit.v {1 {vlog -work mips -stats=none C:/CA-Project/src/HazardDetectionUnit.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module HazardDetectionUnit
+
+Top level modules:
+	HazardDetectionUnit
 
 } {} {}} C:/CA-Project/src/EXMEM_Reg.v {1 {vlog -work mips -stats=none C:/CA-Project/src/EXMEM_Reg.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -89,13 +89,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	L1_Cache
-
-} {} {}} C:/CA-Project/src/HazardDetectionUnit.v {1 {vlog -work mips -stats=none C:/CA-Project/src/HazardDetectionUnit.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module HazardDetectionUnit
-
-Top level modules:
-	HazardDetectionUnit
 
 } {} {}} C:/CA-Project/src/SignExtend.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SignExtend.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -181,6 +174,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	FourWayMux_TestBench
 
+} {} {}} C:/CA-Project/src/GeneralControl.v {1 {vlog -work mips -stats=none C:/CA-Project/src/GeneralControl.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module GeneralControl
+
+Top level modules:
+	GeneralControl
+
 } {} {}} C:/CA-Project/src/IDEX_Reg.v {1 {vlog -work mips -stats=none C:/CA-Project/src/IDEX_Reg.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module IDEX_Reg
@@ -195,6 +195,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	CPU
 
+} {} {}} C:/CA-Project/src/ProgramCounter.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ProgramCounter.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module ProgramCounter
+
+Top level modules:
+	ProgramCounter
+
 } {} {}} C:/CA-Project/src/Registers.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Registers.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Registers
@@ -208,13 +215,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	Memory_TestBench
-
-} {} {}} C:/CA-Project/src/ProgramCounter.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ProgramCounter.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module ProgramCounter
-
-Top level modules:
-	ProgramCounter
 
 } {} {}} C:/CA-Project/src/Adder.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Adder.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014

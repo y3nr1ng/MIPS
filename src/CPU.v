@@ -62,7 +62,8 @@ ProgramCounter PC (
 	.clk			(clk),
 	.rst			(rst),
 	.start			(start),
-	.we				(~HDU.stall && ~L1Cache.p1_stall_o),
+	.we				(1'b1),
+	.stall			(HDU.stall || L1Cache.p1_stall_o),
 	.addr_i			(PC_Mux.data_o),
 	.addr_o			()
 );
