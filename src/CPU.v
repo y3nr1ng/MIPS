@@ -174,6 +174,8 @@ HazardDetectionUnit HDU (
 /**
  * ID/EX
  */
+
+/* 
 Latch #(.width(5)) IDEX_EX_ctrl (
 	.clk			(clk && ~L1Cache.p1_stall_o),
 	.rst			(1'b1),
@@ -244,6 +246,43 @@ Latch #(.width(5)) IDEX_Rd (
 	.en				(1'b1),
 	.data_i			(instr_rd),
 	.data_o			()
+);
+
+*/
+
+IDEX_Reg IDEX_Reg(
+
+	.clk(),
+	.flush(),
+	.stall(),
+
+	.EX_ctrl_i(),
+	.EX_ctrl_o(),
+
+	.MEM_ctrl_i(),
+	.MEM_ctrl_o(),
+	
+	.WB_ctrl_i(),
+	.WB_ctrl_o(),
+
+	.Rs_data_i(),
+	.Rs_data_o(),
+
+	.Rt_data_i(),
+	.Rt_data_o(),
+
+	.imm_data_i(),
+	.imm_data_o(),
+	
+	.Rs_i(),
+	.Rs_o(),
+
+	.Rt_i(),
+	.Rt_o(),
+
+	.Rd_i(),
+	.Rd_o()
+
 );
 
 /**
