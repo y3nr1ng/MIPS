@@ -72,13 +72,13 @@ r1
 R5
 n@comparer
 vCPU
-Z8 !s110 1451998511
+!s110 1452007786
 !i10b 1
-!s100 7M?Xzb2E7M5hWJ63JOAb:3
-INabzGAIOLTL[ffDWEME4a3
+!s100 `UE;^VYM04`8KQ?X9eRNg1
+IDO;kg0NMzdffGXlzAlM1>3
 R2
 R0
-w1451997780
+w1452007784
 8C:/CA-Project/src/CPU.v
 FC:/CA-Project/src/CPU.v
 L0 3
@@ -86,20 +86,20 @@ R4
 r1
 !s85 0
 31
-!s108 1451998511.372000
+!s108 1452007786.371000
 !s107 C:\CA-Project\src\LookupTable.v|C:/CA-Project/src/CPU.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/CPU.v|
 !i113 1
 R5
 n@c@p@u
 vData_Memory
-Z9 !s110 1451998514
+Z8 !s110 1451998514
 !i10b 1
 !s100 H^l4_VX2fTOiQFY0GE_Tc1
 IL4MT8U;NU]Pan?SjeK0UG2
 R2
 R0
-Z10 w1451701038
+Z9 w1451701038
 8C:/CA-Project/src/Data_Memory.v
 FC:/CA-Project/src/Data_Memory.v
 L0 1
@@ -114,13 +114,13 @@ r1
 R5
 n@data_@memory
 vdcache_data_sram
-R9
+R8
 !i10b 1
 !s100 G4eech4?^c?iYR:ZQ5:LC2
 IZXRmnF<b9DkAFe;@@mGmb3
 R2
 R0
-R10
+R9
 8C:/CA-Project/src/dcache_data_sram.v
 FC:/CA-Project/src/dcache_data_sram.v
 L0 1
@@ -134,13 +134,13 @@ r1
 !i113 1
 R5
 vdcache_tag_sram
-R9
+R8
 !i10b 1
 !s100 iXoGmQB5=JYO8?kIaFVOZ2
 IF_>Rz79]J5PPOYgl8Y>Gm1
 R2
 R0
-R10
+R9
 8C:/CA-Project/src/dcache_tag_sram.v
 FC:/CA-Project/src/dcache_tag_sram.v
 L0 1
@@ -154,7 +154,7 @@ r1
 !i113 1
 R5
 vDecoder_3to8
-R9
+R8
 !i10b 1
 !s100 ]E3bAR`]WbAmVjG[M3HIM3
 I]G6SM4F6WA]R^aY;`W9=f1
@@ -175,7 +175,7 @@ r1
 R5
 n@decoder_3to8
 vEXMEM_Reg
-R9
+R8
 !i10b 1
 !s100 zagzOJ=gfY1nboSfUWmMK3
 I<8Y:iS4c1IQmXN6VR>8DX0
@@ -196,7 +196,7 @@ r1
 R5
 n@e@x@m@e@m_@reg
 vForwardingUnit
-R8
+Z10 !s110 1451998511
 !i10b 1
 !s100 ZL0RAdB1cXc>[l4KXf96;0
 I<`9jK`c=a7NhCUFca:DW10
@@ -259,7 +259,7 @@ r1
 R5
 n@hazard@detection@unit
 vIDEX_Reg
-R9
+R8
 !i10b 1
 !s100 @_=]VJ4<`>Dd5hm]KA1<m3
 I4Df[Pac4Z8O;=J_Um0Hn52
@@ -280,7 +280,7 @@ r1
 R5
 n@i@d@e@x_@reg
 vIFID_Reg
-R9
+R8
 !i10b 1
 !s100 B;zlPkPPH1g@1gT9I1CoQ0
 I3ARe^ba0f9j4HPjki2U`]2
@@ -301,7 +301,7 @@ r1
 R5
 n@i@f@i@d_@reg
 vL1Cache_top
-R9
+R8
 !i10b 1
 !s100 VBVO=n2?kP?3hXjchTU492
 I^Bcm`>Qno_RQZikP3Lc<:0
@@ -448,7 +448,7 @@ r1
 R5
 n@program@counter
 vRegisters
-R8
+R10
 !i10b 1
 !s100 bToI@zXWVbBO=4kUEBfR_2
 IY>Zm::lc6QX9F@LeCT`kc1
@@ -469,7 +469,7 @@ r1
 R5
 n@registers
 vROM
-R9
+R8
 !i10b 1
 !s100 Dl?9ZoLFQPzPJdG9I>=zA1
 I8CGNd^FXOnf`;RaP`B=9T0
