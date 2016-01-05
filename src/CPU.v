@@ -119,7 +119,6 @@ IFID_Reg IFID_Reg(
 	.InstrMem_o	(instr)
 );
 
-
 /**
  * ID
  */
@@ -130,7 +129,7 @@ Registers RegFiles (
 	.Rs_data		(),
 	.Rt_data		(),
 	.we				(Reg_we_wire),
-	.Rd_addr		(MEMWB_RegFwd.data_o), // notice
+	.Rd_addr		(MEMWB_Reg.RegFwd_o), // notice
 	.Rd_data	 	(WB_Mux.data_o)
 );
 
@@ -149,7 +148,7 @@ SignExtend SignExt (
 
 Adder PC_BranchAddr (
 	.data_1			(IFID_Reg.PC_Inc_o),
-	.data_2			({ SignExt.data_o[29:0], 2'b0 }),
+	.data_2			({SignExt.data_o[29:0], 2'b0}),
 	.data_o			()
 );
 
@@ -289,7 +288,7 @@ IDEX_Reg IDEX_Reg(
 Multiplexer4Way Data_1_Mux (
 	.data_1			(IDEX_Reg.Rs_data_o),
 	.data_2			(WB_Mux.data_o),
-	.data_3			(EXMEM_ALU_output.data_o),
+	.data_3			(EXMEM_Reg.ALU_output_o),
 	.data_4			(32'bz),
 	.sel			(FwdUnit.ALU_data_1_sel),
 	.data_o			()
@@ -298,7 +297,7 @@ Multiplexer4Way Data_1_Mux (
 Multiplexer4Way Data_2_Mux (
 	.data_1			(IDEX_Reg.Rt_data_o),
 	.data_2			(WB_Mux.data_o),
-	.data_3			(EXMEM_ALU_output.data_o),
+	.data_3			(EXMEM_Reg.ALU_output_o),
 	.data_4			(32'bz),
 	.sel			(FwdUnit.ALU_data_2_sel),
 	.data_o			()
@@ -320,19 +319,19 @@ ALU ALU (
 );
 
 Multiplexer2Way #(.width(5)) Fwd_Mux (
-	.data_1			(IDEX_Reg.Rt_data_o),
-	.data_2			(IDEX_Reg.Rd_data_o),
+	.data_1			(IDEX_Reg.Rt_o),
+	.data_2			(IDEX_Reg.Rd_o),
 	.sel			(RegDst_wire),
 	.data_o			()
 );
 
 ForwardingUnit FwdUnit (
-	.EXMEM_WB_Reg_we(EXMEM_WB_ctrl.data_o[0]),
+	.EXMEM_WB_Reg_we(EXMEM_Reg.WB_ctrl_o[0]),
 	.MEMWB_WB_Reg_we(Reg_we_wire),
-	.IDEX_Rs		(IDEX_Reg.Rs_data_o),
-	.IDEX_Rt		(IDEX_Reg.Rt_data_o),
-	.EXMEM_Rd		(EXMEM_RegFwd.data_o),
-	.MEMWB_Rd		(MEMWB_RegFwd.data_o),
+	.IDEX_Rs		(IDEX_Reg.Rs_o),
+	.IDEX_Rt		(IDEX_Reg.Rt_o),
+	.EXMEM_Rd		(EXMEM_Reg.RegFwd_o),
+	.MEMWB_Rd		(MEMWB_Reg.RegFwd_o),
 	.ALU_data_1_sel	(),
 	.ALU_data_2_sel	()
 );
@@ -394,7 +393,7 @@ EXMEM_Reg EXMEM_Reg(
     .MEM_ctrl_i(IDEX_Reg.MEM_ctrl_o),
     .MEM_ctrl_o(MEM_ctrl),
 
-    .WB_ctrl_i(),
+    .WB_ctrl_i(IDEX_Reg.WB_ctrl_o),
     .WB_ctrl_o(),
 
     .ALU_output_i(ALU.data_o),
@@ -416,32 +415,32 @@ EXMEM_Reg EXMEM_Reg(
 
 ROM #(.mem_size(32)) DataMem (
 	.clk			(clk),
-	.addr_i			(EXMEM_ALU_output.data_o),
+	.addr_i			(EXMEM_Reg.ALU_output_o),
+	.data_i			(EXMEM_Reg.ALU_data_2_o),
 	.cs				(MEM_cs_wire),
 	.we				(MEM_we_wire),
-	.data_i			(EXMEM_ALU_data_2.data_o),
 	.data_o			()
 );
 
 L1Cache_top L1Cache
 (
     // System clock, reset and stall
-	.clk_i(clk),
-	.rst_i(rst),
+	.clk_i 			(clk),
+	.rst_i 			(rst),
 
 	// to Data Memory interface
-	.mem_data_i		(ext_mem_data_i),
-	.mem_ack_i		(ext_mem_ack),
-	.mem_data_o		(ext_mem_data_o),
 	.mem_addr_o		(ext_mem_addr),
+	.mem_data_o		(ext_mem_data_o),
 	.mem_enable_o	(ext_mem_cs),
 	.mem_write_o	(ext_mem_we),
+	.mem_data_i		(ext_mem_data_i),
+	.mem_ack_i		(ext_mem_ack),
 
 	// to CPU interface
-	.p1_addr_i		(EXMEM_ALU_output.data_o),
+	.p1_addr_i		(EXMEM_Reg.ALU_output_o),
+	.p1_data_i		(EXMEM_Reg.ALU_data_2_o),
 	.p1_MemRead_i	(MEM_cs_wire),
 	.p1_MemWrite_i	(MEM_we_wire),
-	.p1_data_i		(EXMEM_ALU_data_2.data_o),
 	.p1_data_o		(),
 	.p1_stall_o		()
 );
@@ -470,20 +469,21 @@ L1_Cache L1Cache (
 /**
  * MEM/WB
  */
+
 MEMWB_Reg MEMWB_Reg (
 	.clk 			(clk),
 	.rst 			(1'b1),
 
-	.flush 			(),
+	.flush 			(1'b0),
 	.stall 			(L1Cche.p1_stall_o),
 
-	.WB_ctrl_i		(EXMEM_WB_ctrl.data_o),
+	.WB_ctrl_i		(EXMEM_Reg.WB_ctrl_o),
 	.WB_ctrl_o		(WB_ctrl),
-	.ALU_output_i	(EXMEM_ALU_output.data_o),
+	.ALU_output_i	(EXMEM_Reg.ALU_output_o),
 	.ALU_output_o	(),
 	.Mem_output_i	(L1Cache.p1_data_o),
 	.Mem_output_o	(),
-	.RegFwd_i		(EXMEM_RegFwd.data_o),
+	.RegFwd_i		(EXMEM_Reg.RegFwd_o),
 	.RegFwd_o		()
 );
 
