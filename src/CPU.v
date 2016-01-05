@@ -9,10 +9,10 @@ module CPU
 	// External data memory interface .
 	output		[32-1:0]	ext_mem_addr,
 	input		[256-1:0]	ext_mem_data_i,
-	output					ext_mem_cs, 
+	output					ext_mem_cs,
 	output					ext_mem_we,
-	output		[256-1:0]	ext_mem_data_o, 
-	input					ext_mem_ack	
+	output		[256-1:0]	ext_mem_data_o,
+	input					ext_mem_ack
 );
 
 
@@ -108,7 +108,7 @@ Latch IFID_Instr (
 
 IFID_Reg IFID_Reg(
 	.clk		(),
-	
+
 	.flush		(),
 	.stall		(),
 
@@ -164,10 +164,10 @@ GeneralControl Ctrl (
 
 HazardDetectionUnit HDU (
 	.IFID_Rs_i		(instr_rs),
-	.IFID_Rt_i		(instr_rt),	
+	.IFID_Rt_i		(instr_rt),
 	.IDEX_Rt_i		(IDEX_Rt.data_o),
 	.IDEX_Mem_cs	(IDEX_MEM_ctrl.data_o[1]),
-	.stall			()	
+	.stall			()
 );
 
 /**
@@ -210,7 +210,7 @@ Latch IDEX_Rt_data (
 	.rst			(1'b1),
 	.en				(1'b1),
 	.data_i			(RegFiles.Rt_data),
-	.data_o			()	
+	.data_o			()
 );
 
 Latch IDEX_imm_data (
@@ -362,23 +362,23 @@ ROM #(.mem_size(32)) DataMem (
 L1Cache_top L1Cache
 (
     // System clock, reset and stall
-	.clk_i(clk), 
+	.clk_i(clk),
 	.rst_i(rst),
-	
-	// to Data Memory interface		
-	.mem_data_i		(ext_mem_data_i), 
-	.mem_ack_i		(ext_mem_ack), 	
-	.mem_data_o		(ext_mem_data_o), 
-	.mem_addr_o		(ext_mem_addr), 	
-	.mem_enable_o	(ext_mem_cs), 
-	.mem_write_o	(ext_mem_we), 
-	
-	// to CPU interface	
-	.p1_addr_i		(EXMEM_ALU_output.data_o), 	
-	.p1_MemRead_i	(MEM_cs_wire), 
-	.p1_MemWrite_i	(MEM_we_wire), 
-	.p1_data_i		(EXMEM_ALU_data_2.data_o), 
-	.p1_data_o		(), 
+
+	// to Data Memory interface
+	.mem_data_i		(ext_mem_data_i),
+	.mem_ack_i		(ext_mem_ack),
+	.mem_data_o		(ext_mem_data_o),
+	.mem_addr_o		(ext_mem_addr),
+	.mem_enable_o	(ext_mem_cs),
+	.mem_write_o	(ext_mem_we),
+
+	// to CPU interface
+	.p1_addr_i		(EXMEM_ALU_output.data_o),
+	.p1_MemRead_i	(MEM_cs_wire),
+	.p1_MemWrite_i	(MEM_we_wire),
+	.p1_data_i		(EXMEM_ALU_data_2.data_o),
+	.p1_data_o		(),
 	.p1_stall_o		()
 );
 
@@ -388,14 +388,14 @@ L1Cache_top L1Cache
 L1_Cache L1Cache (
 	.clk			(clk),
 	.rst			(rst),
-	
+
 	.cache_addr		(EXMEM_ALU_output.data_o),
 	.cache_cs		(MEM_cs_wire),
 	.cache_we		(MEM_we_wire),
 	.cache_ack		(),
 	.cache_data_i	(EXMEM_ALU_data_2.data_o),
 	.cache_data_o	(),
-	
+
 	.dram_addr		(ext_mem_addr),
 	.dram_data_i	(ext_mem_data_i),
 	.dram_cs		(ext_mem_cs),
@@ -408,36 +408,21 @@ L1_Cache L1Cache (
 /**
  * MEM/WB
  */
-Latch #(.width(2)) MEMWB_WB_ctrl (
-	.clk			(clk && ~L1Cache.p1_stall_o),
-	.rst			(1'b1),
-	.en				(1'b1),
-	.data_i			(EXMEM_WB_ctrl.data_o),
-	.data_o			(WB_ctrl)
-);
+MEMWB_Reg MEMWB_Reg (
+	.clk 			(clk),
+	.rst 			(1'b1),
 
-Latch MEMWB_ALU_output (
-	.clk			(clk && ~L1Cache.p1_stall_o),
-	.rst			(1'b1),
-	.en				(1'b1),
-	.data_i			(EXMEM_ALU_output.data_o),
-	.data_o			()
-);
+	.flush 			(),
+	.stall 			(L1Cche.p1_stall_o),
 
-Latch MEMWB_Mem_output (
-	.clk			(clk && ~L1Cache.p1_stall_o),
-	.rst			(1'b1),
-	.en				(1'b1),
-	.data_i			(L1Cache.p1_data_o),
-	.data_o			()
-);
-
-Latch #(.width(5)) MEMWB_RegFwd (
-	.clk			(clk && ~L1Cache.p1_stall_o),
-	.rst			(1'b1),
-	.en				(1'b1),
-	.data_i			(EXMEM_RegFwd.data_o),
-	.data_o			()
+	.WB_ctrl_i		(EXMEM_WB_ctrl.data_o),
+	.WB_ctrl_o		(WB_ctrl),
+	.ALU_output_i	(EXMEM_ALU_output.data_o),
+	.ALU_output_o	(),
+	.Mem_output_i	(L1Cache.p1_data_o),
+	.Mem_output_o	(),
+	.RegFwd_i		(EXMEM_RegFwd.data_o),
+	.RegFwd_o		()
 );
 
 
@@ -445,8 +430,8 @@ Latch #(.width(5)) MEMWB_RegFwd (
  * WB
  */
 Multiplexer2Way WB_Mux (
-	.data_1			(MEMWB_Mem_output.data_o),
-	.data_2			(MEMWB_ALU_output.data_o),
+	.data_1			(MEMWB_Reg.Mem_output_o),
+	.data_2			(MEMWB_Reg.ALU_output_o),
 	.sel			(WB_mux_wire),
 	.data_o			()
 );
