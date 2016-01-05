@@ -342,6 +342,8 @@ ForwardingUnit FwdUnit (
 /**
  * EX/MEM
  */
+
+/*
 Latch #(.width(2)) EXMEM_MEM_ctrl (
 	.clk			(clk && ~L1Cache.p1_stall_o),
 	.rst			(1'b1),
@@ -381,6 +383,32 @@ Latch #(.width(5)) EXMEM_RegFwd (
 	.data_i			(Fwd_Mux.data_o),
 	.data_o			()
 );
+*/
+
+EXMEM_Reg EXMEM_Reg(
+    .clk(clk),
+    .rst(),
+
+    .flush(1'b0),
+    .stall(L1Cache.p1_stall_o),
+
+    .MEM_ctrl_i(),
+    .MEM_ctrl_o(MEM_ctrl),
+
+    .WB_ctrl_i(),
+    .WB_ctrl_o(),
+
+    .ALU_output_i(),
+    .ALU_output_o(),
+
+    .ALU_data_2_i(),
+    .ALU_data_2_o(),
+
+    .RegFwd_i(),
+    .RegFwd_o()
+);
+
+
 
 
 /**
