@@ -76,19 +76,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Multiplexer4Way
 
-} {} {}} C:/CA-Project/src/SignExtend.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SignExtend.v
+} {} {}} C:/CA-Project/src/EXMEM_Reg.v {1 {vlog -work mips -stats=none C:/CA-Project/src/EXMEM_Reg.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module SignExtend
+-- Compiling module EXMEM_Reg
 
 Top level modules:
-	SignExtend
-
-} {} {}} C:/CA-Project/src/HazardDetectionUnit.v {1 {vlog -work mips -stats=none C:/CA-Project/src/HazardDetectionUnit.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module HazardDetectionUnit
-
-Top level modules:
-	HazardDetectionUnit
+	EXMEM_Reg
 
 } {} {}} C:/CA-Project/src/L1_Cache_rework.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_rework.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -97,12 +90,19 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	L1_Cache
 
-} {} {}} C:/CA-Project/src/ALU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ALU.v
+} {} {}} C:/CA-Project/src/HazardDetectionUnit.v {1 {vlog -work mips -stats=none C:/CA-Project/src/HazardDetectionUnit.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module ALU
+-- Compiling module HazardDetectionUnit
 
 Top level modules:
-	ALU
+	HazardDetectionUnit
+
+} {} {}} C:/CA-Project/src/SignExtend.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SignExtend.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module SignExtend
+
+Top level modules:
+	SignExtend
 
 } {} {}} C:/CA-Project/src/Data_Memory.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Data_Memory.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -111,19 +111,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Data_Memory
 
-} {} {}} C:/CA-Project/src/L1_Cache_Controller.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller.v
+} {} {}} C:/CA-Project/src/ALU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ALU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module L1_Cache_Controller
+-- Compiling module ALU
 
 Top level modules:
-	L1_Cache_Controller
-
-} {} {}} C:/CA-Project/src/SRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SRAM.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module SRAM
-
-Top level modules:
-	SRAM
+	ALU
 
 } {} {}} C:/CA-Project/src/dcache_data_sram.v {1 {vlog -work mips -stats=none C:/CA-Project/src/dcache_data_sram.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -132,19 +125,26 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	dcache_data_sram
 
+} {} {}} C:/CA-Project/src/SRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SRAM.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module SRAM
+
+Top level modules:
+	SRAM
+
+} {} {}} C:/CA-Project/src/L1_Cache_Controller.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module L1_Cache_Controller
+
+Top level modules:
+	L1_Cache_Controller
+
 } {} {}} C:/CA-Project/src/Multiplexer8Way.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Multiplexer8Way.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Multiplexer8Way
 
 Top level modules:
 	Multiplexer8Way
-
-} {} {}} C:/CA-Project/src/Pipeline_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/Pipeline_TestBench.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Pipeline_TestBench
-
-Top level modules:
-	Pipeline_TestBench
 
 } {} {}} C:/CA-Project/src/dcache_tag_sram.v {1 {vlog -work mips -stats=none C:/CA-Project/src/dcache_tag_sram.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -153,12 +153,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	dcache_tag_sram
 
-} {} {}} C:/CA-Project/src/4WayMux_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/4WayMux_TestBench.v
+} {} {}} C:/CA-Project/src/Pipeline_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/Pipeline_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module FourWayMux_TestBench
+-- Compiling module Pipeline_TestBench
 
 Top level modules:
-	FourWayMux_TestBench
+	Pipeline_TestBench
 
 } {} {}} C:/CA-Project/src/ROM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ROM.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -167,39 +167,32 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	ROM
 
-} {} {}} C:/CA-Project/src/IDEX_Reg.v {0 {vlog -work work -stats=none C:/CA-Project/src/IDEX_Reg.v
+} {} {}} C:/CA-Project/src/4WayMux_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/4WayMux_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-** Error: (vlog-19) Failed to access library 'work' at "work".
+-- Compiling module FourWayMux_TestBench
 
-No such file or directory. (errno = ENOENT)
+Top level modules:
+	FourWayMux_TestBench
 
-} {3.0 4.0} {}} C:/CA-Project/src/GeneralControl.v {1 {vlog -work mips -stats=none C:/CA-Project/src/GeneralControl.v
+} {} {}} C:/CA-Project/src/GeneralControl.v {1 {vlog -work mips -stats=none C:/CA-Project/src/GeneralControl.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module GeneralControl
 
 Top level modules:
 	GeneralControl
 
-} {} {}} C:/CA-Project/src/CPU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU.v
+} {} {}} C:/CA-Project/src/IDEX_Reg.v {0 {vlog -work work -stats=none C:/CA-Project/src/IDEX_Reg.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module CPU
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} C:/CA-Project/src/Registers.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Registers.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Registers
 
 Top level modules:
-	CPU
-
-} {} {}} C:/CA-Project/src/Adder.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Adder.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Adder
-
-Top level modules:
-	Adder
-
-} {} {}} C:/CA-Project/src/ProgramCounter.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ProgramCounter.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module ProgramCounter
-
-Top level modules:
-	ProgramCounter
+	Registers
 
 } {} {}} C:/CA-Project/src/Memory_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/Memory_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -208,26 +201,33 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Memory_TestBench
 
-} {} {}} C:/CA-Project/src/Registers.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Registers.v
+} {} {}} C:/CA-Project/src/ProgramCounter.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ProgramCounter.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Registers
+-- Compiling module ProgramCounter
 
 Top level modules:
-	Registers
+	ProgramCounter
 
-} {} {}} C:/CA-Project/src/IFID_Reg.v {0 {vlog -work mips -stats=none C:/CA-Project/src/IFID_Reg.v
+} {} {}} C:/CA-Project/src/Adder.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Adder.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module IFID_Reg
-** Error: C:/CA-Project/src/IFID_Reg.v(27): 'IFID_PC_Inc' already declared in this scope.
+-- Compiling module Adder
 
-} {4.0 5.0} {}} C:/CA-Project/src/Comparer.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Comparer.v
+Top level modules:
+	Adder
+
+} {} {}} C:/CA-Project/src/StateTable.v {1 {vlog -work mips -stats=none C:/CA-Project/src/StateTable.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+
+} {} {}} C:/CA-Project/src/Comparer.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Comparer.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Comparer
 
 Top level modules:
 	Comparer
 
-} {} {}} C:/CA-Project/src/StateTable.v {1 {vlog -work mips -stats=none C:/CA-Project/src/StateTable.v
+} {} {}} C:/CA-Project/src/IFID_Reg.v {0 {vlog -work mips -stats=none C:/CA-Project/src/IFID_Reg.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module IFID_Reg
+** Error: C:/CA-Project/src/IFID_Reg.v(27): 'IFID_PC_Inc' already declared in this scope.
 
-} {} {}}
+} {4.0 5.0} {}}
