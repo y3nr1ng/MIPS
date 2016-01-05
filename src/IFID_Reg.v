@@ -18,7 +18,7 @@ module IFID_Reg (
 		.data_o	(PC_Inc_o)
 	);
 
-	Latch IFID_PC_Inc (
+	Latch IFID_Instr (
 		.clk	(clk),
 		.rst	(~flush),
 		.we		(~stall),
