@@ -29,6 +29,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Latch_TestBench
 
+} {} {}} C:/CA-Project/src/Latch.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Latch.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Latch
+
+Top level modules:
+	Latch
+
 } {} {}} C:/CA-Project/src/L1_Cache_Controller_rework.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller_rework.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module L1_Cache_Controller
@@ -160,12 +167,25 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	ROM
 
-} {} {}} C:/CA-Project/src/GeneralControl.v {1 {vlog -work mips -stats=none C:/CA-Project/src/GeneralControl.v
+} {} {}} C:/CA-Project/src/IDEX_Reg.v {0 {vlog -work work -stats=none C:/CA-Project/src/IDEX_Reg.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} C:/CA-Project/src/GeneralControl.v {1 {vlog -work mips -stats=none C:/CA-Project/src/GeneralControl.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module GeneralControl
 
 Top level modules:
 	GeneralControl
+
+} {} {}} C:/CA-Project/src/CPU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module CPU
+
+Top level modules:
+	CPU
 
 } {} {}} C:/CA-Project/src/Adder.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Adder.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -195,7 +215,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Registers
 
-} {} {}} C:/CA-Project/src/Comparer.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Comparer.v
+} {} {}} C:/CA-Project/src/IFID_Reg.v {0 {vlog -work mips -stats=none C:/CA-Project/src/IFID_Reg.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module IFID_Reg
+** Error: C:/CA-Project/src/IFID_Reg.v(27): 'IFID_PC_Inc' already declared in this scope.
+
+} {4.0 5.0} {}} C:/CA-Project/src/Comparer.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Comparer.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Comparer
 

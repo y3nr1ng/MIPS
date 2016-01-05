@@ -8,98 +8,57 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/CA-Project
-vCache_TestBench
+<<<<<<< HEAD
+Z1 o-work mips_tb
+R0
+Z2 !s110 1451987515
+Z3 =======
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z5 OV;L;10.4b;61
+<<<<<<< HEAD
+R1
+R0
+R2
+R3
+R4
+R0
+R5
+<<<<<<< HEAD
+R5
+!i10b 1
+Z6 !s100 c3fQ?LS@A0>5Q11T`C:AT0
+Z7 ID``mEJa06WYizH0AcFEh`0
+R1
+R3
+R2
+!i10b 1
+R6
+R7
+R4
+R0
+<<<<<<< HEAD
 !s110 1451992313
 !i10b 1
-!s100 I?Zgz7lII7?E@zOWnVdi33
-IWl@eMUoXm?oO3[Khge4Q<3
-V`JN@9S9cnhjKRR_L]QIcM3
+Z8 !s100 I?Zgz7lII7?E@zOWnVdi33
+Z9 IWl@eMUoXm?oO3[Khge4Q<3
+Z10 V`JN@9S9cnhjKRR_L]QIcM3
 R0
 w1451992310
-8C:/CA-Project/src/Cache_TestBench.v
-FC:/CA-Project/src/Cache_TestBench.v
+Z11 8C:/CA-Project/src/Cache_TestBench.v
+Z12 FC:/CA-Project/src/Cache_TestBench.v
 L0 4
-OV;L;10.3d;59
+Z13 OV;L;10.3d;59
 r1
 !s85 0
 31
 !s108 1451992313.373000
-!s107 C:\CA-Project\src\StateTable.v|C:/CA-Project/src/Cache_TestBench.v|
-!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Cache_TestBench.v|
-!i113 1
-Z1 o-work mips_tb
-n@cache_@test@bench
-vFourWayMux_TestBench
-Z2 !s110 1451987515
-!i10b 1
-!s100 J4l^9Z99FCO:]_zifdRC^3
-IToVYhlgXC17]N^BW@R6``0
-Z3 VDg1SIo80bB@j0V0VzS_@n1
-R0
-Z4 w1451971303
-8C:/CA-Project/src/4WayMux_TestBench.v
-FC:/CA-Project/src/4WayMux_TestBench.v
-L0 3
-Z5 OV;L;10.4b;61
-r1
-!s85 0
-31
-Z6 !s108 1451987515.000000
-!s107 C:/CA-Project/src/4WayMux_TestBench.v|
-!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/4WayMux_TestBench.v|
+Z14 !s107 C:\CA-Project\src\StateTable.v|C:/CA-Project/src/Cache_TestBench.v|
+Z15 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Cache_TestBench.v|
 !i113 1
 R1
-n@four@way@mux_@test@bench
-vLatch_TestBench
-R2
-!i10b 1
-!s100 c3fQ?LS@A0>5Q11T`C:AT0
-ID``mEJa06WYizH0AcFEh`0
-R3
-R0
-R4
-8C:/CA-Project/src/Latch_TestBench.v
-FC:/CA-Project/src/Latch_TestBench.v
-L0 3
-R5
-r1
-!s85 0
-31
-R6
-!s107 C:/CA-Project/src/Latch_TestBench.v|
-!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Latch_TestBench.v|
-!i113 1
-R1
-n@latch_@test@bench
-vMemory_TestBench
-R2
-!i10b 1
-!s100 V`JlNZO<oHKo2Z=c]204`3
-I9__Y[mc_]^GeMb>6UehQE2
-R3
-R0
-R4
-8C:/CA-Project/src/Memory_TestBench.v
-FC:/CA-Project/src/Memory_TestBench.v
-L0 1
-R5
-r1
-!s85 0
-31
-R6
-!s107 C:/CA-Project/src/Memory_TestBench.v|
-!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Memory_TestBench.v|
-!i113 1
-R1
-n@memory_@test@bench
-vPipeline_TestBench
-R2
-!i10b 1
-!s100 cAzTA162U<X`300mzP?nZ1
-I2E?kD>HMKHz`I5NaW@SJ_1
-R3
-R0
-R4
+Z16 n@cache_@test@bench
+>>>>>>> d4cd0a1172a3742e2feb63468725889a7cd772c2
 8C:/CA-Project/src/Pipeline_TestBench.v
 FC:/CA-Project/src/Pipeline_TestBench.v
 L0 3
@@ -107,9 +66,127 @@ R5
 r1
 !s85 0
 31
-R6
+Z17 !s108 1451987515.000000
 !s107 C:/CA-Project/src/Pipeline_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Pipeline_TestBench.v|
 !i113 1
-R1
+R4
 n@pipeline_@test@bench
+R0
+>>>>>>> d4cd0a1172a3742e2feb63468725889a7cd772c2
+8C:/CA-Project/src/Memory_TestBench.v
+FC:/CA-Project/src/Memory_TestBench.v
+L0 1
+R5
+r1
+!s85 0
+31
+R17
+!s107 C:/CA-Project/src/Memory_TestBench.v|
+!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Memory_TestBench.v|
+!i113 1
+R4
+n@memory_@test@bench
+R0
+>>>>>>> d4cd0a1172a3742e2feb63468725889a7cd772c2
+R0
+R2
+8C:/CA-Project/src/Latch_TestBench.v
+FC:/CA-Project/src/Latch_TestBench.v
+L0 3
+R5
+r1
+!s85 0
+31
+R17
+!s107 C:/CA-Project/src/Latch_TestBench.v|
+!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Latch_TestBench.v|
+!i113 1
+R4
+n@latch_@test@bench
+>>>>>>> d4cd0a1172a3742e2feb63468725889a7cd772c2
+8C:/CA-Project/src/4WayMux_TestBench.v
+FC:/CA-Project/src/4WayMux_TestBench.v
+L0 3
+R5
+r1
+!s85 0
+31
+R17
+!s107 C:/CA-Project/src/4WayMux_TestBench.v|
+!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/4WayMux_TestBench.v|
+!i113 1
+R4
+n@four@way@mux_@test@bench
+R0
+vCache_TestBench
+!s110 1451993501
+!i10b 1
+R8
+R9
+R10
+R0
+w1451993394
+R11
+R12
+L0 4
+R13
+r1
+!s85 0
+31
+!s108 1451993501.132000
+R14
+R15
+!i113 1
+R1
+vFourWayMux_TestBench
+R2
+!i10b 1
+Z18 !s100 J4l^9Z99FCO:]_zifdRC^3
+Z19 IToVYhlgXC17]N^BW@R6``0
+R4
+R0
+Z20 w1451971303
+vFourWayMux_TestBench
+R2
+!i10b 1
+R18
+R19
+R4
+R0
+R20
+R3
+!s110 1451987954
+!i10b 1
+!s100 bbc=PH1ZSeQ]FMS`CCN8B3
+IFSHCzbA:P=LlzOFBB>A?e1
+R4
+R0
+w1451987950
+R11
+R12
+L0 4
+R5
+r1
+!s85 0
+31
+!s108 1451987954.000000
+R14
+R15
+!i113 1
+R1
+R16
+vLatch_TestBench
+R0
+vMemory_TestBench
+R5
+!i10b 1
+!s100 V`JlNZO<oHKo2Z=c]204`3
+I9__Y[mc_]^GeMb>6UehQE2
+R0
+vPipeline_TestBench
+R5
+!i10b 1
+!s100 cAzTA162U<X`300mzP?nZ1
+I2E?kD>HMKHz`I5NaW@SJ_1
+R0
