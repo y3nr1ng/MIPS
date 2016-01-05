@@ -52,10 +52,14 @@ add wave -noupdate -label pc_clk /Cache_TestBench/CPU/PC/clk
 add wave -noupdate -label pc_rst /Cache_TestBench/CPU/PC/rst
 add wave -noupdate -label pc_addi /Cache_TestBench/CPU/PC/addr_i
 add wave -noupdate -label pc_addo /Cache_TestBench/CPU/PC/addr_o
+add wave -noupdate -label MEMWB_WBC_data_i -expand /Cache_TestBench/CPU/MEMWB_WB_ctrl/data_i
+add wave -noupdate -label MEMWB_WBC_data_o -expand /Cache_TestBench/CPU/MEMWB_WB_ctrl/data_o
+add wave -noupdate -label Mem_out_data_i /Cache_TestBench/CPU/MEMWB_Mem_output/data_i
+add wave -noupdate -label mem_out_data_o /Cache_TestBench/CPU/MEMWB_Mem_output/data_o
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {4884 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 304
+configure wave -namecolwidth 154
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -69,4 +73,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {4775 ps} {5598 ps}
+WaveRestoreZoom {0 ps} {1080 ps}

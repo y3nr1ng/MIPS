@@ -321,7 +321,7 @@ Latch EXMEM_ALU_data_2 (
 );
 
 Latch #(.width(5)) EXMEM_RegFwd (
-	.clk			(clk && ~L1Cache.p1_stall_o),
+	.clk			(clk),
 	.rst			(1'b0),
 	.en				(1'b1),
 	.data_i			(Fwd_Mux.data_o),
