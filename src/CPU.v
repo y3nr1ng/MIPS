@@ -130,7 +130,7 @@ Registers RegFiles (
 	.Rs_data		(),
 	.Rt_data		(),
 	.we				(Reg_we_wire),
-	.Rd_addr		(MEMWB_RegFwd.data_o),
+	.Rd_addr		(MEMWB_RegFwd.data_o), // notice
 	.Rd_data	 	(WB_Mux.data_o)
 );
 
@@ -166,8 +166,8 @@ GeneralControl Ctrl (
 HazardDetectionUnit HDU (
 	.IFID_Rs_i		(instr_rs),
 	.IFID_Rt_i		(instr_rt),	
-	.IDEX_Rt_i		(IDEX_Rt.data_o),
-	.IDEX_Mem_cs	(IDEX_MEM_ctrl.data_o[1]),
+	.IDEX_Rt_i		(IDEX_Reg.Rt_o),
+	.IDEX_Mem_cs	(IDEX_Reg.MEM_ctrl_o[1]),
 	.stall			()	
 );
 
@@ -252,37 +252,36 @@ Latch #(.width(5)) IDEX_Rd (
 
 IDEX_Reg IDEX_Reg(
 
-	.clk(),
-	.flush(),
-	.stall(),
+	.clk(clk),
+	.flush(1'b0),
+	.stall(L1Cache.p1_stall_o),
 
-	.EX_ctrl_i(),
-	.EX_ctrl_o(),
+	.EX_ctrl_i(Ctrl.EX_ctrl_o),
+	.EX_ctrl_o(EX_ctrl),
 
-	.MEM_ctrl_i(),
+	.MEM_ctrl_i(Ctrl.MEM_ctrl_o),
 	.MEM_ctrl_o(),
 	
-	.WB_ctrl_i(),
+	.WB_ctrl_i(Ctrl.WB_ctrl_o),
 	.WB_ctrl_o(),
 
-	.Rs_data_i(),
+	.Rs_data_i(RegFiles.Rs_data),
 	.Rs_data_o(),
 
-	.Rt_data_i(),
+	.Rt_data_i(RegFiles.Rt_data),
 	.Rt_data_o(),
 
-	.imm_data_i(),
+	.imm_data_i(SignExt.data_o),
 	.imm_data_o(),
 	
-	.Rs_i(),
+	.Rs_i(instr_rs),
 	.Rs_o(),
 
-	.Rt_i(),
+	.Rt_i(instr_rt),
 	.Rt_o(),
 
-	.Rd_i(),
+	.Rd_i(instr_rd),
 	.Rd_o()
-
 );
 
 /**
