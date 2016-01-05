@@ -146,6 +146,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Multiplexer8Way
 
+} {} {}} C:/CA-Project/src/MEMWB_Reg.v {1 {vlog -work mips -stats=none C:/CA-Project/src/MEMWB_Reg.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module MEMWB_Reg
+
+Top level modules:
+	MEMWB_Reg
+
 } {} {}} C:/CA-Project/src/dcache_tag_sram.v {1 {vlog -work mips -stats=none C:/CA-Project/src/dcache_tag_sram.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module dcache_tag_sram
@@ -174,20 +181,21 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	FourWayMux_TestBench
 
-} {} {}} C:/CA-Project/src/GeneralControl.v {1 {vlog -work mips -stats=none C:/CA-Project/src/GeneralControl.v
+} {} {}} C:/CA-Project/src/IDEX_Reg.v {1 {vlog -work mips -stats=none C:/CA-Project/src/IDEX_Reg.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module GeneralControl
+-- Compiling module IDEX_Reg
 
 Top level modules:
-	GeneralControl
+	IDEX_Reg
 
-} {} {}} C:/CA-Project/src/IDEX_Reg.v {0 {vlog -work work -stats=none C:/CA-Project/src/IDEX_Reg.v
+} {} {}} C:/CA-Project/src/CPU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-** Error: (vlog-19) Failed to access library 'work' at "work".
+-- Compiling module CPU
 
-No such file or directory. (errno = ENOENT)
+Top level modules:
+	CPU
 
-} {3.0 4.0} {}} C:/CA-Project/src/Registers.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Registers.v
+} {} {}} C:/CA-Project/src/Registers.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Registers.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module Registers
 
@@ -225,9 +233,11 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Comparer
 
-} {} {}} C:/CA-Project/src/IFID_Reg.v {0 {vlog -work mips -stats=none C:/CA-Project/src/IFID_Reg.v
+} {} {}} C:/CA-Project/src/IFID_Reg.v {1 {vlog -work mips -stats=none C:/CA-Project/src/IFID_Reg.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module IFID_Reg
-** Error: C:/CA-Project/src/IFID_Reg.v(27): 'IFID_PC_Inc' already declared in this scope.
 
-} {4.0 5.0} {}}
+Top level modules:
+	IFID_Reg
+
+} {} {}}

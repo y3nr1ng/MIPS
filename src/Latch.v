@@ -5,6 +5,10 @@ module Latch #(parameter width=32) (
 	input      	[width-1:0]	data_i,
 	output reg 	[width-1:0]	data_o
 );
+	
+	initial begin
+		data_o = {width{1'b0}};
+	end
 
 	always @ (posedge clk or negedge rst) begin
   		if(~rst)

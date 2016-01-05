@@ -475,7 +475,7 @@ MEMWB_Reg MEMWB_Reg (
 	.rst 			(1'b1),
 
 	.flush 			(1'b0),
-	.stall 			(L1Cche.p1_stall_o),
+	.stall 			(L1Cache.p1_stall_o),
 
 	.WB_ctrl_i		(EXMEM_Reg.WB_ctrl_o),
 	.WB_ctrl_o		(WB_ctrl),
