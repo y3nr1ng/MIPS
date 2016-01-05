@@ -18,7 +18,7 @@ module L1Cache_top
 	input				p1_MemRead_i,
 	input				p1_MemWrite_i,
 	output	[32-1:0]	p1_data_o,
-	output				p1_stall_o
+	output 				p1_stall_o
 );
 
 	integer i;
@@ -94,6 +94,10 @@ module L1Cache_top
 	// add you code here!  (hit=...?,  r_hit_data=...?)
 	assign hit = ((sram_tag == p1_tag) && sram_valid ) ? 1'b1 : 1'b0;
 	assign r_hit_data = sram_cache_data;
+
+	//always @ () begin
+	//	p1_stall_o = ~hit & p1_req;
+	//end
 
 	// read data :  256-bit to 32-bit
 	always @ (p1_offset or r_hit_data) begin

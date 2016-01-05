@@ -76,12 +76,12 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	Multiplexer4Way
 
-} {} {}} C:/CA-Project/src/L1_Cache_rework.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_rework.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module L1_Cache
+} {} {}} C:/CA-Project/src/SignExtend.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SignExtend.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module SignExtend
 
 Top level modules:
-	L1_Cache
+	SignExtend
 
 } {} {}} C:/CA-Project/src/HazardDetectionUnit.v {1 {vlog -work mips -stats=none C:/CA-Project/src/HazardDetectionUnit.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -90,19 +90,12 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	HazardDetectionUnit
 
-} {} {}} C:/CA-Project/src/SignExtend.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SignExtend.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module SignExtend
+} {} {}} C:/CA-Project/src/L1_Cache_rework.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_rework.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module L1_Cache
 
 Top level modules:
-	SignExtend
-
-} {} {}} C:/CA-Project/src/Data_Memory.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Data_Memory.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module Data_Memory
-
-Top level modules:
-	Data_Memory
+	L1_Cache
 
 } {} {}} C:/CA-Project/src/ALU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ALU.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -111,19 +104,12 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	ALU
 
-} {} {}} C:/CA-Project/src/dcache_data_sram.v {1 {vlog -work mips -stats=none C:/CA-Project/src/dcache_data_sram.v
+} {} {}} C:/CA-Project/src/Data_Memory.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Data_Memory.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module dcache_data_sram
+-- Compiling module Data_Memory
 
 Top level modules:
-	dcache_data_sram
-
-} {} {}} C:/CA-Project/src/SRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SRAM.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module SRAM
-
-Top level modules:
-	SRAM
+	Data_Memory
 
 } {} {}} C:/CA-Project/src/L1_Cache_Controller.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -132,19 +118,26 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	L1_Cache_Controller
 
+} {} {}} C:/CA-Project/src/SRAM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/SRAM.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module SRAM
+
+Top level modules:
+	SRAM
+
+} {} {}} C:/CA-Project/src/dcache_data_sram.v {1 {vlog -work mips -stats=none C:/CA-Project/src/dcache_data_sram.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module dcache_data_sram
+
+Top level modules:
+	dcache_data_sram
+
 } {} {}} C:/CA-Project/src/Multiplexer8Way.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Multiplexer8Way.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module Multiplexer8Way
 
 Top level modules:
 	Multiplexer8Way
-
-} {} {}} C:/CA-Project/src/dcache_tag_sram.v {1 {vlog -work mips -stats=none C:/CA-Project/src/dcache_tag_sram.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module dcache_tag_sram
-
-Top level modules:
-	dcache_tag_sram
 
 } {} {}} C:/CA-Project/src/Pipeline_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/Pipeline_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -153,12 +146,12 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	Pipeline_TestBench
 
-} {} {}} C:/CA-Project/src/ROM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ROM.v
+} {} {}} C:/CA-Project/src/dcache_tag_sram.v {1 {vlog -work mips -stats=none C:/CA-Project/src/dcache_tag_sram.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module ROM
+-- Compiling module dcache_tag_sram
 
 Top level modules:
-	ROM
+	dcache_tag_sram
 
 } {} {}} C:/CA-Project/src/4WayMux_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/4WayMux_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -167,33 +160,19 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	FourWayMux_TestBench
 
+} {} {}} C:/CA-Project/src/ROM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ROM.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module ROM
+
+Top level modules:
+	ROM
+
 } {} {}} C:/CA-Project/src/GeneralControl.v {1 {vlog -work mips -stats=none C:/CA-Project/src/GeneralControl.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module GeneralControl
 
 Top level modules:
 	GeneralControl
-
-} {} {}} C:/CA-Project/src/Registers.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Registers.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module Registers
-
-Top level modules:
-	Registers
-
-} {} {}} C:/CA-Project/src/Memory_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/Memory_TestBench.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module Memory_TestBench
-
-Top level modules:
-	Memory_TestBench
-
-} {} {}} C:/CA-Project/src/Adder.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Adder.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module Adder
-
-Top level modules:
-	Adder
 
 } {} {}} C:/CA-Project/src/ProgramCounter.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ProgramCounter.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -202,8 +181,26 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	ProgramCounter
 
-} {} {}} C:/CA-Project/src/StateTable.v {1 {vlog -work mips -stats=none C:/CA-Project/src/StateTable.v
+} {} {}} C:/CA-Project/src/Adder.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Adder.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module Adder
+
+Top level modules:
+	Adder
+
+} {} {}} C:/CA-Project/src/Memory_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/Memory_TestBench.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module Memory_TestBench
+
+Top level modules:
+	Memory_TestBench
+
+} {} {}} C:/CA-Project/src/Registers.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Registers.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module Registers
+
+Top level modules:
+	Registers
 
 } {} {}} C:/CA-Project/src/Comparer.v {1 {vlog -work mips -stats=none C:/CA-Project/src/Comparer.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -211,5 +208,8 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 
 Top level modules:
 	Comparer
+
+} {} {}} C:/CA-Project/src/StateTable.v {1 {vlog -work mips -stats=none C:/CA-Project/src/StateTable.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 
 } {} {}}

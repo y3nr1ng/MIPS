@@ -9,107 +9,107 @@ z2
 cModel Technology
 Z0 dC:/CA-Project
 vCache_TestBench
-Z1 !s110 1451971336
+!s110 1451987954
 !i10b 1
-!s100 >M]odcgIo<BY12W3n6GN`1
-Ii@MI_lU90K]=_S;CPYlIV2
-Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s100 bbc=PH1ZSeQ]FMS`CCN8B3
+IFSHCzbA:P=LlzOFBB>A?e1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
 R0
-Z3 w1451971303
+w1451987950
 8C:/CA-Project/src/Cache_TestBench.v
 FC:/CA-Project/src/Cache_TestBench.v
 L0 4
-Z4 OV;L;10.4b;61
+Z2 OV;L;10.4b;61
 r1
 !s85 0
 31
-Z5 !s108 1451971336.000000
+!s108 1451987954.000000
 !s107 C:\CA-Project\src\StateTable.v|C:/CA-Project/src/Cache_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Cache_TestBench.v|
 !i113 1
-Z6 o-work mips_tb
+Z3 o-work mips_tb
 n@cache_@test@bench
 vFourWayMux_TestBench
-R1
+Z4 !s110 1451987515
 !i10b 1
 !s100 J4l^9Z99FCO:]_zifdRC^3
 IToVYhlgXC17]N^BW@R6``0
-R2
+R1
 R0
-R3
+Z5 w1451971303
 8C:/CA-Project/src/4WayMux_TestBench.v
 FC:/CA-Project/src/4WayMux_TestBench.v
 L0 3
-R4
+R2
 r1
 !s85 0
 31
-R5
+Z6 !s108 1451987515.000000
 !s107 C:/CA-Project/src/4WayMux_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/4WayMux_TestBench.v|
 !i113 1
-R6
+R3
 n@four@way@mux_@test@bench
 vLatch_TestBench
-R1
+R4
 !i10b 1
 !s100 c3fQ?LS@A0>5Q11T`C:AT0
 ID``mEJa06WYizH0AcFEh`0
-R2
+R1
 R0
-R3
+R5
 8C:/CA-Project/src/Latch_TestBench.v
 FC:/CA-Project/src/Latch_TestBench.v
 L0 3
-R4
+R2
 r1
 !s85 0
 31
-R5
+R6
 !s107 C:/CA-Project/src/Latch_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Latch_TestBench.v|
 !i113 1
-R6
+R3
 n@latch_@test@bench
 vMemory_TestBench
-R1
+R4
 !i10b 1
 !s100 V`JlNZO<oHKo2Z=c]204`3
 I9__Y[mc_]^GeMb>6UehQE2
-R2
+R1
 R0
-R3
+R5
 8C:/CA-Project/src/Memory_TestBench.v
 FC:/CA-Project/src/Memory_TestBench.v
 L0 1
-R4
+R2
 r1
 !s85 0
 31
-R5
+R6
 !s107 C:/CA-Project/src/Memory_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Memory_TestBench.v|
 !i113 1
-R6
+R3
 n@memory_@test@bench
 vPipeline_TestBench
-R1
+R4
 !i10b 1
 !s100 cAzTA162U<X`300mzP?nZ1
 I2E?kD>HMKHz`I5NaW@SJ_1
-R2
+R1
 R0
-R3
+R5
 8C:/CA-Project/src/Pipeline_TestBench.v
 FC:/CA-Project/src/Pipeline_TestBench.v
 L0 3
-R4
+R2
 r1
 !s85 0
 31
-R5
+R6
 !s107 C:/CA-Project/src/Pipeline_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Pipeline_TestBench.v|
 !i113 1
-R6
+R3
 n@pipeline_@test@bench

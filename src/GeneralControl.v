@@ -30,6 +30,13 @@ module GeneralControl (
 	 * WB_mux -> 0: memory, 1:ALU
 	 */
 
+	initial begin
+		// Without default PC control value, 
+		//  PC multiplexer won't be able to select the value
+		//  from PC adder, which will result in float state.
+		PC_ctrl_o = 2'b10;
+	end
+
 	always @ (*)
 	begin
 		case (op_i)
