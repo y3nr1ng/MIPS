@@ -52,17 +52,17 @@ wire		[1:0]	WB_ctrl;
 Multiplexer4Way PC_Mux (
 	.data_1			(PC_Inc.data_o), // PC += 4
 	.data_2			(32'bz),
-	.data_3			({ PC_Inc.data_o[31:28], addr_imm, 2'b0 }), // Jump to (imm << 2)
+	.data_3			({PC_Inc.data_o[31:28], addr_imm, 2'b0}), // Jump to (imm << 2)
 	.data_4			(PC_BranchAddr.data_o),	// Branch address, PC += (imm << 2)
 	.sel			(PC_ctrl),
 	.data_o			()
 );
 
 ProgramCounter PC (
-	.clk			(clk && ~L1Cache.p1_stall_o),
+	.clk			(clk),
 	.rst			(rst),
 	.start			(start),
-	.we				(~HDU.stall),
+	.we				(~HDU.stall && ~L1Cache.p1_stall_o),
 	.addr_i			(PC_Mux.data_o),
 	.addr_o			()
 );
