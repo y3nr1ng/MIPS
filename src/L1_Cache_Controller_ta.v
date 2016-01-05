@@ -111,7 +111,7 @@ module L1Cache_top
 		//if(hit) begin
 			w_hit_data = r_hit_data;
 			for (i = 0 ; i < 32  ; i = i+1)
-				w_hit_data[i+ p1_offset[4:2] * 32] <= p1_data_i[i];
+				w_hit_data[i + p1_offset[4:2] * 32] <= p1_data_i[i];
 		//end
 	end
 

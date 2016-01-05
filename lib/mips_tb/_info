@@ -9,10 +9,10 @@ z2
 cModel Technology
 Z0 dC:/CA-Project
 vCache_TestBench
-!s110 1451940605
+!s110 1451955259
 !i10b 1
 !s100 6:aK8]L76I0VCeYBSzbWi3
-IlANB=;>B;VFjS;PGm7F>f2
+Imjnh`bn]Xc0?^<KT^`lOI0
 Z1 V`JN@9S9cnhjKRR_L]QIcM3
 R0
 w1451940511
@@ -23,14 +23,15 @@ Z2 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1451940605.691000
+!s108 1451955259.673000
 !s107 C:\CA-Project\src\StateTable.v|C:/CA-Project/src/Cache_TestBench.v|
-!s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Cache_TestBench.v|
+!s90 -reportprogress|300|-work|mips_tb|+incdir+C:/CA-Project/lib/mips|-stats=none|C:/CA-Project/src/Cache_TestBench.v|
 !i113 1
 Z3 o-work mips_tb
+!s92 -work mips_tb +incdir+C:/CA-Project/lib/mips
 n@cache_@test@bench
 vFourWayMux_TestBench
-Z4 !s110 1451937641
+Z4 !s110 1451955216
 !i10b 1
 !s100 aXmKFJVeNF6>nfhM7^ZoF3
 IJSk8gcUbjJV1KG8m032:=0
@@ -44,14 +45,14 @@ R2
 r1
 !s85 0
 31
-!s108 1451937641.143000
+!s108 1451955216.895000
 !s107 C:/CA-Project/src/4WayMux_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/4WayMux_TestBench.v|
 !i113 1
 R3
 n@four@way@mux_@test@bench
 vLatch_TestBench
-R4
+!s110 1451955217
 !i10b 1
 !s100 >_8MYBb:2]?mn1NJ0ijoT2
 Ik]FVMe85L0jKQXJd49>>13
@@ -65,7 +66,7 @@ R2
 r1
 !s85 0
 31
-!s108 1451937641.264000
+!s108 1451955217.006000
 !s107 C:/CA-Project/src/Latch_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Latch_TestBench.v|
 !i113 1
@@ -86,14 +87,14 @@ R2
 r1
 !s85 0
 31
-!s108 1451937641.026000
+!s108 1451955216.775000
 !s107 C:/CA-Project/src/Memory_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Memory_TestBench.v|
 !i113 1
 R3
 n@memory_@test@bench
 vPipeline_TestBench
-!s110 1451937640
+R4
 !i10b 1
 !s100 bdbLJBV5C]fcdYSGnZ8;Z0
 IG5O3<MmagcSze^9;d7Q7d1
@@ -107,7 +108,7 @@ R2
 r1
 !s85 0
 31
-!s108 1451937640.909000
+!s108 1451955216.668000
 !s107 C:/CA-Project/src/Pipeline_TestBench.v|
 !s90 -reportprogress|300|-work|mips_tb|-stats=none|C:/CA-Project/src/Pipeline_TestBench.v|
 !i113 1
