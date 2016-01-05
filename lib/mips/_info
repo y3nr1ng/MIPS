@@ -72,13 +72,13 @@ r1
 R5
 n@comparer
 vCPU
-!s110 1452007786
+!s110 1452010682
 !i10b 1
-!s100 `UE;^VYM04`8KQ?X9eRNg1
-IDO;kg0NMzdffGXlzAlM1>3
+!s100 Z:GXHd]JTm7Cf2EC_Db9Z1
+I_O?8fKKJUSn=LHL=AoMWb2
 R2
 R0
-w1452007784
+w1452010418
 8C:/CA-Project/src/CPU.v
 FC:/CA-Project/src/CPU.v
 L0 3
@@ -86,7 +86,7 @@ R4
 r1
 !s85 0
 31
-!s108 1452007786.371000
+!s108 1452010682.205000
 !s107 C:\CA-Project\src\LookupTable.v|C:/CA-Project/src/CPU.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/CPU.v|
 !i113 1
@@ -238,13 +238,13 @@ r1
 R5
 n@general@control
 vHazardDetectionUnit
-R1
+!s110 1452008014
 !i10b 1
-!s100 >e1C2];0ECDR_b1R9Z5QJ1
-IdbOoo62aOQlHCV<f?Z^<B2
+!s100 7fAb6OL0FIn3FY0DSVdTj1
+In6R`7PhX9ZHXI_:ANOOVP3
 R2
 R0
-R7
+w1452008005
 8C:/CA-Project/src/HazardDetectionUnit.v
 FC:/CA-Project/src/HazardDetectionUnit.v
 L0 1
@@ -252,7 +252,7 @@ R4
 r1
 !s85 0
 31
-!s108 1451998512.952000
+!s108 1452008014.223000
 !s107 C:/CA-Project/src/HazardDetectionUnit.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/HazardDetectionUnit.v|
 !i113 1
@@ -427,13 +427,13 @@ r1
 R5
 n@multiplexer8@way
 vProgramCounter
-R1
+!s110 1452010203
 !i10b 1
-!s100 bERW:ieaB;HD:=XzQKTSQ1
-IfUOXYzRZzR<gfM:PlSdD;2
+!s100 Ch2Ki8iEJiOM6mNPMe[V>2
+I8C==6FJ=UNaA6jmMR[B8L1
 R2
 R0
-R3
+w1452010199
 8C:/CA-Project/src/ProgramCounter.v
 FC:/CA-Project/src/ProgramCounter.v
 L0 1
@@ -441,7 +441,7 @@ R4
 r1
 !s85 0
 31
-!s108 1451998512.045000
+!s108 1452010203.156000
 !s107 C:/CA-Project/src/ProgramCounter.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/ProgramCounter.v|
 !i113 1
@@ -469,13 +469,13 @@ r1
 R5
 n@registers
 vROM
-R8
+!s110 1452010697
 !i10b 1
-!s100 Dl?9ZoLFQPzPJdG9I>=zA1
-I8CGNd^FXOnf`;RaP`B=9T0
+!s100 Q7mAo:YcW@O<iMgEb4QfM3
+I<b9nlgC8]SO2@eY76K@:I1
 R2
 R0
-w1451906843
+w1452010696
 8C:/CA-Project/src/ROM.v
 FC:/CA-Project/src/ROM.v
 L0 1
@@ -483,7 +483,7 @@ R4
 r1
 !s85 0
 31
-!s108 1451998514.120000
+!s108 1452010697.866000
 !s107 C:/CA-Project/src/ROM.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/ROM.v|
 !i113 1

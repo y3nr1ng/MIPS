@@ -86,7 +86,8 @@ module Cache_TestBench;
 	
 		// Set Input n into data memory at 0x00
 		Data_Memory.memory[0] = 256'h5;		// n = 5 for example
-
+	
+		/*
     	clk = 0;
     	rst = 1;
     	start = 0;
@@ -99,6 +100,16 @@ module Cache_TestBench;
 
 		#(`CYCLE_TIME/8)
 		rst = 1;
+		*/
+
+		clk = 0;
+		rst = 0;
+		start = 0;
+		
+		#(`CYCLE_TIME/4)
+		rst = 1;
+		start = 1;
+
 	end
   
 	always @ (posedge clk) begin
