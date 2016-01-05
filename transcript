@@ -40452,3 +40452,8 @@ run
 # Break in Module Cache_TestBench at C:/CA-Project/src/Cache_TestBench.v line 119
 write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/CA-Project/macro/cache_test.tcl
 write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/CA-Project/macro/cache_test.tcl
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/CA-Project/macro/cache_test.tcl
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/CA-Project/macro/cache_test.tcl
+add wave -position insertpoint sim:/Cache_TestBench/CPU/L1Cache/dcache_tag_sram/*
+# No bookmark changes exist in window "Source2"
+# Bookmark(s) were restored for window "Source2"
