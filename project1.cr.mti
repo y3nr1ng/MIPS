@@ -57,13 +57,6 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Multiplexer2Way
 
-} {} {}} C:/CA-Project/src/L1_Cache_Controller_ta.v {1 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache_Controller_ta.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module L1Cache_top
-
-Top level modules:
-	L1Cache_top
-
 } {} {}} C:/CA-Project/src/L1_Cache.v {0 {vlog -work mips -stats=none C:/CA-Project/src/L1_Cache.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module L1_Cache
@@ -167,6 +160,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	Pipeline_TestBench
 
+} {} {}} C:/CA-Project/src/ROM.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ROM.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module ROM
+
+Top level modules:
+	ROM
+
 } {} {}} C:/CA-Project/src/4WayMux_TestBench.v {1 {vlog -work mips_tb -stats=none C:/CA-Project/src/4WayMux_TestBench.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module FourWayMux_TestBench
@@ -187,6 +187,13 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	IDEX_Reg
+
+} {} {}} C:/CA-Project/src/CPU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module CPU
+
+Top level modules:
+	CPU
 
 } {} {}} C:/CA-Project/src/ProgramCounter.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ProgramCounter.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014

@@ -102,10 +102,10 @@ module L1Cache_top
 	// read data :  256-bit to 32-bit
 	always @ (p1_offset or r_hit_data) begin
 		// add you code here! (p1_data=...?)
-		//if(hit) begin
+		if(hit) begin
 			for(i = 0 ; i < 32 ; i = i+1)
-				p1_data[i] <= r_hit_data[i + p1_offset[4:2] * 32];
-		//end
+				p1_data[i] = r_hit_data[i + p1_offset[4:2] * 32];
+		end
 	end
 
 
