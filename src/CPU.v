@@ -107,15 +107,16 @@ Latch IFID_Instr (
 */
 
 IFID_Reg IFID_Reg(
-	.clk		(),
+	.clk		(clk),
 
-	.flush		(),
-	.stall		(),
+	.flush		(flush_wire),
+	.stall		(HDU.stall || L1Cache.p1_stall_o),
 
-	.PC_Inc_i	(),
+	.PC_Inc_i	(PC_Inc.data_o),
 	.PC_Inc_o	(),
-	.InstrMem_i	(),
-	.InstrMem_o	()
+
+	.InstrMem_i	(InstrMem.data_o),
+	.InstrMem_o	(instr)
 );
 
 
@@ -129,7 +130,7 @@ Registers RegFiles (
 	.Rs_data		(),
 	.Rt_data		(),
 	.we				(Reg_we_wire),
-	.Rd_addr		(MEMWB_RegFwd.data_o),
+	.Rd_addr		(MEMWB_RegFwd.data_o), // notice
 	.Rd_data	 	(WB_Mux.data_o)
 );
 
@@ -147,7 +148,7 @@ SignExtend SignExt (
 );
 
 Adder PC_BranchAddr (
-	.data_1			(IFID_PC_Inc.data_o),
+	.data_1			(IFID_Reg.PC_Inc_o),
 	.data_2			({ SignExt.data_o[29:0], 2'b0 }),
 	.data_o			()
 );
@@ -165,14 +166,16 @@ GeneralControl Ctrl (
 HazardDetectionUnit HDU (
 	.IFID_Rs_i		(instr_rs),
 	.IFID_Rt_i		(instr_rt),
-	.IDEX_Rt_i		(IDEX_Rt.data_o),
-	.IDEX_Mem_cs	(IDEX_MEM_ctrl.data_o[1]),
+	.IDEX_Rt_i		(IDEX_Reg.Rt_o),
+	.IDEX_Mem_cs	(IDEX_Reg.MEM_ctrl_o[1]),
 	.stall			()
 );
 
 /**
  * ID/EX
  */
+
+/*
 Latch #(.width(5)) IDEX_EX_ctrl (
 	.clk			(clk && ~L1Cache.p1_stall_o),
 	.rst			(1'b1),
@@ -245,11 +248,46 @@ Latch #(.width(5)) IDEX_Rd (
 	.data_o			()
 );
 
+*/
+
+IDEX_Reg IDEX_Reg(
+	.clk(clk),
+	.flush(1'b0),
+	.stall(L1Cache.p1_stall_o),
+
+	.EX_ctrl_i(Ctrl.EX_ctrl_o),
+	.EX_ctrl_o(EX_ctrl),
+
+	.MEM_ctrl_i(Ctrl.MEM_ctrl_o),
+	.MEM_ctrl_o(),
+
+	.WB_ctrl_i(Ctrl.WB_ctrl_o),
+	.WB_ctrl_o(),
+
+	.Rs_data_i(RegFiles.Rs_data),
+	.Rs_data_o(),
+
+	.Rt_data_i(RegFiles.Rt_data),
+	.Rt_data_o(),
+
+	.imm_data_i(SignExt.data_o),
+	.imm_data_o(),
+
+	.Rs_i(instr_rs),
+	.Rs_o(),
+
+	.Rt_i(instr_rt),
+	.Rt_o(),
+
+	.Rd_i(instr_rd),
+	.Rd_o()
+);
+
 /**
  * EX
  */
 Multiplexer4Way Data_1_Mux (
-	.data_1			(IDEX_Rs_data.data_o),
+	.data_1			(IDEX_Reg.Rs_data_o),
 	.data_2			(WB_Mux.data_o),
 	.data_3			(EXMEM_ALU_output.data_o),
 	.data_4			(32'bz),
@@ -258,7 +296,7 @@ Multiplexer4Way Data_1_Mux (
 );
 
 Multiplexer4Way Data_2_Mux (
-	.data_1			(IDEX_Rt_data.data_o),
+	.data_1			(IDEX_Reg.Rt_data_o),
 	.data_2			(WB_Mux.data_o),
 	.data_3			(EXMEM_ALU_output.data_o),
 	.data_4			(32'bz),
@@ -268,7 +306,7 @@ Multiplexer4Way Data_2_Mux (
 
 Multiplexer2Way Data_2_imm_Mux (
 	.data_1			(Data_2_Mux.data_o),
-	.data_2			(IDEX_imm_data.data_o),
+	.data_2			(IDEX_Reg.imm_data_o),
 	.sel			(ALUsrc_wire),
 	.data_o			()
 );
@@ -282,8 +320,8 @@ ALU ALU (
 );
 
 Multiplexer2Way #(.width(5)) Fwd_Mux (
-	.data_1			(IDEX_Rt.data_o),
-	.data_2			(IDEX_Rd.data_o),
+	.data_1			(IDEX_Reg.Rt_data_o),
+	.data_2			(IDEX_Reg.Rd_data_o),
 	.sel			(RegDst_wire),
 	.data_o			()
 );
@@ -291,8 +329,8 @@ Multiplexer2Way #(.width(5)) Fwd_Mux (
 ForwardingUnit FwdUnit (
 	.EXMEM_WB_Reg_we(EXMEM_WB_ctrl.data_o[0]),
 	.MEMWB_WB_Reg_we(Reg_we_wire),
-	.IDEX_Rs		(IDEX_Rs.data_o),
-	.IDEX_Rt		(IDEX_Rt.data_o),
+	.IDEX_Rs		(IDEX_Reg.Rs_data_o),
+	.IDEX_Rt		(IDEX_Reg.Rt_data_o),
 	.EXMEM_Rd		(EXMEM_RegFwd.data_o),
 	.MEMWB_Rd		(MEMWB_RegFwd.data_o),
 	.ALU_data_1_sel	(),
@@ -357,8 +395,6 @@ ROM #(.mem_size(32)) DataMem (
 	.data_o			()
 );
 
-
-
 L1Cache_top L1Cache
 (
     // System clock, reset and stall
@@ -381,8 +417,6 @@ L1Cache_top L1Cache
 	.p1_data_o		(),
 	.p1_stall_o		()
 );
-
-
 
 /*
 L1_Cache L1Cache (
