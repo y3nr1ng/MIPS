@@ -391,19 +391,19 @@ EXMEM_Reg EXMEM_Reg(
     .flush(1'b0),
     .stall(L1Cache.p1_stall_o),
 
-    .MEM_ctrl_i(),
+    .MEM_ctrl_i(IDEX_Reg.MEM_ctrl_o),
     .MEM_ctrl_o(MEM_ctrl),
 
     .WB_ctrl_i(),
     .WB_ctrl_o(),
 
-    .ALU_output_i(),
+    .ALU_output_i(ALU.data_o),
     .ALU_output_o(),
 
-    .ALU_data_2_i(),
+    .ALU_data_2_i(Data_2_Mux.data_o),
     .ALU_data_2_o(),
 
-    .RegFwd_i(),
+    .RegFwd_i(Fwd_Mux.data_o),
     .RegFwd_o()
 );
 
