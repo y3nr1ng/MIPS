@@ -107,15 +107,16 @@ Latch IFID_Instr (
 */
 
 IFID_Reg IFID_Reg(
-	.clk		(),
+	.clk		(clk),
 	
-	.flush		(),
-	.stall		(),
+	.flush		(flush_wire),
+	.stall		(HDU.stall || L1Cache.p1_stall_o),
 
-	.PC_Inc_i	(),
+	.PC_Inc_i	(PC_Inc.data_o),
 	.PC_Inc_o	(),
-	.InstrMem_i	(),
-	.InstrMem_o	()
+
+	.InstrMem_i	(InstrMem.data_o),
+	.InstrMem_o	(instr)
 );
 
 
@@ -147,7 +148,7 @@ SignExtend SignExt (
 );
 
 Adder PC_BranchAddr (
-	.data_1			(IFID_PC_Inc.data_o),
+	.data_1			(IFID_Reg.PC_Inc_o),
 	.data_2			({ SignExt.data_o[29:0], 2'b0 }),
 	.data_o			()
 );
