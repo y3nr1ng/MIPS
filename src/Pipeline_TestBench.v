@@ -44,7 +44,8 @@ initial begin
 
     // Set Input n into data memory at 0x00
     CPU.DataMem.memory[0] = 8'h5;       // n = 5 for example
-
+	
+/*
    	clk = 1;
 	start = 0;
     reset = 1;
@@ -55,6 +56,14 @@ initial begin
     #(`CYCLE_TIME/4)
 	start = 1;
 	reset = 1;
+*/
+	clk = 0;
+	reset = 0;
+	start = 0;
+		
+	#(`CYCLE_TIME/4)
+	reset = 1;
+	start = 1;
 
 end
 
