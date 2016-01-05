@@ -4,59 +4,40 @@ add wave -noupdate -label Clock -radix binary -radixshowbase 0 /Cache_TestBench/
 add wave -noupdate -label Reset -radix binary -radixshowbase 0 /Cache_TestBench/CPU/rst
 add wave -noupdate -label Start -radix binary -radixshowbase 0 /Cache_TestBench/CPU/start
 add wave -noupdate -divider <NULL>
+add wave -noupdate -expand -group CPU -group {Program Counter} -divider {PC Multiplexer}
+add wave -noupdate -expand -group CPU -group {Program Counter} -radix decimal /Cache_TestBench/CPU/PC_Mux/data_1
+add wave -noupdate -expand -group CPU -group {Program Counter} -radix decimal /Cache_TestBench/CPU/PC_Mux/data_2
+add wave -noupdate -expand -group CPU -group {Program Counter} -radix decimal /Cache_TestBench/CPU/PC_Mux/data_3
+add wave -noupdate -expand -group CPU -group {Program Counter} -radix decimal /Cache_TestBench/CPU/PC_Mux/data_4
+add wave -noupdate -expand -group CPU -group {Program Counter} /Cache_TestBench/CPU/PC_Mux/sel
+add wave -noupdate -expand -group CPU -group {Program Counter} -radix decimal /Cache_TestBench/CPU/PC_Mux/data_o
+add wave -noupdate -expand -group CPU -group {Program Counter} -divider {Program Counter}
+add wave -noupdate -expand -group CPU -group {Program Counter} -label WE -radix binary -radixshowbase 0 /Cache_TestBench/CPU/PC/we
+add wave -noupdate -expand -group CPU -group {Program Counter} -radix decimal /Cache_TestBench/CPU/PC/addr_i
+add wave -noupdate -expand -group CPU -group {Program Counter} -radix decimal /Cache_TestBench/CPU/PC/addr_o
+add wave -noupdate -expand -group CPU -group {Program Counter} -divider {PC Adder}
+add wave -noupdate -expand -group CPU -group {Program Counter} -radix decimal /Cache_TestBench/CPU/PC_Inc/data_1
+add wave -noupdate -expand -group CPU -group {Program Counter} -radix decimal /Cache_TestBench/CPU/PC_Inc/data_2
+add wave -noupdate -expand -group CPU -group {Program Counter} -radix decimal /Cache_TestBench/CPU/PC_Inc/data_o
+add wave -noupdate -expand -group CPU -expand -group {Instruction Memory} -label CS -radix binary -radixshowbase 0 /Cache_TestBench/CPU/InstrMem/cs
+add wave -noupdate -expand -group CPU -expand -group {Instruction Memory} -label WE -radix binary -radixshowbase 0 /Cache_TestBench/CPU/InstrMem/we
+add wave -noupdate -expand -group CPU -expand -group {Instruction Memory} -label {Data In} -radix hexadecimal -radixshowbase 0 /Cache_TestBench/CPU/InstrMem/data_i
+add wave -noupdate -expand -group CPU -expand -group {Instruction Memory} -label {Data Out} -radix hexadecimal -radixshowbase 0 /Cache_TestBench/CPU/InstrMem/data_o
+add wave -noupdate -expand -group CPU -expand -group {IFID Latch} -label Clock -radix binary -radixshowbase 0 /Cache_TestBench/CPU/IFID_Instr/clk
+add wave -noupdate -expand -group CPU -expand -group {IFID Latch} -label Reset -radix binary -radixshowbase 0 /Cache_TestBench/CPU/IFID_Instr/rst
+add wave -noupdate -expand -group CPU -expand -group {IFID Latch} -label EN -radix binary -radixshowbase 0 /Cache_TestBench/CPU/IFID_Instr/en
+add wave -noupdate -expand -group CPU -expand -group {IFID Latch} -label {Data In} -radix hexadecimal -radixshowbase 0 /Cache_TestBench/CPU/IFID_Instr/data_i
+add wave -noupdate -expand -group CPU -expand -group {IFID Latch} -label {Data Out} -radix hexadecimal -radixshowbase 0 /Cache_TestBench/CPU/IFID_Instr/data_o
 add wave -noupdate -group ROM -label Address -radix hexadecimal -radixshowbase 0 /Cache_TestBench/CPU/DataMem/addr_i
 add wave -noupdate -group ROM -label CS -radix binary -radixshowbase 0 /Cache_TestBench/CPU/DataMem/cs
 add wave -noupdate -group ROM -label WE -radix binary -radixshowbase 0 /Cache_TestBench/CPU/DataMem/we
 add wave -noupdate -group ROM -label {Data In} -radix decimal -radixshowbase 0 /Cache_TestBench/CPU/DataMem/data_i
 add wave -noupdate -group ROM -label {Data Out} -radix decimal -radixshowbase 0 /Cache_TestBench/CPU/DataMem/data_o
 add wave -noupdate -divider <NULL>
-add wave -noupdate -label PC -radix decimal /Cache_TestBench/CPU/PC/addr_o
-add wave -noupdate -label {FSM State} /Cache_TestBench/CPU/L1Cache/state
-add wave -noupdate -label p1_stall_o -radix binary -radixshowbase 0 /Cache_TestBench/CPU/L1Cache/p1_stall_o
-add wave -noupdate -label p1_addr_i -radix hexadecimal /Cache_TestBench/CPU/L1Cache/p1_addr_i
-add wave -noupdate -label p1_MemRead_i -radix binary -radixshowbase 0 /Cache_TestBench/CPU/L1Cache/p1_MemRead_i
-add wave -noupdate -label p1_MemWrite_i -radix binary -radixshowbase 0 /Cache_TestBench/CPU/L1Cache/p1_MemWrite_i
-add wave -noupdate -label hit -radix binary -radixshowbase 0 /Cache_TestBench/CPU/L1Cache/hit
-add wave -noupdate -radix binary /Cache_TestBench/CPU/L1Cache/mem_enable_o
-add wave -noupdate -radix binary /Cache_TestBench/CPU/L1Cache/mem_write_o
-add wave -noupdate -radix hexadecimal /Cache_TestBench/CPU/L1Cache/mem_data_i
-add wave -noupdate -radix decimal /Cache_TestBench/CPU/L1Cache/mem_data_o
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/mem_ack_i
-add wave -noupdate -radix hexadecimal /Cache_TestBench/CPU/L1Cache/mem_addr_o
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/cache_we
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/mem_enable
-add wave -noupdate -radix hexadecimal /Cache_TestBench/CPU/L1Cache/p1_data_i
-add wave -noupdate -radix decimal /Cache_TestBench/CPU/L1Cache/p1_data_o
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/cache_sram_index
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/cache_sram_enable
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/cache_sram_tag
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/cache_sram_data
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/cache_sram_write
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/sram_cache_tag
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/sram_cache_data
-add wave -noupdate -radix binary /Cache_TestBench/CPU/L1Cache/sram_valid
-add wave -noupdate -radix binary /Cache_TestBench/CPU/L1Cache/sram_dirty
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/mem_write
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/cache_dirty
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/write_back
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/p1_offset
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/p1_index
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/p1_tag
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/r_hit_data
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/sram_tag
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/w_hit_data
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/write_hit
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/p1_req
-add wave -noupdate /Cache_TestBench/CPU/L1Cache/p1_data
-add wave -noupdate /Cache_TestBench/CPU/PC/clk
-add wave -noupdate /Cache_TestBench/CPU/PC/rst
-add wave -noupdate /Cache_TestBench/CPU/PC/start
-add wave -noupdate /Cache_TestBench/CPU/PC/addr_i
-add wave -noupdate /Cache_TestBench/CPU/PC/addr_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {3466 ps} 0}
+WaveRestoreCursors {{Cursor 1} {37 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 320
+configure wave -namecolwidth 292
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -70,4 +51,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {3410 ps} {4202 ps}
+WaveRestoreZoom {0 ps} {270 ps}
