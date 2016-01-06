@@ -9,10 +9,14 @@ module IFID_Reg (
 	input	[32-1:0]	InstrMem_i,
 	output	[32-1:0]	InstrMem_o
 );
+	
+	reg r_flush;
+	always @ (posedge clk or negedge flush)
+		r_flush = ~flush;
 
 	Latch IFID_PC_Inc (
 		.clk	(clk),
-		.rst	(~flush),
+		.rst	(r_flush),
 		.we		(~stall),
 		.data_i	(PC_Inc_i),
 		.data_o	(PC_Inc_o)
@@ -20,7 +24,7 @@ module IFID_Reg (
 
 	Latch IFID_Instr (
 		.clk	(clk),
-		.rst	(~flush),
+		.rst	(r_flush),
 		.we		(~stall),
 		.data_i	(InstrMem_i),
 		.data_o	(InstrMem_o)

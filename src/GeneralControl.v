@@ -114,8 +114,8 @@ module GeneralControl (
 			`J_op	:
 			begin
 				PC_ctrl_o	= { 1'b1, 1'b0 };
-				EX_ctrl_o	= { 3'bz, 1'bz, 1'bz };
-				MEM_ctrl_o	= { 1'bz, 1'b0 };
+				EX_ctrl_o	= { 3'b0, 1'b0, 1'b0 }; //even 3'bz, 1'bz, 1'bz
+				MEM_ctrl_o	= { 1'b0, 1'b0 }; // 1'bz, 1'b0
 				WB_ctrl_o	= { 1'bz, 1'b0 };
 			end
 
@@ -134,9 +134,9 @@ module GeneralControl (
 			default:
 			begin
 				PC_ctrl_o	= 2'b0;
-				EX_ctrl_o	= 5'bz;
+				EX_ctrl_o	= 5'b0; //even 5'bz
 				MEM_ctrl_o	= 2'b0; //2'bz;
-				WB_ctrl_o	= 2'bz0;
+				WB_ctrl_o	= 2'b0; //2'bz0;
 			end
 		endcase
 	end

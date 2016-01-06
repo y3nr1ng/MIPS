@@ -91,25 +91,6 @@ ROM #(.mem_size(1024)) InstrMem (
 /**
  * IF/ID
  */
-
-/*
-Latch IFID_PC_Inc (
-	.clk			(clk && ~HDU.stall && ~L1Cache.p1_stall_o),
-	.rst			(!flush_wire),
-	.en				(1'b1),
-	.data_i			(PC_Inc.data_o),
-	.data_o			()
-);
-
-Latch IFID_Instr (
-	.clk			(clk && ~HDU.stall && ~L1Cache.p1_stall_o),
-	.rst			(!flush_wire),
-	.en				(1'b1),
-	.data_i			(InstrMem.data_o),
-	.data_o			(instr)
-);
-*/
-
 IFID_Reg IFID_Reg(
 	.clk		(clk),
 
@@ -341,7 +322,7 @@ EXMEM_Reg EXMEM_Reg(
  * MEM
  */
 
-ROM #(.mem_size(32)) DataMem (
+DRAM #(.mem_size(32)) DataMem (
 	.clk			(clk),
 	.addr_i			(EXMEM_Reg.ALU_output_o),
 	.data_i			(EXMEM_Reg.ALU_data_2_o),

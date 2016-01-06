@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/CA-Project
 vAdder
-Z1 !s110 1451998512
+Z1 !s110 1452069669
 !i10b 1
 !s100 CfI;1:ZA1PPZ;PSS;WXWj1
 IlVEV?8HfoThW:5G2fjUdn1
@@ -23,20 +23,20 @@ Z3 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1451998512.809000
+!s108 1452069669.326000
 !s107 C:/CA-Project/src/Adder.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/Adder.v|
 !i113 1
 Z4 o-work mips
 n@adder
 vALU
-Z5 !s110 1451998513
+R1
 !i10b 1
 !s100 cBALdm`WaeUC83SP1g7;a2
 I3h3:j6ZOO^;hE=Vh<6XKh0
 R2
 R0
-Z6 w1449558760
+Z5 w1449558760
 8C:/CA-Project/src/ALU.v
 FC:/CA-Project/src/ALU.v
 L0 3
@@ -44,7 +44,7 @@ R3
 r1
 !s85 0
 31
-!s108 1451998513.068000
+!s108 1452069669.571000
 !s107 C:\CA-Project\src\LookupTable.v|C:/CA-Project/src/ALU.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/ALU.v|
 !i113 1
@@ -57,7 +57,7 @@ R1
 I^KJXZEIX=OgzhcUSBoO<F2
 R2
 R0
-R6
+R5
 8C:/CA-Project/src/Comparer.v
 FC:/CA-Project/src/Comparer.v
 L0 1
@@ -65,20 +65,20 @@ R3
 r1
 !s85 0
 31
-!s108 1451998512.682000
+!s108 1452069669.204000
 !s107 C:/CA-Project/src/Comparer.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/Comparer.v|
 !i113 1
 R4
 n@comparer
 vCPU
-!s110 1452067928
+!s110 1452083938
 !i10b 1
-!s100 :IV5?Mb1iISPTP=L=<^OJ1
-IJbY7<l:jV3GDGY_>3Nj@i3
+!s100 C205?zW@@PzKoHD6b0V[=1
+IPF;=bo3R`>l?[aR5zlX>W0
 R2
 R0
-w1452067927
+w1452083936
 8C:/CA-Project/src/CPU.v
 FC:/CA-Project/src/CPU.v
 L0 3
@@ -86,20 +86,20 @@ R3
 r1
 !s85 0
 31
-!s108 1452067928.868000
+!s108 1452083938.827000
 !s107 C:\CA-Project\src\LookupTable.v|C:/CA-Project/src/CPU.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/CPU.v|
 !i113 1
 R4
 n@c@p@u
 vData_Memory
-Z7 !s110 1451998514
+Z6 !s110 1452069670
 !i10b 1
 !s100 H^l4_VX2fTOiQFY0GE_Tc1
 IL4MT8U;NU]Pan?SjeK0UG2
 R2
 R0
-Z8 w1451701038
+Z7 w1451701038
 8C:/CA-Project/src/Data_Memory.v
 FC:/CA-Project/src/Data_Memory.v
 L0 1
@@ -107,20 +107,20 @@ R3
 r1
 !s85 0
 31
-!s108 1451998514.375000
+!s108 1452069670.862000
 !s107 C:/CA-Project/src/Data_Memory.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/Data_Memory.v|
 !i113 1
 R4
 n@data_@memory
 vdcache_data_sram
-R7
+R6
 !i10b 1
 !s100 G4eech4?^c?iYR:ZQ5:LC2
 IZXRmnF<b9DkAFe;@@mGmb3
 R2
 R0
-R8
+R7
 8C:/CA-Project/src/dcache_data_sram.v
 FC:/CA-Project/src/dcache_data_sram.v
 L0 1
@@ -128,19 +128,19 @@ R3
 r1
 !s85 0
 31
-!s108 1451998514.492000
+!s108 1452069670.973000
 !s107 C:/CA-Project/src/dcache_data_sram.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/dcache_data_sram.v|
 !i113 1
 R4
 vdcache_tag_sram
-R7
+R6
 !i10b 1
 !s100 iXoGmQB5=JYO8?kIaFVOZ2
 IF_>Rz79]J5PPOYgl8Y>Gm1
 R2
 R0
-R8
+R7
 8C:/CA-Project/src/dcache_tag_sram.v
 FC:/CA-Project/src/dcache_tag_sram.v
 L0 1
@@ -148,13 +148,13 @@ R3
 r1
 !s85 0
 31
-!s108 1451998514.240000
+!s108 1452069670.754000
 !s107 C:/CA-Project/src/dcache_tag_sram.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/dcache_tag_sram.v|
 !i113 1
 R4
 vDecoder_3to8
-R7
+R6
 !i10b 1
 !s100 ]E3bAR`]WbAmVjG[M3HIM3
 I]G6SM4F6WA]R^aY;`W9=f1
@@ -168,14 +168,35 @@ R3
 r1
 !s85 0
 31
-!s108 1451998513.997000
+!s108 1452069670.532000
 !s107 C:/CA-Project/src/Decoder_3to8.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/Decoder_3to8.v|
 !i113 1
 R4
 n@decoder_3to8
+vDRAM
+!s110 1452086066
+!i10b 1
+!s100 7PMBYXG=LcA2A]mJH<`173
+I:^Ai6gC[NQHf4@RmmoQHK2
+R2
+R0
+w1452086064
+8C:/CA-Project/src/DRAM.v
+FC:/CA-Project/src/DRAM.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1452086066.049000
+!s107 C:/CA-Project/src/DRAM.v|
+!s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/DRAM.v|
+!i113 1
+R4
+n@d@r@a@m
 vEXMEM_Reg
-R7
+Z8 !s110 1452069671
 !i10b 1
 !s100 zagzOJ=gfY1nboSfUWmMK3
 I<8Y:iS4c1IQmXN6VR>8DX0
@@ -189,14 +210,14 @@ R3
 r1
 !s85 0
 31
-!s108 1451998514.975000
+!s108 1452069671.426000
 !s107 C:/CA-Project/src/EXMEM_Reg.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/EXMEM_Reg.v|
 !i113 1
 R4
 n@e@x@m@e@m_@reg
 vForwardingUnit
-Z9 !s110 1451998511
+Z9 !s110 1452069668
 !i10b 1
 !s100 ZL0RAdB1cXc>[l4KXf96;0
 I<`9jK`c=a7NhCUFca:DW10
@@ -210,20 +231,20 @@ R3
 r1
 !s85 0
 31
-!s108 1451998511.496000
+!s108 1452069668.205000
 !s107 C:/CA-Project/src/ForwardingUnit.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/ForwardingUnit.v|
 !i113 1
 R4
 n@forwarding@unit
 vGeneralControl
-!s110 1452066098
+!s110 1452080879
 !i10b 1
-!s100 1LNXkn?0z>dcnb[_=[iJb0
-I97`gL<4:B2U7nzW5V;J6^1
+!s100 TUZ:@ZEGWVES3]<M5LgND2
+IkmCmB];SB6bmOi^B0N7b>3
 R2
 R0
-w1452066097
+w1452080853
 8C:/CA-Project/src/GeneralControl.v
 FC:/CA-Project/src/GeneralControl.v
 L0 3
@@ -231,14 +252,14 @@ R3
 r1
 !s85 0
 31
-!s108 1452066098.560000
+!s108 1452080879.686000
 !s107 C:\CA-Project\src\LookupTable.v|C:/CA-Project/src/GeneralControl.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/GeneralControl.v|
 !i113 1
 R4
 n@general@control
 vHazardDetectionUnit
-!s110 1452008014
+R1
 !i10b 1
 !s100 7fAb6OL0FIn3FY0DSVdTj1
 In6R`7PhX9ZHXI_:ANOOVP3
@@ -252,14 +273,14 @@ R3
 r1
 !s85 0
 31
-!s108 1452008014.223000
+!s108 1452069669.449000
 !s107 C:/CA-Project/src/HazardDetectionUnit.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/HazardDetectionUnit.v|
 !i113 1
 R4
 n@hazard@detection@unit
 vIDEX_Reg
-R7
+R8
 !i10b 1
 !s100 @_=]VJ4<`>Dd5hm]KA1<m3
 I4Df[Pac4Z8O;=J_Um0Hn52
@@ -273,35 +294,35 @@ R3
 r1
 !s85 0
 31
-!s108 1451998514.858000
+!s108 1452069671.310000
 !s107 C:/CA-Project/src/IDEX_Reg.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/IDEX_Reg.v|
 !i113 1
 R4
 n@i@d@e@x_@reg
 vIFID_Reg
-R7
+!s110 1452082601
 !i10b 1
-!s100 B;zlPkPPH1g@1gT9I1CoQ0
-I3ARe^ba0f9j4HPjki2U`]2
+!s100 R]hcI6O1l_dZU^`N0cl^72
+IOG:fQgE8T=n76VRL?i8_?1
 R2
 R0
-w1451996114
-8C:/CA-Project/src/IFID_Reg.v
-FC:/CA-Project/src/IFID_Reg.v
+w1452082597
+Z10 8C:/CA-Project/src/IFID_Reg.v
+Z11 FC:/CA-Project/src/IFID_Reg.v
 L0 1
 R3
 r1
 !s85 0
 31
-!s108 1451998514.740000
-!s107 C:/CA-Project/src/IFID_Reg.v|
-!s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/IFID_Reg.v|
+!s108 1452082601.142000
+Z12 !s107 C:/CA-Project/src/IFID_Reg.v|
+Z13 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/IFID_Reg.v|
 !i113 1
 R4
 n@i@f@i@d_@reg
 vL1Cache_top
-!s110 1452011114
+R8
 !i10b 1
 !s100 He0eK:4ZhN?@YIZe@Pe^T1
 I>WLmRJnzYSeQS0PEI:zb>0
@@ -315,20 +336,20 @@ R3
 r1
 !s85 0
 31
-!s108 1452011114.901000
+!s108 1452069671.086000
 !s107 C:/CA-Project/src/L1_Cache_Controller_ta.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/L1_Cache_Controller_ta.v|
 !i113 1
 R4
 n@l1@cache_top
 vLatch
-!s110 1451998860
+!s110 1452085523
 !i10b 1
 !s100 37U6n2W:Uj_c8U7k5oFA<2
 Ih>mXc9T8_4i@GeASL2YRa0
 R2
 R0
-w1451998859
+w1452085505
 8C:/CA-Project/src/Latch.v
 FC:/CA-Project/src/Latch.v
 L0 1
@@ -336,14 +357,35 @@ R3
 r1
 !s85 0
 31
-!s108 1451998860.574000
+!s108 1452085523.845000
 !s107 C:/CA-Project/src/Latch.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/Latch.v|
 !i113 1
 R4
 n@latch
+vLatch_F
+!s110 1452079059
+!i10b 1
+!s100 K^[cO?:Y2d:@QW;zXdRTA1
+Id3HoFz1G3^^zYGlUP<oN51
+R2
+R0
+w1452079056
+R10
+R11
+L0 31
+R3
+r1
+!s85 0
+31
+!s108 1452079059.355000
+R12
+R13
+!i113 1
+R4
+n@latch_@f
 vMEMWB_Reg
-!s110 1451998515
+R8
 !i10b 1
 !s100 blDhFmNVM>n3<A1SNl3Gn1
 Io=QoC_YV]lMbI=aF1bAVH0
@@ -357,7 +399,7 @@ R3
 r1
 !s85 0
 31
-!s108 1451998515.084000
+!s108 1452069671.538000
 !s107 C:/CA-Project/src/MEMWB_Reg.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/MEMWB_Reg.v|
 !i113 1
@@ -370,7 +412,7 @@ R1
 InVSEAUJoiX8N;BRb:TAb41
 R2
 R0
-R6
+R5
 8C:/CA-Project/src/Multiplexer2Way.v
 FC:/CA-Project/src/Multiplexer2Way.v
 L0 1
@@ -378,20 +420,20 @@ R3
 r1
 !s85 0
 31
-!s108 1451998512.556000
+!s108 1452069669.097000
 !s107 C:/CA-Project/src/Multiplexer2Way.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/Multiplexer2Way.v|
 !i113 1
 R4
 n@multiplexer2@way
 vMultiplexer4Way
-R1
+R9
 !i10b 1
 !s100 F_2SOm[CTI`2NXG:QR5Ib2
 I]Po5V9BcAjmH9<_M`:^mM2
 R2
 R0
-R6
+R5
 8C:/CA-Project/src/Multiplexer4Way.v
 FC:/CA-Project/src/Multiplexer4Way.v
 L0 1
@@ -399,14 +441,14 @@ R3
 r1
 !s85 0
 31
-!s108 1451998512.192000
+!s108 1452069668.786000
 !s107 C:/CA-Project/src/Multiplexer4Way.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/Multiplexer4Way.v|
 !i113 1
 R4
 n@multiplexer4@way
 vMultiplexer8Way
-R5
+R1
 !i10b 1
 !s100 dB1ODm4RS_?0eE<BW<GD>1
 IEa<UUIb3d;<S<JDaS4iFz1
@@ -420,20 +462,20 @@ R3
 r1
 !s85 0
 31
-!s108 1451998513.194000
+!s108 1452069669.695000
 !s107 C:/CA-Project/src/Multiplexer8Way.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/Multiplexer8Way.v|
 !i113 1
 R4
 n@multiplexer8@way
 vProgramCounter
-!s110 1452010203
+!s110 1452079212
 !i10b 1
 !s100 Ch2Ki8iEJiOM6mNPMe[V>2
 I8C==6FJ=UNaA6jmMR[B8L1
 R2
 R0
-w1452010199
+w1452079210
 8C:/CA-Project/src/ProgramCounter.v
 FC:/CA-Project/src/ProgramCounter.v
 L0 1
@@ -441,20 +483,20 @@ R3
 r1
 !s85 0
 31
-!s108 1452010203.156000
+!s108 1452079212.800000
 !s107 C:/CA-Project/src/ProgramCounter.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/ProgramCounter.v|
 !i113 1
 R4
 n@program@counter
 vRegisters
-R9
+!s110 1452085083
 !i10b 1
-!s100 bToI@zXWVbBO=4kUEBfR_2
-IY>Zm::lc6QX9F@LeCT`kc1
+!s100 b21amJ1QdCaC=@<o_o8?a1
+IO<`YhQQS;T5^chgfZOlP52
 R2
 R0
-w1451895288
+w1452085065
 8C:/CA-Project/src/Registers.v
 FC:/CA-Project/src/Registers.v
 L0 1
@@ -462,20 +504,20 @@ R3
 r1
 !s85 0
 31
-!s108 1451998511.777000
+!s108 1452085083.543000
 !s107 C:/CA-Project/src/Registers.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/Registers.v|
 !i113 1
 R4
 n@registers
 vROM
-!s110 1452010697
+!s110 1452083956
 !i10b 1
-!s100 Q7mAo:YcW@O<iMgEb4QfM3
-I<b9nlgC8]SO2@eY76K@:I1
+!s100 <Xmf^fJU@_P8cdRQfRNg30
+IMH[JP[bzz:7lkIllBJDQC3
 R2
 R0
-w1452010696
+w1452083955
 8C:/CA-Project/src/ROM.v
 FC:/CA-Project/src/ROM.v
 L0 1
@@ -483,20 +525,20 @@ R3
 r1
 !s85 0
 31
-!s108 1452010697.866000
+!s108 1452083956.614000
 !s107 C:/CA-Project/src/ROM.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/ROM.v|
 !i113 1
 R4
 n@r@o@m
 vSignExtend
-R1
+R9
 !i10b 1
 !s100 _UYz7J@15;0lUbBen^bgi1
 IR6@O<H753oGE;X1?Q^m183
 R2
 R0
-R6
+R5
 8C:/CA-Project/src/SignExtend.v
 FC:/CA-Project/src/SignExtend.v
 L0 1
@@ -504,7 +546,7 @@ R3
 r1
 !s85 0
 31
-!s108 1451998512.318000
+!s108 1452069668.895000
 !s107 C:/CA-Project/src/SignExtend.v|
 !s90 -reportprogress|300|-work|mips|-stats=none|C:/CA-Project/src/SignExtend.v|
 !i113 1

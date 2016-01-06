@@ -23,7 +23,7 @@ module Registers #(parameter width=32, size=32) (
 	end
 
 	// Write Data   
-	always@(posedge clk) begin
+	always@(negedge clk) begin
     	if(we)
     	    register[Rd_addr] <= Rd_data;
 	end
