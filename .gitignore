@@ -17,5 +17,8 @@ src/project1/
 # Diagram ~
 *.dia~
 
+# Waveform file
+wlf*
+
 # Test file
 test.v

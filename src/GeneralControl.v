@@ -30,16 +30,6 @@ module GeneralControl (
 	 * WB_mux -> 0: memory, 1:ALU
 	 */
 
-	initial begin
-		// Without default PC control value, 
-		//  PC multiplexer won't be able to select the value
-		//  from PC adder, which will result in float state.
-		PC_ctrl_o	= 2'b10;
-		EX_ctrl_o	= 5'b0;
-		MEM_ctrl_o	= 2'b0;
-		WB_ctrl_o	= 2'b0;
-	end
-
 	always @ (*)
 	begin
 		case (op_i)
@@ -90,9 +80,9 @@ module GeneralControl (
 				default		:
 				begin
 					PC_ctrl_o	= 2'b0;
-					EX_ctrl_o	= 5'b0;
-					MEM_ctrl_o	= 2'b0;
-					WB_ctrl_o	= 2'b0;
+					EX_ctrl_o	= 5'bz;
+					MEM_ctrl_o	= 2'bz;
+					WB_ctrl_o	= 2'bz0;
 				end
 			endcase
 			end
@@ -124,9 +114,9 @@ module GeneralControl (
 			`J_op	:
 			begin
 				PC_ctrl_o	= { 1'b1, 1'b0 };
-				EX_ctrl_o	= { 3'b0, 1'b0, 1'b0 };
-				MEM_ctrl_o	= { 1'b0, 1'b0 };
-				WB_ctrl_o	= { 1'b0, 1'b0 };
+				EX_ctrl_o	= { 3'bz, 1'bz, 1'bz };
+				MEM_ctrl_o	= { 1'bz, 1'b0 };
+				WB_ctrl_o	= { 1'bz, 1'b0 };
 			end
 
 			`BEQ_op	:
@@ -136,17 +126,17 @@ module GeneralControl (
 					PC_ctrl_o	= { 1'b1, 1'b1 };
 				else
 					PC_ctrl_o	= { 1'b0, 1'b0 };
-				EX_ctrl_o	= { 3'b0, 1'b0, 1'b0 };
-				MEM_ctrl_o	= { 1'b0, 1'b0 };
-				WB_ctrl_o	= { 1'b0, 1'b0 };
+				EX_ctrl_o	= { 3'bz, 1'bz, 1'bz };
+				MEM_ctrl_o	= { 1'bz, 1'b0 };
+				WB_ctrl_o	= { 1'bz, 1'b0 };
 			end
 
 			default:
 			begin
 				PC_ctrl_o	= 2'b0;
-				EX_ctrl_o	= 5'b0;
-				MEM_ctrl_o	= 2'b0;
-				WB_ctrl_o	= 2'b0;
+				EX_ctrl_o	= 5'bz;
+				MEM_ctrl_o	= 2'bz;
+				WB_ctrl_o	= 2'bz0;
 			end
 		endcase
 	end

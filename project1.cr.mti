@@ -181,19 +181,19 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	FourWayMux_TestBench
 
-} {} {}} C:/CA-Project/src/GeneralControl.v {1 {vlog -work mips -stats=none C:/CA-Project/src/GeneralControl.v
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module GeneralControl
-
-Top level modules:
-	GeneralControl
-
 } {} {}} C:/CA-Project/src/IDEX_Reg.v {1 {vlog -work mips -stats=none C:/CA-Project/src/IDEX_Reg.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module IDEX_Reg
 
 Top level modules:
 	IDEX_Reg
+
+} {} {}} C:/CA-Project/src/CPU.v {1 {vlog -work mips -stats=none C:/CA-Project/src/CPU.v
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module CPU
+
+Top level modules:
+	CPU
 
 } {} {}} C:/CA-Project/src/ProgramCounter.v {1 {vlog -work mips -stats=none C:/CA-Project/src/ProgramCounter.v
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
