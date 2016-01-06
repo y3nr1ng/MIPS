@@ -81,7 +81,7 @@ module GeneralControl (
 				begin
 					PC_ctrl_o	= 2'b0;
 					EX_ctrl_o	= 5'bz;
-					MEM_ctrl_o	= 2'bz;
+					MEM_ctrl_o	= 2'b0; //2'bz;
 					WB_ctrl_o	= 2'bz0;
 				end
 			endcase
@@ -135,7 +135,7 @@ module GeneralControl (
 			begin
 				PC_ctrl_o	= 2'b0;
 				EX_ctrl_o	= 5'bz;
-				MEM_ctrl_o	= 2'bz;
+				MEM_ctrl_o	= 2'b0; //2'bz;
 				WB_ctrl_o	= 2'bz0;
 			end
 		endcase
