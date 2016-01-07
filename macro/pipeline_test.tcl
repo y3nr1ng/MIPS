@@ -17,10 +17,12 @@ add wave -noupdate -expand -group IF -label CS -radix binary -radixshowbase 0 /P
 add wave -noupdate -expand -group IF -label WE -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/InstrMem/we
 add wave -noupdate -expand -group IF -label {Instruction Out} -radixshowbase 0 /Pipeline_TestBench/CPU/InstrMem/data_o
 add wave -noupdate -expand -group IF/ID -label {IF/ID Flush} -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/IFID_Reg/flush
+add wave -noupdate -expand -group IF/ID -label {Flush Reg} -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/IFID_Reg/r_flush
 add wave -noupdate -expand -group IF/ID -label {IF/ID Stall} -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/IFID_Reg/stall
 add wave -noupdate -expand -group IF/ID -label {Pre PC Increment} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/IFID_Reg/PC_Inc_i
-add wave -noupdate -expand -group IF/ID -label {Post PC Increment} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/IFID_Reg/PC_Inc_o
 add wave -noupdate -expand -group IF/ID -label {Pre Instr} -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/IFID_Reg/InstrMem_i
+add wave -noupdate -expand -group IF/ID -divider <NULL>
+add wave -noupdate -expand -group IF/ID -label {Post PC Increment} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/IFID_Reg/PC_Inc_o
 add wave -noupdate -expand -group IF/ID -label {Post Instr} -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/IFID_Reg/InstrMem_o
 add wave -noupdate -expand -group ID -label Op -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/instr_op
 add wave -noupdate -expand -group ID -label Func -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/instr_func
@@ -35,13 +37,19 @@ add wave -noupdate -expand -group ID -label {Rd Address} -radix unsigned /Pipeli
 add wave -noupdate -expand -group ID -label {Data Immediate} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/instr_imm
 add wave -noupdate -expand -group ID -label {Address Immediate} -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/addr_imm
 add wave -noupdate -expand -group EX -label {ALU Op} -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/ALU/ALUop_i
+add wave -noupdate -expand -group EX -expand -group {Data 1 Multiplexer} -label {Data 1} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/Data_1_Mux/data_1
+add wave -noupdate -expand -group EX -expand -group {Data 1 Multiplexer} -label {Data 2} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/Data_1_Mux/data_2
+add wave -noupdate -expand -group EX -expand -group {Data 1 Multiplexer} -label {Data 3} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/Data_1_Mux/data_3
+add wave -noupdate -expand -group EX -expand -group {Data 1 Multiplexer} -label {Data 4} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/Data_1_Mux/data_4
+add wave -noupdate -expand -group EX -expand -group {Data 1 Multiplexer} -label sel -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/Data_1_Mux/sel
+add wave -noupdate -expand -group EX -expand -group {Data 1 Multiplexer} -label {Data Out} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/Data_1_Mux/data_o
 add wave -noupdate -expand -group EX -label {Data 1} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/ALU/data_1
 add wave -noupdate -expand -group EX -label {Data 2} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/ALU/data_2
 add wave -noupdate -expand -group EX -label {Data Out} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/ALU/data_o
 add wave -noupdate -expand -group EX -label {Is Zero} -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/ALU/is_zero
-add wave -noupdate -expand -group EX -expand -group HDU -label IFID_Rs -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/HDU/IFID_Rs_i
-add wave -noupdate -expand -group EX -expand -group HDU -label IFID_Rt -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/HDU/IFID_Rt_i
-add wave -noupdate -expand -group EX -expand -group HDU -label IDEX_Rt -radix decimal /Pipeline_TestBench/CPU/HDU/IDEX_Rt_i
+add wave -noupdate -expand -group EX -expand -group HDU -label IFID_Rs -radix unsigned -radixshowbase 0 /Pipeline_TestBench/CPU/HDU/IFID_Rs_i
+add wave -noupdate -expand -group EX -expand -group HDU -label IFID_Rt -radix unsigned -radixshowbase 0 /Pipeline_TestBench/CPU/HDU/IFID_Rt_i
+add wave -noupdate -expand -group EX -expand -group HDU -label IDEX_Rt -radix unsigned /Pipeline_TestBench/CPU/HDU/IDEX_Rt_i
 add wave -noupdate -expand -group EX -expand -group HDU -label {IDEX_Mem CS} -radix binary /Pipeline_TestBench/CPU/HDU/IDEX_Mem_cs
 add wave -noupdate -expand -group EX -expand -group HDU -label Stall -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/HDU/stall
 add wave -noupdate -expand -group MEM -label Address -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/DataMem/addr_i
@@ -55,16 +63,20 @@ add wave -noupdate -expand -group MEM/WB -divider <NULL>
 add wave -noupdate -expand -group MEM/WB -label {Pre WB_ctrl} -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/MEMWB_Reg/WB_ctrl_i
 add wave -noupdate -expand -group MEM/WB -label {Pre ALU_output} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/MEMWB_Reg/ALU_output_i
 add wave -noupdate -expand -group MEM/WB -label {Pre Mem_output} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/MEMWB_Reg/Mem_output_i
-add wave -noupdate -expand -group MEM/WB -label {Pre RegFwd} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/MEMWB_Reg/RegFwd_i
+add wave -noupdate -expand -group MEM/WB -label {Pre RegFwd} -radix unsigned -radixshowbase 0 /Pipeline_TestBench/CPU/MEMWB_Reg/RegFwd_i
 add wave -noupdate -expand -group MEM/WB -divider <NULL>
 add wave -noupdate -expand -group MEM/WB -label {Post WB_ctrl} -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/MEMWB_Reg/WB_ctrl_o
 add wave -noupdate -expand -group MEM/WB -label {Post ALU_output} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/MEMWB_Reg/ALU_output_o
 add wave -noupdate -expand -group MEM/WB -label {Post Mem_output} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/MEMWB_Reg/Mem_output_o
-add wave -noupdate -expand -group MEM/WB -label {Post RegFwd} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/MEMWB_Reg/RegFwd_o
+add wave -noupdate -expand -group MEM/WB -label {Post RegFwd} -radix unsigned -radixshowbase 0 /Pipeline_TestBench/CPU/MEMWB_Reg/RegFwd_o
+add wave -noupdate -expand -group WB -label {Data 1} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/WB_Mux/data_1
+add wave -noupdate -expand -group WB -label {Data 2} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/WB_Mux/data_2
+add wave -noupdate -expand -group WB -label sel -radix binary -radixshowbase 0 /Pipeline_TestBench/CPU/WB_Mux/sel
+add wave -noupdate -expand -group WB -label {Data Out} -radix decimal -radixshowbase 0 /Pipeline_TestBench/CPU/WB_Mux/data_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {742 ps} 0}
+WaveRestoreCursors {{Cursor 1} {593 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 406
+configure wave -namecolwidth 224
 configure wave -valuecolwidth 213
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -78,4 +90,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {568 ps} {837 ps}
+WaveRestoreZoom {387 ps} {1033 ps}

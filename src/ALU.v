@@ -1,11 +1,17 @@
 `include "LookupTable.v"
 
-module ALU (
-	input		[2:0]	ALUop_i,
-	input		[31:0]	data_1, data_2,
-	output reg	[31:0]	data_o,
-	output reg			is_zero
+module ALU 
+#(
+	parameter data_width = 32
+)
+(
+	input		[2:0]				ALUop_i,
+	input		[data_width-1:0]	data_1, data_2,
+	output reg 	[data_width-1:0]	data_o,
+	output 							is_zero
 );
+
+	assign is_zero = (data_o == {data_width{1'b0}});
 
 	always @ (*)
 	begin
@@ -16,8 +22,6 @@ module ALU (
 			`AND_alu	:	data_o = data_1 & data_2;
 			`OR_alu		:	data_o = data_1 | data_2;
 		endcase
-
-		is_zero = (data_o == 32'b0);
 	end
 
 endmodule

@@ -1,5 +1,6 @@
 module IFID_Reg (
 	input				clk,
+	input				rst,
 	
 	input				flush,
 	input				stall,
@@ -10,13 +11,30 @@ module IFID_Reg (
 	output	[32-1:0]	InstrMem_o
 );
 	
+/*
+	reg r_reset;
+	always @ (negedge flush or negedge rst) begin
+		if(~rst)
+			r_reset <= 1;
+		else begin
+			r_reset <= flush;
+			#(10) // TODO: Change this to CYCLE_TIME
+			r_reset <= 1;
+		end
+	end
+*/
+
 	reg r_flush;
-	always @ (posedge clk or negedge flush)
-		r_flush = ~flush;
+	always @ (negedge flush) begin
+		r_flush <= 1'b1;
+		@ (negedge clk) begin
+			r_flush <= 1'b0;
+		end
+	end
 
 	Latch IFID_PC_Inc (
 		.clk	(clk),
-		.rst	(r_flush),
+		.rst	(~r_flush),
 		.we		(~stall),
 		.data_i	(PC_Inc_i),
 		.data_o	(PC_Inc_o)
@@ -24,7 +42,7 @@ module IFID_Reg (
 
 	Latch IFID_Instr (
 		.clk	(clk),
-		.rst	(r_flush),
+		.rst	(~r_flush),
 		.we		(~stall),
 		.data_i	(InstrMem_i),
 		.data_o	(InstrMem_o)

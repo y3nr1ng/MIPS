@@ -7,10 +7,10 @@ module DRAM
 (
 	input							clk,
 	input		[addr_width-1:0]	addr_i,
-	input							cs,		
-	input							we,		
 	input 		[data_width-1:0] 	data_i,
-	output 		[data_width-1:0]	data_o
+	input							cs,		
+	input							we,			
+	output reg 	[data_width-1:0]	data_o
 );
 
 	reg	[data_width-1:0]	memory	[0:mem_size-1];
@@ -21,9 +21,17 @@ module DRAM
 			memory[i] = {data_width{1'b0}};
 	end
 
-	assign data_o = (cs) ? memory[addr_i >> 2] : {data_width{1'bz}};
+	always @ (posedge clk) begin
+		#(1)
+		if(cs) 
+			data_o <= memory[addr_i >> 2]; 
+		else
+			data_o <= {data_width{1'bz}};
+	end
 
-	always @ (posedge clk) 
-		memory[addr_i >> 2] <= data_i;
+	always @ (negedge clk) begin
+		if(we)
+			memory[addr_i >> 2] = data_i;
+	end
 
 endmodule

@@ -18,18 +18,18 @@ module ForwardingUnit (
 	always @ (*)
 	begin
 		if (EXMEM_WB_Reg_we && (EXMEM_Rd != 0) && (EXMEM_Rd == IDEX_Rs))
-			ALU_data_1_sel = 2'b10;
+			ALU_data_1_sel <= 2'b10;
 		else if (MEMWB_WB_Reg_we && (MEMWB_Rd != 0) && !((EXMEM_WB_Reg_we && (EXMEM_Rd != 0)) && (EXMEM_Rd == IDEX_Rs)) && (MEMWB_Rd == IDEX_Rs))
-			ALU_data_1_sel = 2'b01;
+			ALU_data_1_sel <= 2'b01;
 		else
-			ALU_data_1_sel = 2'b00;
+			ALU_data_1_sel <= 2'b00;
 
 		if (EXMEM_WB_Reg_we && (EXMEM_Rd != 0) && (EXMEM_Rd == IDEX_Rt))
-			ALU_data_2_sel = 2'b10;
+			ALU_data_2_sel <= 2'b10;
 		else if (MEMWB_WB_Reg_we && (MEMWB_Rd != 0) && !((EXMEM_WB_Reg_we && (EXMEM_Rd != 0)) && (EXMEM_Rd == IDEX_Rt)) && (MEMWB_Rd == IDEX_Rt))
-			ALU_data_2_sel = 2'b01;
+			ALU_data_2_sel <= 2'b01;
 		else
-			ALU_data_2_sel = 2'b00;
+			ALU_data_2_sel <= 2'b00;
 	end
 
 endmodule

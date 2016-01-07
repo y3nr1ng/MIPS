@@ -9,12 +9,16 @@ module Latch #(parameter width=32) (
 	initial begin
 		data_o = {width{1'b0}};
 	end
-
+	
 	always @ (posedge clk or negedge rst) begin
   		if(~rst)
    			data_o <= {width{1'b0}};
-  		else if(we)
-    		data_o <= data_i;
-    end
+  		else begin
+			if(we)
+    			data_o <= data_i;
+			else
+				data_o <= data_o;
+    	end
+	end
 
 endmodule

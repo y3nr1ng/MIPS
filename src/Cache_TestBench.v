@@ -5,7 +5,7 @@ module Cache_TestBench;
 
 	integer				i, outfile, outfile2, counter;
 
-	parameter			flush_cycle = 1500;
+	parameter			flush_cycle = 300;
 
 	reg					clk, rst, start;
 
@@ -116,20 +116,17 @@ module Cache_TestBench;
 
 	always @ (posedge clk) begin
 		// Store cache to memory.
-		if(counter == flush_cycle) begin
+		if(counter > flush_cycle)
+			$stop;
+		else if(counter == flush_cycle) begin
 			$fdisplay(outfile, "Flush Cache! \n");
 
 			for(i=0; i<32; i=i+1) begin
-			tag = CPU.L1Cache.dcache_tag_sram.memory[i];
-			index = i;
-			address = {tag[21:0], index};
-			Data_Memory.memory[address] = CPU.L1Cache.dcache_data_sram.memory[i];
-		end
-		end
-
-		// Stop the simulation.
-		if(counter > flush_cycle) begin
-			$stop;
+				tag = CPU.L1Cache.dcache_tag_sram.memory[i];
+				index = i;
+				address = {tag[21:0], index};
+				Data_Memory.memory[address] = CPU.L1Cache.dcache_data_sram.memory[i];
+			end
 		end
 
 		$fdisplay(outfile, "cycle = %d, Start = %b", counter, start);

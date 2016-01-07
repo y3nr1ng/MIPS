@@ -1,6 +1,5 @@
 module EXMEM_Reg (
     input       clk,
-    input       rst,
 
     input       flush,
     input       stall,

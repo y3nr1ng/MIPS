@@ -7,8 +7,8 @@ module Multiplexer2Way #(parameter width=32) (
 	always @ (*)
 	begin
 		case (sel)
-			1'b0	:	data_o = data_1;
-			1'b1	:	data_o = data_2;
+			1'b0	:	data_o <= data_1;
+			1'b1	:	data_o <= data_2;
 		endcase
 	end
 

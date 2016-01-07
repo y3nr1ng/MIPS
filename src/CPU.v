@@ -4,9 +4,10 @@ module CPU
 (
 	input		clk,
 	input		rst,
-	input		start //,
+	//input		start
 
-/*
+	input		start,
+
 	// External data memory interface .
 	output		[32-1:0]	ext_mem_addr,
 	input		[256-1:0]	ext_mem_data_i,
@@ -14,7 +15,6 @@ module CPU
 	output					ext_mem_we,
 	output		[256-1:0]	ext_mem_data_o,
 	input					ext_mem_ack
-*/
 
 );
 
@@ -66,7 +66,7 @@ ProgramCounter PC (
 	.rst			(rst),
 	.start			(start),
 	.we				(1'b1),
-	.stall			(HDU.stall), // || L1Cache.p1_stall_o),
+	.stall			(HDU.stall || L1Cache.p1_stall_o),
 	.addr_i			(PC_Mux.data_o),
 	.addr_o			()
 );
@@ -77,13 +77,11 @@ Adder PC_Inc (
 	.data_o			()
 );
 
-// Instruction memory acts as a ROM.
 ROM #(.mem_size(1024)) InstrMem (
 	.clk			(clk),
 	.addr_i 		(PC.addr_o),
 	.cs				(1'b1),
 	.we				(1'b0),
-	.data_i			(),
 	.data_o			()
 );
 
@@ -93,9 +91,10 @@ ROM #(.mem_size(1024)) InstrMem (
  */
 IFID_Reg IFID_Reg(
 	.clk		(clk),
+	.rst		(rst),
 
 	.flush		(flush_wire),
-	.stall		(HDU.stall), // || L1Cache.p1_stall_o),
+	.stall		(HDU.stall || L1Cache.p1_stall_o),
 
 	.PC_Inc_i	(PC_Inc.data_o),
 	.PC_Inc_o	(),
@@ -103,6 +102,7 @@ IFID_Reg IFID_Reg(
 	.InstrMem_i	(InstrMem.data_o),
 	.InstrMem_o	(instr)
 );
+
 
 /**
  * ID
@@ -114,7 +114,7 @@ Registers RegFiles (
 	.Rs_data		(),
 	.Rt_data		(),
 	.we				(Reg_we_wire),
-	.Rd_addr		(MEMWB_Reg.RegFwd_o), // notice
+	.Rd_addr		(MEMWB_Reg.RegFwd_o),
 	.Rd_data	 	(WB_Mux.data_o)
 );
 
@@ -159,9 +159,10 @@ HazardDetectionUnit HDU (
  * ID/EX
  */
 IDEX_Reg IDEX_Reg(
-	.clk(clk),
-	.flush(1'b0),
-	.stall(1'b0), //.stall(L1Cache.p1_stall_o),
+	.clk			(clk),
+
+	.flush			(1'b0),
+	.stall 			(L1Cache.p1_stall_o),
 
 	.EX_ctrl_i(Ctrl.EX_ctrl_o),
 	.EX_ctrl_o(EX_ctrl),
@@ -249,55 +250,11 @@ ForwardingUnit FwdUnit (
 /**
  * EX/MEM
  */
-
-/*
-Latch #(.width(2)) EXMEM_MEM_ctrl (
-	.clk			(clk && ~L1Cache.p1_stall_o),
-	.rst			(1'b1),
-	.en				(1'b1),
-	.data_i			(IDEX_MEM_ctrl.data_o),
-	.data_o			(MEM_ctrl)
-);
-
-Latch #(.width(2)) EXMEM_WB_ctrl (
-	.clk			(clk && ~L1Cache.p1_stall_o),
-	.rst			(1'b1),
-	.en				(1'b1),
-	.data_i			(IDEX_WB_ctrl.data_o),
-	.data_o			()
-);
-
-Latch EXMEM_ALU_output (
-	.clk			(clk && ~L1Cache.p1_stall_o),
-	.rst			(1'b1),
-	.en				(1'b1),
-	.data_i			(ALU.data_o),
-	.data_o			()
-);
-
-Latch EXMEM_ALU_data_2 (
-	.clk			(clk && ~L1Cache.p1_stall_o),
-	.rst			(1'b1),
-	.en				(1'b1),
-	.data_i			(Data_2_Mux.data_o),
-	.data_o			()
-);
-
-Latch #(.width(5)) EXMEM_RegFwd (
-	.clk			(clk && ~L1Cache.p1_stall_o),
-	.rst			(1'b1),
-	.en				(1'b1),
-	.data_i			(Fwd_Mux.data_o),
-	.data_o			()
-);
-*/
-
 EXMEM_Reg EXMEM_Reg(
     .clk(clk),
-    .rst(),
 
     .flush(1'b0),
-    .stall(1'b0), //.stall(L1Cache.p1_stall_o),
+    .stall 			(L1Cache.p1_stall_o),
 
     .MEM_ctrl_i(IDEX_Reg.MEM_ctrl_o),
     .MEM_ctrl_o(MEM_ctrl),
@@ -316,12 +273,9 @@ EXMEM_Reg EXMEM_Reg(
 );
 
 
-
-
 /**
  * MEM
  */
-
 DRAM #(.mem_size(32)) DataMem (
 	.clk			(clk),
 	.addr_i			(EXMEM_Reg.ALU_output_o),
@@ -331,8 +285,7 @@ DRAM #(.mem_size(32)) DataMem (
 	.data_o			()
 );
 
-/*
-L1Cache_top L1Cache
+dcache_top L1Cache
 (
     // System clock, reset and stall
 	.clk_i 			(clk),
@@ -354,46 +307,22 @@ L1Cache_top L1Cache
 	.p1_data_o		(),
 	.p1_stall_o		()
 );
-*/
-
-/*
-L1_Cache L1Cache (
-	.clk			(clk),
-	.rst			(rst),
-
-	.cache_addr		(EXMEM_ALU_output.data_o),
-	.cache_cs		(MEM_cs_wire),
-	.cache_we		(MEM_we_wire),
-	.cache_ack		(),
-	.cache_data_i	(EXMEM_ALU_data_2.data_o),
-	.cache_data_o	(),
-
-	.dram_addr		(ext_mem_addr),
-	.dram_data_i	(ext_mem_data_i),
-	.dram_cs		(ext_mem_cs),
-	.dram_we		(ext_mem_we),
-	.dram_data_o	(ext_mem_data_o),
-	.dram_ack		(ext_mem_ack)
-);
-*/
 
 /**
  * MEM/WB
  */
-
 MEMWB_Reg MEMWB_Reg (
 	.clk 			(clk),
 	.rst 			(1'b1),
 
 	.flush 			(1'b0),
-	.stall(1'b0), //.stall 			(L1Cache.p1_stall_o),
+	.stall 			(L1Cache.p1_stall_o),
 
 	.WB_ctrl_i		(EXMEM_Reg.WB_ctrl_o),
 	.WB_ctrl_o		(WB_ctrl),
 	.ALU_output_i	(EXMEM_Reg.ALU_output_o),
 	.ALU_output_o	(),
-	//.Mem_output_i	(L1Cache.p1_data_o),
-	.Mem_output_i	(DataMem.data_o),
+	.Mem_output_i	(L1Cache.p1_data_o),
 	.Mem_output_o	(),
 	.RegFwd_i		(EXMEM_Reg.RegFwd_o),
 	.RegFwd_o		()

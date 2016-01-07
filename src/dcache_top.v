@@ -1,5 +1,5 @@
 
-module L1Cache_top
+module dcache_top
 (
     // System clock, reset and stall
 	clk_i, 
@@ -119,16 +119,24 @@ assign	cache_dirty  = write_hit;
 
 // tag comparator
 //!!! add you code here!  (hit=...?,  r_hit_data=...?)
-	
+assign hit = ((sram_tag == p1_tag) && sram_valid ) ? 1'b1 : 1'b0;
+assign r_hit_data = sram_cache_data;
+
+integer i;
 // read data :  256-bit to 32-bit
 always@(p1_offset or r_hit_data) begin
 	//!!! add you code here! (p1_data=...?)
+		for(i = 0 ; i < 32 ; i = i+1)
+			p1_data[i] = r_hit_data[i + p1_offset[4:2] * 32];
 end
 
 
 // write data :  32-bit to 256-bit
 always@(p1_offset or r_hit_data or p1_data_i) begin
 	//!!! add you code here! (w_hit_data=...?)
+	w_hit_data = r_hit_data;
+	for (i = 0 ; i < 32  ; i = i+1)
+		w_hit_data[i + p1_offset[4:2] * 32] <= p1_data_i[i];
 end
 
 
@@ -154,16 +162,28 @@ always@(posedge clk_i or negedge rst_i) begin
 			STATE_MISS: begin
 				if(sram_dirty) begin		//write back if dirty
 	                //!!! add you code here! 
+  						mem_enable <= 1'b1;
+						mem_write  <= 1'b1;
+						cache_we   <= 1'b0;
+						write_back <= 1'b1;
 					state <= STATE_WRITEBACK;
 				end
 				else begin					//write allocate: write miss = read miss + write hit; read miss = read miss + read hit
 	                //!!! add you code here! 
+						mem_enable <= 1'b1;
+						mem_write  <= 1'b0;
+						cache_we   <= 1'b0;
+						write_back <= 1'b0;
 					state <= STATE_READMISS;
 				end
 			end
 			STATE_READMISS: begin
 				if(mem_ack_i) begin			//wait for data memory acknowledge
 	                //!!! add you code here! 
+   						mem_enable <= 1'b1;
+						mem_write  <= 1'b0;
+						cache_we   <= 1'b1; 
+						write_back <= 1'b0;
 					state <= STATE_READMISSOK;
 				end
 				else begin
@@ -172,11 +192,19 @@ always@(posedge clk_i or negedge rst_i) begin
 			end
 			STATE_READMISSOK: begin			//wait for data memory acknowledge
 	                //!!! add you code here! 
+ 					mem_enable <= 1'b0;
+					mem_write  <= 1'b0;
+					cache_we   <= 1'b0;
+					write_back <= 1'b0;
 				state <= STATE_IDLE;
 			end
 			STATE_WRITEBACK: begin
 				if(mem_ack_i) begin			//wait for data memory acknowledge
 	                //!!! add you code here! 
+						mem_enable <= 1'b1;
+						mem_write  <= 1'b0;
+						cache_we   <= 1'b0; 
+						write_back <= 1'b0;
 					state <= STATE_READMISS;
 				end
 				else begin
@@ -190,7 +218,7 @@ end
 //
 // Tag SRAM 0
 //
-L1Cache_tag_sram L1Cache_tag_sram
+dcache_tag_sram dcache_tag_sram
 (
 	.clk_i(clk_i),
 	.addr_i(cache_sram_index),
@@ -203,7 +231,7 @@ L1Cache_tag_sram L1Cache_tag_sram
 //
 // Data SRAM 0
 //
-L1Cache_data_sram L1Cache_data_sram
+dcache_data_sram dcache_data_sram
 (
 	.clk_i(clk_i),
 	.addr_i(cache_sram_index),

@@ -8,8 +8,7 @@ module ROM
 	input							clk,
 	input		[addr_width-1:0]	addr_i,
 	input							cs,		
-	input							we,		
-	input 		[data_width-1:0] 	data_i,
+	input							we,
 	output		[data_width-1:0]	data_o
 );
 

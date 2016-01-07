@@ -1,5 +1,7 @@
 `define CYCLE_TIME 50
 
+`define NO_CACHE
+
 module Pipeline_TestBench;
 
 reg         clk;
@@ -20,21 +22,6 @@ initial begin
     counter = 0;
     stall = 0;
     flush = 0;
-
-    // Initialize the instruction memory.
-    for(i=0; i<1024; i=i+1) begin
-        CPU.InstrMem.memory[i] = 32'b0;
-    end
-
-    // Initialize the data memory.
-    for(i=0; i<32; i=i+1) begin
-        CPU.DataMem.memory[i] = 8'b0;
-    end
-
-    // Initialize the registers.
-    for(i=0; i<32; i=i+1) begin
-        CPU.RegFiles.register[i] = 32'b0;
-    end
 
     // Load instructions into instruction memory
     //$readmemb(".\\dat\\multi_cycle_instruction.txt", CPU.InstrMem.memory);
