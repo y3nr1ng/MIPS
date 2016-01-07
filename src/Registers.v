@@ -27,7 +27,7 @@ module Registers #(parameter width=32, size=32) (
 	// Write data to the register files.   
 	always @ (posedge clk) begin
     	if(we)
-    	    register[Rd_addr] <= Rd_data;
+    	    register[Rd_addr] = Rd_data;
 	end
    
 endmodule 

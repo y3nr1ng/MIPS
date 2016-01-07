@@ -29,7 +29,7 @@ module DRAM
 			data_o <= {data_width{1'bz}};
 	end
 
-	always @ (negedge clk) begin
+	always @ (posedge clk) begin
 		if(we)
 			memory[addr_i >> 2] = data_i;
 	end

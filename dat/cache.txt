@@ -22,7 +22,7 @@ Cycle:          90, Write Hit , Address: 00000410, Write Data: 00004567
 Cycle:          92, Write Hit , Address: 00000414, Write Data: 00005678
 Cycle:          94, Write Hit , Address: 00000418, Write Data: 00006789
 Cycle:          96, Write Hit , Address: 0000041c, Write Data: 00007890
-Cycle:          97, Read Miss , Address: 00000000, Read Data : 00000123 (Write Back!)
+Cycle:          97, Read Miss , Address: 00000000, Read Data : 00000000 (Write Back!)
 Cycle:         119, Read Hit  , Address: 00000004, Read Data : 00001111
 Cycle:         120, Read Hit  , Address: 00000008, Read Data : 00002222
 Cycle:         121, Read Hit  , Address: 0000000c, Read Data : 00003333

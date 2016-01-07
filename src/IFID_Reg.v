@@ -10,19 +10,6 @@ module IFID_Reg (
 	input	[32-1:0]	InstrMem_i,
 	output	[32-1:0]	InstrMem_o
 );
-	
-/*
-	reg r_reset;
-	always @ (negedge flush or negedge rst) begin
-		if(~rst)
-			r_reset <= 1;
-		else begin
-			r_reset <= flush;
-			#(10) // TODO: Change this to CYCLE_TIME
-			r_reset <= 1;
-		end
-	end
-*/
 
 	reg r_flush;
 	always @ (negedge flush) begin
